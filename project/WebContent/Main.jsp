@@ -96,12 +96,14 @@
 
 </tr>
 </table>
-<h1>플로깅</h1>
-<ul fontsize='10px'>
-<li>조깅을 하면서 동시에 쓰레기를 줍는 운동으로, 스웨덴에서 시작돼 북유럽을 중심으로 확산됐다.</li>
-<li>플로깅은 건강과 환경을 동시에 챙길 수 있다는 점에서 인기를 끌고 있다.</li> 
-<li>한편, 국립국어원은 2019년 11월 ‘플로깅’을 대체할 우리말로 ‘쓰담달리기’를 선정한 바 있다.</li>
-</ul>
+<br><br>
+<table>
+<tr><td><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667">플로깅</a></td></tr>
+</table>
+<br>
+<table>
+<iframe width="600" height="300" src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</table>
 <br>
 <table>
 <th>뉴스기사 및 칼럼</th>

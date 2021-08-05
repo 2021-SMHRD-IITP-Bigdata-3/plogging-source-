@@ -225,21 +225,5 @@ for(int i =0; i<reviewBoard_list.size();i++){
    <br><br><br><br>
    <br>
 
-   <div>
-      <table align="center">
-         <tr>
-            <td><input type="button" class="dbutton" value="메인" name="main"
-               onClick="location.href='Main.jsp'"></td>
-            <td><input type="button" class="dbutton" value="조회" name="inquiry"
-               onClick="location.href='inquiryMain.jsp'"></td>
-            <td><input type="button" class="dbutton" value="후기" name="review"
-               onClick="location.href='reviewMain.jsp'"></td>
-            <td><input type="button" class="dbutton" value="게시판" name="board"
-               onClick="location.href='Board.jsp'"></td>
-            <td><input type="button" class="dbutton" value="제보" name="report"
-               onClick="location.href='reportPostWrite.jsp'"></td>
-         </tr>
-      </table>
-   </div>
 </body>
 </html>

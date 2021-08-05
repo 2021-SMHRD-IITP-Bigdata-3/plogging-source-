@@ -195,8 +195,6 @@ div {
       <table align="center">
          <tr>
             <td><h2>Plogging</h2></td>
-            <td style="float: right"><input type="button" class="topicon" value="내정보"
-               onClick="location.href='myPage.jsp'"></td>
             <td style="float: right"><input type="button" class="topicon" value="검색"></td>
          </tr>
       </table>

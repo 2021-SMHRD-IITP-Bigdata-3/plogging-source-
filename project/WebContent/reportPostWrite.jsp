@@ -380,9 +380,7 @@ textarea {
             <td><h2>Plogging</h2></td>
             <td style="text-align:right;">
             <input type="button" class="topicon" value="검색">
-            <input type="button" class="topicon" value="내정보">
-            
-               onClick="location.href='myPage.jsp'"></td>
+			</td>
          </tr>
       </table>
    </div>
