@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@page import="java.util.ArrayList"%>
+<%@page import="Model.memberDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,15 +148,19 @@ textarea {
 </style>
 </head>
 <body>
+<%
+	memberDTO info = (memberDTO)session.getAttribute("info");   
+%>
    <div>
       <table class="mtable1">
          <tr>
             <td><h2>Plogging</h2></td>
             <td style="text-align:right;">
-            <input type="button" class="topicon" value="검색">
-            <input type="button" class="topicon" value="내정보">
-            
-               onClick="location.href='myPage.jsp'"></td>
+            <%if(info!=null){ %>
+            <input type="button" class="topicon" value="내정보" onClick="location.href='myPage.jsp'"></td>
+            <%}else{ %>
+
+            <%}%>
          </tr>
       </table>
    </div>

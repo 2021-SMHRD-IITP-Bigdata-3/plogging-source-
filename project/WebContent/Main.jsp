@@ -35,7 +35,7 @@
 	top: 10px;
 	left: 50%;
 	margin-left: -538px;
-	width : 100%
+	width : 100%;
 	}
 	
 	#contents{
