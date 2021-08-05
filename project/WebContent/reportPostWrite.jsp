@@ -380,7 +380,8 @@ textarea {
             <td><h2>Plogging</h2></td>
             <td style="text-align:right;">
             <input type="button" class="topicon" value="검색">
-            <input type="button" class="topicon" value="내정보"
+            <input type="button" class="topicon" value="내정보">
+            
                onClick="location.href='myPage.jsp'"></td>
          </tr>
       </table>
@@ -401,12 +402,13 @@ textarea {
 
 	 String lat = request.getParameter("lat");
 	 String lng = request.getParameter("lng");
-	
+	 String addr = request.getParameter("addr");
 	 System.out.println("latdd : " + lat);
 	 System.out.println("lngdd :" + lng);
  %>
 			  <input type="hidden" name="lat" id="lat">
 			  <input type="hidden" name="lng" id="lng">
+			  <input type="hidden" name="addr" id="addr">
 			   </td>
 				</tr>
 				<tr>
@@ -424,8 +426,10 @@ textarea {
 		</form>
 		
 	<script>
-		document.getElementById('lat').value = <%=lat%>;
-		document.getElementById('lng').value = <%=lng%>;
-	</script>
+	 <%if(lat!=null){%>
+     document.getElementById('lat').value = "<%=lat%>";
+     document.getElementById('lng').value = "<%=lng%>";
+     document.getElementById('addr').value = "<%=addr%>";
+  <%}%>	</script>
 </body>
 </html>

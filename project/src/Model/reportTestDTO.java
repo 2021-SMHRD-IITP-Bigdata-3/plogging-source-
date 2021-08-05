@@ -3,19 +3,20 @@ package Model;
 public class reportTestDTO {
    private int report_number;
    private String report_date;
-   private Double lat;
+   private double lat;
    private String img;
-   private Double lng;
+   private double lng;
    private String addr;
-   
-   public reportTestDTO(Double lat, Double lng) {
+   private int notice_check;
+   private double distance;
+
+   public reportTestDTO(double lat, double lng) {
       super();
       this.lat = lat;
       this.lng = lng;
    }
 
-
-   public reportTestDTO(Double lat, String img, Double lng, String addr) {
+   public reportTestDTO(double lat, String img, double lng, String addr) {
       super();
       this.lat = lat;
       this.img = img;
@@ -23,8 +24,8 @@ public class reportTestDTO {
       this.addr = addr;
    }
 
-
-   public reportTestDTO(int report_number, String report_date, Double lat, String img, Double lng, String addr) {
+   public reportTestDTO(int report_number, String report_date, double lat, String img, double lng, String addr,
+         int notice_check) {
       super();
       this.report_number = report_number;
       this.report_date = report_date;
@@ -32,9 +33,8 @@ public class reportTestDTO {
       this.img = img;
       this.lng = lng;
       this.addr = addr;
+      this.notice_check = notice_check;
    }
-
-
 
    public int getReport_number() {
       return report_number;
@@ -52,11 +52,11 @@ public class reportTestDTO {
       this.report_date = report_date;
    }
 
-   public Double getLat() {
+   public double getLat() {
       return lat;
    }
 
-   public void setLat(Double lat) {
+   public void setLat(double lat) {
       this.lat = lat;
    }
 
@@ -68,11 +68,11 @@ public class reportTestDTO {
       this.img = img;
    }
 
-   public Double getLng() {
+   public double getLng() {
       return lng;
    }
 
-   public void setLng(Double lng) {
+   public void setLng(double lng) {
       this.lng = lng;
    }
 
@@ -83,7 +83,22 @@ public class reportTestDTO {
    public void setAddr(String addr) {
       this.addr = addr;
    }
+
+   public int getNotice_check() {
+      return notice_check;
+   }
+
+   public void setNotice_check(int notice_check) {
+      this.notice_check = notice_check;
+   }
+
+   public double getDistance() {
+      return distance;
+   }
+
+   public void setDistance(double distance) {
+      this.distance = distance;
+   }
+
    
-   
-   
-}   
+}
