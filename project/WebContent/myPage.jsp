@@ -25,17 +25,21 @@ div{
 <body>
 <%
 memberDTO info = (memberDTO)session.getAttribute("info");
-
+System.out.println("마이페이지에 인포가 잘 넘어 왔는지 확인 : " + info.getMemberId());
+String id = request.getParameter("memberId");
 boardDAO dao = new boardDAO();
+		
+ArrayList<boardDTO> board_list = dao.showBoard(info.getMemberId());
+ArrayList<boardDTO> reviewBoard_list = dao.showBoard(info.getMemberId());
 
-ArrayList<boardDTO> board_list = dao.showBoard();
-
-reviewBoardDAO dao1 = new reviewBoardDAO();
-
-ArrayList<boardDTO> reviewBoard_list = dao.showBoard();
-
-
-
+System.out.println("board_list가 로그인한 아이디가 쓴 글을 담고 있는지 확인 ");
+for(int i =0; i<board_list.size();i++){
+	System.out.println( i + "번째 아이디 : " +board_list.get(i).getMemberId());
+}
+System.out.println("reviewBoard_list가 로그인한 아이디가 쓴 글을 담고 있는지 확인 ");
+for(int i =0; i<reviewBoard_list.size();i++){
+	System.out.println( i + "번째 아이디 : " +reviewBoard_list.get(i).getMemberId());
+}
 %>
    <div style='height:50px;'>
    <!-- 사이트 이름 -->
@@ -72,24 +76,20 @@ ArrayList<boardDTO> reviewBoard_list = dao.showBoard();
    </div>
    <br><br>
    <div >
-      <table border='1px'>
+        <table border='1px'>
       <th align="left" style='height:30px;' colspan="2">내가 쓴 글</th>
-      
-      <% for(int i = 0; i<reviewBoard_list.size();i++){ %>
-      <tr>
-            <td>- <span><%=reviewBoard_list.get(i).getBoardTitle()%></span><input type="button" value="내가 쓴 후기 게시글 보러가기" onclick="location.href='reviewMain.jsp'"></td>
-      </tr>
-      <%} %>
       <% for(int i = 0; i<board_list.size();i++){ %>
-      <tr>
-            <td>-<span><%=board_list.get(i).getBoardTitle()%></span><input type="button" value="내가 쓴 후기 게시글 보러가기" onclick="location.href='reviewMain.jsp'"></td>
-      </tr>
-      <%} %>
-      </table>
-   </div>   
-   <div style='height:100px;'>
-      <table>
-         <input  type="button" value="회원정보수정" onclick="location.href='update.jsp'">
+	      <%if(info.getMemberId().equals(board_list.get(i).getMemberId())) {%>      
+		      <tr>
+		 	     <td>-<span><%=board_list.get(i).getBoardTitle()%></span></td>
+		      </tr>
+	  <%}} %>
+      <% for(int i = 0; i<reviewBoard_list.size();i++){ %>
+	      <%if(info.getMemberId().equals(reviewBoard_list.get(i).getMemberId())) {%>      
+		      <tr>
+		 	     <td>-<span><%=reviewBoard_list.get(i).getBoardTitle()%></span></td>
+		      </tr>
+	  <%}} %>
       </table>
    </div>
    <table>
