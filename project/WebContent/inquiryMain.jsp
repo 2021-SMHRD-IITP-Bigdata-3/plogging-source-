@@ -62,6 +62,14 @@ div {
 	background-color:#BDBDBD
     padding: 10px;
 }
+textarea {
+	 border: 0;
+	margin: 0 auto;
+	width:50%;
+	height: 500px;
+	outline: none;
+	resize: none;
+	}
 .tex {
    width: 330px;
    height: 25px;
@@ -71,7 +79,7 @@ div {
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 16px;
+   font-size: 30px;
    margin: 4px 2px;
    border-radius: 12px;
 }
@@ -168,7 +176,7 @@ div {
 
 %>
    <div>
-      <table align="center">
+      <table align="center" >
          <tr>
             <td><h2>Plogging</h2></td>
             <td style="float: right"><input type="button" class="topicon" value="내정보"
@@ -199,12 +207,12 @@ div {
            	<tr>
     			<td class="Itable">
 				<div class = "item"><span><br>
-				<span><%=array.get(i).getNoticeImage()%></span><br>
-				<span class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
-				<span>플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
-				<span><input type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
-				<span>플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-				<span><input type = "submit" value = "참가"></span></div>
+				<span ><%=array.get(i).getNoticeImage()%></span><br>
+				<span id = "iconee" class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
+				<span id = "iconee">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
+				<span><input id = "iconee" type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
+				<span id = "iconee">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
+				<span id = "iconee"><input type = "submit" value = "참가"></span></div>
 			  	<td>
     		</tr>
     		</div>

@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 <style>
    table{
-    width: 360px;
+    width: 100%;
     border: 1px solid #444444;
          }
     tr , td{
@@ -35,6 +35,7 @@
 	top: 10px;
 	left: 50%;
 	margin-left: -538px;
+	width : 100%
 	}
 	
 	#contents{
@@ -75,11 +76,10 @@
 <div id="wrapper">
   <div id="contents">
   <td ><input type ="button" value = "채팅목록" onClick="location.href='chatChoice.jsp'"></td>
-<table >
+<table>
 <tr>
    <td>싸이트명</td>
    <td ><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-   <td style = "float : right"><input type ="button" value = "검색"></td>
 </tr>
 <tr>
    <% if(info != null) { %>
@@ -91,8 +91,9 @@
    <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
       <% }else { %>
    <td> <input  type ="button" value = "로그인" onClick="location.href='Login.jsp'"> </td>
+   <td><input style = "float : right" type ="button" value = "회원가입" onClick="location.href='Join.jsp'"></td>
       <% } %>
-   <td><input type ="button" value = "회원가입" onClick="location.href='Join.jsp'"></td>
+
 </tr>
 </table>
 <br><br>
