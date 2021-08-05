@@ -15,6 +15,20 @@ public class reviewBoardDTO {
 	
 	
 	
+	public reviewBoardDTO(int reviewNumber, String memberId, String reviewDate, String img, double lat, double lng,
+			String contents, String title, String trash, String run) {
+		super();
+		this.reviewNumber = reviewNumber;
+		this.memberId = memberId;
+		this.reviewDate = reviewDate;
+		this.img = img;
+		this.lat = lat;
+		this.lng = lng;
+		this.contents = contents;
+		this.title = title;
+		this.trash = trash;
+		this.run = run;
+	}
 	public reviewBoardDTO(int reviewNumber, String title,double lat,double lng) {
 		super();
 		this.reviewNumber = reviewNumber;
