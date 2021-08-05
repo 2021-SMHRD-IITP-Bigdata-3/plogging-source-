@@ -71,7 +71,6 @@
             System.out.println(n_list.get(i).getAddr());
          }
    }
-
 %>
 <div id="wrapper">
   <div id="contents">
@@ -79,7 +78,9 @@
 <table>
 <tr>
    <td>싸이트명</td>
+   <%if(info !=null){ %>
    <td ><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
+   <%} %>
 </tr>
 <tr>
    <% if(info != null) { %>
