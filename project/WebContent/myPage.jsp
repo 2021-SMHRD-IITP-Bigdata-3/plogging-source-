@@ -201,20 +201,20 @@ for(int i =0; i<reviewBoard_list.size();i++){
    <br><br><br>
    <div >
    
-        <table border='1px'>
+        <table border='1px' align="center">
       
       <% for(int i = 0; i<board_list.size();i++){ %>
          <%if(info.getMemberId().equals(board_list.get(i).getMemberId())) {%> 
-         <th align="left" style='height:30px;' colspan="2">내가 쓴 자유게시 글</th>     
+         <th align="left" style='height:30px;' colspan="2">내가 쓴 자유게시글</th>     
             <tr>
                <td>-<a href="viewBoard.jsp?board_num=<%=board_list.get(i).getBoardNum()%>"><%=board_list.get(i).getBoardTitle()%></a></td>
             </tr>
      <%}} %>
             </table>
-            <table border='1px'>
+            <table border='1px' align="center">
          <% for(int i = 0; i<reviewBoard_list.size();i++){ %>
            <%if(info.getMemberId().equals(reviewBoard_list.get(i).getMemberId())) {%>
-                    <th align="left" style='height:30px;' colspan="2">내가 쓴 후기게시 글</th>     
+                    <th align="left" style='height:30px;' colspan="2">내가 쓴 후기게시글</th>     
             <tr>
              <td>-<a href="Review8.jsp?reviewNumber=<%=reviewBoard_list.get(i).getReviewNumber()%>"><%=reviewBoard_list.get(i).getTitle()%></a></td>
             </tr>
