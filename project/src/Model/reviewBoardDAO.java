@@ -158,4 +158,38 @@ public class reviewBoardDAO {
 			         close();
 			      } return dto;
 			   }
+			   public ArrayList<reviewBoardDTO> showBoard1(String id) {
+	               ArrayList<reviewBoardDTO> reviewBoard_list = new ArrayList<reviewBoardDTO>();
+	               try {
+	                  conn();
+	                  String sql = "select * from review_board  WHERE member_id = ? order by review_date desc";
+	                  psmt = conn.prepareStatement(sql);
+	                   psmt.setString(1, id);
+	                  rs = psmt.executeQuery();
+
+	                  while(rs.next()) {
+	                     int review_number = rs.getInt(1);
+	                     String memberId = rs.getString(2);
+	                     String review_date = rs.getString(3);
+	                     String review_image = rs.getString(4);
+	                     double lat = rs.getDouble(5);
+	                     double lng = rs.getDouble(6);
+	                     String contents = rs.getString(7);
+	                     String review_title = rs.getString(8);
+	                     String trash = rs.getString(9);
+	                     String run = rs.getString(10);
+	                     
+	                     reviewBoardDTO dto = new reviewBoardDTO( review_number,memberId, review_date,review_image, lat,lng
+	                           ,contents,review_title,trash,run);
+	                     reviewBoard_list.add(dto);
+	                  }
+	                  
+	               } catch (SQLException e) {
+	                  e.printStackTrace();
+	               }finally {
+	                  close();
+	               }
+	               return reviewBoard_list;
+	               
+	            }
 }

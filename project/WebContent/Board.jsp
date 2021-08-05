@@ -26,7 +26,7 @@ table{
 memberDTO info = (memberDTO)session.getAttribute("info");
 
 boardDAO dao = new boardDAO();
-ArrayList<boardDTO> board_list = dao.showBoard();
+ArrayList<boardDTO> board_list = dao.board_li();
 %>
    <div style='height:200px;'>
    <!-- 사이트 이름 -->

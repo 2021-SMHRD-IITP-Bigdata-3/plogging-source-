@@ -33,6 +33,9 @@ tr, td {
    margin: 4px 2px;
    border-radius: 15px;
 }
+h1{
+   padding: 70px;
+   }
 
 a {
    width: 330px;
@@ -191,17 +194,17 @@ div {
    <div>
       <table align="center">
          <tr>
-            <td>싸이트명</td>
-            <td style="float: right"><input type="button" value="내정보 검색"
+            <td><h2>Plogging</h2></td>
+            <td style="float: right"><input type="button" class="topicon" value="내정보"
                onClick="location.href='myPage.jsp'"></td>
-            <td style="float: right"><input type="button" value="검색"></td>
+            <td style="float: right"><input type="button" class="topicon" value="검색"></td>
          </tr>
       </table>
    </div>
 
    <table>
       <tr>
-         <td><h2 align="center">회원가입</h2></td>
+         <h1 align="center">회원가입</h1>
       </tr>
    </table>
 
@@ -218,13 +221,12 @@ div {
             </td>
             <td>
                <div>
-                  <input type="button" value="중복확인" class="dup" onclick="winopen()">
+                  <input type="button" value="중복확인" class="dbutton" onclick="winopen()">
                </div>
 
             </td>
          </tr>
       </table>
-
       <table align="center">
          <tr>
             <td>비밀번호</td>
@@ -240,14 +242,15 @@ div {
       </table>
       <table align="center">
          <tr>
-            <td>비밀번호 확인</td>
+            <td>비밀번호 확인 &nbsp;<span id="check"></span></td>
+            <td></td>
          </tr>
          <tr>
-            <td><input type="password" name="passcheck" maxlength="20"
-               id="pw2" onchange="pwcheck()" class="tex"></td>
+            <td><div><input type="password" name="passcheck" maxlength="20"
+               id="pw2" onchange="pwcheck()" class="tex">
+                </div></td>
          </tr>
          <tr>
-         	<td>&nbsp;<span id="check"></span></td>
          </tr>
       </table>
       <table align="center">
@@ -362,18 +365,24 @@ div {
    <div>
       <table align="center">
          <tr>
+<<<<<<< HEAD
             <td><input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
             <td><input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
             <td><input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
             <td><input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
             <td><input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-         </tr>
-         <tr>
-            <td>메인</td>
-            <td>조회</td>
-            <td>후기</td>
-            <td>게시판</td>
-            <td>제보</td>
+=======
+            <td><input type="button" class="dbutton" value="메인" name="main"
+               onClick="location.href='Main.jsp'"></td>
+            <td><input type="button" class="dbutton" value="조회" name="inquiry"
+               onClick="location.href='inquiryMain.jsp'"></td>
+            <td><input type="button" class="dbutton" value="후기" name="review"
+               onClick="location.href='reviewMain.jsp'"></td>
+            <td><input type="button" class="dbutton" value="게시판" name="board"
+               onClick="location.href='Board.jsp'"></td>
+            <td><input type="button" class="dbutton" value="제보" name="report"
+               onClick="location.href='reportPostWrite.jsp'"></td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
          </tr>
       </table>
    </div>

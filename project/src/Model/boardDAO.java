@@ -108,13 +108,15 @@ public class boardDAO {
 	         close();
 	      } return dto;
 	   }
-   public ArrayList<boardDTO> showBoard() {
+   public ArrayList<boardDTO> showBoard(String id) {
 	      ArrayList<boardDTO> board_list = new ArrayList<boardDTO>();
 
 	      try {
 	         conn();
-	         String sql = "SELECT * FROM board ORDER BY board_date DESC";
+
+	         String sql = "SELECT * FROM board WHERE member_id = ? ORDER BY board_date DESC";
 	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, id);
 	         rs = psmt.executeQuery();
 
 	         while(rs.next()) {
@@ -137,15 +139,14 @@ public class boardDAO {
 	      
 	   }
 
-   public boardDTO showboard(String id) {
+   public boardDTO showboard(int num) {
        try {
           conn();
-          String sql = "SELECT * FROM board WHERE member_id = ?";
+          String sql = "SELECT * FROM board";
           
           psmt = conn.prepareStatement(sql);
-          psmt.setString(1,id);
           rs = psmt.executeQuery();
-          System.out.println(id);
+          
           if(rs.next()) {
              int board_num = rs.getInt(1);
              String memberId = rs.getString(2);
@@ -195,5 +196,32 @@ public class boardDAO {
        return board_info;
 
     }
+ public ArrayList<boardDTO> board_li(){
+	   ArrayList<boardDTO> board_list = new ArrayList<boardDTO>();
+	   try {
+	         conn();
+	         String sql = "SELECT * FROM board ORDER BY board_date DESC";
+	         psmt = conn.prepareStatement(sql);
+	         rs = psmt.executeQuery();
+
+	         while(rs.next()) {
+	            int board_num = rs.getInt(1);
+	            String memberId = rs.getString(2);
+	            String boardDate = rs.getString(3);
+	            String boardContent = rs.getString(4);
+	            String boardTitle = rs.getString(5);
+	            String boardImage = rs.getString(6);
+	            
+	            boardDTO dto = new boardDTO(board_num, memberId, boardDate, boardContent, boardTitle, boardImage);
+	            board_list.add(dto);   
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      } return board_list;   
+	      
+	   }
 
 }
