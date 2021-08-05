@@ -22,7 +22,6 @@ import Model.reviewBoardDTO;
 @WebServlet("/reviewWriteServiceCon")
 public class reviewWriteServiceCon extends HttpServlet {
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      //
 	      request.setCharacterEncoding("EUC-KR");
 	      
 	      
@@ -37,7 +36,7 @@ public class reviewWriteServiceCon extends HttpServlet {
 	      // getServletContext : 서블릿의 정보
 	      // getRealPath : 실제 경로
 	      // 이미지를 저장할 경로를 지정 (상대경로)
-	      String savePath = request.getServletContext().getRealPath("reivew_img");
+	      String savePath = request.getServletContext().getRealPath("review_img");
 	      System.out.println(savePath);
 	      
 	      // 2. 이미지 크기
