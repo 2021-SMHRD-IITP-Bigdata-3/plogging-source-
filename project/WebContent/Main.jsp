@@ -95,12 +95,42 @@
    <td><input type ="button" value = "회원가입" onClick="location.href='Join.jsp'"></td>
 </tr>
 </table>
+<h1>플로깅</h1>
+<ul fontsize='10px'>
+<li>조깅을 하면서 동시에 쓰레기를 줍는 운동으로, 스웨덴에서 시작돼 북유럽을 중심으로 확산됐다.</li>
+<li>플로깅은 건강과 환경을 동시에 챙길 수 있다는 점에서 인기를 끌고 있다.</li> 
+<li>한편, 국립국어원은 2019년 11월 ‘플로깅’을 대체할 우리말로 ‘쓰담달리기’를 선정한 바 있다.</li>
+</ul>
+<br>
+<table>
+<th>뉴스기사 및 칼럼</th>
+<tr>
+<td><a href="https://www.news1.kr/articles/?4391799">LG헬로비전, #지구좋아산책 캠페인 진행…"플로깅 함께해요"</a></td>
+</tr>
+<tr>
+<td><a href="https://www.etoday.co.kr/news/view/2050450">GS파워, 비대면 '플로깅' 캠페인 전개</a></td>
+</tr>
+<tr>
+<td><a href="http://www.kbsm.net/default/index_view_page.php?idx=319697&part_idx=320">예천군 축산과, 기관단체와 환경정화 플로깅 활동</a></td>
+</tr>
+</table>
+<br>
+<table>
+<th>플로깅 경험자들의 블로그 & 카페</th>
+<tr>
+<td><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기 (오산 세교 A-7 & 오산 청학 행복주택)</a></td>
+</tr>
+<tr>
+<td><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅'?, '플로킹'? 건강과 환경 모두 지키자!</a></td>
+</tr>
+<tr>
+<td><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></td>
+</tr>
+<tr>
+<td><a href="https://blog.naver.com/baekjeun/222452172788">나를 웃음짓게 하는 것은 같은 이상을 실천하는 사람이 있을때</a></td>
+</tr>
 
-<br><br><br><br><br>
-
-<!-- 실험을 위해 테이블 빼둠 -->
-
-<br><br><br><br>
+</table>
 <table>
 <div id="sidebar">
    <input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"><br>
