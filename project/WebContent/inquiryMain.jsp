@@ -30,7 +30,7 @@ tr, td {
    border: none;
    color: white;
    padding: 10px;
-   text-align: center;
+   text-align: left;
    text-decoration: none;
    display: inline-block;
    font-size: 16px;
@@ -59,7 +59,7 @@ div {
    margin-right: auto;
 }
 .Itable{
-    border: 1px solid #444444;
+	background-color:#BDBDBD
     padding: 10px;
 }
 .tex {
@@ -132,6 +132,28 @@ div {
    cursor: pointer;
    border-radius: 12px;
 }
+
+  #value{
+    border: none;
+    background: #E0D3B6;
+    padding: 6px;
+    font-size: 18px;
+    width: 80%;
+    border-radius: 6px;
+    color: white;
+  }
+  #value:focus{
+    outline: none;
+  }
+  .container{
+    background: #FFFFF5;
+    padding: 1%;
+  }
+  .item{
+    margin: 3% 0px;
+    display: flex;
+    align-items: center;
+  }
 </style>
 </head>
 <body>
@@ -176,13 +198,13 @@ div {
            	<%if(info != null){%>
            	<tr>
     			<td class="Itable">
-				<div class = "item"><span style="color: green;"><br>
+				<div class = "item"><span><br>
 				<span><%=array.get(i).getNoticeImage()%></span><br>
 				<span class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
 				<span>플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
 				<span><input type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
 				<span>플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-				<span><input type = "submit" value = "신청"></span></div>
+				<span><input type = "submit" value = "참가"></span></div>
 			  	<td>
     		</tr>
     		</div>
