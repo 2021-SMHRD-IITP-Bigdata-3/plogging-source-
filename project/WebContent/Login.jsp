@@ -12,11 +12,12 @@
     -ms-overflow-style: none;
    }
    table{
-    width: 360px;
+    width: 10-0%;
 
          }
    tr , td{
     padding: 5px;
+    width :100%
    }
    .topicon{
    background-color: #2DB400;
@@ -107,6 +108,7 @@
    </table>
 <form action="loginServiceCon" method = "post">
 <table>
+
    <tr>
       <h1>Login</h1>
    </tr>
@@ -140,8 +142,9 @@
       <tr>
          <td><div><input class="button" type = "button" value = "아이디찾기 / 비밀번호 찾기"></div></td>
       </tr>
+
    </table>
-</form>
+   </form>
 <br><br><br><br>
    <table>
    <tr>

@@ -13,11 +13,11 @@ body {
 }
 
 table {
-   width: 360px;
+   width: 100px;
 }
 
 tr, td {
-   /* padding: 5px; */
+   width: 100px;
    
 }
 
@@ -122,6 +122,10 @@ div {
    cursor: pointer;
    border-radius: 12px;
 }
+h2{
+width:532%;
+text-align:end;
+}
 </style>
 <script type="text/javascript">
     
@@ -191,7 +195,7 @@ div {
    <div>
       <table align="center">
          <tr>
-            <td>싸이트명</td>
+            <td align = "left">싸이트명</td>
             <td style="float: right"><input type="button" value="내정보 검색"
                onClick="location.href='myPage.jsp'"></td>
             <td style="float: right"><input type="button" value="검색"></td>
@@ -201,7 +205,7 @@ div {
 
    <table>
       <tr>
-         <td><h2 align="center">회원가입</h2></td>
+         <td><h2>회원가입</h2></td>
       </tr>
    </table>
 
