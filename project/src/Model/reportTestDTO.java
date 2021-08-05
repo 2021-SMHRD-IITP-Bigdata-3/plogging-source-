@@ -1,89 +1,104 @@
 package Model;
 
 public class reportTestDTO {
-   private int report_number;
-   private String report_date;
-   private Double lat;
-   private String img;
-   private Double lng;
-   private String addr;
-   
-   public reportTestDTO(Double lat, Double lng) {
-      super();
-      this.lat = lat;
-      this.lng = lng;
-   }
+	private int report_number;
+	private String report_date;
+	private double lat;
+	private String img;
+	private double lng;
+	private String addr;
+	private int notice_check;
+	private double distance;
 
+	public reportTestDTO(double lat, double lng) {
+		super();
+		this.lat = lat;
+		this.lng = lng;
+	}
 
-   public reportTestDTO(Double lat, String img, Double lng, String addr) {
-      super();
-      this.lat = lat;
-      this.img = img;
-      this.lng = lng;
-      this.addr = addr;
-   }
+	public reportTestDTO(double lat, String img, double lng, String addr) {
+		super();
+		this.lat = lat;
+		this.img = img;
+		this.lng = lng;
+		this.addr = addr;
+	}
 
+	public reportTestDTO(int report_number, String report_date, double lat, String img, double lng, String addr,
+			int notice_check) {
+		super();
+		this.report_number = report_number;
+		this.report_date = report_date;
+		this.lat = lat;
+		this.img = img;
+		this.lng = lng;
+		this.addr = addr;
+		this.notice_check = notice_check;
+	}
 
-   public reportTestDTO(int report_number, String report_date, Double lat, String img, Double lng, String addr) {
-      super();
-      this.report_number = report_number;
-      this.report_date = report_date;
-      this.lat = lat;
-      this.img = img;
-      this.lng = lng;
-      this.addr = addr;
-   }
+	public int getReport_number() {
+		return report_number;
+	}
 
+	public void setReport_number(int report_number) {
+		this.report_number = report_number;
+	}
 
+	public String getReport_date() {
+		return report_date;
+	}
 
-   public int getReport_number() {
-      return report_number;
-   }
+	public void setReport_date(String report_date) {
+		this.report_date = report_date;
+	}
 
-   public void setReport_number(int report_number) {
-      this.report_number = report_number;
-   }
+	public double getLat() {
+		return lat;
+	}
 
-   public String getReport_date() {
-      return report_date;
-   }
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
 
-   public void setReport_date(String report_date) {
-      this.report_date = report_date;
-   }
+	public String getImg() {
+		return img;
+	}
 
-   public Double getLat() {
-      return lat;
-   }
+	public void setImg(String img) {
+		this.img = img;
+	}
 
-   public void setLat(Double lat) {
-      this.lat = lat;
-   }
+	public double getLng() {
+		return lng;
+	}
 
-   public String getImg() {
-      return img;
-   }
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
 
-   public void setImg(String img) {
-      this.img = img;
-   }
+	public String getAddr() {
+		return addr;
+	}
 
-   public Double getLng() {
-      return lng;
-   }
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 
-   public void setLng(Double lng) {
-      this.lng = lng;
-   }
+	public int getNotice_check() {
+		return notice_check;
+	}
 
-   public String getAddr() {
-      return addr;
-   }
+	public void setNotice_check(int notice_check) {
+		this.notice_check = notice_check;
+	}
 
-   public void setAddr(String addr) {
-      this.addr = addr;
-   }
-   
-   
-   
-}   
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+	
+}

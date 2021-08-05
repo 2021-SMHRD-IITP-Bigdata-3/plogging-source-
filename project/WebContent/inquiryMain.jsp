@@ -30,10 +30,6 @@
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	notice_BoardDAO dao = new notice_BoardDAO();
 	array = dao.showBoard(info.getMemberId());
-	
-	//신청할 아이디 정보
-	
-
 %>
 <table>
 <tr>
@@ -44,7 +40,7 @@
 </table>
 <br><br><br><br><br>
 <table>
-<form action = "inquiryServiceCon" method ="post">
+	<form action="chatTest.jsp" method ="post">
        <div class="searchbox">
            <div class="header">
              <div>Search</div>
@@ -59,7 +55,8 @@
 				<span>플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
 				<span><input type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
 				<span>플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-				<span><input type = "submit" value = "신청"></span></div>
+				<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
+				<span><input type = "submit" value = "들어가시겠습니까?"></span></div>
 			  </div>
 			  <%}else{%>
 			   	<div>회원님께서는 이 공고를 신청할 수 없습니다!</div> 
@@ -100,25 +97,6 @@
 	<td>제보</td>
 </tr>
 </table>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
-<script>
-
-    function filter(){
-        var value, name, item, i;
-
-        value = document.getElementById("value").value.toUpperCase();
-        item = document.getElementsByClassName("item");
-
-        for(i=0;i<item.length;i++){
-          name = item[i].getElementsByClassName("name");
-          if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
-            item[i].style.display = "flex";
-          }else{
-            item[i].style.display = "none";
-          }
-        }
-      }
-    
-</script>
+<!-- 자바스크립트 잠시 지움 -->
 </body>
 </html>

@@ -52,7 +52,7 @@ public class notice_BoardDAO {
 			e.printStackTrace();
 		}
 	}
-	//공고 참여자 목록테이블에 삽입 (notice_member)
+	//공고 참여자 목록테이블에 삽입 (notice_member) 
 	public int upload() {
 				try {
 					conn();

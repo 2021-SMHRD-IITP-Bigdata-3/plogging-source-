@@ -20,14 +20,12 @@ public class inquiryServiceCon extends HttpServlet {
 		
 		int noticeNumber = Integer.parseInt(request.getParameter("noticeNumber"));
 		
-		
 		HttpSession session = request.getSession();
 		memberDTO info = (memberDTO)session.getAttribute("info");
 		String get_memberId = info.getMemberId();
 		
 		System.out.println(noticeNumber);
 		System.out.println(get_memberId);
-		
 		
 		noticeJoinDTO dto = new noticeJoinDTO(get_memberId,noticeNumber);
 		noticejoinDAO dao = new noticejoinDAO();

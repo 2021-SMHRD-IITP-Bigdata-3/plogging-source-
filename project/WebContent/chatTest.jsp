@@ -26,38 +26,51 @@
 <body>
 <%
 	// 로그인 시 필요
+//	HttpSession session = request.getSession();
+
 	memberDTO info = (memberDTO) session.getAttribute("info");
+	String login_id = info.getMemberId();
 	
-	// 채팅 목록에서 넘어올 때 
+	// 조회, 공고방 목록에서 넘어올 때
 	request.setCharacterEncoding("EUC-KR");
-	int chatRoomNum = Integer.parseInt(request.getParameter("chatRoomNum"));
-	System.out.println("(chatTest1페이지)chatRoomNum : " + chatRoomNum);
+	
+	int noticeNumber = Integer.parseInt(request.getParameter("noticeNumber"));
+	System.out.println("(chatTest1페이지) noticeNumber : " + noticeNumber);
+	
+	System.out.println(noticeNumber);
+	System.out.println(login_id);
 	
 
 %>	
 	<div> 지도 </div>
 	<div> 공고정보 </div>
-	<div id="chatmain">
-		<div id="chat">
+	
+	
+	<!-- 여기 만들고 있음  -->
+	<form action = "#" method="post">
+		<div id="chatmain">
+			<div id="chat">
+			</div>
 		</div>
-	</div>
-  <% if (info!=null){%>
-	내 아이디 : <%= info.getMemberId() %>
-	<input type="hidden" id="id" name="id">
-  <%} else{ %>
-  	<input type="text" id="id" name="id" placeholder="아이디 입력">
-  <%} %>
-	<input type="text" id="content" name="content" placeholder="내용 입력">
-	
-	<button id="send">입력</button>
-	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
-	
+
+	  <% if (info!=null){%>
+			내 아이디 : <%=login_id%>
+			<input type="hidden" id="id" name="id">
+		  <%} else{ %>
+		  	<input type="text" id="id" name="id" placeholder="아이디 입력">
+	  <%} %>
+		<input type="text" id="content" name="content" placeholder="내용 입력">
+		<button id="send">입력</button>
+		<input type='submit' value="참가" name="attend"><br>
+		<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
+	</form>
+	<!-- 인쿼리로 가는 서브밋 붙이기  -->
 	<script type="text/javascript">
 	
 		// 데이터베이스에 저장된 채팅 정보를 웹에 뿌려주는 뿌려주는 부분
 		// setInterval은 주기적인 실행 함수로 0.2초마다 셀렉트해서 뿌려주겠다는 의미
 		setInterval(function(){
-			var chatRoomNum = <%=chatRoomNum %>;
+			var chatRoomNum = <%=noticeNumber%>;
 			$.ajax({
 			       url: "ChatSelectCon", //컨트롤러 URL
 			       dataType: 'json',
@@ -90,7 +103,7 @@
 			// 아이디와 채팅내용 입력받는 부분
 			// 입력받은 값을 ChatInsertCon으로 보내서 데이터베이스에 넣으려 해
 			$("#send").on('click',function(){
-				var chatRoomNum = <%=chatRoomNum %>;
+				var chatRoomNum = <%=noticeNumber %>;
 				var id = "<%=info.getMemberId()%>";
 				var content = $('#content').val();
 				
