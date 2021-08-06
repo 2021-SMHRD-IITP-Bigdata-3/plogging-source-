@@ -239,6 +239,6 @@ public class boardDAO {
 		} finally {
 			close();
 		} return cnt;		
-	}
+	}//
 
 }

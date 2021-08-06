@@ -151,7 +151,7 @@ memberDTO info = (memberDTO)session.getAttribute("info");
 System.out.println("마이페이지에 인포가 잘 넘어 왔는지 확인 : " + info.getMemberId());
 String id = request.getParameter("memberId");
 boardDAO dao = new boardDAO();
-
+//
 
 
 ArrayList<boardDTO> board_list = dao.showBoard(info.getMemberId());

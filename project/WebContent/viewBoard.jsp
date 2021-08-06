@@ -28,7 +28,7 @@ int num = Integer.parseInt(request.getParameter("board_num"));
    ArrayList<boardDTO> board_list = dao.showBoard(info.getMemberId());
    boardDTO dto = dao.showOne(num);
    
-
+//
    
 %>
    
