@@ -13,46 +13,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-   table{
-    width: 100%;
-    border: 1px solid #444444;
-         }
-    tr , td{
-    border: 1px solid #444444;
-	padding: 10px;
-	}
-	body{
-	margin: 0px;
-	padding: 0px; 
-	}
-	
-	
-	#wrapper{
-	border: 1px solid #FFBB00;
-	
-	position: absolute;
-	top: 10px;
-	left: 50%;
-	margin-left: -538px;
-	width : 100%
-	}
-	
-	#contents{
-	border: 1px solid #487BE1;
-	float: left;
-	padding: 10px;
-	}
-	
-	#sidebar{
-	border: 1px solid #487BE1;
-	width:20px;
-	float: left;
-	padding: 10px;
-	margin-left: 200px;
-	}
-	
-</style>
+<link rel="stylesheet" href="Main.css">
 </head>
 <body>
 <%
@@ -73,8 +34,7 @@
    }
 
 %>
-<div id="wrapper">
-  <div id="contents">
+
   <td ><input type ="button" value = "채팅목록" onClick="location.href='chatChoice.jsp'"></td>
 <table>\
 <tr>
@@ -138,16 +98,13 @@
 
 </table>
 <table>
-<div id="sidebar">
-   <input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"><br>
-   <input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"><br>
-   <input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"><br>
-   <input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"><br>
-   <input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"><br>
-</div>
-  </div>
+<div id="class="down""></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></div>
 
-</div>
 </table>
 </body>
 </html>
