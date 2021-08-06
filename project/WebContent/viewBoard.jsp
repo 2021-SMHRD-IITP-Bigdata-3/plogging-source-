@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="Model.memberDTO"%>
 <%@page import="Model.boardDTO"%>
 <%@page import="Model.boardDAO"%>
@@ -19,11 +20,12 @@
 
 <%
 memberDTO info = (memberDTO)session.getAttribute("info");
-boardDTO board_list = (boardDTO) session.getAttribute("board_list");
+
 
 int num = Integer.parseInt(request.getParameter("board_num"));
 
    boardDAO dao = new boardDAO();
+   ArrayList<boardDTO> board_list = dao.showBoard(info.getMemberId());
    boardDTO dto = dao.showOne(num);
    
 
@@ -54,8 +56,12 @@ int num = Integer.parseInt(request.getParameter("board_num"));
                         <h1><%= dto.getBoardContent() %></h1>
                      <% } %>
                   </td>
+                    <%if(info.getMemberId().equals(dto.getMemberId())) {%> 
+             <td> <a href = "DeleteOneServiceCon?num=<%=dto.getBoardNum() %>">삭제 </a></td>
+             	<%} %>
                </tr>
                <tr>
+             
                   <td colspan="2"><a href="Board.jsp"><button>뒤로가기</button></a></td>
                </tr>
             </table>

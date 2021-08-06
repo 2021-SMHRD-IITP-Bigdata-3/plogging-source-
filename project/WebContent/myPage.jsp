@@ -181,6 +181,7 @@ for(int i =0; i<reviewBoard_list.size();i++){
             <input type="button" class="topicon" value="검색">
             <input type="button" class="topicon" value="내정보"
                onClick="location.href='myPage.jsp'"></td>
+               <a href="Main.jsp"><button>뒤로가기</button></a>
          </tr>
       </table>
    </div>
