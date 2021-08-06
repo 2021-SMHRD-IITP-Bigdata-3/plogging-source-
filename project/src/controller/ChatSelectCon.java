@@ -26,7 +26,8 @@ public class ChatSelectCon extends HttpServlet {
 		ArrayList<ChatDTO> list = dao.selectAllChat(chatRoomNum);
 		
 		response.setCharacterEncoding("UTF-8");
-		/*
+		
+		/* json 데이터의 형태
 		 * [{"num":1,"member_id":"pbk","content":"반가워요","day":"2020-07-12"},
 		 * {"num":1,"member_id":"pbk","content":"반가워요","day":"2020-07-12"},
 		 * {"num":1,"member_id":"pbk","content":"반가워요","day":"2020-07-12"},
@@ -39,9 +40,6 @@ public class ChatSelectCon extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
 		String json = gson.toJson(list);
-		out.print(json);
-		
-	
+		out.print(json);		
 	}
-
 }

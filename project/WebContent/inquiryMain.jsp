@@ -197,45 +197,29 @@ textarea {
 		</tr>
 </table>
 <!-- 폼태그로  보내면 for문의 i=0 일 때의 값만 보내지게 됨. 쿼리스트링방식으로 수정 . (아 폼태그를 for문 안으로 넣으면 되긴 하겠다.)  --> 
+<!-- 다른 정보 한꺼번에 보내주기 위해 그냥 폼태그로 다시 수정-->
 	<table align="center" >
    		<div class="container">
            	<%for(int i=0; i<array.size(); i++){ %>
-<<<<<<< HEAD
-	           	<%if(info != null){%>
-	           	<tr>
-	    			<td class="Itable">
-						<div class = "item">
-							<span style="color: green;"><br>
+				<%if(info != null){%>
+				<form action = "chatTest.jsp">
+		           	<tr>
+		    			<td class="Itable">
+							<div class = "item"><span><br>
 							<span><%=array.get(i).getNoticeImage()%></span><br>
-							<span class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
-							<span>플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
-							<span>플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-							<!-- 공고방 번호는 기능 잘 구현되는지 확인 차 넣은거라서 디테일, 디자인은 다 수정해도 돼! -->
+							<span id="iconee" class="name" name="addr">주소지 :<%=array.get(i).getAddr() %></span><br>
+							<span id="iconee" name="plogDate">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
+							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
+							<span id="iconee" name="limitedNumber">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
 							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
-							<span><input type="button" name="noticeNumber" value="들어가시겠습니까?" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></span>
-						</div>
-					<td>
-		    	</tr>
-    	</div>  
+							<span id = "iconee"><input type = "submit" value = "참가"></span></div>
+							</div>
+						<td>
+		    		</tr>
+		    	 </form>
+    	</div>  	
 				<%}else{%>
 			<tr>
-=======
-           	<%if(info != null){%>
-           	<tr>
-    			<td class="Itable">
-				<div class = "item"><span><br>
-				<span ><%=array.get(i).getNoticeImage()%></span><br>
-				<span id = "iconee" class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
-				<span id = "iconee">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
-				<span><input id = "iconee" type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
-				<span id = "iconee">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-				<span id = "iconee"><input type = "submit" value = "참가"></span></div>
-			  	<td>
-    		</tr>
-    		</div>
-			  <%}else{%>
-			<tr >
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
     			<td class="Itable">
 			   		회원님께서는 이 공고를 신청할 수 없습니다!
 			   	<td>
@@ -243,8 +227,6 @@ textarea {
 		</div>
 				<%} %>
 			<%}%>
-	</table>
---> 
 <br><br>
 <!-- <table>
 	<tr>

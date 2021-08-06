@@ -150,8 +150,9 @@ public class notice_BoardDAO {
 			conn();
 			String sql = "select * from notice \r\n" + "where notice_number not in(select notice_number \r\n"
 					+ "							from notice_member \r\n"
-					+ "							where member_id in(?)) order by plog_date desc"
-					+ "							and limited_number<30 ";
+					+ "							where member_id in(?)) "
+					+ "							and limited_number<30"
+					+ "							order by plog_date desc ";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();

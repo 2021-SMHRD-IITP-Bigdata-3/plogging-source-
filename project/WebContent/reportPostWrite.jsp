@@ -29,13 +29,10 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style>
-<<<<<<< HEAD
-table {
-	width: 360px;
-}
-
-=======
-.side-menu {
+		table {
+			width: 360px;
+		}
+		.side-menu {
             top: 50px;
             width: 45px;
             z-index: 10;
@@ -503,19 +500,11 @@ tr td a {
 		</form>
 	</div>
 	<script>
-<<<<<<< HEAD
 	<%if(lat!=null){%>
 		document.getElementById('lat').value = "<%=lat%>";
 		document.getElementById('lng').value = "<%=lng%>";
 		document.getElementById('addr').value = "<%=addr%>";
 	<%}%>
 	</script>
-=======
-	 <%if(lat!=null){%>
-     document.getElementById('lat').value = "<%=lat%>";
-     document.getElementById('lng').value = "<%=lng%>";
-     document.getElementById('addr').value = "<%=addr%>";
-  <%}%>	</script>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 </body>
 </html>

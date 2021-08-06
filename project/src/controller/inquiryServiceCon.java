@@ -28,7 +28,8 @@ public class inquiryServiceCon extends HttpServlet {
 		
 		noticeJoinDTO dto = new noticeJoinDTO(login_id,noticeNumber);
 		noticejoinDAO dao = new noticejoinDAO();
-	    int upCnt = dao.upload(dto);
+
+		int upCnt = dao.upload(dto);
 	    int lmCnt = 0;
 	    int pCnt = 0;
 	      
