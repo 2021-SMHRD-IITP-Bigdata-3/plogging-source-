@@ -57,14 +57,17 @@
 <body>
 <%
    memberDTO info = (memberDTO)session.getAttribute("info");   
-   ArrayList<notice_BoardDTO> n_list = new ArrayList<notice_BoardDTO>();
    if (info!=null){
 	  double memberLat = info.getMemberLat();
 	  double memberLng = info.getMemberLng();
       System.out.println("(메인페이지에 사용자의 위도가 잘 넘어오는지) memberLat : "+ memberLat);
       System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
-
    }
+	
+    // 플로깅 기한을 연장
+	notice_BoardDAO dao = new notice_BoardDAO();
+	dao.dayUpdate();	
+   
 %>
 <div id="wrapper">
   <div id="contents">
