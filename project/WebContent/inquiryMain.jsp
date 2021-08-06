@@ -184,6 +184,19 @@ textarea {
   	font-size:2em;
   	margin:-19px 41px -15px 0px;
   	}
+  	.down{
+	position: fixed;
+	bottom: 0px;
+	width:100%;
+	height:60px;
+	border: none;
+	background: #efefef;
+	color: white;
+	padding: 12px;
+	font-weight: bold;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -192,7 +205,6 @@ textarea {
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	notice_BoardDAO dao = new notice_BoardDAO();
 	array = dao.showBoard(info.getMemberId());
-	
 	//신청할 아이디 정보
 %>
    <div>
@@ -227,7 +239,11 @@ textarea {
            	<tr>
     			<td class="Itable">
 				<div class = "item"><span><br>
-				<span id = "iconee"><%=array.get(i).getNoticeImage()%></span><br>
+				<span id = "iconee"><%if(array.get(i).getNoticeImage()!=null){ %>
+								<img src ="img/<%=array.get(i).getNoticeImage()%>">
+								<br>
+								<%} %>
+								</span>
 				<span id = "iconee" class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
 				<span id = "iconee">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
 				<span><input id = "iconee" type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
@@ -237,7 +253,7 @@ textarea {
     		</tr>
     		</div>
 			  <%}else{%>
-			<tr >
+			<tr>
     			<td class="Itable">
 			   		회원님께서는 이 공고를 신청할 수 없습니다!
 			   	<td>
@@ -261,14 +277,21 @@ textarea {
 </table> 
 <br><br><br><br>
 <table align="center">
-<tr>
-	<td><input type="button" class="dbutton" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-	<td><input type="button" class="dbutton" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-	<td><input type="button" class="dbutton" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-	<td><input type="button" class="dbutton" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-	<td><input type="button" class="dbutton" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-</tr>
+	<tr>
+		<td><input type="button" class="dbutton" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
+		<td><input type="button" class="dbutton" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
+		<td><input type="button" class="dbutton" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
+		<td><input type="button" class="dbutton" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
+		<td><input type="button" class="dbutton" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
+	</tr>
 </table >
+		<div class="down">
+			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
+			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
+			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>
+			<div class="dbutton4" onClick="location.href='Board.jsp'">게시판</div>
+			<div class="dbutton5" onClick="location.href='reportPostWrite.jsp'">제보</div>
+		</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script>
 

@@ -76,7 +76,7 @@
 <div id="wrapper">
   <div id="contents">
   <td ><input type ="button" value = "채팅목록" onClick="location.href='chatChoice.jsp'"></td>
-<table>
+<table>\
 <tr>
    <td>싸이트명</td>
    <td ><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
