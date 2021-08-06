@@ -12,7 +12,7 @@ public class notice_BoardDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	
+	notice_BoardDTO noticelist2= null;
 	int cnt = 0;
 	notice_BoardDTO dto = null;
 	
@@ -152,7 +152,6 @@ public class notice_BoardDAO {
 				try {
 					conn();
 					String sql = "select * from notice \r\n" + 
-							"where notice_number not in(select notice_number \r\n" + 
 							"							from notice_member \r\n" + 
 							"							where member_id in(?)) order by plog_date desc";
 					psmt = conn.prepareStatement(sql);
@@ -212,6 +211,29 @@ public class notice_BoardDAO {
 				}finally {
 					close();
 				}return cnt;
+			}
+			
+			public notice_BoardDTO lating(int num){
+				 ArrayList<notice_BoardDTO> noticelist = new ArrayList<notice_BoardDTO>();
+					try {
+						conn();
+						
+						String sql ="select lat lng from notice where notice_number = ?";
+						
+						psmt = conn.prepareStatement(sql);
+						psmt.setInt(1,num);
+						rs = psmt.executeQuery();
+						if(rs.next()) {
+							double lat = rs.getDouble("lat");
+							double lng = rs.getDouble("lng");
+							noticelist2= new notice_BoardDTO(lat,lng);
+						}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}finally {
+						close();
+					}return noticelist2;
 			}
 			   
 }

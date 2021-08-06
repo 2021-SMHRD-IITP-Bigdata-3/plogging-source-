@@ -54,7 +54,7 @@ h1{
    padding: 70px;
    }
 
-/* a {
+a {
    width: 330px;
    border: none;
    padding: 10px;
@@ -64,7 +64,7 @@ h1{
    font-size: 16px;
    margin: 4px 2px;
    border-radius: 12px;
-} */
+}
 
 div {
    /* padding: 10px */
@@ -142,329 +142,7 @@ div {
    cursor: pointer;
    border-radius: 12px;
 }
-.side-menu {
-            top: 50px;
-            width: 45px;
-            z-index: 10;
-            background: #ff5858;
-            border-right: 1px solid rgba(0, 0, 0, 0.07);
-            bottom: 50px;
-            height: 100%;
-            margin-bottom: -70px;
-            margin-top: 0px;
-            padding-bottom: 70px;
-            position: fixed;
-            box-shadow: 0 0px 24px 0 rgb(0 0 0 / 6%), 0 1px 0px 0 rgb(0 0 0 / 2%);
-        }
-
-        .sidebar-inner {
-            height: 100%;
-            padding-top: 30px;
-        }
-
-        #sidebar-menu,
-        #sidebar-menu ul,
-        #sidebar-menu li,
-        #sidebar-menu a {
-            border: 0;
-            font-weight: normal;
-            line-height: 1;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            text-decoration: none;
-        }
-
-        #sidebar-menu>ul>li a {
-            color: #fff;
-            font-size: 20px;
-            display: block;
-            padding: 14px 0px;
-            margin: 0px 0px 0px 8px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            width: 28px;
-            cursor: pointer;
-        }
-
-        #sidebar-menu .fas {
-            padding-left: 6px;
-        }
-
-        /* 사이드 메뉴 */
-        input[type="search"] {
-            width: 180px;
-            margin: 0 auto;
-            margin-left: 9px;
-            border: 2px solid #797979;
-            font-size: 14px;
-            margin-top: 10px;
-            padding: 4px 0 4px 14px;
-            border-radius: 50px;
-        }
-
-        .left_sub_menu {
-            position: fixed;
-            top: 50px;
-            width: 200px;
-            z-index: 10;
-            left: 45px;
-            background: white;
-            border-right: 1px solid rgba(0, 0, 0, 0.07);
-            bottom: 50px;
-            height: 100%;
-            margin-bottom: -70px;
-            margin-top: 0px;
-            padding-bottom: 0px;
-            box-shadow: 0 0px 24px 0 rgb(0 0 0 / 6%), 0 1px 0px 0 rgb(0 0 0 / 2%);
-            color: black;
-        }
-
-        .sub_menu {
-            margin-top: 50px;
-        }
-
-        .left_sub_menu>.sub_menu li:hover {
-            color: ff5858;
-            background-color: #e1e1e1;
-        }
-
-        .left_sub_menu>.sub_menu li {
-            color: #333;
-            font-size: 17px;
-            font-weight: 600;
-            padding: 20px 0px 8px 14px;
-            border-bottom: 1px solid #e1e1e1;
-        }
-
-        .sub_menu>h2 {
-            padding-bottom: 4px;
-            border-bottom: 3px solid #797979;
-            margin-top: 30px;
-            font-size: 21px;
-            font-weight: 600;
-            color: #333;
-            margin-left: 10px;
-            margin-right: 10px;
-            font-family: 'NotoKrB';
-            line-height: 35px;
-        }
-
-        .sub_menu .fas {
-            color: #ff5858;
-            font-size: 20px;
-            line-height: 20px;
-            float: right;
-            margin-right: 20px;
-        }
-
-        .sub_menu>.big_menu>.small_menu li {
-            color: #333;
-            font-size: 14px;
-            font-weight: 600;
-            border-bottom: 0px solid #e1e1e1;
-            margin-left: 14px;
-            padding-top: 8px;
-        }
-
-        .big_menu {
-            cursor: pointer;
-        }
-
-        ul {
-            padding-inline-start: 0px;
-        }
-
-        a {
-            color: #797979;
-            text-decoration: none;
-            background-color: transparent;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        ol,
-        ul {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .has_sub {
-            width: 100%;
-        }
-
-        .overlay {
-            position: fixed;
-            width: 30%;
-            height: 100%;
-            /* background: rgba(0, 0, 0, 0.7); */
-        }
-
-        .hide_sidemenu {
-            display: none;
-        }
-   body{
-    background-color: #efefef;
-   scrollbar-width: none;
-    -ms-overflow-style: none;
-   }
-   table {
-    
-	}
-textarea {
-	 border: 0;
-	margin: 0 auto;
-	width:100%;
-	height: 500px;
-	outline: none;
-	resize: none;
-	font-size: 14px;
-	}
-   .mtable1{
-   width: 100%;
-
-        }
-      .mtable2{
-   width: 100%;
-  
-         }
-   tr , td{
-      /* padding: 5px; */
-     
-   }
-   .htd{
-
-   }
-.topicon {
-   background-color: #2DB400;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 15px;
-}
-   h1{
-   padding: 100px 130px;
-   }
-   div {
-   /* padding: 10px */
-   margin-left: auto;
-   margin-right: auto;
-}
-
-.tex {
-   width: 310px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-.ltex{
-    width: 100%;
-   box-sizing : border-box;
-   height: 50px;
-   border: none;
-   padding: 10px;
-   /* text-align: center; */
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   /* border-radius: 12px; */
-}
-
-.stex1 {
-   width: 270px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-.stex2 {
-   width: 220px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-.button {
-   background-color: #2DB400;
-   width: 330px;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   border-radius: 12px;
-}
-table{
-	width:360px;
-}
-.dbutton {
-   background-color: #2DB400;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   border-radius: 12px;
-}
-
 </style>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-<script>
-    $(function () {
-        $(".left_sub_menu").hide();
-        $(".has_sub").click(function () {
-            $(".left_sub_menu").fadeToggle(300);
-        });
-        // 왼쪽메뉴 드롭다운
-        $(".sub_menu ul.small_menu").hide();
-        $(".sub_menu ul.big_menu").click(function () {
-            $("ul", this).slideToggle(300);
-        });
-        // 외부 클릭 시 좌측 사이드 메뉴 숨기기
-        $('.overlay').on('click', function () {
-            $('.left_sub_menu').fadeOut();
-            $('.hide_sidemenu').fadeIn();
-        });
-</script>
 </head>
 <body>
 <%
@@ -473,7 +151,7 @@ memberDTO info = (memberDTO)session.getAttribute("info");
 System.out.println("마이페이지에 인포가 잘 넘어 왔는지 확인 : " + info.getMemberId());
 String id = request.getParameter("memberId");
 boardDAO dao = new boardDAO();
-//
+
 
 
 ArrayList<boardDTO> board_list = dao.showBoard(info.getMemberId());
@@ -493,6 +171,7 @@ for(int i =0; i<reviewBoard_list.size();i++){
 }
 
 %>
+<<<<<<< HEAD
 <div id="wrapper">
         <div class="topbar" style="position: absolute; top:0;">
             <!-- 왼쪽 메뉴 -->
@@ -542,14 +221,13 @@ for(int i =0; i<reviewBoard_list.size();i++){
    <div>
       <table class="mtable1">
          <tr>
-            <td><h2 href="Main.jsp">Plogging</h2></td>
+            <td><h2>Plogging</h2></td>
             <td style="text-align:right;">
-
-            
+            <input  type="button" class="topicon" value="회원정보수정"
+            onclick="location.href='update.jsp'">
             <input type="button" class="topicon" value="검색">
             <input type="button" class="topicon" value="내정보"
                onClick="location.href='myPage.jsp'"></td>
-               <a href="Main.jsp"><button>뒤로가기</button></a>
          </tr>
       </table>
    </div>
@@ -569,7 +247,7 @@ for(int i =0; i<reviewBoard_list.size();i++){
    </div>
    <br><br><br>
    <div >
-
+   
         <table border='1px' align="center">
       
       <% for(int i = 0; i<board_list.size();i++){ %>
@@ -588,11 +266,11 @@ for(int i =0; i<reviewBoard_list.size();i++){
              <td>-<a href="Review8.jsp?reviewNumber=<%=reviewBoard_list.get(i).getReviewNumber()%>"><%=reviewBoard_list.get(i).getTitle()%></a></td>
             </tr>
         <%}} %>
-        	<tr>
-        		<td><input  type="button" class="topicon" value="회원정보수정"onclick="location.href='update.jsp'"></td>
-        	</tr>
          </table>
          <br>
    </div>   
+   <br><br><br><br>
+   <br>
+
 </body>
 </html>

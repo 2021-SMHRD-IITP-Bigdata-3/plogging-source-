@@ -18,12 +18,8 @@ align : center;
 </head>
 <body>
 <%
-reviewBoardDAO dao = new reviewBoardDAO();
-memberDTO info = (memberDTO)session.getAttribute("info");
-
-ArrayList<reviewBoardDTO> reviewBoard_list = new ArrayList<reviewBoardDTO>();
 ArrayList<reviewBoardDTO> array = new ArrayList<reviewBoardDTO>();
-
+reviewBoardDAO dao = new reviewBoardDAO();
 array = dao.showBoard();
 %>
 <table>

@@ -18,6 +18,7 @@ table{
     border: 1px solid #444444;
     padding: 5px;
    }
+
 </style>
 </head>
 <body>
@@ -48,14 +49,13 @@ ArrayList<boardDTO> board_list = dao.board_li();
                   <td>사진</td>
                   <td>작성일자</td>
                </tr>
-         <% for(int i = 0; i<board_list.size();i++){ //%>
+         <% for(int i = 0; i<board_list.size();i++){ %>
       <tr>
          <td><%=i+1 %></td>
              <td><a href="viewBoard.jsp?board_num=<%=board_list.get(i).getBoardNum()%>"><%=board_list.get(i).getBoardTitle()%></a></td>
              <td><%=board_list.get(i).getMemberId() %>
              <td><%=board_list.get(i).getBoardImage() %></td>
              <td><%=board_list.get(i).getBoardDate() %></td>
-
          </tr>
          <%} %>
       </table>

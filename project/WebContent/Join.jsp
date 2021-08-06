@@ -195,6 +195,7 @@ div {
       <table align="center">
          <tr>
             <td><h2>Plogging</h2></td>
+
             <td style="float: right"><input type="button" class="topicon" value="°Ë»ö"></td>
          </tr>
       </table>

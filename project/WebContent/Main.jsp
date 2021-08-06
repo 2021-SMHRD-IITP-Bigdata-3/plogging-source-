@@ -35,7 +35,7 @@
 	top: 10px;
 	left: 50%;
 	margin-left: -538px;
-	width : 100%;
+	width : 100%
 	}
 	
 	#contents{
@@ -71,6 +71,7 @@
             System.out.println(n_list.get(i).getAddr());
          }
    }
+
 %>
 <div id="wrapper">
   <div id="contents">
@@ -78,9 +79,7 @@
 <table>
 <tr>
    <td>싸이트명</td>
-   <%if(info !=null){ %>
    <td ><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-   <%} %>
 </tr>
 <tr>
    <% if(info != null) { %>
@@ -103,7 +102,10 @@
 </table>
 <br>
 <table>
-<iframe width="600" height="300" src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<tr>
+<td><iframe width="600" height="300" src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</td>
+</tr>
 </table>
 <br>
 <table>
@@ -128,7 +130,7 @@
 <td><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅'?, '플로킹'? 건강과 환경 모두 지키자!</a></td>
 </tr>
 <tr>
-<td><a href="hjjjjjhttps://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></td>
+<td><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></td>
 </tr>
 <tr>
 <td><a href="https://blog.naver.com/baekjeun/222452172788">나를 웃음짓게 하는 것은 같은 이상을 실천하는 사람이 있을때</a></td>

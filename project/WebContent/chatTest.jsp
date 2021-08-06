@@ -1,8 +1,11 @@
 <%@page import="Model.memberDTO"%>
+<%@page import="Model.memberDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%@page import="Model.notice_BoardDTO"%>
+    <%@page import="Model.notice_BoardDAO"%>
     <%@page import="Model.ChatDAO"%>
+    <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -246,7 +249,7 @@
 	int chatRoomNum = Integer.parseInt(request.getParameter("chatRoomNum"));
 	System.out.println("(chatTest1페이지)chatRoomNum : " + chatRoomNum);
 	
-	ChatDAO dao = new ChatDAO();
+	notice_BoardDAO dao = new notice_BoardDAO();
 	notice_BoardDTO dto = dao.lating(chatRoomNum);
 	
 	System.out.println("(chatTest1페이지)chatRoomNum : " + dto.getLat());
