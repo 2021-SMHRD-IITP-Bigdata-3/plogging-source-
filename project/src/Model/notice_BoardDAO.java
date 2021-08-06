@@ -69,50 +69,8 @@ public class notice_BoardDAO {
 		return cnt;
 	}
 
-	// 사용자 주소 중심 매칭 기능 사라져서 주석처리 해둠
-//	public ArrayList<notice_BoardDTO> match(double inputLat, double inputLng, double inputDistance) {
-//		ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
-//
-//		try {
-//			conn();
-//			String sql = "select * "
-//					+ "from (select notice_number, tip_off_number, notice_date, limited_number, plog_date, notice_image, address, lat, lng, "
-//					+ "6371*acos(Round(cos(?*0.017453)*cos(lat*0.017453)*cos(lng*0.017453-?*0.017453)"
-//					+ "+sin(?*0.017453)*sin(lat*0.017453))) as distance from notice ORDER BY distance) n "
-//					+ "WHERE n.distance<?";
-//
-//			psmt = conn.prepareStatement(sql);
-//
-//			psmt.setDouble(1, inputLat); // a
-//			psmt.setDouble(2, inputLng); // b
-//			psmt.setDouble(3, inputLat);
-//			psmt.setDouble(4, inputDistance);
-//
-//			rs = psmt.executeQuery();
-//
-//			while (rs.next()) {
-//				int noticeNumber = rs.getInt(1);
-//				int tip_off_number = rs.getInt(2);
-//				String noticeDate = rs.getString(3);
-//				String limitedNumber = rs.getString(4);
-//				String plogDate = rs.getString(5);
-//				String noticeImage = rs.getString(6);
-//				String addr = rs.getString(7);
-//				double lat = rs.getDouble(8);
-//				double lng = rs.getDouble(9);
-//
-//				notice_BoardDTO dto = new notice_BoardDTO(noticeNumber, tip_off_number, noticeDate, limitedNumber,
-//						plogDate, noticeImage, addr, lat, lng);
-//				list.add(dto);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return list;
-//	}
-
+	// 사용자 주소 중심 매칭 기능 사라져서 백업해두고 지움
+	
 	public ArrayList<notice_BoardDTO> showOne(String id) {
 		ArrayList<notice_BoardDTO> noticelist = new ArrayList<notice_BoardDTO>();
 		try {
@@ -143,16 +101,17 @@ public class notice_BoardDAO {
 		return noticelist;
 	}
 
-	// 전체게시글 보여주기 메소드 (조회에서 사용)
+	// 전체게시글 보여주기 메소드 
 	public ArrayList<notice_BoardDTO> showBoard(String id) {
 		ArrayList<notice_BoardDTO> notic_BoardDTO_list = new ArrayList<notice_BoardDTO>();
 		try {
 			conn();
-			String sql = "select * from notice \r\n" + "where notice_number not in(select notice_number \r\n"
+			String sql = "select * from notice \r\n"
+					+ "where notice_number not in(select notice_number \r\n"
 					+ "							from notice_member \r\n"
 					+ "							where member_id in(?)) "
-					+ "							and limited_number<30"
-					+ "							order by plog_date desc ";
+					+ "and limited_number<=30 "
+					+ "order by plog_date desc ";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
@@ -174,47 +133,27 @@ public class notice_BoardDAO {
 			close();
 		}
 		return notic_BoardDTO_list;
-
 	}
-
-	// 누나 이거 누나가 알아서 넣어주세요! ======> 우선 참가시 1포인트 받을 수 있게 해뒀음
-	// 사용자가 신청을 하고 난다면 포인트가 올라가는 메소드 
-	//    ===> 참가버튼 누르면 사용되는 거라서 noticeJoinDAO로 이동 ---- 진영아 읽었으면 지워도 돼
-//	public int upPoint(String id) {
-//		try {
-//			conn();
-//			String sql = "insert into member(point) value (numPoint.nextval) where member_id = ?";
+	
+	// 플로깅 날짜가 지나면 다시 +7일 뒤로 수정하는 메소드
+//	public int dayUpdate() {
+//			try {
+//				conn();
+//				
+//				String sql = "UPDATE notice SET plog_date = (select plog_date+7 from notice WHERE plog_date<sysdate) where ";
 //
-//			psmt.setString(1, id);
-//			psmt = conn.prepareStatement(sql);
+//				psmt = conn.prepareStatement(sql);
 //
-//			psmt.executeUpdate();
+//				psmt.setInt(1, dto.getReport_number());
 //
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
+//				cnt = psmt.executeUpdate();
+//
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				close();
+//			}		
+//		
 //		return cnt;
-//	}
-
-	// 이건 수정해야할 사항
-	// 참가버튼을 누르면 사용되는 거라서  noticeJoinDAO로 이동했음 -- 진영아 읽었으면 지워도 돼
-//	public int upMember(int noticeNumber) {
-//		try {
-//			conn();
-//			String sql = "update notice set limited_number = limit_number.nextval  where notice_number = ?";
-//			psmt.setInt(1, noticeNumber);
-//			psmt = conn.prepareStatement(sql);
-//
-//			psmt.executeUpdate();
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return cnt;
-//	}
-//
+//				}
 }
