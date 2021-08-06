@@ -55,7 +55,7 @@
 			<tr>
 				<td colspan = ""></td>
 				<td> <input type = "submit" value = "수정"> </td>
-				<td> <input type = "submit" value = "삭제"> </td>
+				<td> <input type = "submit" value = "삭제" action="DeleteOneServiceCon"> </td>
 			</tr>			
 		</table>
 				<table  border = "1px">
