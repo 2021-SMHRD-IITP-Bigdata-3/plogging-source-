@@ -35,7 +35,7 @@
 <title>Insert title here</title>
 <style>
 .side-menu {
-            top: 50px;
+            top: 5px;
             width: 45px;
             z-index: 10;
             background: #69f0ae;
@@ -98,7 +98,7 @@
 
         .left_sub_menu {
             position: fixed;
-            top: 50px;
+            top: 5px;
             width: 200px;
             z-index: 10;
             left: 45px;
@@ -189,7 +189,7 @@
         }
 
         .overlay {
-            position: fixed;
+            /* position: fixed; */
             width: 100%;
             height: 100%;
             /* background: rgba(0, 0, 0, 0.7); */
@@ -212,13 +212,10 @@
 }
 table{
 	width: 100%;
-	border: 1px solid #444444;
+
 }
 td{
 
-}
-.aa{
-	
 }
 </style>
 </head>
@@ -310,16 +307,25 @@ td{
 </tr>
 </table>
 <br><br><br><br><br>
-<table style="padding:0 0 0 50px;" align="center">
-<tr><td><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667">플로깅</a></td></tr>
+<table style="padding:0 0 0 50px;">
+<tr><td align="center"><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667" 
+	style="
+color: #69f0ae;
+font-size: 2.0em;
+font-weight: bold;
+	">플로깅?</a></td></tr>
+</table>
+<br>
+<table style="padding:0 0 0 50px;" >
+<tr align="center">
+	<td>
+	<iframe width="600" height="300" src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</td>
+</tr>
 </table>
 <br>
 <table style="padding:0 0 0 50px;" align="center">
-<iframe width="600" height="300" src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</table>
-<br>
-<table style="padding:0 0 0 50px;" align="center">
-	<th>뉴스기사 및 칼럼</th>
+	<th align="left">뉴스기사 및 칼럼</th>
 	<tr>
 		<td><a href="https://www.news1.kr/articles/?4391799">LG헬로비전, #지구좋아산책 캠페인 진행…"플로깅 함께해요"</a></td>
 	</tr>
@@ -332,7 +338,7 @@ td{
 </table>
 <br>
 <table style="padding:0 0 0 50px;" align="center" >
-	<th>플로깅 경험자들의 블로그 & 카페</th>
+	<th align="left">플로깅 경험자들의 블로그 & 카페</th>
 	<tr>
 		<td><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기 (오산 세교 A-7 & 오산 청학 행복주택)</a></td>
 	</tr>
