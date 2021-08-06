@@ -1,6 +1,7 @@
 <%@page import="Model.memberDTO"%>
 <%@page import="Model.boardDTO"%>
 <%@page import="Model.boardDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,15 +20,13 @@
 
 <%
 memberDTO info = (memberDTO)session.getAttribute("info");
-boardDTO board_list = (boardDTO) session.getAttribute("board_list");
 
 int num = Integer.parseInt(request.getParameter("board_num"));
 
    boardDAO dao = new boardDAO();
    boardDTO dto = dao.showOne(num);
-   
 
-   
+   System.out.println(dto.getBoardNum());
 %>
    
          <div id = "board">

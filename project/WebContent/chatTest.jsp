@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#chatmain{
-		text-align:center;
-		width: 100%;
+		margin:auto;
+		width: 90%;
 		height: 500px;
 		background-color: #B2C7D9;
 		padding: 20px;
@@ -27,9 +27,15 @@
 		font-color:black;
 	}
 	#content{
-	  width:200px;
+	  width:88%;
+	  margin-left:28px;
 	  height:100px;
 	  font-size:20px;
+	}
+	#send{
+		width:10%;
+		height:100px;
+	  	margin:auto;
 	}
 
 </style>
@@ -59,8 +65,10 @@
 		<div id="chat">
 		</div>
 	</div>
-	<input type="text" id="content" name="content" placeholder="내용 입력">
-	<button id="send">입력</button>
+	<div style ="width:90%">
+		<input type="text" id="content" name="content" placeholder="내용 입력">
+		<button id="send">입력</button>
+	</div>
 	<script type="text/javascript">
 	
 		// 데이터베이스에 저장된 채팅 정보를 웹에 뿌려주는 뿌려주는 부분

@@ -333,11 +333,10 @@ textarea {
 </style>
 </head>
 <body>
-<<<<<<< HEAD
+
 <%
 	memberDTO info = (memberDTO)session.getAttribute("info");   
 %>
-=======
 <div id="wrapper">
         <div class="topbar" style="position: absolute; top:0;">
             <!-- 왼쪽 메뉴 -->
@@ -374,29 +373,27 @@ textarea {
                             <li><a href="#"></a>소메뉴2-2</a></li>
                         </ul>
                     </ul> -->
+                    
                     <ul class="big_menu">
+                    <%if(info!=null){ %>
                         <li><a href="myPage.jsp" class="a001">MYPAGE</a></li>
+                    <%}else{ %>
+                    	<li>회원가입이 시급합니다.</li>
+                    <%}%>
                     </ul>
+
                 </div>
             </div>
             <div class="overlay"></div>
         </div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+
    <div>
       <table class="mtable1" style="padding:0 0 0 50px;">
          <tr>
-            <td><h2>Plogging</h2></td>
+            <td style="text-align:right;"><h2 >Plogging</h2></td>
             <td style="text-align:right;">
-<<<<<<< HEAD
-            <%if(info!=null){ %>
-            <input type="button" class="topicon" value="내정보" onClick="location.href='myPage.jsp'"></td>
-            <%}else{ %>
-
-            <%}%>
-=======
-            <input type="button" class="topicon" value="검색">
+            
 			</td>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
          </tr>
       </table>
    </div>
