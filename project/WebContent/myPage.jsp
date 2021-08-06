@@ -529,7 +529,6 @@ for(int i =0; i<reviewBoard_list.size();i++){
                             <li><a href="#"></a>소메뉴2-2</a></li>
                         </ul>
                     </ul> -->
-                    
                     <ul class="big_menu">
                     <%if(info!=null){ %>
                         <li><a href="myPage.jsp" class="a001">MYPAGE</a></li>
@@ -537,10 +536,8 @@ for(int i =0; i<reviewBoard_list.size();i++){
                     	<li>회원가입이 시급합니다.</li>
                     <%}%>
                     </ul>
-
                 </div>
             </div>
-            <div class="overlay"></div>
         </div>
    <div>
       <table class="mtable1">

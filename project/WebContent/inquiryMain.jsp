@@ -58,6 +58,11 @@ div {
    margin-left: auto;
    margin-right: auto;
 }
+
+.header{
+	width:100%
+}
+
 .Itable{
 	background-color:#BDBDBD
     padding: 10px;
@@ -162,6 +167,23 @@ textarea {
     display: flex;
     align-items: center;
   }
+  #iconee{
+  	font-size:2.5em;
+  	width:900px;
+  	margin:0px 0px 0px 0px;
+  }
+  #value{
+    width: 1000px;
+    height: 53px
+  }
+  #value::placeholder{
+  	font-size : 1em;
+  }
+  #input{
+  	float :right;
+  	font-size:2em;
+  	margin:-19px 41px -15px 0px;
+  	}
 </style>
 </head>
 <body>
@@ -172,8 +194,6 @@ textarea {
 	array = dao.showBoard(info.getMemberId());
 	
 	//신청할 아이디 정보
-	
-
 %>
    <div>
       <table align="center" >
@@ -200,18 +220,18 @@ textarea {
 		</tr>
 </table>
 <table align="center" >
-    		<div class="container">
+    		<div class="container" style="display:none">
            	<%for(int i=0; i<array.size(); i++){ %>
            	<%if(info != null){%>
            	<tr>
     			<td class="Itable">
 				<div class = "item"><span><br>
-				<span ><%=array.get(i).getNoticeImage()%></span><br>
+				<span id = "iconee"><%=array.get(i).getNoticeImage()%></span><br>
 				<span id = "iconee" class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
 				<span id = "iconee">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
 				<span><input id = "iconee" type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
 				<span id = "iconee">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-				<span id = "iconee"><input type = "submit" value = "참가"></span></div>
+				<span><input type = "submit" value = "참가" id="input"></span></div>
 			  	<td>
     		</tr>
     		</div>

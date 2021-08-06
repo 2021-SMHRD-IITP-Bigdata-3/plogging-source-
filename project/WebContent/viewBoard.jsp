@@ -21,24 +21,17 @@
 
 <%
 memberDTO info = (memberDTO)session.getAttribute("info");
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+
 
 int num = Integer.parseInt(request.getParameter("board_num"));
 
    boardDAO dao = new boardDAO();
    ArrayList<boardDTO> board_list = dao.showBoard(info.getMemberId());
    boardDTO dto = dao.showOne(num);
-<<<<<<< HEAD
 
    System.out.println(dto.getBoardNum());
-=======
-   
-//
-   
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+
 %>
    
          <div id = "board">

@@ -28,9 +28,8 @@ array = dao.showBoard();
 %>
 <table>
 <tr>
-   <td>싸이트명</td>
+   <td float ="left">Plogging</td>
    <td style = "float : right"><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-   <td style = "float : right"><input type ="button" value = "검색"></td>
 </tr>
 </table>
 <div id="map" style="width:340px;height:340px;" align ='center'></div>
