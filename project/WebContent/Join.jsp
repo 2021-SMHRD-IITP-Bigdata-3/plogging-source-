@@ -275,16 +275,14 @@ div {
             <td>주소</td>
          </tr>
          <tr>
-            <td><input type="text" id="sample5_address" placeholder="주소"
-               class="stex2"> <input type="button"
-               onclick="sample5_execDaumPostcode()" value="주소 검색" class="topicon"><br>
+            <td><input type="text" id="sample5_address" placeholder="주소" class="stex2">
+            	<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" class="topicon"><br>
                <input type="text" id="latlng" name="latlng" style="display: none">
                <input type="text" id="lat" name="lat" style="display: none">
                <input type="text" id="lng" name="lng" style="display: none">
-               <div id="map" style="width: 1px; height: 1px;"></div> <script
-                  src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-               <script
-                  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e08bf3a21c48702f150d8aa74eed2e61&libraries=services"></script>
+               <div id="map" style="width: 1px; height: 1px;"></div>
+               <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+               <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e08bf3a21c48702f150d8aa74eed2e61&libraries=services"></script>
 
                <script>
                             var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -325,6 +323,8 @@ div {
                                                 document.getElementById("lat").value = coords.getLat().toString();
                                                 document.getElementById("lng").value = coords.getLng().toString();
                                                 console.log(coords.toString());
+                                                console.log(coords.coords.getLat().toString());
+                                                console.log(coords.coords.getLng().toString());
                                  
                                                 // 지도를 보여준다.
                                                 mapContainer.style.display = "block";
@@ -360,5 +360,36 @@ div {
    <br>
    <br>
    <br>
+<<<<<<< HEAD
+
+   <div>
+      <table align="center">
+         <tr>
+<<<<<<< HEAD
+            <td><input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
+            <td><input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
+            <td><input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
+            <td><input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
+            <td><input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
+=======
+            <td><input type="button" class="dbutton" value="메인" name="main"
+               onClick="location.href='Main.jsp'"></td>
+            <td><input type="button" class="dbutton" value="조회" name="inquiry"
+               onClick="location.href='inquiryMain.jsp'"></td>
+            <td><input type="button" class="dbutton" value="후기" name="review"
+               onClick="location.href='reviewMain.jsp'"></td>
+            <td><input type="button" class="dbutton" value="게시판" name="board"
+               onClick="location.href='Board.jsp'"></td>
+            <td><input type="button" class="dbutton" value="제보" name="report"
+               onClick="location.href='reportPostWrite.jsp'"></td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+         </tr>
+      </table>
+   </div>
+   </div>
+   </div>
+   </div>
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 </body>
 </html>

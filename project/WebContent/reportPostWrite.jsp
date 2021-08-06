@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 	if (files != null) { for (var i = 0; i < files.length; i++) { // 파일 이름
 		var fileName = files[i].name; var fileNameArr = fileName.split("\."); // 확장자
 		var ext = fileNameArr[fileNameArr.length - 1]; var fileSize = files[i].size; // 파일 사이즈(단위 :byte)
-		console.log("fileSize="+fileSize); if (fileSize <= 0) { console.log("0kb file return"); return; } var fileSizeKb = fileSize / 1024; // 파일 사이즈(단위 :kb)
+		console.log("fileSize="+fileSize); if (fileSize <= 0) { console.log("0kb file return"); return; } var fileSizeKb = fileSize / 1024; // 파일 사이즈(단위 :
 		var fileSizeMb = fileSizeKb / 1024; // 파일 사이즈(단위 :Mb)
 		var fileSizeStr = ""; if ((1024*1024) <= fileSize) { // 파일 용량이 1메가 이상인 경우
 			console.log("fileSizeMb="+fileSizeMb.toFixed(2)); fileSizeStr = fileSizeMb.toFixed(2) + " Mb"; } else if ((1024) <= fileSize) { console.log("fileSizeKb="+parseInt(fileSizeKb)); fileSizeStr = parseInt(fileSizeKb) + " kb"; } else { console.log("fileSize="+parseInt(fileSize)); fileSizeStr = parseInt(fileSize) + " byte"; } // 업로드 파일 목록 생성
@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<body style = "background-color: #dadbdb";>
+<body style = "background-color: #dadbdb">
 <%
 
    memberDTO info = (memberDTO)session.getAttribute("info");   
@@ -64,13 +64,12 @@ jQuery(document).ready(function($) {
 					<a href="inputAddress.jsp" target="_blank"><img
 							src="Map.png"  height="100" ></a>
 <%
-    request.setCharacterEncoding("EUC-KR");
-
-    String lat = request.getParameter("lat");
-    String lng = request.getParameter("lng");
-    String addr = request.getParameter("addr");
-    System.out.println("latdd : " + lat);
-    System.out.println("lngdd :" + lng);
+ 	request.setCharacterEncoding("EUC-KR");
+	 String lat = request.getParameter("lat");
+	 String lng = request.getParameter("lng");
+	 String addr = request.getParameter("addr");
+	 System.out.println("latdd : " + lat);
+	 System.out.println("lngdd :" + lng);
  %>
 			  <input type="hidden" name="lat" id="lat">
 			  <input type="hidden" name="lng" id="lng">

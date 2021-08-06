@@ -204,8 +204,10 @@ textarea {
 	memberDTO info = (memberDTO)session.getAttribute("info");
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	notice_BoardDAO dao = new notice_BoardDAO();
+	if (info!=null){
 	array = dao.showBoard(info.getMemberId());
-	//신청할 아이디 정보
+
+	}
 %>
    <div>
       <table align="center" >
@@ -219,7 +221,6 @@ textarea {
    </div>
 <br><br><br><br><br>
 
-<form action = "inquiryServiceCon" method ="post">
 <table align="center" >
 	<tr>
 		<td>
@@ -235,33 +236,32 @@ textarea {
 <table align="center" >
     		<div class="container" style="display:none">
            	<%for(int i=0; i<array.size(); i++){ %>
-           	<%if(info != null){%>
-           	<tr>
-    			<td class="Itable">
-				<div class = "item"><span><br>
-				<span id = "iconee"><%if(array.get(i).getNoticeImage()!=null){ %>
-								<img src ="img/<%=array.get(i).getNoticeImage()%>">
-								<br>
-								<%} %>
-								</span>
-				<span id = "iconee" class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
-				<span id = "iconee">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
-				<span><input id = "iconee" type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
-				<span id = "iconee">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-				<span><input type = "submit" value = "참가" id="input"></span></div>
-			  	<td>
-    		</tr>
-    		</div>
-			  <%}else{%>
+				<%if(info != null){%>
+				<form action = "chatTest.jsp">
+		           	<tr>
+		    			<td class="Itable">
+							<div class = "item"><span><br>
+							<span><%=array.get(i).getNoticeImage()%></span><br>
+							<span id="iconee" class="name" name="addr">주소지 :<%=array.get(i).getAddr() %></span><br>
+							<span id="iconee" name="plogDate">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
+							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
+							<span id="iconee" name="limitedNumber">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
+							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
+							<span id = "iconee"><input type = "submit" value = "참가"></span></div>
+							</div>
+						<td>
+		    		</tr>
+		    	 </form>
+    	</div>  	
+				<%}else{%>
 			<tr>
     			<td class="Itable">
 			   		회원님께서는 이 공고를 신청할 수 없습니다!
 			   	<td>
     		</tr>
-			  	<%} %>
-			  <%}%>	
-</form>
-</table>
+		</div>
+				<%}%>
+			<%}%>
 <br><br>
 <!-- <table>
 	<tr>
@@ -276,15 +276,6 @@ textarea {
 	</tr>
 </table> 
 <br><br><br><br>
-<table align="center">
-	<tr>
-		<td><input type="button" class="dbutton" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-		<td><input type="button" class="dbutton" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-		<td><input type="button" class="dbutton" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-		<td><input type="button" class="dbutton" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-		<td><input type="button" class="dbutton" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-	</tr>
-</table >
 		<div class="down">
 			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
 			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
@@ -312,5 +303,6 @@ textarea {
       }
     
 </script>
+
 </body>
 </html>

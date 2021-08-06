@@ -25,6 +25,7 @@ body{
    text-decoration: none;
    display: inline-block;
    font-size: 30px;
+   border-radius: 12px;
 
    /* border-radius: 12px; */
 
@@ -38,6 +39,7 @@ textarea {
 	outline: none;
 	resize: none;
 	font-size: 30px;
+	border-radius: 12px;
 	}
 .button {
    background-color: #88dba3;
