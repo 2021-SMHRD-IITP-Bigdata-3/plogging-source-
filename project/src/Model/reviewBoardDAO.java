@@ -15,6 +15,7 @@ public class reviewBoardDAO {
 	
 	//
 	int cnt = 0;
+	int cnt1=0;
 	int cnt2 = 0;
 	reviewBoardDTO dto = null;
 	
@@ -192,4 +193,21 @@ public class reviewBoardDAO {
 	               return reviewBoard_list;
 	               
 	            }
+			   public int deleteOnereview(int num) {
+					try {
+						conn();
+						String sql = "DELETE FROM review_board WHERE review_number = ?";
+						
+						psmt = conn.prepareStatement(sql);
+						
+						psmt.setInt(1, num);
+						
+						cnt1 = psmt.executeUpdate();
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						close();
+					} return cnt1;		
+				}
 }
