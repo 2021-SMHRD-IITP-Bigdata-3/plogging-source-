@@ -172,6 +172,8 @@ textarea {
 	if (info!=null){
 	array = dao.showBoard(info.getMemberId());
 	}
+	
+	
 %>
    <div>
       <table align="center" >
@@ -196,8 +198,6 @@ textarea {
 		</td>
 		</tr>
 </table>
-<!-- 폼태그로  보내면 for문의 i=0 일 때의 값만 보내지게 됨. 쿼리스트링방식으로 수정 . (아 폼태그를 for문 안으로 넣으면 되긴 하겠다.)  --> 
-<!-- 다른 정보 한꺼번에 보내주기 위해 그냥 폼태그로 다시 수정-->
 	<table align="center" >
    		<div class="container">
            	<%for(int i=0; i<array.size(); i++){ %>
@@ -258,7 +258,6 @@ textarea {
 	<td>제보</td>
 </tr>
 </table>
-<!-- 클릭하면 사라지는 게 아니라 참여하면 사라지는 방향으로 수정되서 주석처리 해 둠
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script>
 
@@ -279,7 +278,6 @@ textarea {
       }
     
 </script>
--->
 
 </body>
 </html>

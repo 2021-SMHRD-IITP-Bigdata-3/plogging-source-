@@ -55,7 +55,9 @@ public class noticejoinDAO {
 	public int upload(noticeJoinDTO dto) {
 		try {
 			conn();
-			String sql = "insert into notice_member(notice_number,member_id) values((select notice_number from notice where notice_number = ?) ,(select member_id from member where member_id = ?))";
+			String sql = "insert into notice_member(notice_number,member_id) "
+					+ "values((select notice_number from notice where notice_number = ?) ,"
+					+ "(select member_id from member where member_id = ?))";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, dto.getNotice_number());
@@ -96,7 +98,7 @@ public class noticejoinDAO {
 	public int upPoint(String id) {
 		try {
 			conn();
-			String sql = "update member set point = (select point+1 from member where member_id = ?) where member_id = ?";
+			String sql = "update member set point = (select point+10 from member where member_id = ?) where member_id = ?";
 
 			psmt = conn.prepareStatement(sql);
 

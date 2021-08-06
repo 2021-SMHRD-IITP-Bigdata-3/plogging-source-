@@ -86,6 +86,8 @@ public class reportPostServiceCon extends HttpServlet {
 			double latX = dto.getLat();
 			double latY = dto.getLng();
 			double inputDistance = 0.5; // 우선 이렇게 하고 나중에 이 부분 reportTestDAO로 메소드 만들면 돼
+			
+			
 			for (int i = 0; i < array.size(); i++) {
 				double latA = array.get(i).getLat();
 				double latB = array.get(i).getLng();
@@ -108,7 +110,6 @@ public class reportPostServiceCon extends HttpServlet {
 				System.out.println("자동화 됐다면 autCnt = 1 = " + autCnt);
 				if (autCnt > 0) {
 					System.out.println("공고 업로드 성공");
-///////////////////// noticeDAO.upload();///////////////////////////////////??? 뭘까용?
 					for (int i = 0; i < array2.size(); i++) {
 						ckCnt = dao.noticeCheck(array2.get(i));
 						if (ckCnt > 0) {

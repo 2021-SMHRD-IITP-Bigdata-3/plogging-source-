@@ -1,3 +1,42 @@
+drop table testday;
+
+create table testday(
+	num number,
+	day date	
+);
+select * from testday;
+
+insert into testday values (1, sysdate);
+insert into testday values (2, sysdate);
+insert into testday values (3, sysdate);
+insert into testday values (4, sysdate);
+
+-- 이건 한 행에만 실행시킬 수 있어
+UPDATE testday SET day = (select day+7
+						  from testday
+						  WHERE day < sysdate
+						  and num = 1)
+where num=1;
+
+-- 전체 행을 한꺼번에 업데이트 할 수는 없을까?
+UPDATE
+(select day
+from testday
+where day<sysdate) set day = day+7;
+
+
+
+select day from testday WHERE day < sysdate
+
+
+
+TO_CHAR(SYSDATE, 'YYYYMMDD')
+
+
+
+(날짜만 반환, ex> 20140416);
+SELECT TO_CHAR(SYSDATE, 'YYYYMMDD') FROM DUAL; 
+
 
 update notice set limited_number = (select limited_number+1 from notice where notice_number = 29) where notice_number = 29;
 update notice set limited_number = (select limited_number+1 from notice where notice_number = 30) where notice_number = 30;
@@ -109,6 +148,8 @@ create table notice_member(
    constraint notice_number_fk foreign key(notice_number) references notice(notice_number),
    constraint memberiid_fk foreign key(member_id) references member(member_id)
 );
+
+
 
 select * from NOTICE_MEMBER;
 -- 컬럼 추가
