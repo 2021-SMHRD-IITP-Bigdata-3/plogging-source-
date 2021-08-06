@@ -28,7 +28,7 @@ public class reportPostServiceCon extends HttpServlet {
 		// 이야기 해 볼 부분/////////////////////////////////////
 		// 참여자 목록을 넣어줄 생성자 생성 ?? 뭘까??
 //      notice_BoardDAO noticeDAO = new notice_BoardDAO();
-
+		
 		String savePath = request.getServletContext().getRealPath("img");
 		System.out.println(savePath);
 		int maxSize = 5 * 1024 * 1024;

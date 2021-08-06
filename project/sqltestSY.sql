@@ -1,3 +1,9 @@
+
+update notice set limited_number = (select limited_number+1 from notice where notice_number = 29) where notice_number = 29;
+update notice set limited_number = (select limited_number+1 from notice where notice_number = 30) where notice_number = 30;
+
+
+----------드랍 조심하기!!!!!!!!!!!!!!----------------
 drop table chat;
 drop table notice_member;
 drop table notice;
@@ -13,6 +19,14 @@ select * from notice;
 select * from tip_off;
 select * from member;
 
+
+delete from chat where chat_number>104;
+
+
+-- 컬럼 추가
+ALTER TABLE tip_off ADD notice_check VARCHAR(25);
+-- 컬럼 드랍
+ALTER TABLE notice DROP COLUMN notice_check;
 
 -- 제보
 제보번호시퀀스 num_tip_off
@@ -96,6 +110,7 @@ create table notice_member(
    constraint memberiid_fk foreign key(member_id) references member(member_id)
 );
 
+select * from NOTICE_MEMBER;
 -- 컬럼 추가
 ALTER TABLE notice_member ADD review_check VARCHAR(25);
 -- 컬럼 드랍

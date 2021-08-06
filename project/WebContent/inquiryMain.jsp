@@ -139,7 +139,9 @@ div {
 	memberDTO info = (memberDTO)session.getAttribute("info");
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	notice_BoardDAO dao = new notice_BoardDAO();
+	if (info!=null){
 	array = dao.showBoard(info.getMemberId());
+	}
 %>
    <div>
       <table align="center">
@@ -152,18 +154,11 @@ div {
       </table>
    </div>
 <br><br><br><br><br>
-<<<<<<< HEAD
-<table>
-	<form action="chatTest.jsp" method ="post">
-       <div class="searchbox">
-=======
 
-<form action = "inquiryServiceCon" method ="post">
 <table align="center" >
 	<tr>
 		<td>
 		<div class="searchbox">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
            <div class="header">
              <div>Search</div>
              <input onkeyup="filter()" type="text" id="value" placeholder="간략한 주소지를 입력해주세요">
@@ -172,38 +167,37 @@ div {
 		</td>
 		</tr>
 </table>
-<table align="center" >
-    		<div class="container">
+<!-- 폼태그로  보내면 for문의 i=0 일 때의 값만 보내지게 됨. 쿼리스트링방식으로 수정 . (아 폼태그를 for문 안으로 넣으면 되긴 하겠다.)  --> 
+	<table align="center" >
+   		<div class="container">
            	<%for(int i=0; i<array.size(); i++){ %>
-           	<%if(info != null){%>
-           	<tr>
-    			<td class="Itable">
-				<div class = "item"><span style="color: green;"><br>
-				<span><%=array.get(i).getNoticeImage()%></span><br>
-				<span class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
-				<span>플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
-				<span><input type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
-				<span>플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-<<<<<<< HEAD
-				<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
-				<span><input type = "submit" value = "들어가시겠습니까?"></span></div>
-			  </div>
-=======
-				<span><input type = "submit" value = "신청"></span></div>
-			  	<td>
-    		</tr>
-    		</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
-			  <%}else{%>
-			<tr >
+	           	<%if(info != null){%>
+	           	<tr>
+	    			<td class="Itable">
+						<div class = "item">
+							<span style="color: green;"><br>
+							<span><%=array.get(i).getNoticeImage()%></span><br>
+							<span class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
+							<span>플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
+							<span>플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
+							<!-- 공고방 번호는 기능 잘 구현되는지 확인 차 넣은거라서 디테일, 디자인은 다 수정해도 돼! -->
+							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
+							<span><input type="button" name="noticeNumber" value="들어가시겠습니까?" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></span>
+						</div>
+					<td>
+		    	</tr>
+    	</div>  
+				<%}else{%>
+			<tr>
     			<td class="Itable">
 			   		회원님께서는 이 공고를 신청할 수 없습니다!
 			   	<td>
     		</tr>
-			  	<%} %>
-			  <%}%>	
-</form>
-</table>
+		</div>
+				<%} %>
+			<%}%>
+	</table>
+--> 
 <br><br>
 <!-- <table>
 	<tr>
@@ -226,7 +220,7 @@ div {
 	<td><input type="button" class="dbutton" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
 	<td><input type="button" class="dbutton" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
 </tr>
-<<<<<<< HEAD
+
 <tr>
 	<td>메인</td>
 	<td>조회</td>
@@ -235,9 +229,7 @@ div {
 	<td>제보</td>
 </tr>
 </table>
-<!-- 자바스크립트 잠시 지움 -->
-=======
-</table >
+<!-- 클릭하면 사라지는 게 아니라 참여하면 사라지는 방향으로 수정되서 주석처리 해 둠
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script>
 
@@ -258,6 +250,7 @@ div {
       }
     
 </script>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+-->
+
 </body>
 </html>

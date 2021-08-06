@@ -10,6 +10,7 @@ create table chat(
 
 drop table chattable;
 
+
 Ã¤ÆÃ¹øÈ£½ÃÄö½º num_chat
 drop sequence num_chat;
 
@@ -35,6 +36,8 @@ select * from board;
 --
 insert into board (board_num,member_id,board_date,board_content,board_title,board_image) 
 values(num_board1.nextval,'test',sysdate,'test','test','test');
+
+
 
 
 drop table board;
@@ -116,6 +119,8 @@ drop table review_board;
 select * from review_board;
 update review_board set lng = 126.919400;
 select * from review_board where review_number = 2;
+
+
 
 ½ÃÄö½º num_review_board
 create sequence num_review_board

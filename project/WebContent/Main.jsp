@@ -61,13 +61,7 @@ margin-left: 200px;
 	  double memberLng = info.getMemberLng();
       System.out.println("(메인페이지에 사용자의 위도가 잘 넘어오는지) memberLat : "+ memberLat);
       System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
-      notice_BoardDAO n_dao = new notice_BoardDAO();
-      // 우선 광주에서 목포 57, 해남 69 참고함 - 범위는 같이 얘기해서 수정하자~ => 다시 우선은 
-      n_list = n_dao.match(memberLat, memberLng, 1000);
-         for(int i = 0; i<n_list.size(); i++) {
-            System.out.println(n_list.get(i).getNoticeNumber());
-            System.out.println(n_list.get(i).getAddr());
-         }
+
    }
 
 %>
