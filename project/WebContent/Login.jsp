@@ -35,6 +35,10 @@
    padding: 50px;
    }
    h2{
+   font-size:xxx-large;
+   text-align :center;
+   }
+   h2{
    }
    a{
   border: none;
@@ -97,9 +101,6 @@
      <table align="center">
          <tr>
             <td><h2>Plogging</h2></td>
-            <td style="float: right"><input type="button" class="topicon" value="내정보"
-               onClick="location.href='myPage.jsp'"></td>
-            <td style="float: right"><input type="button" class="topicon" value="검색"></td>
          </tr>
      </table>
    </div>
@@ -142,14 +143,6 @@
    </table>
 </form>
 <br><br><br><br>
-   <table align="center">
-   <tr>
- <td><input type="button" class="dbutton" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-      <td><input type="button" class="dbutton" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-      <td><input type="button" class="dbutton" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-      <td><input type="button" class="dbutton" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-      <td><input type="button" class="dbutton" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-   </tr>
-</table>
+
 </body>
 </html>

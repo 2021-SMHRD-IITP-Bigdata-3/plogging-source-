@@ -1,6 +1,8 @@
 <%@page import="Model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@page import="Model.notice_BoardDTO"%>
+    <%@page import="Model.ChatDAO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +10,28 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#chatmain{
-		width: 500px;
+		text-align:center;
+		width: 100%;
 		height: 500px;
-		background-color: yellow;
+		background-color: #B2C7D9;
 		padding: 20px;
 		overflow-y: scroll;
 	}
+	
 	.my{
-		text-align: right;		
+		text-align: right;
+		font-color:black;		
 	}
 	.others{
 		text-align: left;
+		font-color:black;
 	}
+	#content{
+	  width:200px;
+	  height:100px;
+	  font-size:20px;
+	}
+
 </style>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -33,20 +45,36 @@
 	// 조회, 공고방 목록에서 넘어올 때
 	request.setCharacterEncoding("EUC-KR");
 	
+<<<<<<< HEAD
 	int noticeNumber = Integer.parseInt(request.getParameter("noticeNumber"));
 	System.out.println("(chatTest1페이지) 공고방 번호 noticeNumber : " + noticeNumber);
 	System.out.println("(chatTest1페이지) 로그인 아이디 login_id : " + login_id);
 
+=======
+	ChatDAO dao = new ChatDAO();
+	notice_BoardDTO dto = dao.lating(chatRoomNum);
+	
+	System.out.println("(chatTest1페이지)chatRoomNum : " + dto.getLat());
+	System.out.println("(chatTest1페이지)chatRoomNum : " + dto.getLng());
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 %>	
-	<div> 지도 </div>
+	<div id="map" style="width:500px;height:340px;" align ='center'></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 	<div> 공고정보 </div>
+<<<<<<< HEAD
 	
 <!-- 자바스크립트로 id랑 content데이터를 담은 <div>를 계속 추가하는 거라서 폼태그는 복잡해질 듯 => 서브스트링방식으로 수정 -->
 
 		<div id="chatmain">
 			<div id="chat">
 			</div>
+=======
+	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
+	<div id="chatmain">
+		<div id="chat">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 		</div>
+<<<<<<< HEAD
 	  <% if (info!=null){%>
 			내 아이디 : <%=login_id%>
 	  <%}else{ %>
@@ -57,6 +85,11 @@
 			<input type='button' value="참가" name="attend" onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"><br>
 			<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 
+=======
+	</div>
+	<input type="text" id="content" name="content" placeholder="내용 입력">
+	<button id="send">입력</button>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 	<script type="text/javascript">
 	
 		// 데이터베이스에 저장된 채팅 정보를 웹에 뿌려주는 뿌려주는 부분
@@ -91,8 +124,13 @@
 			       } 
 			    });
 		}, 200);
+<<<<<<< HEAD
 		
 	
+=======
+        // 하단 스크롤 이동 버튼
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 			// 아이디와 채팅내용 입력받는 부분
 			// 입력받은 값을 ChatInsertCon으로 보내서 데이터베이스에 넣으려 해
 			$("#send").on('click',function(){
@@ -112,8 +150,13 @@
 				         //alert(xhr);
 				       } 
 				    });
+				  document.getElementById("send").value='';
 			});
 
+<<<<<<< HEAD
+=======
+			
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 	</script>
 <table>
 <tr>
@@ -130,6 +173,29 @@
    <td>게시판</td>
    <td>제보</td>
 </tr>
+<script>
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = {
+    center: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
+};
+//지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+
+
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+    	
+    	position: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>)
+    	// 마커의 위치
+
+    });
+	
+    marker.setMap(map);
+</script>
 </table>
 </body>
 </html>

@@ -30,7 +30,7 @@ tr, td {
    border: none;
    color: white;
    padding: 10px;
-   text-align: center;
+   text-align: left;
    text-decoration: none;
    display: inline-block;
    font-size: 16px;
@@ -59,9 +59,17 @@ div {
    margin-right: auto;
 }
 .Itable{
-    border: 1px solid #444444;
+	background-color:#BDBDBD
     padding: 10px;
 }
+textarea {
+	 border: 0;
+	margin: 0 auto;
+	width:50%;
+	height: 500px;
+	outline: none;
+	resize: none;
+	}
 .tex {
    width: 330px;
    height: 25px;
@@ -71,7 +79,7 @@ div {
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 16px;
+   font-size: 30px;
    margin: 4px 2px;
    border-radius: 12px;
 }
@@ -132,6 +140,28 @@ div {
    cursor: pointer;
    border-radius: 12px;
 }
+
+  #value{
+    border: none;
+    background: #E0D3B6;
+    padding: 6px;
+    font-size: 18px;
+    width: 80%;
+    border-radius: 6px;
+    color: white;
+  }
+  #value:focus{
+    outline: none;
+  }
+  .container{
+    background: #FFFFF5;
+    padding: 1%;
+  }
+  .item{
+    margin: 3% 0px;
+    display: flex;
+    align-items: center;
+  }
 </style>
 </head>
 <body>
@@ -144,12 +174,11 @@ div {
 	}
 %>
    <div>
-      <table align="center">
+      <table align="center" >
          <tr>
             <td><h2>Plogging</h2></td>
             <td style="float: right"><input type="button" class="topicon" value="내정보"
                onClick="location.href='myPage.jsp'"></td>
-            <td style="float: right"><input type="button" class="topicon" value="검색"></td>
          </tr>
       </table>
    </div>
@@ -171,6 +200,7 @@ div {
 	<table align="center" >
    		<div class="container">
            	<%for(int i=0; i<array.size(); i++){ %>
+<<<<<<< HEAD
 	           	<%if(info != null){%>
 	           	<tr>
 	    			<td class="Itable">
@@ -189,6 +219,23 @@ div {
     	</div>  
 				<%}else{%>
 			<tr>
+=======
+           	<%if(info != null){%>
+           	<tr>
+    			<td class="Itable">
+				<div class = "item"><span><br>
+				<span ><%=array.get(i).getNoticeImage()%></span><br>
+				<span id = "iconee" class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
+				<span id = "iconee">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
+				<span><input id = "iconee" type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
+				<span id = "iconee">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
+				<span id = "iconee"><input type = "submit" value = "참가"></span></div>
+			  	<td>
+    		</tr>
+    		</div>
+			  <%}else{%>
+			<tr >
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
     			<td class="Itable">
 			   		회원님께서는 이 공고를 신청할 수 없습니다!
 			   	<td>

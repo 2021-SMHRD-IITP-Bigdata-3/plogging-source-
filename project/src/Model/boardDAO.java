@@ -223,5 +223,22 @@ public class boardDAO {
 	      } return board_list;   
 	      
 	   }
+ public int deleteOneboard(int num) {
+		try {
+			conn();
+			String sql = "DELETE FROM board WHERE board_num = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1, num);
+			
+			cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return cnt;		
+	}
 
 }

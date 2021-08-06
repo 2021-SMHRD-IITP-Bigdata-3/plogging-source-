@@ -7,10 +7,20 @@ create table chat(
    day date,
    constraint chat_chatroom_number_fk foreign key (chatroom_number)
    references notice(notice_number));
+select * from chat;
+ALTER TABLE chat drop column notice_num;
+ALTER TABLE chat ADD CONSTRAINT notice_N FOREIGN KEY(notice_num) 
+REFERENCES notice(notice_number);
+
+ALTER TABLE chat ADD notice_num number;
 
 drop table chattable;
+<<<<<<< HEAD
 
 
+=======
+alter 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 채팅번호시퀀스 num_chat
 drop sequence num_chat;
 
@@ -173,16 +183,6 @@ create table trashcan(
 
 
 
-플로깅내역 untitled
-create table untitled(
-   member_id varchar2(100), -- 아이디
-   notice_number varchar2(100), -- 공고번호
-   point varchar2(100), -- 적립금 현황
-   constraint member_id_fk foreign key(member_id) references member(member_id)
-   constraint notice_number_fk foreign key(notice_number) references notice(notice_number)
-   constraint point_fk foreign key(point) references local_governments(point)
-);
---
 insert into(member_id,notice_number,point) values('test','test','test');
 
 

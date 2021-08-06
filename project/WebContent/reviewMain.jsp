@@ -18,8 +18,12 @@ align : center;
 </head>
 <body>
 <%
-ArrayList<reviewBoardDTO> array = new ArrayList<reviewBoardDTO>();
 reviewBoardDAO dao = new reviewBoardDAO();
+memberDTO info = (memberDTO)session.getAttribute("info");
+
+ArrayList<reviewBoardDTO> reviewBoard_list = new ArrayList<reviewBoardDTO>();
+ArrayList<reviewBoardDTO> array = new ArrayList<reviewBoardDTO>();
+
 array = dao.showBoard();
 %>
 <table>
@@ -43,6 +47,8 @@ array = dao.showBoard();
       <%for(int i = 0; i<array.size();i++){%>
          <tr>
              <td> <a href = "Review8.jsp?reviewNumber=<%=array.get(i).getReviewNumber()%>"> <%=array.get(i).getTitle()%></a></td>
+             <td> <a href = "DeleteOneServiceCon?review_number=<%=array.get(i).getReviewNumber()%>">ªË¡¶ </a></td>
+
          </tr>
          <%} %>
       </table>
