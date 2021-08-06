@@ -24,7 +24,13 @@ public class notice_BoardDTO {
       this.addr = addr;
    }
    
-   public notice_BoardDTO(int noticeNumber) {
+   public notice_BoardDTO(double lat, double lng) {
+	super();
+	this.lat = lat;
+	this.lng = lng;
+}
+
+public notice_BoardDTO(int noticeNumber) {
 	super();
 	this.noticeNumber = noticeNumber;
 }
