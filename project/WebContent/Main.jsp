@@ -102,7 +102,10 @@
 </table>
 <br>
 <table>
-<iframe width="600" height="300" src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<tr>
+<td><iframe width="600" height="300" src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</td>
+</tr>
 </table>
 <br>
 <table>

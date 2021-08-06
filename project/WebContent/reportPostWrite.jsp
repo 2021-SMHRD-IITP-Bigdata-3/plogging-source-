@@ -181,9 +181,10 @@
         }
 
         .overlay {
-            position: fixed;
+            /* position: fixed; */
             width: 100%;
             height: 100%;
+            
             /* background: rgba(0, 0, 0, 0.7); */
         }
 
@@ -194,6 +195,7 @@
     background-color: #efefef;
    scrollbar-width: none;
     -ms-overflow-style: none;
+  
    }
    table {
     
@@ -206,6 +208,8 @@ textarea {
 	outline: none;
 	resize: none;
 	font-size: 14px;
+
+	
 	}
    .mtable1{
    width: 100%;
@@ -213,7 +217,7 @@ textarea {
         }
       .mtable2{
    width: 100%;
-  
+
          }
    tr , td{
       /* padding: 5px; */
@@ -233,14 +237,18 @@ textarea {
    font-size: 16px;
    margin: 4px 2px;
    border-radius: 15px;
+
+   
 }
    h1{
    padding: 100px 130px;
+   
    }
    div {
    /* padding: 10px */
    margin-left: auto;
    margin-right: auto;
+
 }
 
 .tex {
@@ -255,6 +263,8 @@ textarea {
    font-size: 16px;
    margin: 4px 2px;
    border-radius: 12px;
+
+   
 }
 .ltex{
     width: 100%;
@@ -268,6 +278,7 @@ textarea {
    font-size: 16px;
    margin: 4px 2px;
    /* border-radius: 12px; */
+
 }
 
 .stex1 {
@@ -311,6 +322,8 @@ textarea {
    margin: 4px 2px;
    cursor: pointer;
    border-radius: 12px;
+
+   
 }
 
 .dbutton {
@@ -331,7 +344,7 @@ textarea {
 </style>
 </head>
 <body>
-<div id="wrapper">
+<div >
         <div class="topbar" style="position: absolute; top:0;">
             <!-- ¿ÞÂÊ ¸Þ´º -->
             <div class="left side-menu">
@@ -374,8 +387,8 @@ textarea {
             </div>
             <div class="overlay"></div>
         </div>
-   <div>
-      <table class="mtable1" style="padding:0 0 0 50px;">
+   <div >
+      <table  class="mtable1" style="padding:0 0 0 50px;">
          <tr>
             <td><h2>Plogging</h2></td>
             <td style="text-align:right;">
