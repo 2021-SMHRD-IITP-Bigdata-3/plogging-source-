@@ -19,15 +19,19 @@
 
 <%
 memberDTO info = (memberDTO)session.getAttribute("info");
+
+
 boardDTO board_list = (boardDTO) session.getAttribute("board_list");
 
 int num = Integer.parseInt(request.getParameter("board_num"));
 
    boardDAO dao = new boardDAO();
    boardDTO dto = dao.showOne(num);
-   
 
-   
+
+   System.out.println(dto.getBoardNum());
+
+
 %>
    
          <div id = "board">

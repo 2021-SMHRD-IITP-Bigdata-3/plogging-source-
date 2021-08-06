@@ -171,6 +171,53 @@ for(int i =0; i<reviewBoard_list.size();i++){
 }
 
 %>
+<<<<<<< HEAD
+<div id="wrapper">
+        <div class="topbar" style="position: absolute; top:0;">
+            <!-- 왼쪽 메뉴 -->
+            <div class="left side-menu">
+                <div class="sidebar-inner">
+                    <div id="sidebar-menu">
+                        <ul>
+                            <li class="has_sub"><a href="javascript:void(0);" class="waves-effect">
+                                <i class="fas fa-bars"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 왼쪽 서브 메뉴 -->
+            <div class="left_sub_menu">
+                <div class="sub_menu">
+                    <input type="search" name="SEARCH" placeholder="SEARCH">
+                    <h2>TITLE</h2>
+                    <ul class="big_menu">
+                        <li>MENU 1 <i class="arrow fas fa-angle-right"></i></li>
+                        <ul class="small_menu">
+                            
+                            <li><a href="inquiryMain.jsp">조회</a></li>
+                            <li><a href="reviewMain.jsp">후기</a></li>
+                            <li><a href="Board.jsp">게시판</a></li>
+                            <li><a href="reportPostWrite.jsp">제보</a></li>
+                        </ul>
+                    </ul>
+                    <!--   <ul class="big_menu">
+                        <li>MENU 2 <i class="arrow fas fa-angle-right"></i></li>
+                        <ul class="small_menu">
+                            <li><a href="#">소메뉴2-1</a></li>
+                            <li><a href="#"></a>소메뉴2-2</a></li>
+                        </ul>
+                    </ul> -->
+                    <ul class="big_menu">
+                    <%if(info!=null){ %>
+                        <li><a href="myPage.jsp" class="a001">MYPAGE</a></li>
+                    <%}else{ %>
+                    	<li>회원가입이 시급합니다.</li>
+                    <%}%>
+                    </ul>
+                </div>
+            </div>
+        </div>
    <div>
       <table class="mtable1">
          <tr>

@@ -35,10 +35,6 @@
    padding: 50px;
    }
    h2{
-   font-size:xxx-large;
-   text-align :center;
-   }
-   h2{
    }
    a{
   border: none;
@@ -101,6 +97,7 @@
      <table align="center">
          <tr>
             <td><h2>Plogging</h2></td>
+            <td style="float: right"><input type="button" class="topicon" value="°Ë»ö"></td>
          </tr>
      </table>
    </div>

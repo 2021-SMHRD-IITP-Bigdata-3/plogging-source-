@@ -58,6 +58,11 @@ div {
    margin-left: auto;
    margin-right: auto;
 }
+
+.header{
+	width:100%
+}
+
 .Itable{
 	background-color:#BDBDBD
     padding: 10px;
@@ -162,6 +167,23 @@ textarea {
     display: flex;
     align-items: center;
   }
+  #iconee{
+  	font-size:2.5em;
+  	width:900px;
+  	margin:0px 0px 0px 0px;
+  }
+  #value{
+    width: 1000px;
+    height: 53px
+  }
+  #value::placeholder{
+  	font-size : 1em;
+  }
+  #input{
+  	float :right;
+  	font-size:2em;
+  	margin:-19px 41px -15px 0px;
+  	}
 </style>
 </head>
 <body>
@@ -172,8 +194,6 @@ textarea {
 	if (info!=null){
 	array = dao.showBoard(info.getMemberId());
 	}
-	
-	
 %>
    <div>
       <table align="center" >
@@ -181,6 +201,7 @@ textarea {
             <td><h2>Plogging</h2></td>
             <td style="float: right"><input type="button" class="topicon" value="내정보"
                onClick="location.href='myPage.jsp'"></td>
+            <td style="float: right"><input type="button" class="topicon" value="검색"></td>
          </tr>
       </table>
    </div>
@@ -198,8 +219,8 @@ textarea {
 		</td>
 		</tr>
 </table>
-	<table align="center" >
-   		<div class="container">
+<table align="center" >
+    		<div class="container" style="display:none">
            	<%for(int i=0; i<array.size(); i++){ %>
 				<%if(info != null){%>
 				<form action = "chatTest.jsp">
@@ -225,7 +246,7 @@ textarea {
 			   	<td>
     		</tr>
 		</div>
-				<%} %>
+				<%}%>
 			<%}%>
 <br><br>
 <!-- <table>

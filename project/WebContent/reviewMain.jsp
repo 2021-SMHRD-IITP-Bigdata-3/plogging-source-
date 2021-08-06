@@ -18,19 +18,14 @@ align : center;
 </head>
 <body>
 <%
-reviewBoardDAO dao = new reviewBoardDAO();
-memberDTO info = (memberDTO)session.getAttribute("info");
-
-ArrayList<reviewBoardDTO> reviewBoard_list = new ArrayList<reviewBoardDTO>();
 ArrayList<reviewBoardDTO> array = new ArrayList<reviewBoardDTO>();
-
+reviewBoardDAO dao = new reviewBoardDAO();
 array = dao.showBoard();
 %>
 <table>
 <tr>
-   <td>싸이트명</td>
+   <td float ="left">Plogging</td>
    <td style = "float : right"><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-   <td style = "float : right"><input type ="button" value = "검색"></td>
 </tr>
 </table>
 <div id="map" style="width:340px;height:340px;" align ='center'></div>
@@ -47,8 +42,6 @@ array = dao.showBoard();
       <%for(int i = 0; i<array.size();i++){%>
          <tr>
              <td> <a href = "Review8.jsp?reviewNumber=<%=array.get(i).getReviewNumber()%>"> <%=array.get(i).getTitle()%></a></td>
-             <td> <a href = "DeleteOneServiceCon?review_number=<%=array.get(i).getReviewNumber()%>">삭제 </a></td>
-
          </tr>
          <%} %>
       </table>

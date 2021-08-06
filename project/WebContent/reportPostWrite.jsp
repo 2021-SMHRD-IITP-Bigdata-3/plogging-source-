@@ -8,26 +8,9 @@
 <head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-<script>
-    $(function () {
-        $(".left_sub_menu").hide();
-        $(".has_sub").click(function () {
-            $(".left_sub_menu").fadeToggle(300);
-        });
-        // 왼쪽메뉴 드롭다운
-        $(".sub_menu ul.small_menu").hide();
-        $(".sub_menu ul.big_menu").click(function () {
-            $("ul", this).slideToggle(300);
-        });
-        // 외부 클릭 시 좌측 사이드 메뉴 숨기기
-        $('.overlay').on('click', function () {
-            $('.left_sub_menu').fadeOut();
-            $('.hide_sidemenu').fadeIn();
-        });
-    });
-</script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<<<<<<< HEAD
 <style>
 		table {
 			width: 360px;
@@ -196,10 +179,14 @@
         .hide_sidemenu {
             display: none;
         }
+=======
+<style>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
    body{
     background-color: #efefef;
-   scrollbar-width: none;
-    -ms-overflow-style: none;
+   /* scrollbar-width: none;
+    -ms-overflow-style: none; */
+  
    }
    table {
     
@@ -217,6 +204,8 @@ textarea {
 	outline: none;
 	resize: none;
 	font-size: 14px;
+
+	
 	}
    .mtable1{
    width: 100%;
@@ -224,7 +213,7 @@ textarea {
         }
       .mtable2{
    width: 100%;
-  
+
          }
    tr , td{
       /* padding: 5px; */
@@ -244,19 +233,43 @@ textarea {
    font-size: 16px;
    margin: 4px 2px;
    border-radius: 15px;
+
+   
 }
    h1{
    padding: 100px 130px;
+   
    }
    div {
    /* padding: 10px */
    margin-left: auto;
    margin-right: auto;
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+=======
+
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 }
 
+<<<<<<< HEAD
 tr td a {
 	width:
+=======
+.tex {
+   width: 310px;
+   height: 25px;
+   margin: 4px 2px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+
+   
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 }
 <<<<<<< HEAD
 =======
@@ -272,6 +285,7 @@ tr td a {
    font-size: 16px;
    margin: 4px 2px;
    /* border-radius: 12px; */
+
 }
 
 .stex1 {
@@ -315,26 +329,98 @@ tr td a {
    margin: 4px 2px;
    cursor: pointer;
    border-radius: 12px;
+
+   
 }
 
-.dbutton {
-   background-color: #2DB400;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   border-radius: 12px;
-}
+.dbutton1{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 
+  border: none;
+  border-radius: 16px;
+  background: #69f0ae;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+.dbutton2{
+  position: fixed;
+  bottom: 20px;
+  right: 120px;
+
+  border: none;
+  border-radius: 16px;
+  background: #69f0ae;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+.dbutton3{
+  position: fixed;
+  bottom: 20px;
+  right: 220px;
+
+  border: none;
+  border-radius: 16px;
+  background: #69f0ae;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+.dbutton4{
+  position: fixed;
+  bottom: 20px;
+  right: 320px;
+
+  border: none;
+  border-radius: 16px;
+  background: #69f0ae;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+.dbutton5{
+  position: fixed;
+  bottom: 20px;
+  right: 420px;
+
+  border: none;
+  border-radius: 16px;
+  background: #69f0ae;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+.down{
+position: fixed;
+bottom: 0px;
+width:100%;
+height:60px;
+border: none;
+  background: #efefef;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
 
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 </style>
 </head>
+<<<<<<< HEAD
 <body>
 <<<<<<< HEAD
 
@@ -350,78 +436,37 @@ tr td a {
 		</table>
 =======
 <<<<<<< HEAD
+=======
+<body>
+<div >
+
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 <%
 	memberDTO info = (memberDTO)session.getAttribute("info");   
 %>
-=======
-<div id="wrapper">
-        <div class="topbar" style="position: absolute; top:0;">
-            <!-- 왼쪽 메뉴 -->
-            <div class="left side-menu">
-                <div class="sidebar-inner">
-                    <div id="sidebar-menu">
-                        <ul>
-                            <li class="has_sub"><a href="javascript:void(0);" class="waves-effect">
-                                <i class="fas fa-bars"></i>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- 왼쪽 서브 메뉴 -->
-            <div class="left_sub_menu">
-                <div class="sub_menu">
-                    <input type="search" name="SEARCH" placeholder="SEARCH">
-                    <h2>TITLE</h2>
-                    <ul class="big_menu">
-                        <li>MENU 1 <i class="arrow fas fa-angle-right"></i></li>
-                        <ul class="small_menu">
-                            <li><a href="Main.jsp">메인</a></li>
-                            <li><a href="inquiryMain.jsp">조회</a></li>
-                            <li><a href="reviewMain.jsp">후기</a></li>
-                            <li><a href="Board.jsp">게시판</a></li>
-                            <li><a href="reportPostWrite.jsp">제보</a></li>
-                        </ul>
-                    </ul>
-                    <!--   <ul class="big_menu">
-                        <li>MENU 2 <i class="arrow fas fa-angle-right"></i></li>
-                        <ul class="small_menu">
-                            <li><a href="#">소메뉴2-1</a></li>
-                            <li><a href="#"></a>소메뉴2-2</a></li>
-                        </ul>
-                    </ul> -->
-                    <ul class="big_menu">
-                        <li><a href="myPage.jsp" class="a001">MYPAGE</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="overlay"></div>
-        </div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
-   <div>
-      <table class="mtable1" style="padding:0 0 0 50px;">
-         <tr>
-            <td><h2>Plogging</h2></td>
-            <td style="text-align:right;">
-<<<<<<< HEAD
-            <%if(info!=null){ %>
-            <input type="button" class="topicon" value="내정보" onClick="location.href='myPage.jsp'"></td>
-            <%}else{ %>
 
-            <%}%>
-=======
-            <input type="button" class="topicon" value="검색">
-			</td>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+   <div >
+      <table  class="mtable1">
+
+
+   <div>
+      <table class="mtable1" >
+         <tr>
+            <td style="text-align:left;"><h2 >Plogging</h2></td>
          </tr>
       </table>
    </div>
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 		<form action="reportPostServiceCon" method="post" enctype = "multipart/form-data">
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<table border="1px">
 =======
 			<table class="mtable2" style="padding:0 0 0 50px;">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+=======
+			<table class="mtable2">
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 				<tr>
 					<td colspan="4"><input type="text" placeholder="제목을 입력하세요."
@@ -440,17 +485,13 @@ tr td a {
 	 String lat = request.getParameter("lat");
 	 String lng = request.getParameter("lng");
 	 String addr = request.getParameter("addr");
-<<<<<<< HEAD
+
 	 if(lat!=null){
 	 System.out.println("(reportPostWrite.jsp페이지)latdd : " + lat);
 	 System.out.println("(reportPostWrite.jsp페이지)lngdd :" + lng);
 	 System.out.println("(reportPostWrite.jsp페이지)addrdd :" + addr);
 	 } 
 	 
-=======
-	 System.out.println("latdd : " + lat);
-	 System.out.println("lngdd :" + lng);
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
  %>
 			  <input type="hidden" name="lat" id="lat">
 			  <input type="hidden" name="lng" id="lng">
@@ -466,7 +507,11 @@ tr td a {
 =======
 			</table >
 			<br>
+<<<<<<< HEAD
 			<table align="center" style="padding:0 0 0 50px;">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+=======
+			<table align="center" >
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 				<tr>
 					<td align="center"><input type="submit" value="제보하기 완료"></td>
@@ -496,9 +541,18 @@ tr td a {
 			</table>
 =======
 			<br><br><br><br>			
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 		</form>
+<<<<<<< HEAD
 	</div>
+=======
+		<div class="down">
+			<div class="dbutton1">메인</div>
+			<div class="dbutton2">조회</div>
+			<div class="dbutton3">후기</div>
+			<div class="dbutton4">게시판</div>
+			<div class="dbutton5">제보</div>
+			</div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 	<script>
 	<%if(lat!=null){%>
 		document.getElementById('lat').value = "<%=lat%>";

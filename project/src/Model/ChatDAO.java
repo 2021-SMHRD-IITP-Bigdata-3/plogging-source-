@@ -12,8 +12,7 @@ public class ChatDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	int cnt = 0;
-	notice_BoardDTO dto = null;
-	
+
 	   public void conn() {
 		      try {
 		         Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -67,32 +66,7 @@ public class ChatDAO {
 		}
 		return cnt;
 	}
-	
-	//노티쓰 넘버에따른 위도와 경도 가져오기
-	public notice_BoardDTO lating(int notice_number) {
-	      try {
-	         conn();
-	         String sql ="select lat,lng from notice where notice_number in (select chatroom_number from chat where chatroom_number = ?)";
-	         
-	         psmt = conn.prepareStatement(sql);
-	         psmt.setInt(1, notice_number);
-	         rs = psmt.executeQuery();
-	         
-	         if(rs.next()) {
 
-					double lat = rs.getDouble("lat");
-					double lng = rs.getDouble("lng");
-
-	            
-	            
-					dto = new notice_BoardDTO(lat,lng);
-	         }
-	      } catch (SQLException e) {
-	         e.printStackTrace();
-	      } finally {
-	         close();
-	      } return dto;
-	   }
 	
 	// 채팅방번호에 맞는 채팅내역들을 리스트로 반환하는 메소드
 	public ArrayList<ChatDTO> selectAllChat(String inputRoom_number) {

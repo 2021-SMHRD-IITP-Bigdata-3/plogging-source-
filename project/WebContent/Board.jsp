@@ -56,7 +56,6 @@ ArrayList<boardDTO> board_list = dao.board_li();
              <td><%=board_list.get(i).getMemberId() %>
              <td><%=board_list.get(i).getBoardImage() %></td>
              <td><%=board_list.get(i).getBoardDate() %></td>
-             <td> <a href = "DeleteOneServiceCon?num=<%=board_list.get(i).getBoardNum() %>">ªË¡¶ </a></td>
          </tr>
          <%} %>
       </table>

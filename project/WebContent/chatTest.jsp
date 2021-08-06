@@ -1,17 +1,209 @@
 <%@page import="Model.memberDTO"%>
+<%@page import="Model.memberDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%@page import="Model.notice_BoardDTO"%>
+    <%@page import="Model.notice_BoardDAO"%>
     <%@page import="Model.ChatDAO"%>
+    <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+<script>
+    $(function () {
+        $(".left_sub_menu").hide();
+        $(".has_sub").click(function () {
+            $(".left_sub_menu").fadeToggle(300);
+        });
+        // 왼쪽메뉴 드롭다운
+        $(".sub_menu ul.small_menu").hide();
+        $(".sub_menu ul.big_menu").click(function () {
+            $("ul", this).slideToggle(300);
+        });
+        // 외부 클릭 시 좌측 사이드 메뉴 숨기기
+        $('.overlay').on('click', function () {
+            $('.left_sub_menu').fadeOut();
+            $('.hide_sidemenu').fadeIn();
+        });
+    });
+</script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
+.side-menu {
+            top: 10px;
+            width: 5%;
+            z-index: 10;
+            background: #69f0ae;
+            border-right: 1px solid rgba(0, 0, 0, 0.07);
+            bottom: 50px;
+            height: 100%;
+            margin-bottom: -70px;
+            margin-top: 0px;
+            padding-bottom: 70px;
+            position: fixed;
+            box-shadow: 0 0px 24px 0 rgb(0 0 0 / 6%), 0 1px 0px 0 rgb(0 0 0 / 2%);
+        }
+
+        .sidebar-inner {
+            height: 100%;
+            padding-top: 30px;
+        }
+
+        #sidebar-menu,
+        #sidebar-menu ul,
+        #sidebar-menu li,
+        #sidebar-menu a {
+            border: 0;
+            font-weight: normal;
+            line-height: 1;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            text-decoration: none;
+        }
+
+        #sidebar-menu>ul>li a {
+            color: #fff;
+            font-size: 20px;
+            display: block;
+            padding: 14px 0px;
+            margin: 0px 0px 0px 23%;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            width: 28px;
+            cursor: pointer;
+        }
+
+        #sidebar-menu .fas {
+            padding-left: 6px;
+        }
+
+        /* 사이드 메뉴 */
+        input[type="search"] {
+            width: 180px;
+            margin: 0 auto;
+            margin-left: 9px;
+            border: 2px solid #797979;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 4px 0 4px 14px;
+            border-radius: 50px;
+        }
+
+        .left_sub_menu {
+            position: fixed;
+            top: 50px;
+            width: 12%;
+            z-index: 10;
+            left: 45px;
+            background: white;
+            border-right: 1px solid rgba(0, 0, 0, 0.07);
+            bottom: 50px;
+            height: 100%;
+            margin-bottom: -70px;
+            margin-top: 0px;
+            padding-bottom: 0px;
+            box-shadow: 0 0px 24px 0 rgb(0 0 0 / 6%), 0 1px 0px 0 rgb(0 0 0 / 2%);
+            color: black;
+        }
+
+        .sub_menu {
+            margin-top: 50px;
+        }
+
+        .left_sub_menu>.sub_menu li:hover {
+            color: ff5858;
+            background-color: #e1e1e1;
+        }
+
+        .left_sub_menu>.sub_menu li {
+            color: #333;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 20px 0px 8px 14px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .sub_menu>h2 {
+            padding-bottom: 4px;
+            border-bottom: 3px solid #797979;
+            margin-top: 30px;
+            font-size: 21px;
+            font-weight: 600;
+            color: #333;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-family: 'NotoKrB';
+            line-height: 35px;
+        }
+
+        .sub_menu .fas {
+            color: #ff5858;
+            font-size: 20px;
+            line-height: 20px;
+            float: right;
+            margin-right: 20px;
+        }
+
+        .sub_menu>.big_menu>.small_menu li {
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 0px solid #e1e1e1;
+            margin-left: 14px;
+            padding-top: 8px;
+        }
+
+        .big_menu {
+            cursor: pointer;
+        }
+
+        ul {
+            padding-inline-start: 0px;
+        }
+
+        a {
+            color: #797979;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ol,
+        ul {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .has_sub {
+            width: 100%;
+        }
+
+        .overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            /* background: rgba(0, 0, 0, 0.7); */
+        }
+
+        .hide_sidemenu {
+            display: none;
+        }
+   body{
+    background-color: #efefef;
+   scrollbar-width: none;
+    -ms-overflow-style: none;
+   }
 	#chatmain{
-		text-align:center;
-		width: 100%;
+		margin:0px 0px 0px 5%;
+		width: 95%;
 		height: 500px;
 		background-color: #B2C7D9;
 		padding: 20px;
@@ -27,11 +219,23 @@
 		font-color:black;
 	}
 	#content{
-	  width:200px;
+	
+	  width:85%;
+	  margin-left:5%;
 	  height:100px;
 	  font-size:20px;
+	  float:left
 	}
-
+	#send{
+		width:10%;
+		height:106px;
+		float:left;
+	}
+	#map{
+		margin:0px 0px 0px 3%;
+		width:97%;
+		height:300px;
+	}
 </style>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -55,14 +259,19 @@
 	System.out.println("(chatTest1페이지) 플로깅 기한 : " + login_id);
 	System.out.println("(chatTest1페이지) 제한 인원 : " + login_id);
 	
+
 	// 공고의 위도, 경도
-	ChatDAO dao = new ChatDAO();
+
+
+	
+	notice_BoardDAO dao = new notice_BoardDAO();
 	notice_BoardDTO dto = dao.lating(noticeNumber);
 	System.out.println("(chatTest1페이지) 공고의 위도 : " + dto.getLat());
 	System.out.println("(chatTest1페이지) 공고의 경도 : " + dto.getLng());
-	
 %>	
-	<div id="map" style="width:500px;height:340px;" align ='center'></div>
+
+
+	<div id="map"  align="center" ></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 	<div> 공고정보 </div>
 	
@@ -87,6 +296,7 @@
 
 
 	<!-- 채팅 기능  -->
+
 	<script type="text/javascript">
 	
 		// 데이터베이스에 저장된 채팅 정보를 웹에 뿌려주는 뿌려주는 부분
@@ -129,7 +339,6 @@
 				var chatRoomNum = <%=noticeNumber %>;
 				var id = "<%=login_id%>";
 				var content = $('#content').val();
-				
 				  $.ajax({
 				       url: "ChatInsertCon", //컨트롤러 URL
 				       dataType: 'text',
@@ -142,27 +351,11 @@
 				         //alert(xhr);
 				       } 
 				    });
-				  document.getElementById("send").value='';
+				  //document.getElementById("send").value='';
 			});
 
 	</script>
-<table>
-<tr>
-   <td><input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-   <td><input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-   <td><input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-   <td><input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-   <td><input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-</tr>
-<tr>
-   <td>메인</td>
-   <td>조회</td>
-   <td>후기</td>
-   <td>게시판</td>
-   <td>제보</td>
-</tr>
 <script>
-
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = {
     center: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>), // 지도의 중심좌표
@@ -184,6 +377,100 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 	
     marker.setMap(map);
 </script>
-</table>
+<div id="wrapper">
+        <div class="topbar" style="position: absolute; top:0;">
+            <!-- 왼쪽 메뉴 -->
+            <div class="left side-menu">
+                <div class="sidebar-inner">
+                    <div id="sidebar-menu">
+                        <ul>
+                            <li class="has_sub"><a href="javascript:void(0);" class="waves-effect">
+                                <i class="fas fa-bars"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 왼쪽 서브 메뉴 -->
+            <div class="left_sub_menu">
+                <div class="sub_menu">
+                    <input type="search" name="SEARCH" placeholder="SEARCH">
+                    <h2>TITLE</h2>
+                    <ul class="big_menu">
+                        <li>MENU 1 <i class="arrow fas fa-angle-right"></i></li>
+                        <ul class="small_menu">
+                            <li><a href="Main.jsp">메인</a></li>
+                            <li><a href="inquiryMain.jsp">조회</a></li>
+                            <li><a href="reviewMain.jsp">후기</a></li>
+                            <li><a href="Board.jsp">게시판</a></li>
+                            <li><a href="reportPostWrite.jsp">제보</a></li>
+                        </ul>
+                    </ul>
+                    <!--   <ul class="big_menu">
+                        <li>MENU 2 <i class="arrow fas fa-angle-right"></i></li>
+                        <ul class="small_menu">
+                            <li><a href="#">소메뉴2-1</a></li>
+                            <li><a href="#"></a>소메뉴2-2</a></li>
+                        </ul>
+                    </ul> -->
+                    
+                    <ul class="big_menu">
+                    <%if(info!=null){ %>
+                        <li><a href="myPage.jsp" class="a001">MYPAGE</a></li>
+                    <%}else{ %>
+                    	<li>회원가입이 시급합니다.</li>
+                    <%}%>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+  <div id="wrapper">
+        <div class="topbar" style="position: absolute; top:0;">
+            <!-- 왼쪽 메뉴 -->
+            <div class="left side-menu">
+                <div class="sidebar-inner">
+                    <div id="sidebar-menu">
+                        <ul>
+                            <li class="has_sub"><a href="javascript:void(0);" class="waves-effect">
+                                <i class="fas fa-bars"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 왼쪽 서브 메뉴 -->
+            <div class="left_sub_menu">
+                <div class="sub_menu">
+                    <h2>TITLE</h2>
+                    <ul class="big_menu">
+                        <li>MENU 1 <i class="arrow fas fa-angle-right"></i></li>
+                        <ul class="small_menu">
+                            <li><a href="Main.jsp">메인</a></li>
+                            <li><a href="inquiryMain.jsp">조회</a></li>
+                            <li><a href="reviewMain.jsp">후기</a></li>
+                            <li><a href="Board.jsp">게시판</a></li>
+                            <li><a href="reportPostWrite.jsp">제보</a></li>
+                        </ul>
+                    </ul>
+                    <!--   <ul class="big_menu">
+                        <li>MENU 2 <i class="arrow fas fa-angle-right"></i></li>
+                        <ul class="small_menu">
+                            <li><a href="#">소메뉴2-1</a></li>
+                            <li><a href="#"></a>소메뉴2-2</a></li>
+                        </ul>
+                    </ul> -->
+                    
+                    <ul class="big_menu">
+                    <%if(info!=null){ %>
+                        <li><a href="myPage.jsp" class="a001">MYPAGE</a></li>
+                    <%}else{ %>
+                    	<li>회원가입이 시급합니다.</li>
+                    <%}%>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
 </body>
 </html>
