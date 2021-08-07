@@ -24,7 +24,7 @@ public class ChatSelectCon extends HttpServlet {
 		String chatRoomNum = request.getParameter("chatRoomNum");
 		ChatDAO dao = new ChatDAO();
 		ArrayList<ChatDTO> list = dao.selectAllChat(chatRoomNum);
-		
+		// 다시해보봐여
 		response.setCharacterEncoding("UTF-8");
 		
 		/* json 데이터의 형태

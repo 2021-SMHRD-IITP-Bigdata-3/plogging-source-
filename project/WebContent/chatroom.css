@@ -1,0 +1,83 @@
+@charset "EUC-KR";
+<style>
+
+        .big_menu {
+            cursor: pointer;
+        }
+
+        ul {
+            padding-inline-start: 0px;
+        }
+
+        a {
+            color: #797979;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ol,
+        ul {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .has_sub {
+            width: 100%;
+        }
+
+        .overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            /* background: rgba(0, 0, 0, 0.7); */
+        }
+
+        .hide_sidemenu {
+            display: none;
+        }
+   body{
+    background-color: #efefef;
+   scrollbar-width: none;
+    -ms-overflow-style: none;
+   }
+	#chatmain{
+		margin:0px 0px 0px 5%;
+		width: 95%;
+		height: 500px;
+		background-color: #B2C7D9;
+		padding: 20px;
+		overflow-y: scroll;
+	}
+	
+	.my{
+		text-align: right;
+		font-color:black;		
+	}
+	.others{
+		text-align: left;
+		font-color:black;
+	}
+	#content{
+	
+	  width:85%;
+	  margin-left:5%;
+	  height:100px;
+	  font-size:20px;
+	  float:left
+	}
+	#send{
+		width:10%;
+		height:106px;
+		float:left;
+	}
+	#map{
+		margin:0px 0px 0px 3%;
+		width:97%;
+		height:300px;
+	}
+
+</style>

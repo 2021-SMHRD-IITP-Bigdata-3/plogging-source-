@@ -1,11 +1,5 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="Model.memberDTO"%>\
-<%@page import="Model.notice_BoardDAO"%>
-<%@page import="Model.reviewBoardDAO"%>
-<%@page import="Model.boardDAO"%>
-<%@page import="Model.reviewBoardDTO"%>
-<%@page import="Model.notice_BoardDTO"%>
-<%@page import="Model.boardDTO"%>
+
+<%@page import="Model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -14,7 +8,7 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="Main.css">
+<link rel="stylesheet" href="Main.css?after">
 </head>
 <body>
 <%
@@ -38,17 +32,12 @@
 	   <td id ="title" style = "width:124px;">plogging</td>
 	      <% if(info != null) { %>
 	   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
-	   <td ><i class="far fa-address-book"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
+	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 	      <% }else { %>
-	   <td> <input  type ="button" value = "로그인" onClick="location.href='Login.jsp'"> </td>
-	   <td><input style = "float : right" type ="button" value = "회원가입" onClick="location.href='Join.jsp'"></td>
+	   <td > <a id = "login" onClick="location.href='Login.jsp'" >로그인</a> </td>
       <% } %>
 	   
 	</tr>
-</table>
-<br><br>
-<table>
-<tr><td><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667">플로깅</a></td></tr>
 </table>
 <br>
 <table>
@@ -59,21 +48,7 @@
 </table>
 <br>
 <ul>
-<div id = "news"><th>요즘 뜨고 있는 핫 뉴스</th></div>
-
-<li id = "ae"><a href="https://www.news1.kr/articles/?4391799">LG헬로비전, #지구좋아산책 캠페인 진행…"플로깅 함께해요"</a></li>
-
-
-<li id = "ae"><a href="https://www.etoday.co.kr/news/view/2050450">GS파워, 비대면 '플로깅' 캠페인 전개</a></li>
-
-
-<li id = "ae"><a href="http://www.kbsm.net/default/index_view_page.php?idx=319697&part_idx=320">예천군 축산과, 기관단체와 환경정화 플로깅 활동</a></li>
-
-</ul>
-<br>
-<ul>
-	<div id ="cafe"><th>플로깅 경험자들의 블로그 & 카페</th></div>
-
+	<div id ="cafe" style ="padding: 15px 1px 5px 58px width:1012px margin-left:-50px"><th>플로깅이란?</th></div>
 	<li id = "ae"><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></li>
 	<li id = "ae"><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></li>
 	<li id = "ae"><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></li>

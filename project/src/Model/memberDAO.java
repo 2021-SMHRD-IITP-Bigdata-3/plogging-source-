@@ -24,7 +24,7 @@ public class memberDAO {
 	         Class.forName("oracle.jdbc.driver.OracleDriver");
 
 	         String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
-	         
+	         // url이상없나요? net워크 에러 뜨는뎅  
 	         String dbid = "campus_f6";
 	         String dbpw = "smhrd6";
 
@@ -35,7 +35,7 @@ public class memberDAO {
 	      }
 	   }
 
-
+//다시 ㄱ
    public void close() {
       try {
          if (rs != null) {
