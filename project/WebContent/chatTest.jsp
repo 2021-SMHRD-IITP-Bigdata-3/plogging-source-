@@ -242,32 +242,36 @@
 <body>
 <%
 	// 로그인 시 필요
-
 	memberDTO info = (memberDTO) session.getAttribute("info");
 	String login_id = info.getMemberId();
 	System.out.println("(chatTest1페이지) 로그인 아이디 login_id : " + login_id);
 	
-
 	// 조회, 공고방 목록에서 넘어올 때
 	request.setCharacterEncoding("EUC-KR");	
 	int noticeNumber = Integer.parseInt(request.getParameter("noticeNumber"));
 	String addr = request.getParameter("addr");
 	String plogDate = request.getParameter("plogDate");
 	String limitedNumber = request.getParameter("limitedNumber");
-	System.out.println("(chatTest1페이지) 공고 번호 noticeNumber : " + noticeNumber);
+	System.out.println("(chatTest1페이지) 공고 번호  : " + noticeNumber);
 	System.out.println("(chatTest1페이지) 플로깅 장소 : " + addr);
 	System.out.println("(chatTest1페이지) 플로깅 기한 : " + login_id);
 	System.out.println("(chatTest1페이지) 제한 인원 : " + login_id);
-	
 
 	// 공고의 위도, 경도
-
-
-	
 	notice_BoardDAO dao = new notice_BoardDAO();
 	notice_BoardDTO dto = dao.lating(noticeNumber);
 	System.out.println("(chatTest1페이지) 공고의 위도 : " + dto.getLat());
 	System.out.println("(chatTest1페이지) 공고의 경도 : " + dto.getLng());
+
+	// 로그인한 아이디가 이 공고에 참여했는지 여부 파악
+	ArrayList<notice_BoardDTO> array = dao.showMyNotice(login_id);
+	int check = 0;
+	for (int i=0; i<array.size();i++){
+		if (array.get(i).getNoticeNumber()==noticeNumber){
+			check = 1;
+		}
+	}
+	
 %>	
 
 
@@ -275,7 +279,6 @@
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 	<div> 공고정보 </div>
 	
-<!-- 자바스크립트로 id랑 content데이터를 담은 <div>를 계속 추가하는 거라서 폼태그는 복잡해질 듯 => 서브스트링방식으로 수정 -->
 	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 	<div id="chatmain">
 		<div id="chat">
@@ -283,15 +286,19 @@
 	</div>
 
 	<div>
-	  <% if (info!=null){%>
+		<% if (info!=null){%>
 			내 아이디 : <%=login_id%>
-	  <%}else{ %>
+		<% }else{ %>
 			<input type="text" id="id" name="id" placeholder="아이디 입력">
-	  <% } %>
-			<input type="text" id="content" name="content" placeholder="내용 입력">
-			<button id="send">입력</button>
+		<% } %>
+		<input type="text" id="content" name="content" placeholder="내용 입력">
+		<button id="send">입력</button><br>
+		<% if (check==0){%>
 			<input type='button' value="참가" name="attend" 
 				onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"><br>
+		<% }else{ %>
+			참가하신 채팅방입니다.
+		<% } %>
 	</div>
 
 

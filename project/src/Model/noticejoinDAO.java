@@ -52,6 +52,7 @@ public class noticejoinDAO {
 		}
 	}
 
+	// 참가 메소드
 	public int upload(noticeJoinDTO dto) {
 		try {
 			conn();
@@ -71,7 +72,7 @@ public class noticejoinDAO {
 		}
 		return cnt;
 	}
-
+	
 	// 제한 인원 +1 하는 메소드
 	public int upMember(int noticeNumber) {
 		try {
@@ -93,8 +94,7 @@ public class noticejoinDAO {
 		return cnt;
 	}
 
-	// 참가 버튼을 클릭만 해도 포인트가 쌓이는 거라서 좀 고민해봐야 할 듯.....
-	// 참가 시 1 포인트를 주는 메소드
+	// 참가 시 10 포인트를 주는 메소드
 	public int upPoint(String id) {
 		try {
 			conn();
