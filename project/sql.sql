@@ -26,7 +26,7 @@ maxvalue 9999;
 select * from chattable;
 
 insert into CHATTABLE values('1','test','test', sysdate );
-   
+
 게시판 board
 create table board(
    board_num number primary key, -- 게시물 번호
@@ -68,7 +68,9 @@ create table board_num(
 );
 
 insert into board_num(comments_number,board_num,member_id,comments_pw,comments_contents,comments_date) values(num_board_num.nextval,'test','test','test','test','sysdate');
+
 select * from BOARD_NUM;
+
 
 drop table board_num;
 

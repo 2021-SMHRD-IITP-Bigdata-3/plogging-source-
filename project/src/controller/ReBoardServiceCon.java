@@ -19,40 +19,45 @@ import Model.memberDTO;
 @WebServlet("/ReBoardServiceCon")
 public class ReBoardServiceCon extends HttpServlet {
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 request.setCharacterEncoding("EUC-KR");
-	      HttpSession session = request.getSession();
-	      String memberId=null;
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	      String content = request.getParameter("content");
-	      memberDTO info = (memberDTO) session.getAttribute("info");
-	      if(info!=null) {
-	    	  memberId=info.getMemberId();
-	      }else {
-	    	  memberId=request.getParameter("name");
-	      }
-	      String password = request.getParameter("password");
-	      int notice_num = Integer.parseInt(request.getParameter("number"));
+		request.setCharacterEncoding("EUC-KR");
+		HttpSession session = request.getSession();
+		memberDTO info = (memberDTO) session.getAttribute("info");
 
-	      System.out.println(memberId);
-	      System.out.println(content);
-	      System.out.println(notice_num);
-	      System.out.println(password);
-	      
-	      boardReDTO dto1 = new boardReDTO(notice_num, memberId, password,content);
-	      boardReDAO dao1 = new boardReDAO();
-	      int cnt = dao1.upload(dto1);
-	      
-	      String moveURL = "";
-	      if(cnt>0) {
-	         System.out.println("댓글 업로드 전송 성공");
-	         moveURL = "viewBoard.jsp";
-	      }else {
-	         System.out.println("댓글 업로드 전송 실패");
-	         moveURL = "Board.jsp";
-	      }
-	      response.sendRedirect(moveURL);
-	   }//
+		// 전역변수
+		String memberId = null;
+		
+		// viewBoard 댓글 쓰면 넘어오는 값들
+		int boardNum = Integer.parseInt(request.getParameter("boardNum"));
+		if (info != null) {
+			memberId = info.getMemberId();
+		} else {
+			memberId = request.getParameter("name");
+		}
+		String password = request.getParameter("password");		
+		String content = request.getParameter("content");
 
+		// 잘 넘어오는지 확인
+		System.out.println("(ReBoardServiceCon) boardNum : " + boardNum);
+		System.out.println("(ReBoardServiceCon) memberId : " + memberId);
+		System.out.println("(ReBoardServiceCon) password : " + password);
+		System.out.println("(ReBoardServiceCon) content : " + content);
+		 
+		boardReDTO dto1 = new boardReDTO(boardNum, memberId, password, content);
+		boardReDAO dao1 = new boardReDAO();
+		int cnt = dao1.upload(dto1);
+
+		String moveURL = "";
+		if (cnt > 0) {
+			System.out.println("댓글 업로드 전송 성공");
+			moveURL = "viewBoard.jsp?boardNum="+boardNum;
+		} else {
+			System.out.println("댓글 업로드 전송 실패");
+			moveURL = "Board.jsp";
+		}
+		response.sendRedirect(moveURL);
 	}
 
+}
