@@ -32,18 +32,14 @@ public class ReBoardServiceCon extends HttpServlet {
 	    	  memberId=request.getParameter("name");
 	      }
 	      String password = request.getParameter("password");
-	      
-	      boardDAO dao = new boardDAO();
-	      boardDTO dto = dao.showboard1();
-	      int boardNum = dto.getBoardNum();
-	      
-	      
+	      int notice_num = Integer.parseInt(request.getParameter("number"));
+
 	      System.out.println(memberId);
 	      System.out.println(content);
-	      System.out.println(boardNum);
+	      System.out.println(notice_num);
 	      System.out.println(password);
 	      
-	      boardReDTO dto1 = new boardReDTO(boardNum, memberId, password,content);
+	      boardReDTO dto1 = new boardReDTO(notice_num, memberId, password,content);
 	      boardReDAO dao1 = new boardReDAO();
 	      int cnt = dao1.upload(dto1);
 	      
@@ -51,7 +47,6 @@ public class ReBoardServiceCon extends HttpServlet {
 	      if(cnt>0) {
 	         System.out.println("댓글 업로드 전송 성공");
 	         moveURL = "viewBoard.jsp";
-	         session.setAttribute("board_num",boardNum);
 	      }else {
 	         System.out.println("댓글 업로드 전송 실패");
 	         moveURL = "Board.jsp";

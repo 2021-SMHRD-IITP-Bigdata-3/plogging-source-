@@ -1,3 +1,8 @@
+INSERT INTO board_num VALUES(num_board_num.nextval,64,1,1,1,sysdate)
+;(select board_num from board where board_num = 63)
+select * from board_num;
+select * from board;
+drop table board_num;
 채팅 chat
 create table chat(
    chat_number number primary key, -- 채팅 번호

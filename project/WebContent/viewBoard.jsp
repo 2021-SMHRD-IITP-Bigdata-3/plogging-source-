@@ -22,7 +22,7 @@
 
 <%
 memberDTO info = (memberDTO)session.getAttribute("info");
-int num =Integer.parseInt(request.getParameter("board_num"));
+int num = Integer.parseInt(request.getParameter("board_num"));
 
 System.out.println(num);
 
@@ -70,8 +70,9 @@ System.out.println(num);
          <table>
          <th>댓글</th>
          <% for(int i = 0; i<boardRe_list.size();i++){ %>
-         	<tr><td><%=boardRe_list.get(i).getMemberID()%>-> <%=boardRe_list.get(i).getCommentsContents()%></td></tr>
-            
+         	<tr>
+         		<td><%=boardRe_list.get(i).getMemberID()%>->
+         		 <%=boardRe_list.get(i).getCommentsContents()%></td></tr>
     		 <%} %>
          </table>
          <br>
@@ -81,13 +82,19 @@ System.out.println(num);
          <tr><th colspan="4">댓글</th></tr>
          <tr>
          <td width="100">이름</td>
-         <td><%if(info!=null){ %><span><%=info.getMemberId() %></span><%}else{ %><input type="text" name="name"><%} %></td>
+         <td><%if(info!=null){ %>
+         <span><%=info.getMemberId() %></span>
+         <%}else{ %>
+         <input type="text" name="name">
+         <%} %>
+         </td>
          <td width="100">비밀번호</td>
          <td width="150"><input type="password" name="password"></td>
          </tr>
          <tr>
          <td>내용</td>
          <td colspan="3"><textarea cols="60" name="content"></textarea></td>
+         <input type = "hidden" value = "<%=num%>" name = "number">
          </tr>
          <tr>
          <td colspan="4">
