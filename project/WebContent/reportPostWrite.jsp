@@ -20,8 +20,26 @@ jQuery(document).ready(function($) {
 		var fileSizeStr = ""; if ((1024*1024) <= fileSize) { // 파일 용량이 1메가 이상인 경우
 			console.log("fileSizeMb="+fileSizeMb.toFixed(2)); fileSizeStr = fileSizeMb.toFixed(2) + " Mb"; } else if ((1024) <= fileSize) { console.log("fileSizeKb="+parseInt(fileSizeKb)); fileSizeStr = parseInt(fileSizeKb) + " kb"; } else { console.log("fileSize="+parseInt(fileSize)); fileSizeStr = parseInt(fileSize) + " byte"; } // 업로드 파일 목록 생성
 			jQuery("#target_file_wrap").find('span').html('첨부파일 : ' + fileName + ' (' + fileSizeStr + ')'); } } else { alert("ERROR"); } }
-</script>
-<link rel="stylesheet" href="report.css">
+
+	</script>
+	<script>
+	// html dom 이 다 로딩된 후 실행된다.
+    $(document).ready(function(){
+        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+        $(".menu>a").click(function(){
+            var submenu = $(this).next("ul");
+ 
+            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+            if( submenu.is(":visible") ){
+                submenu.slideUp();
+            }else{
+                submenu.slideDown();
+            }
+        });
+    });
+
+	</script>
+<link rel="stylesheet" href="report.css?after">
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
@@ -31,12 +49,18 @@ jQuery(document).ready(function($) {
 <%
 	memberDTO info = (memberDTO)session.getAttribute("info");   
 %>
-
-   <div >
-      <table  class="mtable1">
-
-
-   <div>
+<div>
+    <ul style="list-style: none;">
+        <li class="menu" >
+            <a><div class="topicon">채팅방</div></a>
+            <ul class="hide" style="list-style: none;">
+                <li><div class="topicon">채팅방1</div></li>
+                <li><div class="topicon">채팅방2</div></li>
+                <li><div class="topicon">채팅방3</div></li>
+            </ul>
+        </li>
+    </ul>
+</div>
       <table class="mtable1" >
          <tr>
             <td style="text-align:left;"><h2 >제보하기</h2></td>
@@ -90,6 +114,7 @@ jQuery(document).ready(function($) {
 			<div class="dbutton3">후기</div>
 			<div class="dbutton4">게시판</div>
 			<div class="dbutton5">제보</div>
+			
 			
 	<script>
 	 <%if(lat!=null){%>

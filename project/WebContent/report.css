@@ -140,6 +140,7 @@ textarea {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   cursor: pointer;
 }
+
 .down{
 position: fixed;
 bottom: 0px;
@@ -198,4 +199,12 @@ span{
 font-size: 30px;
 
 }
+.menu a{cursor:pointer;}
+.menu .hide{display:none;}
+ul{
+   list-style:none;
+   padding-left:0px;
+   }
+   
+
 </style>
