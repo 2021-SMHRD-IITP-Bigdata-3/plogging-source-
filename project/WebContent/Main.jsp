@@ -13,6 +13,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="Main.css">
 </head>
 <body>
@@ -28,26 +29,19 @@
 
 %>
 
-  <td ><input type ="button" value = "채팅목록" onClick="location.href='chatChoice.jsp'"></td>
-<table>\
-<tr>
-   <td>싸이트명</td>
-   <td ><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-</tr>
-<tr>
-   <% if(info != null) { %>
-   <td><%=info.getMemberId() %>님</td>
-      <% }else { %>
-   <td> 로그인해주세요 </td>
+<td ><input type ="button" value = "채팅목록" onClick="location.href='chatChoice.jsp'"></td>
+<table>
+	<tr>
+	   <td id ="title" style = "width:124px;">plogging</td>
+	      <% if(info != null) { %>
+	   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
+	   <td ><i class="far fa-address-book"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
+	      <% }else { %>
+	   <td> <input  type ="button" value = "로그인" onClick="location.href='Login.jsp'"> </td>
+	   <td><input style = "float : right" type ="button" value = "회원가입" onClick="location.href='Join.jsp'"></td>
       <% } %>
-   <% if(info != null) { %>
-   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
-      <% }else { %>
-   <td> <input  type ="button" value = "로그인" onClick="location.href='Login.jsp'"> </td>
-   <td><input style = "float : right" type ="button" value = "회원가입" onClick="location.href='Join.jsp'"></td>
-      <% } %>
-
-</tr>
+	   
+	</tr>
 </table>
 <br><br>
 <table>
@@ -56,47 +50,39 @@
 <br>
 <table>
 <tr>
-<td><iframe width="600" height="300" src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<td><iframe src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </td>
 </tr>
 </table>
 <br>
-<table>
-<th>뉴스기사 및 칼럼</th>
-<tr>
-<td><a href="https://www.news1.kr/articles/?4391799">LG헬로비전, #지구좋아산책 캠페인 진행…"플로깅 함께해요"</a></td>
-</tr>
-<tr>
-<td><a href="https://www.etoday.co.kr/news/view/2050450">GS파워, 비대면 '플로깅' 캠페인 전개</a></td>
-</tr>
-<tr>
-<td><a href="http://www.kbsm.net/default/index_view_page.php?idx=319697&part_idx=320">예천군 축산과, 기관단체와 환경정화 플로깅 활동</a></td>
-</tr>
-</table>
-<br>
-<table>
-<th>플로깅 경험자들의 블로그 & 카페</th>
-<tr>
-<td><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기 (오산 세교 A-7 & 오산 청학 행복주택)</a></td>
-</tr>
-<tr>
-<td><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅'?, '플로킹'? 건강과 환경 모두 지키자!</a></td>
-</tr>
-<tr>
-<td><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></td>
-</tr>
-<tr>
-<td><a href="https://blog.naver.com/baekjeun/222452172788">나를 웃음짓게 하는 것은 같은 이상을 실천하는 사람이 있을때</a></td>
-</tr>
+<ul>
+<div id = "news"><th>요즘 뜨고 있는 핫 뉴스</th></div>
 
-</table>
+<li id = "ae"><a href="https://www.news1.kr/articles/?4391799">LG헬로비전, #지구좋아산책 캠페인 진행…"플로깅 함께해요"</a></li>
+
+
+<li id = "ae"><a href="https://www.etoday.co.kr/news/view/2050450">GS파워, 비대면 '플로깅' 캠페인 전개</a></li>
+
+
+<li id = "ae"><a href="http://www.kbsm.net/default/index_view_page.php?idx=319697&part_idx=320">예천군 축산과, 기관단체와 환경정화 플로깅 활동</a></li>
+
+</ul>
+<br>
+<ul>
+	<div id ="cafe"><th>플로깅 경험자들의 블로그 & 카페</th></div>
+
+	<li id = "ae"><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></li>
+	<li id = "ae"><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></li>
+	<li id = "ae"><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></li>
+	<li id = "ae"><a href="https://blog.naver.com/baekjeun/222452172788">나를 웃음짓게 하는 것은 같은 이상을 실천하는 사람이 있을때</a></li>
+</ul>
 <table>
 <div id="class="down""></div>
-   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></div>
-   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></div>
-   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></div>
-   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></div>
-   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 
 </table>
 </body>
