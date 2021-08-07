@@ -53,10 +53,12 @@ ArrayList<boardDTO> board_list = dao.board_li();
          <% for(int i = 0; i<board_list.size();i++){ %>
       <tr>
          <td><%=i+1 %></td>
-             <td><a href="viewBoard.jsp?board_num=<%=board_list.get(i).getBoardNum()%>"><%=board_list.get(i).getBoardTitle()%></a></td>
-             <td><%=board_list.get(i).getMemberId() %>
-             <td><%=board_list.get(i).getBoardImage() %></td>
-             <td><%=board_list.get(i).getBoardDate() %></td>
+             <td>
+             <a href="viewBoard.jsp?board_num=<%=board_list.get(i).getBoardNum()%>">
+             <%=board_list.get(i).getBoardTitle()%></a></td>
+	             <td><%=board_list.get(i).getMemberId() %>
+	             <td><%=board_list.get(i).getBoardImage() %></td>
+	             <td><%=board_list.get(i).getBoardDate() %></td>
          </tr>
          <%} %>
       </table>
