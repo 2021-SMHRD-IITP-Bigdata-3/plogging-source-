@@ -59,13 +59,12 @@ public class boardReDAO {
       
          psmt = conn.prepareStatement(sql);
          
-         psmt.setInt(1, dto.getCommentsNumber());
-         psmt.setString(2, dto.getBoardNum());
-         psmt.setString(3, dto.getMemberID());
-         psmt.setString(4, dto.getCommentsPw());
-         psmt.setString(5, dto.getCommentsContents());
-         
-         
+        
+         psmt.setInt(1,dto.getBoardNum());
+         psmt.setString(2, dto.getMemberID());
+         psmt.setString(3, dto.getCommentsPw());
+         psmt.setString(4, dto.getCommentsContents());
+
          cnt = psmt.executeUpdate();
          
       } catch (SQLException e) {
@@ -85,7 +84,7 @@ public class boardReDAO {
          rs = psmt.executeQuery();
          
          if(rs.next()) {
-            String boardNum = rs.getString(2);
+            int boardNum = rs.getInt(2);
             String memberID = rs.getString(3);
             String commentsPw = rs.getString(4);
             String commentsContents = rs.getString(5);
@@ -110,13 +109,12 @@ public class boardReDAO {
          
          while(rs.next()) {
             int commentsNumber = rs.getInt(1);
-            String boardNum = rs.getString(2);
-            String memberID = rs.getString(3);
-            String commentsPw = rs.getString(4);
-            String commentsContents = rs.getString(5);
-            String commentsDate=rs.getString(6);
+            String memberID = rs.getString(2);
+            String commentsPw = rs.getString(3);
+            String commentsContents = rs.getString(4);
+            String commentsDate=rs.getString(5);
             
-            boardReDTO    dto = new boardReDTO(commentsNumber, boardNum, memberID, commentsPw, commentsContents, commentsDate);
+            boardReDTO    dto = new boardReDTO(commentsNumber, memberID, commentsPw, commentsContents, commentsDate);
 
             boardRe_list.add(dto);         
          }
@@ -127,5 +125,48 @@ public class boardReDAO {
          close();
       } return boardRe_list;      
    }
-   
+   public int deleteOneboard(int num) {
+	     try {
+	        conn();
+	        String sql = "DELETE FROM board_num WHERE comments_number = ?";
+	        
+	        psmt = conn.prepareStatement(sql);
+	        
+	        psmt.setInt(1, num);
+	        
+	        cnt = psmt.executeUpdate();
+	        
+	     } catch (SQLException e) {
+	        e.printStackTrace();
+	     } finally {
+	        close();
+	     } return cnt;      
+	  }
+   public ArrayList<boardReDTO> boardRe_li(){
+	   ArrayList<boardReDTO> boardRe_list = new ArrayList<boardReDTO>();
+	   try {
+	         conn();
+	         String sql = "SELECT * FROM board_num";
+	         psmt = conn.prepareStatement(sql);
+	         rs = psmt.executeQuery();
+
+	         while(rs.next()) {
+	        	 int commentsNumber = rs.getInt(1);
+	        	 int boardNum = rs.getInt(2);
+	             String memberId = rs.getString(3);
+	             String commentsPw = rs.getString(4);
+	             String commentsContents = rs.getString(5);
+	             String commentsDate=rs.getString(6);
+	            
+	             boardReDTO dto = new boardReDTO(commentsNumber, boardNum,memberId, commentsPw, commentsContents, commentsDate);
+	            boardRe_list.add(dto);   
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      } return boardRe_list;   
+	      
+	   }
 }

@@ -42,7 +42,7 @@ memberDTO info = (memberDTO)session.getAttribute("info");
             </td>
          </tr>
          <tr>
-         <td><span name="memberId">작성자 : <%if(info!=null){%><%=info.getMemberId() %><%}else{ %>a<%} %></span></td>
+         <td>작성자 : <%if(info!=null){%><span><%=info.getMemberId() %></span><%}else{ %><span name="name">익명</span><%} %></span></td>
          </tr>
          <tr>
             <td colspan = "4">업로드 <input type = "file" name = "fileName"></td>
