@@ -43,6 +43,9 @@
       System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
    }
 
+   // 메인 들어오면 - 플로깅 기한 지난 공고들 연장 - 이거 실행하면 플로깅 날짜 다 다음주로 바뀌어서 우선 주석처리해둠
+//	notice_BoardDAO dao = new notice_BoardDAO();
+//	dao.plogDateUpdate();
 
 %>
 
