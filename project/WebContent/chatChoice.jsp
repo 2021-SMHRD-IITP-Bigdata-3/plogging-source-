@@ -27,11 +27,13 @@
 </style>
 </head>
 <body>
+<!-- 원래 채팅방 목록 페이지라서 chatChoice 였는데 , 자기가 신청한 공고 목록 페이지로 바뀜 -->
+
 <%	
 	memberDTO info = (memberDTO)session.getAttribute("info");
 
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
-	ChatDAO dao = new ChatDAO();
+	notice_BoardDAO dao = new notice_BoardDAO();
 	if (info!=null){
 		array = dao.showMyNotice(info.getMemberId());
 		for(int i =0; i<array.size(); i++){
@@ -40,8 +42,6 @@
 	} 
 %>
 
-<!-- 원래 채팅방 목록 페이지라서 chatChoice 였는데 , 자기가 신청한 공고 목록 페이지로 바뀜 -->
-<!-- 기능 확인용으로 만든거라 html/css는 다 수정해도 됨 -->
 
 <table>
 <tr>

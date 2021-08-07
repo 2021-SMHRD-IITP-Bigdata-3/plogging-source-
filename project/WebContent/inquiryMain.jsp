@@ -205,8 +205,8 @@ textarea {
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	notice_BoardDAO dao = new notice_BoardDAO();
 	if (info!=null){
-	array = dao.showBoard(info.getMemberId());
-
+		array = dao.showBoard(info.getMemberId());
+		
 	}
 %>
    <div>

@@ -13,22 +13,21 @@ public class ChatDAO {
 	ResultSet rs = null;
 	int cnt = 0;
 
-	   public void conn() {
-		      try {
-		         Class.forName("oracle.jdbc.driver.OracleDriver");
+	public void conn() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-		         String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
-		         
-		         String dbid = "campus_f6";
-		         String dbpw = "smhrd6";
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 
-		         conn = DriverManager.getConnection(url, dbid, dbpw);
+			String dbid = "campus_f6";
+			String dbpw = "smhrd6";
 
-		      } catch (Exception e) {
-		         e.printStackTrace();
-		      }
-		   }
+			conn = DriverManager.getConnection(url, dbid, dbpw);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void close() {
 		try {
@@ -67,7 +66,6 @@ public class ChatDAO {
 		return cnt;
 	}
 
-	
 	// 채팅방번호에 맞는 채팅내역들을 리스트로 반환하는 메소드
 	public ArrayList<ChatDTO> selectAllChat(String inputRoom_number) {
 		ArrayList<ChatDTO> list = new ArrayList<ChatDTO>();
@@ -89,33 +87,6 @@ public class ChatDAO {
 				String content = rs.getString(4);
 				String day = rs.getString(5);
 				ChatDTO dto = new ChatDTO(chat_number, chatroom_number, member_id, content, day);
-				list.add(dto);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return list;
-	}
-
-	
-	// 사용자가 신청한 공고만 채팅목록으로 보여주는 메소드 
-	// 신청한 순서대로 나열하고 싶다면? 신청시기를 컬럼으로 추가???ㅋㅋㅋㅋ
-	public ArrayList<notice_BoardDTO> showMyNotice(String inputId) {
-		ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
-		try {
-			conn();
-
-			String sql = "select * from notice_member where member_id = ?";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, inputId);
-			rs = psmt.executeQuery();
-
-			while (rs.next()) {
-				int notice_number = rs.getInt("notice_number");
-				notice_BoardDTO dto = new notice_BoardDTO(notice_number);
 				list.add(dto);
 			}
 		} catch (SQLException e) {
