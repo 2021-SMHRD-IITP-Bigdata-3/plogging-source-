@@ -1,3 +1,6 @@
+<%@page import="Model.boardReDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.boardReDAO"%>
 <%@page import="Model.memberDTO"%>
 <%@page import="Model.boardDTO"%>
 <%@page import="Model.boardDAO"%>
@@ -19,19 +22,14 @@
 
 <%
 memberDTO info = (memberDTO)session.getAttribute("info");
-
-
 boardDTO board_list = (boardDTO) session.getAttribute("board_list");
 
 int num = Integer.parseInt(request.getParameter("board_num"));
-
+System.out.println(num);
    boardDAO dao = new boardDAO();
    boardDTO dto = dao.showOne(num);
-
-
-   System.out.println(dto.getBoardNum());
-
-
+   boardReDAO dao1= new boardReDAO();
+   ArrayList<boardReDTO> boardRe_list= dao1.boardRe_li();
 %>
    
          <div id = "board">
@@ -58,12 +56,46 @@ int num = Integer.parseInt(request.getParameter("board_num"));
                         <h1><%= dto.getBoardContent() %></h1>
                      <% } %>
                   </td>
+                  <%if(info!=null){ %>
+                  <%if(info.getMemberId().equals(dto.getMemberId())) {%> 
+             <td> <a href = "DeleteOneServiceCon?num=<%=dto.getBoardNum() %>">삭제 </a></td>
+                <%}} %>
                </tr>
                <tr>
                   <td colspan="2"><a href="Board.jsp"><button>뒤로가기</button></a></td>
                </tr>
             </table>
          </div>
+         
+         <table>
+         <th>댓글</th>
+         <% for(int i = 0; i<boardRe_list.size();i++){ %>
+         	<tr><td><%=boardRe_list.get(i).getMemberID()%>-> <%=boardRe_list.get(i).getCommentsContents()%></td></tr>
+            
+    		 <%} %>
+         </table>
+         <br>
+         
+         <form action="ReBoardServiceCon" method="post">
+         <table>
+         <tr><th colspan="4">댓글</th></tr>
+         <tr>
+         <td width="100">이름</td>
+         <td><%if(info!=null){ %><span><%=info.getMemberId() %></span><%}else{ %><input type="text" name="name"><%} %></td>
+         <td width="100">비밀번호</td>
+         <td width="150"><input type="password" name="password"></td>
+         </tr>
+         <tr>
+         <td>내용</td>
+         <td colspan="3"><textarea cols="60" name="content"></textarea></td>
+         </tr>
+         <tr>
+         <td colspan="4">
+         <input type="submit" value="저장" name="cmd">
+         <input type="reset" value="다시쓰기">
+         </tr>
+         </table>
+         </form>
          <!-- Scripts -->
          <script src="assets/js/jquery.min.js"></script>
          <script src="assets/js/jquery.scrolly.min.js"></script>

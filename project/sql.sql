@@ -60,9 +60,10 @@ create table board_num(
    constraint memberID_fk foreign key(member_id) references member(member_id)
 );
 
-insert into board_num(comments_number,board_num,member_id,comments_pw,comments_contents,comments_date) values('test','test','test','test','test','sysdate');
+insert into board_num(comments_number,board_num,member_id,comments_pw,comments_contents,comments_date) values(num_board_num.nextval,'test','test','test','test','sysdate');
+select * from BOARD_NUM;
 
-
+drop table board_num;
 
 ½ÃÄö½º num_board_num
 create sequence num_board_num

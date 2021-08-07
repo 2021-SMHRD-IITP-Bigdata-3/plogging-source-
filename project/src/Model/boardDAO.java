@@ -223,5 +223,46 @@ public class boardDAO {
 	      } return board_list;   
 	      
 	   }
-
+ public int deleteOneboard(int num) {
+     try {
+        conn();
+        String sql = "DELETE FROM board WHERE board_num = ?";
+        
+        psmt = conn.prepareStatement(sql);
+        
+        psmt.setInt(1, num);
+        
+        cnt = psmt.executeUpdate();
+        
+     } catch (SQLException e) {
+        e.printStackTrace();
+     } finally {
+        close();
+     } return cnt;      
+  }
+ public boardDTO showboard1() {
+     try {
+        conn();
+        String sql = "SELECT * FROM board";
+        
+        psmt = conn.prepareStatement(sql);
+        rs = psmt.executeQuery();
+        
+        if(rs.next()) {
+           int board_num = rs.getInt(1);
+           String memberId = rs.getString(2);
+           String boardDate = rs.getString(3);
+           String boardContent = rs.getString(4);
+           String boardTitle = rs.getString(5);
+           String boardImage = rs.getString(6);
+           
+           dto = new boardDTO(board_num, memberId, boardDate, boardContent, boardTitle, boardImage);
+           
+        }
+     } catch (SQLException e) {
+        e.printStackTrace();
+     } finally {
+        close();
+     } return dto;
+  }
 }
