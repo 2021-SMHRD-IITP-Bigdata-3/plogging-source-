@@ -10,10 +10,7 @@ public class notice_BoardDTO {
    private String noticeImage;
    private String addr;
    private double lat;
-   private double lng;
-
-   //
-   
+   private double lng;   
    
    public notice_BoardDTO(int noticeNumber,String limitedNumber, String plogDate, String noticeImage, String addr) {
       super();

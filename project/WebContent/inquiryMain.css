@@ -1,0 +1,190 @@
+@charset "EUC-KR";
+<style>
+body {
+   background-color: #efefef;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+
+table {
+   width: 360px;
+}
+
+tr, td {
+   /* padding: 5px; */
+   
+}
+
+.topicon {
+   background-color: #2DB400;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: left;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 15px;
+}
+h1{
+   padding: 70px;
+   }
+
+a {
+   width: 330px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+
+div {
+   /* padding: 10px */
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.header{
+	width:100%
+}
+
+.Itable{
+	background-color:#BDBDBD
+    padding: 10px;
+}
+textarea {
+	 border: 0;
+	margin: 0 auto;
+	width:50%;
+	height: 500px;
+	outline: none;
+	resize: none;
+	}
+.tex {
+   width: 330px;
+   height: 25px;
+   margin: 4px 2px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 30px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+
+.stex1 {
+   width: 270px;
+   height: 25px;
+   margin: 4px 2px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+
+.stex2 {
+   width: 220px;
+   height: 25px;
+   margin: 4px 2px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+
+.button {
+   background-color: #2DB400;
+   width: 330px;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 12px;
+}
+
+.dbutton {
+   background-color: #2DB400;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 12px;
+}
+
+  #value{
+    border: none;
+    background: #E0D3B6;
+    padding: 6px;
+    font-size: 18px;
+    width: 80%;
+    border-radius: 6px;
+    color: white;
+  }
+  #value:focus{
+    outline: none;
+  }
+  .container{
+    background: #FFFFF5;
+    padding: 1%;
+  }
+  .item{
+    margin: 3% 0px;
+    display: flex;
+    align-items: center;
+  }
+  #iconee{
+  	font-size:2.5em;
+  	width:900px;
+  	margin:0px 0px 0px 0px;
+  }
+  #value{
+    width: 1000px;
+    height: 53px
+  }
+  #value::placeholder{
+  	font-size : 1em;
+  }
+  #input{
+  	float :right;
+  	font-size:2em;
+  	margin:-19px 41px -15px 0px;
+  	}
+  	.down{
+	position: fixed;
+	bottom: 0px;
+	width:100%;
+	height:60px;
+	border: none;
+	background: #efefef;
+	color: white;
+	padding: 12px;
+	font-weight: bold;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+}
+</style>

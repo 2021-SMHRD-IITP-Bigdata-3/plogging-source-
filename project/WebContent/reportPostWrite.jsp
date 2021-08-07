@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-	<%@page import="java.util.ArrayList"%>
+   pageEncoding="EUC-KR"%>
+   <%@page import="java.util.ArrayList"%>
 <%@page import="Model.memberDTO"%>
 <!DOCTYPE html>
 <html>
@@ -15,52 +15,25 @@ jQuery(document).ready(function($) {
 	if (files != null) { for (var i = 0; i < files.length; i++) { // 파일 이름
 		var fileName = files[i].name; var fileNameArr = fileName.split("\."); // 확장자
 		var ext = fileNameArr[fileNameArr.length - 1]; var fileSize = files[i].size; // 파일 사이즈(단위 :byte)
-		console.log("fileSize="+fileSize); if (fileSize <= 0) { console.log("0kb file return"); return; } var fileSizeKb = fileSize / 1024; // 파일 사이즈(단위 :kb)
+		console.log("fileSize="+fileSize); if (fileSize <= 0) { console.log("0kb file return"); return; } var fileSizeKb = fileSize / 1024; // 파일 사이즈(단위 :
 		var fileSizeMb = fileSizeKb / 1024; // 파일 사이즈(단위 :Mb)
 		var fileSizeStr = ""; if ((1024*1024) <= fileSize) { // 파일 용량이 1메가 이상인 경우
 			console.log("fileSizeMb="+fileSizeMb.toFixed(2)); fileSizeStr = fileSizeMb.toFixed(2) + " Mb"; } else if ((1024) <= fileSize) { console.log("fileSizeKb="+parseInt(fileSizeKb)); fileSizeStr = parseInt(fileSizeKb) + " kb"; } else { console.log("fileSize="+parseInt(fileSize)); fileSizeStr = parseInt(fileSize) + " byte"; } // 업로드 파일 목록 생성
 			jQuery("#target_file_wrap").find('span').html('첨부파일 : ' + fileName + ' (' + fileSizeStr + ')'); } } else { alert("ERROR"); } }
 
-	</script>
-	<script>
-	// html dom 이 다 로딩된 후 실행된다.
-    $(document).ready(function(){
-        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-        $(".menu>a").click(function(){
-            var submenu = $(this).next("ul");
- 
-            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.slideUp();
-            }else{
-                submenu.slideDown();
-            }
-        });
-    });
 
 	</script>
+
 <link rel="stylesheet" href="report.css?after">
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<body style = "background-color: #dadbdb";>
-
-
+<body style = "background-color: #dadbdb">
 <%
-	memberDTO info = (memberDTO)session.getAttribute("info");   
+
+   memberDTO info = (memberDTO)session.getAttribute("info");   
+
 %>
-<div>
-    <ul style="list-style: none;">
-        <li class="menu" >
-            <a><div class="topicon">채팅방</div></a>
-            <ul class="hide" style="list-style: none;">
-                <li><div class="topicon">채팅방1</div></li>
-                <li><div class="topicon">채팅방2</div></li>
-                <li><div class="topicon">채팅방3</div></li>
-            </ul>
-        </li>
-    </ul>
-</div>
       <table class="mtable1" >
          <tr>
             <td style="text-align:left;"><h2 >제보하기</h2></td>
@@ -89,7 +62,6 @@ jQuery(document).ready(function($) {
 							src="Map.png"  height="100" ></a>
 <%
  	request.setCharacterEncoding("EUC-KR");
-
 	 String lat = request.getParameter("lat");
 	 String lng = request.getParameter("lng");
 	 String addr = request.getParameter("addr");
@@ -109,18 +81,16 @@ jQuery(document).ready(function($) {
 			<br><br><br><br>			
 		</form>
 		<div class="down"></div>
-			<div class="dbutton1">메인</div>
-			<div class="dbutton2">조회</div>
-			<div class="dbutton3">후기</div>
-			<div class="dbutton4">게시판</div>
-			<div class="dbutton5">제보</div>
-			
-			
+			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
+			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
+			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>
+			<div class="dbutton4" onClick="location.href='Board.jsp'">게시판</div>
+			<div class="dbutton5" onClick="location.href='reportPostWrite.jsp'">제보</div>
 	<script>
 	 <%if(lat!=null){%>
      document.getElementById('lat').value = "<%=lat%>";
      document.getElementById('lng').value = "<%=lng%>";
      document.getElementById('addr').value = "<%=addr%>";
-  <%}%>	</script>
+  <%}%>   </script>
 </body>
 </html>

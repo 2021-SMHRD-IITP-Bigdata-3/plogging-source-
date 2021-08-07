@@ -243,38 +243,73 @@
 <%
 	// 로그인 시 필요
 	memberDTO info = (memberDTO) session.getAttribute("info");
+	String login_id = info.getMemberId();
+	System.out.println("(chatTest1페이지) 로그인 아이디 login_id : " + login_id);
 	
-	// 채팅 목록에서 넘어올 때 
-	request.setCharacterEncoding("EUC-KR");
-	int chatRoomNum = Integer.parseInt(request.getParameter("chatRoomNum"));
-	System.out.println("(chatTest1페이지)chatRoomNum : " + chatRoomNum);
-	
+	// 조회, 공고방 목록에서 넘어올 때
+	request.setCharacterEncoding("EUC-KR");	
+	int noticeNumber = Integer.parseInt(request.getParameter("noticeNumber"));
+	String addr = request.getParameter("addr");
+	String plogDate = request.getParameter("plogDate");
+	String limitedNumber = request.getParameter("limitedNumber");
+	System.out.println("(chatTest1페이지) 공고 번호  : " + noticeNumber);
+	System.out.println("(chatTest1페이지) 플로깅 장소 : " + addr);
+	System.out.println("(chatTest1페이지) 플로깅 기한 : " + login_id);
+	System.out.println("(chatTest1페이지) 제한 인원 : " + login_id);
+
+	// 공고의 위도, 경도
 	notice_BoardDAO dao = new notice_BoardDAO();
-	notice_BoardDTO dto = dao.lating(chatRoomNum);
+	notice_BoardDTO dto = dao.lating(noticeNumber);
+	System.out.println("(chatTest1페이지) 공고의 위도 : " + dto.getLat());
+	System.out.println("(chatTest1페이지) 공고의 경도 : " + dto.getLng());
+
+	// 로그인한 아이디가 이 공고에 참여했는지 여부 파악
+	ArrayList<notice_BoardDTO> array = dao.showMyNotice(login_id);
+	int check = 0;
+	for (int i=0; i<array.size();i++){
+		if (array.get(i).getNoticeNumber()==noticeNumber){
+			check = 1;
+		}
+	}
 	
-	System.out.println("(chatTest1페이지)chatRoomNum : " + dto.getLat());
-	System.out.println("(chatTest1페이지)chatRoomNum : " + dto.getLng());
 %>	
 
 
 	<div id="map"  align="center" ></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 	<div> 공고정보 </div>
+	
 	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 	<div id="chatmain">
 		<div id="chat">
 		</div>
 	</div>
+
 	<div>
+		<% if (info!=null){%>
+			내 아이디 : <%=login_id%>
+		<% }else{ %>
+			<input type="text" id="id" name="id" placeholder="아이디 입력">
+		<% } %>
 		<input type="text" id="content" name="content" placeholder="내용 입력">
-		<button id="send">입력</button>
+		<button id="send">입력</button><br>
+		<% if (check==0){%>
+			<input type='button' value="참가" name="attend" 
+				onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"><br>
+		<% }else{ %>
+			참가하신 채팅방입니다.
+		<% } %>
 	</div>
+
+
+	<!-- 채팅 기능  -->
+
 	<script type="text/javascript">
 	
 		// 데이터베이스에 저장된 채팅 정보를 웹에 뿌려주는 뿌려주는 부분
 		// setInterval은 주기적인 실행 함수로 0.2초마다 셀렉트해서 뿌려주겠다는 의미
 		setInterval(function(){
-			var chatRoomNum = <%=chatRoomNum %>;
+			var chatRoomNum = <%=noticeNumber%>;
 			$.ajax({
 			       url: "ChatSelectCon", //컨트롤러 URL
 			       dataType: 'json',
@@ -291,7 +326,7 @@
 			    		for(var i = 0; i < res.length; i++){
 			    			var id = res[i].member_id;
 			    			var content = res[i].content;
-			    			if(id=="<%=info.getMemberId()%>"){
+			    			if(id=="<%=login_id%>"){
 			    				chatContainer.append("<div class='my'>" + id + " : " + content + "</div>")	
 			    			}else{
 				    			chatContainer.append("<div class='others'>" + id + " : " + content + "</div>")
@@ -303,13 +338,13 @@
 			       } 
 			    });
 		}, 200);
-        // 하단 스크롤 이동 버튼
 
+		
 			// 아이디와 채팅내용 입력받는 부분
 			// 입력받은 값을 ChatInsertCon으로 보내서 데이터베이스에 넣으려 해
 			$("#send").on('click',function(){
-				var chatRoomNum = <%=chatRoomNum %>;
-				var id = "<%=info.getMemberId()%>";
+				var chatRoomNum = <%=noticeNumber %>;
+				var id = "<%=login_id%>";
 				var content = $('#content').val();
 				  $.ajax({
 				       url: "ChatInsertCon", //컨트롤러 URL
@@ -326,7 +361,8 @@
 				  //document.getElementById("send").value='';
 			});
 
-			
+	</script>
+<script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = {
     center: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>), // 지도의 중심좌표

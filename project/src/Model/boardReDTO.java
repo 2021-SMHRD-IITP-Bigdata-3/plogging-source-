@@ -3,7 +3,7 @@ package Model;
 public class boardReDTO {
 	
 	private int commentsNumber;
-	private String boardNum;
+	private int boardNum;
 	private String memberID;
 	private String commentsPw;
 	private String commentsContents;
@@ -11,7 +11,44 @@ public class boardReDTO {
 	
 	
 	
-	public boardReDTO(int commentsNumber, String boardNum, String memberID, String commentsPw,
+	public boardReDTO(int boardNum, String memberID, String commentsPw, String commentsContents) {
+		super();
+		this.boardNum = boardNum;
+		this.memberID = memberID;
+		this.commentsPw = commentsPw;
+		this.commentsContents = commentsContents;
+	}
+
+
+	public boardReDTO(int commentsNumber, String memberID, String commentsPw, String commentsContents,
+			String commentsDate) {
+		super();
+		this.commentsNumber = commentsNumber;
+		this.memberID = memberID;
+		this.commentsPw = commentsPw;
+		this.commentsContents = commentsContents;
+		this.commentsDate = commentsDate;
+	}
+
+
+	public boardReDTO(String memberID, String commentsPw, String commentsContents) {
+		super();
+		this.memberID = memberID;
+		this.commentsPw = commentsPw;
+		this.commentsContents = commentsContents;
+	}
+
+
+	public boardReDTO(String memberID, String commentsPw, String commentsContents, String commentsDate) {
+		super();
+		this.memberID = memberID;
+		this.commentsPw = commentsPw;
+		this.commentsContents = commentsContents;
+		this.commentsDate = commentsDate;
+	}
+
+
+	public boardReDTO(int commentsNumber, int boardNum, String memberID, String commentsPw,
 			String commentsContents, String commentsDate) {
 		super();
 		this.commentsNumber = commentsNumber;
@@ -29,12 +66,17 @@ public class boardReDTO {
 	public void setCommentsNumber(int commentsNumber) {
 		this.commentsNumber = commentsNumber;
 	}
-	public String getBoardNum() {
+	
+	public int getBoardNum() {
 		return boardNum;
 	}
-	public void setBoardNum(String boardNum) {
+
+
+	public void setBoardNum(int boardNum) {
 		this.boardNum = boardNum;
 	}
+
+
 	public String getMemberID() {
 		return memberID;
 	}

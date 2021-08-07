@@ -37,6 +37,8 @@ insert into board (board_num,member_id,board_date,board_content,board_title,boar
 values(num_board1.nextval,'test',sysdate,'test','test','test');
 
 
+
+
 drop table board;
 
 drop sequence num_board1
@@ -60,9 +62,10 @@ create table board_num(
    constraint memberID_fk foreign key(member_id) references member(member_id)
 );
 
-insert into board_num(comments_number,board_num,member_id,comments_pw,comments_contents,comments_date) values('test','test','test','test','test','sysdate');
+insert into board_num(comments_number,board_num,member_id,comments_pw,comments_contents,comments_date) values(num_board_num.nextval,'test','test','test','test','sysdate');
+select * from BOARD_NUM;
 
-
+drop table board_num;
 
 ½ÃÄö½º num_board_num
 create sequence num_board_num
@@ -116,6 +119,8 @@ drop table review_board;
 select * from review_board;
 update review_board set lng = 126.919400;
 select * from review_board where review_number = 2;
+
+
 
 ½ÃÄö½º num_review_board
 create sequence num_review_board
