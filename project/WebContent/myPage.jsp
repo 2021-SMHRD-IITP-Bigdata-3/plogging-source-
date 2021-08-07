@@ -171,7 +171,6 @@ for(int i =0; i<reviewBoard_list.size();i++){
 }
 
 %>
-<<<<<<< HEAD
 <div id="wrapper">
         <div class="topbar" style="position: absolute; top:0;">
             <!-- 왼쪽 메뉴 -->
@@ -231,6 +230,7 @@ for(int i =0; i<reviewBoard_list.size();i++){
          </tr>
       </table>
    </div>
+ 
    <table align="center">
       <tr>
          <td><h3 align="center"><%=info.getMemberId() %>의 마이페이지</h3></td>
@@ -267,10 +267,11 @@ for(int i =0; i<reviewBoard_list.size();i++){
             </tr>
         <%}} %>
          </table>
+         
          <br>
    </div>   
    <br><br><br><br>
    <br>
-
+   <a href="Main.jsp"><button>뒤로가기</button></a>
 </body>
 </html>

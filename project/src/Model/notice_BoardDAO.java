@@ -181,5 +181,17 @@ public class notice_BoardDAO {
 			close();
 		}return noticelist2;
 	}
+	
+	// 공고의 플로깅 날짜만 추출하는 메소드 
+	// 이건 나중에 디자인에 따라 원하는 형태로 바꿀 수 있게 하려고 메소드로 만듦. jsp안 건드리고 이 메소드만 바꾸면 돼~
+	public String changeDateFormat(String plogDate) {
+		String year = plogDate.substring(0,4);
+		String month = plogDate.substring(5,7);
+		String day = plogDate.substring(8,10);
+		// 여기서 원하는 포맷으로 수정하면 돼
+		String result =  month + "." + day;
+		return result;
+	}
+
 }
 			   

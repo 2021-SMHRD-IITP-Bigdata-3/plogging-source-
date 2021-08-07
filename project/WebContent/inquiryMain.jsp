@@ -19,6 +19,13 @@
 	if (info!=null){
 		array = dao.showBoard(info.getMemberId());
 	}
+	
+	// 플로깅 날짜 형태 변환 (원하는 꼴로 다 수정 가능합니다~)
+	System.out.println("날짜 변환 확인 : " + dao.changeDateFormat(array.get(1).getPlogDate()));
+
+
+    
+    
 %>
    <div>
       <table align="center" >
@@ -46,7 +53,7 @@
 </table>
 <table align="center" >
     		<div class="container" style="display:none">
-           	<%for(int i=0; i<array.size(); i++){ %>
+           	<%for(int i=0; i<array.size(); i++){%>
 				<%if(info != null){%>
 				<form action = "chatTest.jsp">
 		           	<tr>
@@ -54,7 +61,7 @@
 							<div class = "item"><span><br>
 							<span><%=array.get(i).getNoticeImage()%></span><br>
 							<span id="iconee" class="name" name="addr">주소지 :<%=array.get(i).getAddr() %></span><br>
-							<span id="iconee" name="plogDate">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
+							<span id="iconee" name="plogDate">플로깅 기한 : <%=dao.changeDateFormat(array.get(i).getPlogDate())%></span><br>
 							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
 							<span id="iconee" name="limitedNumber">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
 							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>

@@ -20,11 +20,15 @@ public class BoardServiceCon extends HttpServlet {
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
       request.setCharacterEncoding("EUC-KR");
+      
       HttpSession session = request.getSession();
+      String memberId=null;
       String boardTitle = request.getParameter("title");
       String boardContent = request.getParameter("textarea");
       memberDTO info = (memberDTO) session.getAttribute("info");
-      String memberId= info.getMemberId();
+      
+      memberId= info.getMemberId();
+      
       String boardImage = request.getParameter("fileName");
  
       System.out.println(memberId);
