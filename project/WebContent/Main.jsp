@@ -1,11 +1,5 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="Model.memberDTO"%>\
-<%@page import="Model.notice_BoardDAO"%>
-<%@page import="Model.reviewBoardDAO"%>
-<%@page import="Model.boardDAO"%>
-<%@page import="Model.reviewBoardDTO"%>
-<%@page import="Model.notice_BoardDTO"%>
-<%@page import="Model.boardDTO"%>
+
+<%@page import="Model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
