@@ -27,21 +27,22 @@
 </style>
 </head>
 <body>
+<!-- 원래 채팅방 목록 페이지라서 chatChoice 였는데 , 자기가 신청한 공고 목록 페이지로 바뀜 -->
+
 <%	
 	memberDTO info = (memberDTO)session.getAttribute("info");
 
-	ArrayList<notice_BoardDTO> n_list = new ArrayList<notice_BoardDTO>();
-	ChatDAO dao = new ChatDAO();
+	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
+	notice_BoardDAO dao = new notice_BoardDAO();
 	if (info!=null){
-		n_list = dao.showMyNotice(info.getMemberId());
-		for(int i =0; i<n_list.size(); i++){
-			System.out.print(" 공고 번호  : " + n_list.get(i).getNoticeNumber() );
+		array = dao.showMyNotice(info.getMemberId());
+		for(int i =0; i<array.size(); i++){
+			System.out.print(" 공고 번호  : " + array.get(i).getNoticeNumber() );
 		}
 	} 
 %>
 
-<!-- 원래 채팅방 목록 페이지라서 chatChoice 였는데 , 자기가 신청한 공고 목록 페이지로 바뀜 -->
-<!-- 기능 확인용으로 만든거라 html/css는 다 수정해도 됨 -->
+
 <table>
 <tr>
    <td>싸이트명</td>
@@ -72,11 +73,11 @@
         </div>
 		<div class="container">
            	<% if(info != null) { %>
-				<% for(int i=0; i<n_list.size(); i++){ %>
+				<% for(int i=0; i<array.size(); i++){ %>
 		            <div class = "item"><span style="color: green;"><br>
 			            <span>
-			            	<input type="button" value="<%=n_list.get(i).getNoticeNumber()%>번 공고" name="chat"
-									onClick="location.href='chatTest.jsp?chatRoomNum=<%=n_list.get(i).getNoticeNumber()%>'">
+			            	<input type="button" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat"
+									onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'">
 						</span>
 					</div>
 				<%}%>

@@ -9,191 +9,16 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-body {
-   background-color: #efefef;
-   scrollbar-width: none;
-   -ms-overflow-style: none;
-}
-
-table {
-   width: 360px;
-}
-
-tr, td {
-   /* padding: 5px; */
-   
-}
-
-.topicon {
-   background-color: #2DB400;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: left;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 15px;
-}
-h1{
-   padding: 70px;
-   }
-
-a {
-   width: 330px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-div {
-   /* padding: 10px */
-   margin-left: auto;
-   margin-right: auto;
-}
-
-.header{
-	width:100%
-}
-
-.Itable{
-	background-color:#BDBDBD
-    padding: 10px;
-}
-textarea {
-	 border: 0;
-	margin: 0 auto;
-	width:50%;
-	height: 500px;
-	outline: none;
-	resize: none;
-	}
-.tex {
-   width: 330px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 30px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-.stex1 {
-   width: 270px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-.stex2 {
-   width: 220px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-.button {
-   background-color: #2DB400;
-   width: 330px;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   border-radius: 12px;
-}
-
-.dbutton {
-   background-color: #2DB400;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   border-radius: 12px;
-}
-
-  #value{
-    border: none;
-    background: #E0D3B6;
-    padding: 6px;
-    font-size: 18px;
-    width: 80%;
-    border-radius: 6px;
-    color: white;
-  }
-  #value:focus{
-    outline: none;
-  }
-  .container{
-    background: #FFFFF5;
-    padding: 1%;
-  }
-  .item{
-    margin: 3% 0px;
-    display: flex;
-    align-items: center;
-  }
-  #iconee{
-  	font-size:2.5em;
-  	width:900px;
-  	margin:0px 0px 0px 0px;
-  }
-  #value{
-    width: 1000px;
-    height: 53px
-  }
-  #value::placeholder{
-  	font-size : 1em;
-  }
-  #input{
-  	float :right;
-  	font-size:2em;
-  	margin:-19px 41px -15px 0px;
-  	}
-</style>
+<link href = "inquiryMain.css" rel = "stylesheet">
 </head>
 <body>
 <%
 	memberDTO info = (memberDTO)session.getAttribute("info");
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	notice_BoardDAO dao = new notice_BoardDAO();
-	array = dao.showBoard(info.getMemberId());
-	
-	//신청할 아이디 정보
+	if (info!=null){
+		array = dao.showBoard(info.getMemberId());
+	}
 %>
    <div>
       <table align="center" >
@@ -207,7 +32,6 @@ textarea {
    </div>
 <br><br><br><br><br>
 
-<form action = "inquiryServiceCon" method ="post">
 <table align="center" >
 	<tr>
 		<td>
@@ -223,29 +47,32 @@ textarea {
 <table align="center" >
     		<div class="container" style="display:none">
            	<%for(int i=0; i<array.size(); i++){ %>
-           	<%if(info != null){%>
-           	<tr>
-    			<td class="Itable">
-				<div class = "item"><span><br>
-				<span id = "iconee"><%=array.get(i).getNoticeImage()%></span><br>
-				<span id = "iconee" class = "name">주소지 :<%=array.get(i).getAddr() %></span><br>
-				<span id = "iconee">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
-				<span><input id = "iconee" type= "hidden" name = "noticeNumber" value = "<%=array.get(i).getNoticeNumber()%>"></span>
-				<span id = "iconee">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
-				<span><input type = "submit" value = "참가" id="input"></span></div>
-			  	<td>
-    		</tr>
-    		</div>
-			  <%}else{%>
-			<tr >
+				<%if(info != null){%>
+				<form action = "chatTest.jsp">
+		           	<tr>
+		    			<td class="Itable">
+							<div class = "item"><span><br>
+							<span><%=array.get(i).getNoticeImage()%></span><br>
+							<span id="iconee" class="name" name="addr">주소지 :<%=array.get(i).getAddr() %></span><br>
+							<span id="iconee" name="plogDate">플로깅 기한 :<%=array.get(i).getPlogDate()%></span><br>
+							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
+							<span id="iconee" name="limitedNumber">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
+							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
+							<span id = "iconee"><input type = "submit" value = "참가"></span></div>
+							</div>
+						<td>
+		    		</tr>
+		    	 </form>
+    	</div>  	
+				<%}else{%>
+			<tr>
     			<td class="Itable">
 			   		회원님께서는 이 공고를 신청할 수 없습니다!
 			   	<td>
     		</tr>
-			  	<%} %>
-			  <%}%>	
-</form>
-</table>
+		</div>
+				<%}%>
+			<%}%>
 <br><br>
 <!-- <table>
 	<tr>
@@ -260,15 +87,13 @@ textarea {
 	</tr>
 </table> 
 <br><br><br><br>
-<table align="center">
-<tr>
-	<td><input type="button" class="dbutton" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-	<td><input type="button" class="dbutton" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-	<td><input type="button" class="dbutton" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-	<td><input type="button" class="dbutton" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-	<td><input type="button" class="dbutton" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-</tr>
-</table >
+		<div class="down">
+			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
+			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
+			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>
+			<div class="dbutton4" onClick="location.href='Board.jsp'">게시판</div>
+			<div class="dbutton5" onClick="location.href='reportPostWrite.jsp'">제보</div>
+		</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script>
 
@@ -289,5 +114,6 @@ textarea {
       }
     
 </script>
+
 </body>
 </html>
