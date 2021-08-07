@@ -14,7 +14,7 @@ create table chat(
    references notice(notice_number));
 
 drop table chattable;
-
+select * from notice;
 채팅번호시퀀스 num_chat
 drop sequence num_chat;
 

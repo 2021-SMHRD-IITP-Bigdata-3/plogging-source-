@@ -45,8 +45,8 @@
     -ms-overflow-style: none;
    }
 	#chatmain{
-		margin:0px 0px 0px 5%;
-		width: 95%;
+		margin:auto;
+		width: 90%;
 		height: 500px;
 		background-color: #B2C7D9;
 		padding: 20px;
@@ -60,6 +60,49 @@
 	.others{
 		text-align: left;
 		font-color:black;
+	}
+	
+/*	.myContent{
+		text-align: right;
+		font-color:black;
+		background-color:pink;
+	}*/
+	
+	.myContent{  
+	text-align:right;
+	margin: 0px 0px 0px 532px;
+	width:250px; 
+	height:50px;
+	background:pink; 
+	border-radius: 10px;
+	}
+	.myContent:after {
+	 border-top:00px solid transparent; 
+	 border-left: 10px solid transparent; 
+	 border-right: 0px solid transparent; 
+	 border-bottom: 10px solid pink; 
+	 content:""; 
+	 position:absolute;
+	 top:-10px;
+	 left:200px;  
+	}
+	.otherContent{
+	text-align:left;
+	 position:relative; 
+	 width:250px; 
+	 height:50px;
+	  background:pink; 
+	  border-radius: 10px;
+	}
+	.balloon:after { 
+	 border-top:00px solid transparent; 
+	 border-left: 0px solid transparent; 
+	 border-right: 10px solid transparent; 
+	 border-bottom: 10px solid pink; 
+	 content:""; 
+	 position:absolute;
+	 top:-10px;
+	 left:200px;  
 	}
 	#content{
 	

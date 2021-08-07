@@ -112,9 +112,9 @@
 			    			var id = res[i].member_id;
 			    			var content = res[i].content;
 			    			if(id=="<%=login_id%>"){
-			    				chatContainer.append("<div class='my'>" + id + " : " + content + "</div>")	
+			    				chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>")	;
 			    			}else{
-				    			chatContainer.append("<div class='others'>" + id + " : " + content + "</div>")
+				    			chatContainer.append("<div class='others'>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
 			    			};
 			    		}
 			         console.log(res);
