@@ -22,10 +22,10 @@
 
 <%
 memberDTO info = (memberDTO)session.getAttribute("info");
-boardDTO board_list = (boardDTO) session.getAttribute("board_list");
+int num =Integer.parseInt(request.getParameter("board_num"));
 
-int num = Integer.parseInt(request.getParameter("board_num"));
 System.out.println(num);
+
    boardDAO dao = new boardDAO();
    boardDTO dto = dao.showOne(num);
    boardReDAO dao1= new boardReDAO();

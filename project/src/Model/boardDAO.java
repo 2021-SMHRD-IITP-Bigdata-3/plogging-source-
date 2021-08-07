@@ -240,6 +240,7 @@ public class boardDAO {
         close();
      } return cnt;      
   }
+ 
  public boardDTO showboard1() {
      try {
         conn();
