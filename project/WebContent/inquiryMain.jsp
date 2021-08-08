@@ -24,7 +24,6 @@
 	// 플로깅 날짜 형태 변환 (원하는 꼴로 다 수정 가능합니다~)
 	System.out.println("날짜 변환 확인 : " + dao.changeDateFormat(array.get(1).getPlogDate()));
 	System.out.print(array.size());
-
     
     
 %>
@@ -56,42 +55,45 @@
 		    			<td class="Itable">
 							<div class = "item"><span id="mula"><br>
 							<div><img id="img" src="img/<%=array.get(i).getNoticeImage()%>"></div><br>
-							<span id="iconee" class="name" name="addr">주소지 :<%=array.get(i).getAddr() %></span><br>
-							<span id="iconee" name="plogDate">플로깅 기한 : <%=dao.changeDateFormat(array.get(i).getPlogDate())%></span><br>
-							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
-							<span id="iconee" name="limitedNumber">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
+							<span id="iconee"> 주소지 : <%=array.get(i).getAddr() %></span><br>
+							<span id="iconee"> 플로깅 기한 : <%=dao.changeDateFormat(array.get(i).getPlogDate())%></span><br>
+							<!-- <span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>  -->
+							<span id="iconee"> 플로깅 제한 인원  :<%=array.get(i).getLimitedNumber()%></span><br>
 							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
 							<span ><input id ="input" type = "submit" value = "참가"></span></div>
 							</div>
+							<input type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>">
+							<input type= "hidden" name="addr" value="<%=array.get(i).getAddr()%>">
+							<input type= "hidden" name="plogDate" value="<%=dao.changeDateFormat(array.get(i).getPlogDate())%>">
+							<input type= "hidden" name="limitedNumber" value="<%=array.get(i).getLimitedNumber()%>">
 						<td>
 		    		</tr>
 		    	 </form>
-    	</div>  	
+    		</div>  	
 				<%}else{%>
-			<tr>
-    			<td class="Itable">
-			   		회원님께서는 이 공고를 신청할 수 없습니다!
-			   	<td>
-    		</tr>
-		</div>
+			<div>
+				<tr>
+	    			<td class="Itable">
+				   		회원님께서는 이 공고를 신청할 수 없습니다!
+				   	<td>
+	    		</tr>
+			</div>
 				<%}%>
 			<%}%>
+</table>
 		<div class="down">
 			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
 			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
 			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>
 			<div class="dbutton4" onClick="location.href='Board.jsp'">게시판</div>
 			<div class="dbutton5" onClick="location.href='reportPostWrite.jsp'">제보</div>
-		</div>
+		</div>		
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script>
-
     function filter(){
         var value, name, item, i;
-
         value = document.getElementById("value").value.toUpperCase();
         item = document.getElementsByClassName("item");
-
         for(i=0;i<item.length;i++){
           name = item[i].getElementsByClassName("name");
           if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
