@@ -9,7 +9,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link href = "inquiryMain.css" rel = "stylesheet">
+<link href = "css/inquiryMain.css" rel = "stylesheet">
 </head>
 <body>
 <%
@@ -31,25 +31,20 @@
       <table align="center" >
          <tr>
             <td><h2>Plogging</h2></td>
-            <td style="float: right"><input type="button" class="topicon" value="내정보"
-               onClick="location.href='myPage.jsp'"></td>
-            <td style="float: right"><input type="button" class="topicon" value="검색"></td>
+            <td style="float: right">
+            	<i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i>
+            </td>
          </tr>
       </table>
    </div>
-<br><br><br><br><br>
 
 <table align="center" >
-	<tr>
-		<td>
 		<div class="searchbox">
            <div class="header">
-             <div>Search</div>
+             <div>당신의 플로깅을 찾아드릴게요</div>
              <input onkeyup="filter()" type="text" id="value" placeholder="간략한 주소지를 입력해주세요">
            </div>
-           </div>
-		</td>
-		</tr>
+         </div>
 </table>
 <table align="center" >
     		<div class="container" style="display:none">
@@ -58,8 +53,8 @@
 				<form action = "chatTest.jsp">
 		           	<tr>
 		    			<td class="Itable">
-							<div class = "item"><span><br>
-							<span><%=array.get(i).getNoticeImage()%></span><br>
+							<div class = "item"><span id="mula"><br>
+							<div><img id="img" src="img/<%=array.get(i).getNoticeImage()%>"></div><br>
 							<span id="iconee" class="name" name="addr">주소지 :<%=array.get(i).getAddr() %></span><br>
 							<span id="iconee" name="plogDate">플로깅 기한 : <%=dao.changeDateFormat(array.get(i).getPlogDate())%></span><br>
 							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
@@ -80,20 +75,6 @@
 		</div>
 				<%}%>
 			<%}%>
-<br><br>
-<!-- <table>
-	<tr>
-		<td><input type = "button" value = "<<"></td>
-		<td><input type = "button" value = "1"></td>
-		<td><input type = "button" value = "2"></td>
-		<td><input type = "button" value = "3"></td>
-		<td><input type = "button" value = "4"></td>
-		<td><input type = "button" value = "5"></td>
-		<td><input type = "button" value = ">>"></td>
-		<!-- 인원수 -->
-	</tr>
-</table> 
-<br><br><br><br>
 		<div class="down">
 			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
 			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
