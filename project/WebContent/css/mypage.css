@@ -1,0 +1,260 @@
+@charset "EUC-KR";
+<script>
+body {
+	
+   background-color: #f1edf0;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+
+
+.mtable1{
+   width: 100%;
+	padding: 100px;
+        }
+   .mtable2{
+   width: 700px;
+   border : 1px solid black;
+  border-collapse : collapse;
+  
+         }
+tr, td {
+   /* padding: 5px; */
+   
+}
+
+.topicon {
+   background-color: #2DB400;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 15px;
+}
+h1{
+   padding: 70px;
+   }
+
+a {
+   width: 330px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+
+div {
+   /* padding: 10px */
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.tex {
+   width: 330px;
+   height: 25px;
+   margin: 4px 2px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+
+.stex1 {
+   width: 270px;
+   height: 25px;
+   margin: 4px 2px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+
+.stex2 {
+   width: 220px;
+   height: 25px;
+   margin: 4px 2px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+
+.button {
+   background-color: #2DB400;
+   width: 330px;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 12px;
+}
+
+.dbutton {
+   background-color: #2DB400;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 12px;
+}
+.dbutton2{
+  position: fixed;
+  bottom: 40px;
+  left: 25%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton3{
+  position: fixed;
+  bottom: 40px;
+  left: 45%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton4{
+  position: fixed;
+  bottom: 40px;
+  left: 65%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton5{
+  position: fixed;
+  bottom: 40px;
+  left: 85%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+  .dbutton1{
+     position: fixed;
+     bottom: 40px;
+     left: 5%;
+     border: none;
+     border-radius: 16px;
+     background: #88dba3;
+     color: white;
+     padding: 30px;
+     font-weight: bold;
+     font-size: 30px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     cursor: pointer;
+     float:left;
+   }
+   .back{
+   position : bottom-right;
+	left : 90%;
+	border : none;
+	border-radius : 16px;
+	background : #88dba3;
+	color : white;
+	padding 30px;
+	font-weight : bold;
+	font-size : 30px;
+	box-shadow : rgba(0,0,0,0.35) 0px 5px 15px;
+	cursor : pointer;
+	float : left;
+   }
+   .mypage{
+       height: 30px;
+       font-weight : bold;
+       text-decoration : none;
+       text-decoration-line : none;
+       text-decoration-thickness : initial;
+       text-decoration-style : initial;
+       text-decoration-color: initial;
+       word-wrap : break-word;
+       word-break : break-all;
+   		 font-size: 24px;
+   		padding-right : 30px;
+    font-family : Times New Roman;
+   }
+   .count{
+   font-size: 20px;
+   height:50px;
+   }
+   .bt{
+       height: 30px;
+    font-size: 1.5em;
+    text-align: center;
+   }
+   .board{
+   font-size : 2em;
+   }
+   .header{
+   backgroundcolor : pink;
+   }
+   div{
+   background-color : #fff;
+   }
+   table {
+   width : 100%;
+   border-top : 1px solid #444444;
+   border-collapse: collapse;
+   
+   }
+   th,td{
+   border-bottom : 1px solid #444444;
+   padding : 10px;
+   }
+</script>

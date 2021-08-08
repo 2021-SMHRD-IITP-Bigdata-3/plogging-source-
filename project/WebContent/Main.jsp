@@ -1,3 +1,4 @@
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.memberDTO"%>
 <%@page import="Model.notice_BoardDAO"%>
@@ -31,38 +32,85 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="Main.css">
+<link rel="stylesheet" href="css/Main.css?after">
 </head>
 <body>
 <%
-   memberDTO info = (memberDTO)session.getAttribute("info");   
-   if (info!=null){
-	  double memberLat = info.getMemberLat();
-	  double memberLng = info.getMemberLng();
-      System.out.println("(메인페이지에 사용자의 위도가 잘 넘어오는지) memberLat : "+ memberLat);
-      System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
-   }
-
-   // 메인 들어오면 - 플로깅 기한 지난 공고들 연장 - 이거 실행하면 플로깅 날짜 다 다음주로 바뀌어서 우선 주석처리해둠
-//	notice_BoardDAO dao = new notice_BoardDAO();
-//	dao.plogDateUpdate();
-
+	memberDTO info = (memberDTO)session.getAttribute("info");   
+	if (info!=null){
+		double memberLat = info.getMemberLat();
+		double memberLng = info.getMemberLng();
+		System.out.println("(메인페이지에 사용자의 위도가 잘 넘어오는지) memberLat : "+ memberLat);
+		System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
+	}
+	// 젼역변수 선언
+	notice_BoardDAO dao = new notice_BoardDAO();
+	
+   	// 메인 들어오면 - 플로깅 기한 지난 공고들 연장
+//	int cnt = dao.plogDateUpdate();
+//	if(cnt>0) {
+//		System.out.println("플로깅 기한 연장 성공");
+//	}else {System.out.println("플로깅 기한 연장 실패");
+//	}
+	
+	// 나의 채팅방 리스트 (조회에서 '참가' 클릭한 목록)
+	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
+	if (info!=null){
+		array = dao.showMyChatroom(info.getMemberId());
+		for(int i =0; i<array.size(); i++){
+			System.out.println(" 채팅방 번호  : " + array.get(i).getNoticeNumber() );
+		}
+	} 
 %>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    // html dom 이 다 로딩된 후 실행된다.
+    $(document).ready(function(){
+        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+        $(".menu>a").click(function(){
+            var submenu = $(this).next("ul");
+ 
+            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+            if( submenu.is(":visible") ){
+                submenu.slideUp();
+            }else{
+                submenu.slideDown();
+            }
+        });
+    });
+</script>
+<div float=right>
+   <div>
+      <div>
+	    <ul style="list-style: none; ">
+	        <li class="menu" >
+	            <a><div class="topicon" >채팅방</div></a>
+	            <ul class="hide" style="list-style: none;">
+					<% if(info != null) { %>
+						<% for(int i=0; i<array.size(); i++){ %>
+		                <li><input type="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat"onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></li>
+							<%}%>
+					<%}%>		
+	            </ul>
+	        </li>
+	    </ul>
+       </div>
+    </div>
+</div>
 
-<td ><input type ="button" value = "채팅목록" onClick="location.href='chatChoice.jsp'"></td>
 <table>
 	<tr>
 	   <td id ="title" style = "width:124px;">plogging</td>
 	      <% if(info != null) { %>
 	   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
-	   <td ><i class="far fa-address-book"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
+	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 	      <% }else { %>
-	   <td> <input  type ="button" value = "로그인" onClick="location.href='Login.jsp'"> </td>
-	   <td><input style = "float : right" type ="button" value = "회원가입" onClick="location.href='Join.jsp'"></td>
+	   <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="width:67px; margin:10px 10px 0px 10px;" >로그인</a> </td>
       <% } %>
 	   
 	</tr>
 </table>
+<<<<<<< HEAD
 <table style="float: right" >
 	<tr>
 		<td>
@@ -83,6 +131,8 @@
 <table>
 <tr><td><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667">플로깅</a></td></tr>
 </table>
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 <br>
 <table>
 <tr>
@@ -92,21 +142,7 @@
 </table>
 <br>
 <ul>
-<div id = "news"><th>요즘 뜨고 있는 핫 뉴스</th></div>
-
-<li id = "ae"><a href="https://www.news1.kr/articles/?4391799">LG헬로비전, #지구좋아산책 캠페인 진행…"플로깅 함께해요"</a></li>
-
-
-<li id = "ae"><a href="https://www.etoday.co.kr/news/view/2050450">GS파워, 비대면 '플로깅' 캠페인 전개</a></li>
-
-
-<li id = "ae"><a href="http://www.kbsm.net/default/index_view_page.php?idx=319697&part_idx=320">예천군 축산과, 기관단체와 환경정화 플로깅 활동</a></li>
-
-</ul>
-<br>
-<ul>
-	<div id ="cafe"><th>플로깅 경험자들의 블로그 & 카페</th></div>
-
+	<div id ="cafe" style ="padding: 15px 1px 5px 58px width:1012px margin-left:-50px"><th>플로깅이란?</th></div>
 	<li id = "ae"><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></li>
 	<li id = "ae"><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></li>
 	<li id = "ae"><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></li>

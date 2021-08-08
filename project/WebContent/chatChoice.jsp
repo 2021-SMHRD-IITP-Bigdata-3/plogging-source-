@@ -76,14 +76,12 @@
 				<% for(int i=0; i<array.size(); i++){ %>
 		            <div class = "item"><span style="color: green;"><br>
 			            <span>
-			            	<input type="button" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat"
-									onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'">
+			            <!-- 	<input
+			             -->
 						</span>
 					</div>
-				<%}%>
-			<%}else{%>
-				<div> 로그인 시 이용가능 합니다.</div> 
-			<%}%>
+			<%} %>
+	<%} %>
 		</div>
 </table>
 

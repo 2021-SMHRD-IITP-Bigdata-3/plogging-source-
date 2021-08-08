@@ -1,0 +1,189 @@
+@charset "EUC-KR";
+
+<style>
+   table{
+    width: 100%;
+    border: 1px;
+         }
+	#title{
+	float: left;
+	width:124px;
+	margin-left:60px;
+	margin-top:10px;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 8px 70px 21px 22px;
+	font-weight: bold;
+	font-size: 40px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+	#loginimport{
+	float:right;
+	margin-left:80px;
+	font-size:3em;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding:15px 15px 15px 15px;
+	font-weight: bold;
+	font-size: 41px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+	
+	#myimport{
+	float:right;
+	margin-left:80px;
+	font-size:3em;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding:15px 15px 15px 15px;
+	font-weight: bold;
+	font-size: 41px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+	iframe{
+	width:1000px;
+	height:600px;
+	margin-left:20px;
+	margin-bottom:25px;
+	margin-top:80px;
+	}
+	tr td{
+	width:100%
+	}
+   	#news{
+   	font-family:NanumBarunGothic;
+   	background-color:#1B64A7;
+   	color:white;
+   	width:auto;
+   	font-size:3em;
+   	height:83px;
+   	padding: 15px 4px 0px 30px;
+   	border-radius:16px;
+   	}
+  	body > table:nth-child(9) > tbody > tr > td:nth-child(2) > a{
+   	float:right;
+   	font-size:2em;
+   	font-family:'GmarketSansMedium';
+   	color:#2D966C;
+   	}
+   	#cafe{
+   	font-family:NanumBarunGothic;
+   	background-color:#2D966C;
+   	color:white;
+   	width:auto;
+   	font-size:3em;
+   	height:83px;
+   	padding: 15px 1px 5px 58px;
+   	border-radius:16px;
+   	width:1012px;
+   	margin-left:-50px;
+   	} 
+ 	#ae{
+ 	font-family:NanumBarunGothic;
+ 	margin:29px 0px 17px 54px;
+ 	font-size:1.8em;
+ 	list-style:none;
+ 	}
+ 	a:visited { color: black; text-decoration: none;}
+	.dbutton1{
+	  position: fixed;
+	  bottom: 40px;
+	  left: 5%;
+	  border: none;
+	  border-radius: 16px;
+	  background: #88dba3;
+	  color: white;
+	  padding: 30px;
+	  font-weight: bold;
+	  font-size: 30px;
+	  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	  cursor: pointer;
+	  float:left;
+	}
+.dbutton2{
+  position: fixed;
+  bottom: 40px;
+  left: 25%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton3{
+  position: fixed;
+  bottom: 40px;
+  left: 45%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton4{
+  position: fixed;
+  bottom: 40px;
+  left: 65%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton5{
+  position: fixed;
+  bottom: 40px;
+  left: 85%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+
+/*Ã¤ÆÃ¹æ css*/
+.topicon {
+   background-color: #88dba3;
+   border: none;
+   color: white;
+   padding: 30px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 30px;
+   margin: 4px 2px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   border-radius: 15px;
+}
+
+
+
+</style>

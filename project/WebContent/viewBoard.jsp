@@ -21,88 +21,117 @@
 <body>
 
 <%
-memberDTO info = (memberDTO)session.getAttribute("info");
-int num =Integer.parseInt(request.getParameter("board_num"));
+	memberDTO info = (memberDTO)session.getAttribute("info");
+	System.out.println("info의 id 확인 : " + info.getMemberId());
+	int boardNum = Integer.parseInt(request.getParameter("boardNum"));	
+	System.out.println("Board에서 viewBoard로 board_num가 잘 넘어왔는지 확인 : "+ boardNum);
+	
+	boardDAO dao = new boardDAO();
 
-System.out.println(num);
+	// 게시번호에 맞는 게시글 정보들을 담는 메소드
+	boardDTO dto = dao.showOne(boardNum);
+	System.out.println("dto의 게시번호 확인 : " + dto.getBoardNum());
+	System.out.println("dto의 게시사람id 확인 : " + dto.getMemberId());
+	System.out.println("dto의 게시날짜 확인 : " + dto.getBoardDate());
+	System.out.println("dto의 게시내용 확인 : " + dto.getBoardContent());
+	System.out.println("dto의 게시제목 확인 : " + dto.getBoardTitle());
+	System.out.println("dto의 게시이미지 확인 : " + dto.getBoardImage());
+    
+	boardReDAO dao1= new boardReDAO();
+	ArrayList<boardReDTO> boardRe_list= dao1.boardRe_li(boardNum);
 
-   boardDAO dao = new boardDAO();
-   boardDTO dto = dao.showOne(num);
-   boardReDAO dao1= new boardReDAO();
-   ArrayList<boardReDTO> boardRe_list= dao1.boardRe_li();
 %>
-   
-         <div id = "board">
-            <table id="list">
-               <tr>
-                  <td>제목</td>
-                  <td><%= dto.getBoardTitle()%></td>
-               </tr>
-               <tr>
-                  <td>작성자</td>
-                  <td><%= dto.getMemberId() %></td>                  
-               </tr>
-                        
-               <tr>
-                  <td colspan="2">내용</td>
-                  <td><%=dto.getBoardContent() %></td>
-               </tr>
-               <tr>
-                  <td colspan="2">
-                     <% if(dto.getBoardImage() != null) {%>
-                        <img src = "img/<%= dto.getBoardImage() %>">
-                     <% } %>
-                     <% if(dto.getBoardContent() != null) {%>
+	<div id = "board">  
+    	<table id="list">
+        	<tr>
+            	<td>제목</td>
+				<td><%= dto.getBoardTitle()%></td>
+			</tr>
+            <tr>
+                <td>작성자</td>
+                <td><%= dto.getMemberId() %></td>                  
+            </tr>
+            <tr>
+				<td>내용</td>
+                <td><%=dto.getBoardContent() %></td>
+            </tr>
+            <tr>
+            	<td colspan="2">
+            		<% if(dto.getBoardImage()!=null) {%>
+                		<img src="img/<%=dto.getBoardImage()%>">
+                    <% } %>
+                    <% if(dto.getBoardContent()!=null) {%>
                         <h1><%= dto.getBoardContent() %></h1>
-                     <% } %>
-                  </td>
-                  <%if(info!=null){ %>
-                  <%if(info.getMemberId().equals(dto.getMemberId())) {%> 
-             <td> <a href = "DeleteOneServiceCon?num=<%=dto.getBoardNum() %>">삭제 </a></td>
-                <%}} %>
-               </tr>
-               <tr>
-                  <td colspan="2"><a href="Board.jsp"><button>뒤로가기</button></a></td>
-               </tr>
-            </table>
-         </div>
-         
-         <table>
-         <th>댓글</th>
-         <% for(int i = 0; i<boardRe_list.size();i++){ %>
-         	<tr><td><%=boardRe_list.get(i).getMemberID()%>-> <%=boardRe_list.get(i).getCommentsContents()%></td></tr>
-            
-    		 <%} %>
-         </table>
-         <br>
-         
-         <form action="ReBoardServiceCon" method="post">
-         <table>
-         <tr><th colspan="4">댓글</th></tr>
-         <tr>
-         <td width="100">이름</td>
-         <td><%if(info!=null){ %><span><%=info.getMemberId() %></span><%}else{ %><input type="text" name="name"><%} %></td>
-         <td width="100">비밀번호</td>
-         <td width="150"><input type="password" name="password"></td>
-         </tr>
-         <tr>
-         <td>내용</td>
-         <td colspan="3"><textarea cols="60" name="content"></textarea></td>
-         </tr>
-         <tr>
-         <td colspan="4">
-         <input type="submit" value="저장" name="cmd">
-         <input type="reset" value="다시쓰기">
-         </tr>
-         </table>
-         </form>
-         <!-- Scripts -->
-         <script src="assets/js/jquery.min.js"></script>
-         <script src="assets/js/jquery.scrolly.min.js"></script>
-         <script src="assets/js/jquery.scrollex.min.js"></script>
-         <script src="assets/js/skel.min.js"></script>
-         <script src="assets/js/util.js"></script>
-         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-         <script src="assets/js/main.js"></script>
+                    <% } %>
+                </td>
+            </tr>
+            <!-- 삭제 버튼 어디에 넣고 싶은지 정리해서 옮기면 돼 . 우선 기능 확인을 위해 밑의 행으로 옮겨둠 -->
+            <tr>
+				<%if(info!=null){ %>
+    				<%if(info.getMemberId().equals(dto.getMemberId())) {%> 
+						<td colspan="2"><a href="DeleteOneServiceCon?num=<%=dto.getBoardNum()%>">삭제 </a></td>
+                	<%}else{%>
+                		<td colspan="2">삭제할 수 없습니다.</td>
+                	<%} %>
+                <%} %>
+			</tr>
+            <tr>
+            	<td colspan="2"><a href="Board.jsp"><button>뒤로가기</button></a></td>
+            </tr>
+    	</table>
+	</div>
+	<table>
+	 		<th>
+	 			<td>댓글</td>
+	 		</th>
+		<% for(int i = 0; i<boardRe_list.size();i++){ %>
+    	    <tr>
+				<td><%=boardRe_list.get(i).getMemberID()%>-><%=boardRe_list.get(i).getCommentsContents()%></td>
+	    	</tr>
+		<%} %>
+    </table>
+<br><br><br>
+	<form action="ReBoardServiceCon" method="post">
+		<input type="hidden" value="<%=boardNum%>" name="boardNum">
+    	<table>
+        	<th>
+        		<td colspan="4">댓글</td>
+        	</th>
+			<tr>
+         		<td width="100">이름</td>
+		        <td>
+	        	 	<%if(info!=null){ %>
+	         			<span><%=info.getMemberId() %></span>
+	        	 	<%}else{ %>
+	         			<input type="text" name="name">
+	         		<% } %>
+         		</td>
+				<td width="100">비밀번호</td>
+				<td width="150"><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td colspan="3">
+					<textarea cols="60" name="content"></textarea>
+				</td>
+         	</tr>
+         	<tr>
+         		<td colspan="4">
+					<input type="submit" value="저장" name="cmd">
+					<input type="reset" value="다시쓰기">
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -23,8 +23,7 @@ public class memberDAO {
 	      try {
 	         Class.forName("oracle.jdbc.driver.OracleDriver");
 
-	         String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
-	         
+	         String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";  
 	         String dbid = "campus_f6";
 	         String dbpw = "smhrd6";
 

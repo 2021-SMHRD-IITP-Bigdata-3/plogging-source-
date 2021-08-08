@@ -10,234 +10,18 @@
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-<script>
-    $(function () {
-        $(".left_sub_menu").hide();
-        $(".has_sub").click(function () {
-            $(".left_sub_menu").fadeToggle(300);
-        });
-        // 왼쪽메뉴 드롭다운
-        $(".sub_menu ul.small_menu").hide();
-        $(".sub_menu ul.big_menu").click(function () {
-            $("ul", this).slideToggle(300);
-        });
-        // 외부 클릭 시 좌측 사이드 메뉴 숨기기
-        $('.overlay').on('click', function () {
-            $('.left_sub_menu').fadeOut();
-            $('.hide_sidemenu').fadeIn();
-        });
-    });
-</script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-.side-menu {
-            top: 10px;
-            width: 5%;
-            z-index: 10;
-            background: #69f0ae;
-            border-right: 1px solid rgba(0, 0, 0, 0.07);
-            bottom: 50px;
-            height: 100%;
-            margin-bottom: -70px;
-            margin-top: 0px;
-            padding-bottom: 70px;
-            position: fixed;
-            box-shadow: 0 0px 24px 0 rgb(0 0 0 / 6%), 0 1px 0px 0 rgb(0 0 0 / 2%);
-        }
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
 
-        .sidebar-inner {
-            height: 100%;
-            padding-top: 30px;
-        }
-
-        #sidebar-menu,
-        #sidebar-menu ul,
-        #sidebar-menu li,
-        #sidebar-menu a {
-            border: 0;
-            font-weight: normal;
-            line-height: 1;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            text-decoration: none;
-        }
-
-        #sidebar-menu>ul>li a {
-            color: #fff;
-            font-size: 20px;
-            display: block;
-            padding: 14px 0px;
-            margin: 0px 0px 0px 23%;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            width: 28px;
-            cursor: pointer;
-        }
-
-        #sidebar-menu .fas {
-            padding-left: 6px;
-        }
-
-        /* 사이드 메뉴 */
-        input[type="search"] {
-            width: 180px;
-            margin: 0 auto;
-            margin-left: 9px;
-            border: 2px solid #797979;
-            font-size: 14px;
-            margin-top: 10px;
-            padding: 4px 0 4px 14px;
-            border-radius: 50px;
-        }
-
-        .left_sub_menu {
-            position: fixed;
-            top: 50px;
-            width: 12%;
-            z-index: 10;
-            left: 45px;
-            background: white;
-            border-right: 1px solid rgba(0, 0, 0, 0.07);
-            bottom: 50px;
-            height: 100%;
-            margin-bottom: -70px;
-            margin-top: 0px;
-            padding-bottom: 0px;
-            box-shadow: 0 0px 24px 0 rgb(0 0 0 / 6%), 0 1px 0px 0 rgb(0 0 0 / 2%);
-            color: black;
-        }
-
-        .sub_menu {
-            margin-top: 50px;
-        }
-
-        .left_sub_menu>.sub_menu li:hover {
-            color: ff5858;
-            background-color: #e1e1e1;
-        }
-
-        .left_sub_menu>.sub_menu li {
-            color: #333;
-            font-size: 17px;
-            font-weight: 600;
-            padding: 20px 0px 8px 14px;
-            border-bottom: 1px solid #e1e1e1;
-        }
-
-        .sub_menu>h2 {
-            padding-bottom: 4px;
-            border-bottom: 3px solid #797979;
-            margin-top: 30px;
-            font-size: 21px;
-            font-weight: 600;
-            color: #333;
-            margin-left: 10px;
-            margin-right: 10px;
-            font-family: 'NotoKrB';
-            line-height: 35px;
-        }
-
-        .sub_menu .fas {
-            color: #ff5858;
-            font-size: 20px;
-            line-height: 20px;
-            float: right;
-            margin-right: 20px;
-        }
-
-        .sub_menu>.big_menu>.small_menu li {
-            color: #333;
-            font-size: 14px;
-            font-weight: 600;
-            border-bottom: 0px solid #e1e1e1;
-            margin-left: 14px;
-            padding-top: 8px;
-        }
-
-        .big_menu {
-            cursor: pointer;
-        }
-
-        ul {
-            padding-inline-start: 0px;
-        }
-
-        a {
-            color: #797979;
-            text-decoration: none;
-            background-color: transparent;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        ol,
-        ul {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .has_sub {
-            width: 100%;
-        }
-
-        .overlay {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            /* background: rgba(0, 0, 0, 0.7); */
-        }
-
-        .hide_sidemenu {
-            display: none;
-        }
-   body{
-    background-color: #efefef;
-   scrollbar-width: none;
-    -ms-overflow-style: none;
-   }
-	#chatmain{
-		margin:0px 0px 0px 5%;
-		width: 95%;
-		height: 500px;
-		background-color: #B2C7D9;
-		padding: 20px;
-		overflow-y: scroll;
-	}
-	
-	.my{
-		text-align: right;
-		font-color:black;		
-	}
-	.others{
-		text-align: left;
-		font-color:black;
-	}
-	#content{
-	
-	  width:85%;
-	  margin-left:5%;
-	  height:100px;
-	  font-size:20px;
-	  float:left
-	}
-	#send{
-		width:10%;
-		height:106px;
-		float:left;
-	}
-	#map{
-		margin:0px 0px 0px 3%;
-		width:97%;
-		height:300px;
+	#chat, #chatmain{
+		overflow: auto !important;
 	}
 </style>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<link rel="stylesheet" href="css/chatroom.css?after">
 </head>
 <body>
 <%
@@ -254,16 +38,35 @@
 	String limitedNumber = request.getParameter("limitedNumber");
 	System.out.println("(chatTest1페이지) 공고 번호  : " + noticeNumber);
 	System.out.println("(chatTest1페이지) 플로깅 장소 : " + addr);
-	System.out.println("(chatTest1페이지) 플로깅 기한 : " + login_id);
-	System.out.println("(chatTest1페이지) 제한 인원 : " + login_id);
-
+	System.out.println("(chatTest1페이지) 플로깅 기한 : " + plogDate);
+	System.out.println("(chatTest1페이지) 제한 인원 : " + limitedNumber);
+	
 	// 공고의 위도, 경도
 	notice_BoardDAO dao = new notice_BoardDAO();
 	notice_BoardDTO dto = dao.lating(noticeNumber);
 	System.out.println("(chatTest1페이지) 공고의 위도 : " + dto.getLat());
 	System.out.println("(chatTest1페이지) 공고의 경도 : " + dto.getLng());
 
-	// 로그인한 아이디가 이 공고에 참여했는지 여부 파악
+
+	// 로그인한 아이디가 이 채팅방에 참가했는지 여부 파악 (조회 -> 참가)
+	ArrayList<notice_BoardDTO> c_array = dao.showMyChat(login_id);
+	int check2 = 0;
+	for (int i=0; i<c_array.size();i++){
+		if (c_array.get(i).getNoticeNumber()==noticeNumber){
+			check2 = 1;
+		}
+	}
+	// 안내문구를 위한 채팅내역 생성 -- 대신 사용자는 announcement를 입력하면 안돼...ㅋㅋ
+	ChatDAO c_dao = new ChatDAO();
+	if (check2==0){
+		int cnt = c_dao.insertChat(noticeNumber, login_id, "announcement");
+		if(cnt>0) {
+			System.out.println("안내문구  성공");
+		}else {System.out.println("안내문구 실패");
+		}
+	}
+	
+	// 로그인한 아이디가 이 공고에 참가했는지 여부 파악 (조회 -> 참가 -> 참가)
 	ArrayList<notice_BoardDTO> array = dao.showMyNotice(login_id);
 	int check = 0;
 	for (int i=0; i<array.size();i++){
@@ -271,7 +74,6 @@
 			check = 1;
 		}
 	}
-	
 %>	
 
 
@@ -327,18 +129,29 @@
 			    			var id = res[i].member_id;
 			    			var content = res[i].content;
 			    			if(id=="<%=login_id%>"){
-			    				chatContainer.append("<div class='my'>" + id + " : " + content + "</div>")	
+			    				if(content=="announcement"){
+	/////////////////////////////////// 기능만 넣음 디자인은 원하는대로 바꾸면 됨 ///////////////////////////////////////////////////////////////////////////////////////////
+			    					chatContainer.append("<div class='announcement'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");   					
+			    				}
+			    				else{
+			    					chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
+			    				}
 			    			}else{
-				    			chatContainer.append("<div class='others'>" + id + " : " + content + "</div>")
+				    			chatContainer.append("<div class='others'>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
 			    			};
 			    		}
 			         console.log(res);
+			         var divdiv = document.getElementById("chat");
+			         
+			         var divdiv2 = document.getElementById("chatmain"); 
+			         divdiv.scrollTop = divdiv.scrollHeight;
+			         divdiv2.scrollTop = divdiv.scrollHeight;
 			       },error: function (xhr) {
 			         //alert(xhr);
 			       } 
 			    });
-		}, 200);
-
+		}, 500);
+ // 채팅 속도좀 늦출께요
 		
 			// 아이디와 채팅내용 입력받는 부분
 			// 입력받은 값을 ChatInsertCon으로 보내서 데이터베이스에 넣으려 해
@@ -354,6 +167,8 @@
 				       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 				       success: function (res) {
 				        	console.log(res);
+				        	var divdiv = document.getElementById("chat");
+					         divdiv.scrollTop = divdiv.scrollHeight;
 				       },error: function (xhr) {
 				         //alert(xhr);
 				       } 
@@ -361,8 +176,6 @@
 				  //document.getElementById("send").value='';
 			});
 
-	</script>
-<script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = {
     center: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>), // 지도의 중심좌표
@@ -384,100 +197,5 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 	
     marker.setMap(map);
 </script>
-<div id="wrapper">
-        <div class="topbar" style="position: absolute; top:0;">
-            <!-- 왼쪽 메뉴 -->
-            <div class="left side-menu">
-                <div class="sidebar-inner">
-                    <div id="sidebar-menu">
-                        <ul>
-                            <li class="has_sub"><a href="javascript:void(0);" class="waves-effect">
-                                <i class="fas fa-bars"></i>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- 왼쪽 서브 메뉴 -->
-            <div class="left_sub_menu">
-                <div class="sub_menu">
-                    <input type="search" name="SEARCH" placeholder="SEARCH">
-                    <h2>TITLE</h2>
-                    <ul class="big_menu">
-                        <li>MENU 1 <i class="arrow fas fa-angle-right"></i></li>
-                        <ul class="small_menu">
-                            <li><a href="Main.jsp">메인</a></li>
-                            <li><a href="inquiryMain.jsp">조회</a></li>
-                            <li><a href="reviewMain.jsp">후기</a></li>
-                            <li><a href="Board.jsp">게시판</a></li>
-                            <li><a href="reportPostWrite.jsp">제보</a></li>
-                        </ul>
-                    </ul>
-                    <!--   <ul class="big_menu">
-                        <li>MENU 2 <i class="arrow fas fa-angle-right"></i></li>
-                        <ul class="small_menu">
-                            <li><a href="#">소메뉴2-1</a></li>
-                            <li><a href="#"></a>소메뉴2-2</a></li>
-                        </ul>
-                    </ul> -->
-                    
-                    <ul class="big_menu">
-                    <%if(info!=null){ %>
-                        <li><a href="myPage.jsp" class="a001">MYPAGE</a></li>
-                    <%}else{ %>
-                    	<li>회원가입이 시급합니다.</li>
-                    <%}%>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-  <div id="wrapper">
-        <div class="topbar" style="position: absolute; top:0;">
-            <!-- 왼쪽 메뉴 -->
-            <div class="left side-menu">
-                <div class="sidebar-inner">
-                    <div id="sidebar-menu">
-                        <ul>
-                            <li class="has_sub"><a href="javascript:void(0);" class="waves-effect">
-                                <i class="fas fa-bars"></i>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- 왼쪽 서브 메뉴 -->
-            <div class="left_sub_menu">
-                <div class="sub_menu">
-                    <h2>TITLE</h2>
-                    <ul class="big_menu">
-                        <li>MENU 1 <i class="arrow fas fa-angle-right"></i></li>
-                        <ul class="small_menu">
-                            <li><a href="Main.jsp">메인</a></li>
-                            <li><a href="inquiryMain.jsp">조회</a></li>
-                            <li><a href="reviewMain.jsp">후기</a></li>
-                            <li><a href="Board.jsp">게시판</a></li>
-                            <li><a href="reportPostWrite.jsp">제보</a></li>
-                        </ul>
-                    </ul>
-                    <!--   <ul class="big_menu">
-                        <li>MENU 2 <i class="arrow fas fa-angle-right"></i></li>
-                        <ul class="small_menu">
-                            <li><a href="#">소메뉴2-1</a></li>
-                            <li><a href="#"></a>소메뉴2-2</a></li>
-                        </ul>
-                    </ul> -->
-                    
-                    <ul class="big_menu">
-                    <%if(info!=null){ %>
-                        <li><a href="myPage.jsp" class="a001">MYPAGE</a></li>
-                    <%}else{ %>
-                    	<li>회원가입이 시급합니다.</li>
-                    <%}%>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
 </body>
 </html>

@@ -51,7 +51,7 @@ public class notice_BoardDTO {
 }
 
 
-public notice_BoardDTO(double lat2, double lng2) {
+public notice_BoardDTO(double lat, double lng) {
 	this.lat = lat;
 	this.lng = lng;
 }

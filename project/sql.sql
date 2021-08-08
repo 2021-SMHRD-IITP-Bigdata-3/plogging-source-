@@ -1,3 +1,8 @@
+INSERT INTO board_num VALUES(num_board_num.nextval,64,1,1,1,sysdate)
+;(select board_num from board where board_num = 63)
+select * from board_num;
+select * from board;
+drop table board_num;
 채팅 chat
 create table chat(
    chat_number number primary key, -- 채팅 번호
@@ -9,7 +14,7 @@ create table chat(
    references notice(notice_number));
 
 drop table chattable;
-
+select * from notice;
 채팅번호시퀀스 num_chat
 drop sequence num_chat;
 
@@ -21,7 +26,7 @@ maxvalue 9999;
 select * from chattable;
 
 insert into CHATTABLE values('1','test','test', sysdate );
-   
+
 게시판 board
 create table board(
    board_num number primary key, -- 게시물 번호
@@ -63,7 +68,9 @@ create table board_num(
 );
 
 insert into board_num(comments_number,board_num,member_id,comments_pw,comments_contents,comments_date) values(num_board_num.nextval,'test','test','test','test','sysdate');
+
 select * from BOARD_NUM;
+
 
 drop table board_num;
 
