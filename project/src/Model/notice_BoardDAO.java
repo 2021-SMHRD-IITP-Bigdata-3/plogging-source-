@@ -118,6 +118,7 @@ public class notice_BoardDAO {
 		return notic_BoardDTO_list;
 
 	}
+
 	
 	// 채팅방 참가 목록 보여주는 메소드 (조회에서 '참가'버튼을 누른 공고들)
 	public ArrayList<notice_BoardDTO> showMyChatroom(String inputId) {
