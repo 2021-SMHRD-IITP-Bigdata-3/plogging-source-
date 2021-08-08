@@ -13,7 +13,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel = "stylesheet" href="mypage.css?after">
+<link rel = "stylesheet" href="css/mypage.css?after">
 </head>
 <body>
 <%
