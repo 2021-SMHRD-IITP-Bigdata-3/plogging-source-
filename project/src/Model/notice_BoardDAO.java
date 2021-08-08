@@ -13,7 +13,7 @@ public class notice_BoardDAO {
 	ResultSet rs = null;
 	int cnt = 0;
 	notice_BoardDTO dto = null;
-	notice_BoardDTO noticelist2= null;
+	notice_BoardDTO noticelist2 = null;
 	
 	public void conn() {
 		try {
@@ -187,7 +187,8 @@ public class notice_BoardDAO {
 
 	// 공고의 위도, 경도 구하는 메소드
 	public notice_BoardDTO lating(int num){
-		ArrayList<notice_BoardDTO> noticelist = new ArrayList<notice_BoardDTO>();
+//		ArrayList<notice_BoardDTO> noticelist = new ArrayList<notice_BoardDTO>();
+		notice_BoardDTO noticeDTO = null;
 		try {
 		conn();
 		
@@ -199,13 +200,16 @@ public class notice_BoardDAO {
 			if(rs.next()) {
 				double lat = rs.getDouble("lat");
 				double lng = rs.getDouble("lng");
-				noticelist2= new notice_BoardDTO(lat,lng);
+				System.out.println("db lat : " + lat);
+				System.out.println("db lng : " + lng);
+
+				noticeDTO = new notice_BoardDTO(lat,lng);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
-		}return noticelist2;
+		}return noticeDTO;
 	}
 	
 	// 공고의 플로깅 날짜만 추출하는 메소드 
