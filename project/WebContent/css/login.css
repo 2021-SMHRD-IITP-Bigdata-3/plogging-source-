@@ -44,31 +44,32 @@
    width:30px;
    }
    .tex{
-    width: 330px;
-    height: 25px;
+    width: 400px;
+    height: 70px;
     margin: 4px 2px;
    border: none;
    padding: 10px;
-   text-align: center;
+   text-align: left;
    text-decoration: none;
    display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
+   font-size: 55px;
+   margin: 15px 15px;
    border-radius: 12px;
     }
   .button {
   background-color: #2DB400;
-  width: 330px;
+  width: 500px;
+  height:130px;
   border: none;
   color: white;
   padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 35px;
   margin: 50px 0px 0px 0px;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 72px;
 }
    .dbutton{
   background-color: #2DB400;
