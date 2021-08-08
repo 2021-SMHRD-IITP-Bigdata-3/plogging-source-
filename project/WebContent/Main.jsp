@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="Model.memberDTO"%>\
+<%@page import="Model.memberDTO"%>
 <%@page import="Model.notice_BoardDAO"%>
 <%@page import="Model.reviewBoardDAO"%>
 <%@page import="Model.boardDAO"%>

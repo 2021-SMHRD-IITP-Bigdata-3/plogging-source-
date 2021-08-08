@@ -50,7 +50,7 @@ public class ReBoardServiceCon extends HttpServlet {
 	      String moveURL = "";
 	      if(cnt>0) {
 	         System.out.println("댓글 업로드 전송 성공");
-	         moveURL = "viewBoard.jsp";
+	         moveURL = "Board.jsp";
 	         session.setAttribute("board_num",boardNum);
 	      }else {
 	         System.out.println("댓글 업로드 전송 실패");

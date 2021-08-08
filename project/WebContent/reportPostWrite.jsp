@@ -31,11 +31,6 @@ jQuery(document).ready(function($) {
    memberDTO info = (memberDTO)session.getAttribute("info");   
 
 %>
-
-   <div >
-      <table  class="mtable1">
-
-
    <div>
       <table class="mtable1" >
          <tr>
