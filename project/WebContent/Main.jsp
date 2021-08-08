@@ -31,9 +31,7 @@
 //	notice_BoardDAO dao = new notice_BoardDAO();
 //	int cnt = dao.plogDateUpdate();
 //	if(cnt>0) {
-//		System.out.println("플로깅 기한 연장 성공");
-//	}else {System.out.println("플로깅 기한 연장 실패");
-//	}
+//		System.out.println("플로깅 기한 연장 성공"); 
 
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	notice_BoardDAO dao = new notice_BoardDAO();

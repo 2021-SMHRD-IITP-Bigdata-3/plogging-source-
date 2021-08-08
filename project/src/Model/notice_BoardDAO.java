@@ -118,30 +118,6 @@ public class notice_BoardDAO {
 		return notic_BoardDTO_list;
 
 	}
-	
-	// 채팅방 참가 목록 보여주는 메소드 (조회에서 '참가'버튼을 누른 공고들)
-	public ArrayList<notice_BoardDTO> showMyChat(String inputId) {
-		ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
-		try {
-			conn();
-			String sql = "select distinct chatroom_number from chat where member_id=?";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, inputId);
-			rs = psmt.executeQuery();
-
-			while (rs.next()) {
-				int notice_number = rs.getInt("chatroom_number");
-				notice_BoardDTO dto = new notice_BoardDTO(notice_number);
-				list.add(dto);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return list;
-	}
 
 
 	// 공고 참가 목록 보여주는 메소드 (채팅방에서 '참가'버튼을 누른 공고들)
