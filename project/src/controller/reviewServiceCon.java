@@ -18,7 +18,7 @@ public class reviewServiceCon extends HttpServlet {
       //
       int reviewNumber = Integer.parseInt(request.getParameter("reviewNumber"));
 
-      System.out.println("reviewNumber : "+reviewNumber);
+      System.out.println("reviewNumber : "+ reviewNumber);
 
 
       //reviewBoardDTO dto = new reviewBoardDTO(reviewNumber,memberId,noticeNumber,reviewDate,reviewImage,location,contents,reviewTitle,checkBox,run);

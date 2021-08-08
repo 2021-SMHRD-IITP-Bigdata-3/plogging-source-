@@ -120,7 +120,7 @@ public class notice_BoardDAO {
 	}
 	
 	// 채팅방 참가 목록 보여주는 메소드 (조회에서 '참가'버튼을 누른 공고들)
-	public ArrayList<notice_BoardDTO> showMyChat(String inputId) {
+	public ArrayList<notice_BoardDTO> showMyChatroom(String inputId) {
 		ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
 		try {
 			conn();
@@ -142,7 +142,6 @@ public class notice_BoardDAO {
 		}
 		return list;
 	}
-
 
 	// 공고 참가 목록 보여주는 메소드 (채팅방에서 '참가'버튼을 누른 공고들)
 	public ArrayList<notice_BoardDTO> showMyNotice(String inputId) {
@@ -169,7 +168,6 @@ public class notice_BoardDAO {
 		return list;
 	}
 	
-
 	// 플로깅 날짜가 지나면 다시 +7일 뒤로 수정하는 메소드 -> 아직 실데이터로는 테스트 안 해봄
 	public int plogDateUpdate() {
 		try {
@@ -187,8 +185,6 @@ public class notice_BoardDAO {
 
 	// 공고의 위도, 경도 구하는 메소드
 	public notice_BoardDTO lating(int num){
-//		ArrayList<notice_BoardDTO> noticelist = new ArrayList<notice_BoardDTO>();
-		notice_BoardDTO noticeDTO = null;
 		try {
 		conn();
 		
@@ -203,17 +199,16 @@ public class notice_BoardDAO {
 				System.out.println("db lat : " + lat);
 				System.out.println("db lng : " + lng);
 
-				noticeDTO = new notice_BoardDTO(lat,lng);
+				dto = new notice_BoardDTO(lat,lng);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
-		}return noticeDTO;
+		}return dto;
 	}
 	
-	// 공고의 플로깅 날짜만 추출하는 메소드 
-	// 이건 나중에 디자인에 따라 원하는 형태로 바꿀 수 있게 하려고 메소드로 만듦. jsp안 건드리고 이 메소드만 바꾸면 돼~
+	// 공고의 플로깅 날짜만 추출하는 메소드  // 이건 나중에 디자인에 따라 원하는 형태로 바꿀 수 있게 하려고 메소드로 만듦. jsp안 건드리고 이 메소드만 바꾸면 돼~
 	public String changeDateFormat(String plogDate) {
 		String year = plogDate.substring(0,4);
 		String month = plogDate.substring(5,7);

@@ -19,26 +19,27 @@
 </head>
 <body>
 <%
-   memberDTO info = (memberDTO)session.getAttribute("info");   
-   if (info!=null){
-	  double memberLat = info.getMemberLat();
-	  double memberLng = info.getMemberLng();
-      System.out.println("(메인페이지에 사용자의 위도가 잘 넘어오는지) memberLat : "+ memberLat);
-      System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
-   }
-
-   // 메인 들어오면 - 플로깅 기한 지난 공고들 연장 - 이거 실행하면 플로깅 날짜 다 다음주로 바뀌어서 우선 주석처리해둠
-//	notice_BoardDAO dao = new notice_BoardDAO();
+	memberDTO info = (memberDTO)session.getAttribute("info");   
+	if (info!=null){
+		double memberLat = info.getMemberLat();
+		double memberLng = info.getMemberLng();
+		System.out.println("(메인페이지에 사용자의 위도가 잘 넘어오는지) memberLat : "+ memberLat);
+		System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
+	}
+	// 젼역변수 선언
+	notice_BoardDAO dao = new notice_BoardDAO();
+	
+   	// 메인 들어오면 - 플로깅 기한 지난 공고들 연장
 //	int cnt = dao.plogDateUpdate();
 //	if(cnt>0) {
 //		System.out.println("플로깅 기한 연장 성공");
 //	}else {System.out.println("플로깅 기한 연장 실패");
 //	}
-
+	
+	// 나의 채팅방 리스트 (조회에서 '참가' 클릭한 목록)
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
-	notice_BoardDAO dao = new notice_BoardDAO();
 	if (info!=null){
-		array = dao.showMyChat(info.getMemberId());
+		array = dao.showMyChatroom(info.getMemberId());
 		for(int i =0; i<array.size(); i++){
 			System.out.println(" 채팅방 번호  : " + array.get(i).getNoticeNumber() );
 		}
