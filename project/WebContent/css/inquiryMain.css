@@ -19,6 +19,18 @@ table {
 #mula{
 	width:100%;
 }
+#myimport{
+	
+}
+
+#input{
+	background: #88dba3;
+	padding : 10px 10px 10px 10px;
+	font-size:28px;
+	float :right;
+	margin:-30px 45px 0px 0px;
+	border-radius:16px
+}
 .topicon {
    background-color: #2DB400;
    border: none;
@@ -41,6 +53,7 @@ table {
 	margin-left:80px;
 	font-size:3em;
 	border: none;
+	margin-top:40px;
 	border-radius: 16px;
 	background: #88dba3;
 	color: white;
@@ -53,7 +66,7 @@ table {
 h2{
 	
     font-size:3em;
-    margin-left:80px;
+    margin-left:70px;
    }
 
 a {

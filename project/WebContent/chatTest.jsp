@@ -18,11 +18,10 @@
 	#chat, #chatmain{
 		overflow: auto !important;
 	}
-	/* 다시시작해볼래요? */
 </style>
 
 
-<link rel="stylesheet" href="chatroom.css?after">
+<link rel="stylesheet" href="css/chatroom.css?after">
 </head>
 <body>
 <%

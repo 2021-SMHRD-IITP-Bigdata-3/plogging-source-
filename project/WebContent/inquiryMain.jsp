@@ -10,6 +10,7 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link href = "css/inquiryMain.css" rel = "stylesheet">
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <%
@@ -60,7 +61,7 @@
 							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
 							<span id="iconee" name="limitedNumber">플로깅 제한 인원  :<%=array.get(i).getLimitedNumber() %></span><br>
 							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
-							<span id = "iconee"><input type = "submit" value = "참가"></span></div>
+							<span ><input id ="input" type = "submit" value = "참가"></span></div>
 							</div>
 						<td>
 		    		</tr>

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.memberDTO"%>
 <%@page import="Model.notice_BoardDAO"%>
@@ -7,10 +7,6 @@
 <%@page import="Model.reviewBoardDTO"%>
 <%@page import="Model.notice_BoardDTO"%>
 <%@page import="Model.boardDTO"%>
-=======
-
-<%@page import="Model.memberDTO"%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -19,7 +15,7 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="Main.css?after">
+<link rel="stylesheet" href="css/Main.css?after">
 </head>
 <body>
 <%
@@ -35,9 +31,51 @@
 //	notice_BoardDAO dao = new notice_BoardDAO();
 //	dao.plogDateUpdate();
 
+	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
+	notice_BoardDAO dao = new notice_BoardDAO();
+	if (info!=null){
+		array = dao.showMyNotice(info.getMemberId());
+		for(int i =0; i<array.size(); i++){
+			System.out.print(" 공고 번호  : " + array.get(i).getNoticeNumber() );
+		}
+	} 
 %>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    // html dom 이 다 로딩된 후 실행된다.
+    $(document).ready(function(){
+        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+        $(".menu>a").click(function(){
+            var submenu = $(this).next("ul");
+ 
+            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+            if( submenu.is(":visible") ){
+                submenu.slideUp();
+            }else{
+                submenu.slideDown();
+            }
+        });
+    });
+</script>
+<div float=right>
+   <div>
+      <div>
+	    <ul style="list-style: none; ">
+	        <li class="menu" >
+	            <a><div class="topicon" >채팅방</div></a>
+	            <ul class="hide" style="list-style: none;">
+					<% if(info != null) { %>
+						<% for(int i=0; i<array.size(); i++){ %>
+		                <li><input type="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat"onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></li>
+							<%}%>
+					<%}%>		
+	            </ul>
+	        </li>
+	    </ul>
+       </div>
+    </div>
+</div>
 
-<td ><input type ="button" value = "채팅목록" onClick="location.href='chatChoice.jsp'"></td>
 <table>
 	<tr>
 	   <td id ="title" style = "width:124px;">plogging</td>
@@ -45,7 +83,7 @@
 	   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
 	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 	      <% }else { %>
-	   <td > <a id = "login" onClick="location.href='Login.jsp'" >로그인</a> </td>
+	   <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="width:67px; margin:10px 10px 0px 10px;" >로그인</a> </td>
       <% } %>
 	   
 	</tr>
