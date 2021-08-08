@@ -23,6 +23,12 @@
  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .nanumbarungothic * {
  font-family: 'NanumBarunGothic', sans-serif;
 }
@@ -54,7 +60,7 @@
 	border-radius: 16px;
 	background: #88dba3;
 	color: white;
-	padding: 10px 10px 10px 10px;
+	padding:15px 15px 15px 15px;
 	font-weight: bold;
 	font-size: 41px;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -64,6 +70,8 @@
 	width:1000px;
 	height:600px;
 	margin-left:20px;
+	margin-bottom:25px;
+	margin-top:80px;
 	}
 	tr td{
 	width:100%
@@ -78,6 +86,12 @@
    	padding: 15px 4px 0px 30px;
    	border-radius:16px;
    	}
+  	body > table:nth-child(9) > tbody > tr > td:nth-child(2) > a{
+   	float:right;
+   	font-size:2em;
+   	font-family:'GmarketSansMedium';
+   	color:#2D966C;
+   	}
    	#cafe{
    	font-family:NanumBarunGothic;
    	background-color:#2D966C;
@@ -85,8 +99,10 @@
    	width:auto;
    	font-size:3em;
    	height:83px;
-   	padding: 15px 4px 0px 30px;
+   	padding: 15px 1px 5px 58px;
    	border-radius:16px;
+   	width:1012px;
+   	margin-left:-50px;
    	} 
  	#ae{
  	font-family:NanumBarunGothic;
