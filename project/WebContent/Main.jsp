@@ -29,14 +29,18 @@
 
    // 메인 들어오면 - 플로깅 기한 지난 공고들 연장 - 이거 실행하면 플로깅 날짜 다 다음주로 바뀌어서 우선 주석처리해둠
 //	notice_BoardDAO dao = new notice_BoardDAO();
-//	dao.plogDateUpdate();
+//	int cnt = dao.plogDateUpdate();
+//	if(cnt>0) {
+//		System.out.println("플로깅 기한 연장 성공");
+//	}else {System.out.println("플로깅 기한 연장 실패");
+//	}
 
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	notice_BoardDAO dao = new notice_BoardDAO();
 	if (info!=null){
-		array = dao.showMyNotice(info.getMemberId());
+		array = dao.showMyChat(info.getMemberId());
 		for(int i =0; i<array.size(); i++){
-			System.out.print(" 공고 번호  : " + array.get(i).getNoticeNumber() );
+			System.out.println(" 채팅방 번호  : " + array.get(i).getNoticeNumber() );
 		}
 	} 
 %>

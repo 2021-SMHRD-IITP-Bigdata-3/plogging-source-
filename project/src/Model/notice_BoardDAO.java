@@ -118,8 +118,33 @@ public class notice_BoardDAO {
 		return notic_BoardDTO_list;
 
 	}
+	
+	// 채팅방 참가 목록 보여주는 메소드 (조회에서 '참가'버튼을 누른 공고들)
+	public ArrayList<notice_BoardDTO> showMyChat(String inputId) {
+		ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
+		try {
+			conn();
+			String sql = "select distinct chatroom_number from chat where member_id=?";
 
-	// 참가 목록 보여주는 메소드
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, inputId);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int notice_number = rs.getInt("chatroom_number");
+				notice_BoardDTO dto = new notice_BoardDTO(notice_number);
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+
+
+	// 공고 참가 목록 보여주는 메소드 (채팅방에서 '참가'버튼을 누른 공고들)
 	public ArrayList<notice_BoardDTO> showMyNotice(String inputId) {
 		ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
 		try {
@@ -143,6 +168,7 @@ public class notice_BoardDAO {
 		}
 		return list;
 	}
+	
 
 	// 플로깅 날짜가 지나면 다시 +7일 뒤로 수정하는 메소드 -> 아직 실데이터로는 테스트 안 해봄
 	public int plogDateUpdate() {

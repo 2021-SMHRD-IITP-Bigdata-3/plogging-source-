@@ -22,46 +22,46 @@ public class ReBoardServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-<<<<<<< HEAD
-	      String content = request.getParameter("content");
-	      memberDTO info = (memberDTO) session.getAttribute("info");
-	      if(info!=null) {
-	    	  memberId=info.getMemberId();
-	      }else {
-	    	  memberId=request.getParameter("name");
-	      }
-	      String password = request.getParameter("password");
-	      
-	      boardDAO dao = new boardDAO();
-	      boardDTO dto = dao.showboard1();
-	      int boardNum = dto.getBoardNum();
-	      
-	      
-	      System.out.println(memberId);
-	      System.out.println(content);
-	      System.out.println(boardNum);
-	      System.out.println(password);
-	      
-	      boardReDTO dto1 = new boardReDTO(boardNum, memberId, password,content);
-	      boardReDAO dao1 = new boardReDAO();
-	      int cnt = dao1.upload(dto1);
-	      
-	      String moveURL = "";
-	      if(cnt>0) {
-	         System.out.println("댓글 업로드 전송 성공");
-	         moveURL = "Board.jsp";
-	         session.setAttribute("board_num",boardNum);
-	      }else {
-	         System.out.println("댓글 업로드 전송 실패");
-	         moveURL = "Board.jsp";
-	      }
-	      response.sendRedirect(moveURL);
-	   }//
-=======
+//<<<<<<< HEAD
+//	      String content = request.getParameter("content");
+//	      memberDTO info = (memberDTO) session.getAttribute("info");
+//	      if(info!=null) {
+//	    	  memberId=info.getMemberId();
+//	      }else {
+//	    	  memberId=request.getParameter("name");
+//	      }
+//	      String password = request.getParameter("password");
+//	      
+//	      boardDAO dao = new boardDAO();
+//	      boardDTO dto = dao.showboard1();
+//	      int boardNum = dto.getBoardNum();
+//	      
+//	      
+//	      System.out.println(memberId);
+//	      System.out.println(content);
+//	      System.out.println(boardNum);
+//	      System.out.println(password);
+//	      
+//	      boardReDTO dto1 = new boardReDTO(boardNum, memberId, password,content);
+//	      boardReDAO dao1 = new boardReDAO();
+//	      int cnt = dao1.upload(dto1);
+//	      
+//	      String moveURL = "";
+//	      if(cnt>0) {
+//	         System.out.println("댓글 업로드 전송 성공");
+//	         moveURL = "Board.jsp";
+//	         session.setAttribute("board_num",boardNum);
+//	      }else {
+//	         System.out.println("댓글 업로드 전송 실패");
+//	         moveURL = "Board.jsp";
+//	      }
+//	      response.sendRedirect(moveURL);
+//	   }//
+//=======
 		request.setCharacterEncoding("EUC-KR");
 		HttpSession session = request.getSession();
 		memberDTO info = (memberDTO) session.getAttribute("info");
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+//>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 
 		// 전역변수
 		String memberId = null;

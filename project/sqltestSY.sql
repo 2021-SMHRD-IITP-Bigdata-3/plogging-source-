@@ -1,5 +1,33 @@
 
 
+delete from chat where member_id = 'te';
+delete from NOTICE_MEMBER  where member_id = 'te'
+
+select * from notice_member
+
+
+-- 채팅
+채팅번호시퀀스 num_chat
+drop sequence num_chat;
+create sequence num_chat
+increment by 1
+start with 1;
+ 
+채팅테이블 chat
+drop table chat;
+create table chat(
+	chat_number number primary key, -- 채팅 번호
+	chatroom_number number, -- 채팅방 번호 (공고 번호를 사용) 
+	member_id varchar(100), 
+	content varchar(200),
+	day date,
+	constraint chat_chatroom_number_fk foreign key (chatroom_number)
+	references notice(notice_number));
+	
+select distinct chatroom_number from chat where member_id='1';
+
+select * from chat;
+
 select * from testday;
 drop table testday;
 
@@ -50,9 +78,6 @@ select * from notice_member;
 select * from notice;
 select * from tip_off;
 select * from member;
-
-
-delete from chat where chat_number>104;
 
 
 -- 컬럼 추가

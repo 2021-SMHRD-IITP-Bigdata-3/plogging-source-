@@ -76,10 +76,12 @@
 				<% for(int i=0; i<array.size(); i++){ %>
 		            <div class = "item"><span style="color: green;"><br>
 			            <span>
-			            	<input
+			            <!-- 	<input
+			             -->
 						</span>
 					</div>
-
+			<%} %>
+	<%} %>
 		</div>
 </table>
 

@@ -38,16 +38,35 @@
 	String limitedNumber = request.getParameter("limitedNumber");
 	System.out.println("(chatTest1페이지) 공고 번호  : " + noticeNumber);
 	System.out.println("(chatTest1페이지) 플로깅 장소 : " + addr);
-	System.out.println("(chatTest1페이지) 플로깅 기한 : " + login_id);
-	System.out.println("(chatTest1페이지) 제한 인원 : " + login_id);
-
+	System.out.println("(chatTest1페이지) 플로깅 기한 : " + plogDate);
+	System.out.println("(chatTest1페이지) 제한 인원 : " + limitedNumber);
+	
 	// 공고의 위도, 경도
 	notice_BoardDAO dao = new notice_BoardDAO();
 	notice_BoardDTO dto = dao.lating(noticeNumber);
 	System.out.println("(chatTest1페이지) 공고의 위도 : " + dto.getLat());
 	System.out.println("(chatTest1페이지) 공고의 경도 : " + dto.getLng());
 
-	// 로그인한 아이디가 이 공고에 참여했는지 여부 파악
+
+	// 로그인한 아이디가 이 채팅방에 참가했는지 여부 파악 (조회 -> 참가)
+	ArrayList<notice_BoardDTO> c_array = dao.showMyChat(login_id);
+	int check2 = 0;
+	for (int i=0; i<c_array.size();i++){
+		if (c_array.get(i).getNoticeNumber()==noticeNumber){
+			check2 = 1;
+		}
+	}
+	// 안내문구를 위한 채팅내역 생성 -- 대신 사용자는 announcement를 입력하면 안돼...ㅋㅋ
+	ChatDAO c_dao = new ChatDAO();
+	if (check2==0){
+		int cnt = c_dao.insertChat(noticeNumber, login_id, "announcement");
+		if(cnt>0) {
+			System.out.println("안내문구  성공");
+		}else {System.out.println("안내문구 실패");
+		}
+	}
+	
+	// 로그인한 아이디가 이 공고에 참가했는지 여부 파악 (조회 -> 참가 -> 참가)
 	ArrayList<notice_BoardDTO> array = dao.showMyNotice(login_id);
 	int check = 0;
 	for (int i=0; i<array.size();i++){
@@ -55,7 +74,6 @@
 			check = 1;
 		}
 	}
-	
 %>	
 
 
@@ -111,7 +129,13 @@
 			    			var id = res[i].member_id;
 			    			var content = res[i].content;
 			    			if(id=="<%=login_id%>"){
-			    				chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>")	;
+			    				if(content=="announcement"){
+	/////////////////////////////////// 기능만 넣음 디자인은 원하는대로 바꾸면 됨 ///////////////////////////////////////////////////////////////////////////////////////////
+			    					chatContainer.append("<div class='announcement'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");   					
+			    				}
+			    				else{
+			    					chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
+			    				}
 			    			}else{
 				    			chatContainer.append("<div class='others'>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
 			    			};
