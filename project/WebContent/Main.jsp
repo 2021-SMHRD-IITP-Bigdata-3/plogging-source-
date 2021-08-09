@@ -6,7 +6,8 @@
 <%@page import="Model.boardDAO"%>
 <%@page import="Model.reviewBoardDTO"%>
 <%@page import="Model.notice_BoardDTO"%>
-<%@page import="Model.boardDTO"%>
+<%@page import="Model.reportTestDAO"%>
+<%@page import="Model.reportTestDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -47,21 +48,30 @@
 	notice_BoardDAO dao = new notice_BoardDAO();
 	
    	// 메인 들어오면 - 플로깅 기한 지난 공고들 연장
-//	int cnt = dao.plogDateUpdate();
-//	if(cnt>0) {
-//		System.out.println("플로깅 기한 연장 성공");
-//	}else {System.out.println("플로깅 기한 연장 실패");
-//	}
+	int cnt = dao.plogDateUpdate();
+	if(cnt>0) {
+		System.out.println("플로깅 기한 연장 성공");
+	}else {System.out.println("플로깅 기한 연장 실패");
+	}
 	
-	// 나의 채팅방 리스트 (조회에서 '참가' 클릭한 목록)
+	// 나의 채팅방 목록 (조회에서 '참가' 클릭한 목록)
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	if (info!=null){
 		array = dao.showMyChatroom(info.getMemberId());
-		for(int i =0; i<array.size(); i++){
+		for(int i=0; i<array.size(); i++){
 			System.out.println(" 채팅방 번호  : " + array.get(i).getNoticeNumber() );
 		}
 	} 
-%>
+	// (공고로 사용되지 않은) 제보 목록
+	ArrayList<reportTestDTO> report_array = new ArrayList<reportTestDTO>();
+	reportTestDAO report_dao = new reportTestDAO();
+	report_array = report_dao.reportShow();
+	for(int i=0; i<report_array.size(); i++){
+		System.out.println(" 공고 번호  : " + report_array.get(i).getReport_number());
+	}
+	
+	
+	%>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
     // html dom 이 다 로딩된 후 실행된다.
@@ -79,62 +89,41 @@
         });
     });
 </script>
-<div float=right>
-   <div>
-      <div>
-	    <ul style="list-style: none; ">
-	        <li class="menu" >
-	            <a><div class="topicon" >채팅방</div></a>
-	            <ul class="hide" style="list-style: none;">
-					<% if(info != null) { %>
-						<% for(int i=0; i<array.size(); i++){ %>
-		                <li><input type="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat"onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></li>
-							<%}%>
-					<%}%>		
-	            </ul>
-	        </li>
-	    </ul>
-       </div>
-    </div>
-</div>
 
 <table>
 	<tr>
 	   <td id ="title" style = "width:124px;">plogging</td>
 	      <% if(info != null) { %>
 	   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
+	   <td>
+			<ul style="list-style: none; ">
+		        <li class="menu" >
+		            <a><div class="topicon" >채팅방</div></a>
+		            <ul class="hide" style="list-style: none; padding-left:0px;">
+							<% if(info != null) { %>
+								<% for(int i=0; i<array.size(); i++){ %>
+				                <li><div class="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></div></li>
+									<%}%>
+							<%}%>	
+		            </ul>
+		        </li>
+		    </ul>
+	   </td>
 	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 	      <% }else { %>
 	   <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="width:67px; margin:10px 10px 0px 10px;" >로그인</a> </td>
       <% } %>
-	   
 	</tr>
 </table>
 
-
-<table style="float: right" >
-	<tr>
-		<td>
-    <ul style="list-style: none; ">
-        <li class="menu" >
-            <a><div class="topicon" >채팅방</div></a>
-            <ul class="hide" style="list-style: none; padding-left:0px;">
-                <li><div class="topicon">채팅방1</div></li>
-                <li><div class="topicon">채팅방2</div></li>
-                <li><div class="topicon">채팅방3</div></li>
-            </ul>
-        </li>
-    </ul>
-    	</td>
-    </tr>
-</table>
-<br><br>
-<table>
-<tr><td><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667">플로깅</a></td></tr>
-</table>
-
-
 <br>
+
+<%if(info !=null){ %>
+<form action = "reportPostWrite.jsp" method = "post">
+	<h2>집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>
+	<div id="map" style="width:100%;height:600px;"></div>
+</form>
+<%}else { %>
 <table>
 <tr>
 <td><iframe src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -157,5 +146,51 @@
    <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
    <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 </table>
+<%} %>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
+<script><!-- ㄴㅇㅁㄴㅇ-->
+	<%if(info !=null){%>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+				center: new kakao.maps.LatLng(<%=info.getMemberLat()%>,<%=info.getMemberLng()%>), // 지도의 중심좌표
+				level: 5 // 지도의 확대 레벨
+		};
+
+		//지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+	
+		// 전역변수
+		let lat;
+		let lng;
+		
+		<%for(int i=0; i<report_array.size();i++){%>
+			// 마커를 생성합니다
+			// 값이 잘 들어오는지 확인
+			lat = <%=report_array.get(i).getLat()%>;
+			lng = <%=report_array.get(i).getLng()%>;
+			console.log('lat, lng: ', lat, lng);
+	
+			var marker = new kakao.maps.Marker({		
+				position: new kakao.maps.LatLng(lat, lng)
+			// 마커의 위치
+			});
+			
+			makeMarkerDeletable(marker);
+		
+			marker.setMap(map);
+		<%}%>
+	<%}%>
+	
+	// '지울 수 있는 마커 만들기' 함수 생성
+	function makeMarkerDeletable(targetMarker) {
+		//마커를 지우는 이벤트
+		kakao.maps.event.addListener(targetMarker, 'click', function() {
+			// 마커 위에 인포윈도우를 표시합니다
+			targetMarker.setMap(null)	     
+		});
+	}
+</script>
 </body>
 </html>

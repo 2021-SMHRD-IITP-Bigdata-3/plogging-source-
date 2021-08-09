@@ -54,6 +54,8 @@ public class reportPostServiceCon extends HttpServlet {
 	
 		/////////////// 제보 -> 공고 /////////////// 
 		// 전역변수들 선언
+		notice_BoardDAO ndao = new notice_BoardDAO();
+		notice_BoardDTO ndto = new notice_BoardDTO();
 		ArrayList<reportTestDTO> array = new ArrayList<reportTestDTO>(); // 모든 제보 목록
 		ArrayList<reportTestDTO> array2 = new ArrayList<reportTestDTO>(); // 반경 안의 제보 목록
 		array.clear();
@@ -88,9 +90,9 @@ public class reportPostServiceCon extends HttpServlet {
 			double lngY = dto.getLng();
 			for (int i = 0; i < array.size(); i++) {
 				double latA = array.get(i).getLat();
-				double latB = array.get(i).getLng();
+				double lngB = array.get(i).getLng();
 				double cos = Math.cos(Math.toRadians(latA)) * Math.cos(Math.toRadians(latX))
-						* Math.cos(Math.toRadians(lngY - latB));
+						* Math.cos(Math.toRadians(lngY - lngB));
 				double sin = Math.sin(Math.toRadians(latA)) * Math.sin(Math.toRadians(latX));
 				double result = cos + sin;
 				double distance = 6371 * Math.acos(result);
@@ -110,27 +112,17 @@ public class reportPostServiceCon extends HttpServlet {
 				mCnt = dao.makeNotice(dto);
 				System.out.println("공고화 됐다면 mCnt = 1 = " + mCnt);
 				System.out.println();
-//				notice_BoardDTO ndto= new notice_BoardDTO(dto.get);
-				// 새 공고의 ndto에 업로드한 데이터의 공고번호 넣어주기
-				for (int i = 0; i < array2.size(); i++) {
-					if ((array2.get(i).getLat() - dto.getLat()) == 0 && (array2.get(i).getLng() - dto.getLng()) == 0) {
-						System.out.println("일치 좌표 있음");
-						dto.setReport_number(array2.get(i).getReport_number());
-						dto.setReport_date(array2.get(i).getReport_date());
-						dto.setNotice_check(array2.get(i).getNotice_check());
-					}
-				}System.out.println();
-				
-				
-				
+				// 제보 번호를 가지는 공고 번호 찾기
+				int num  = ndao.report2notice(dto.getReport_number());
+				System.out.println("공고번호가 잘 찾아졌는지 확인 : " + num);
 				if (mCnt > 0) {
 					System.out.println("공고 업로드 성공");
 					for (int i = 0; i < array2.size(); i++) {				
-						ckCnt = dao.noticeCheck(array2.get(i));
+						ckCnt = dao.noticeCheck(num, array2.get(i));
 						if (ckCnt > 0) {
-							System.out.println(i + "번째 제보 check를 1로 수정 성공");
+							System.out.println(i + "번째 제보 check를 해당 공고번호로 수정 성공");
 						} else {
-							System.out.println(i + "번째 제보check를 1로 수정 실패");
+							System.out.println(i + "번째 제보check를 해당 공고번호로 수정 실패");
 						}
 					}
 				} else {

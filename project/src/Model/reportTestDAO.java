@@ -127,15 +127,16 @@ public class reportTestDAO {
 		return cnt;
 	}
 
-	// noticeCheck를 1로 수정해주는 메소드 (공고자동화에 사용된 제보들은 1 처리해서 폐기)  -> 공고번호로 주자 (사실상 공고번호 포린키이지만, 그냥 포린키 설정 안 하고 그 용도로 사용)
-	public int noticeCheck(reportTestDTO dto) {
+	// noticeCheck를 1로 수정해주는 메소드 (공고자동화에 사용된 제보들은 1 처리해서 폐기)
+	// -> 1이 아니라 공고번호를 주자 (사실상 공고번호 포린키 컬럼이라 생각하면 돼)
+	public int noticeCheck(int num, reportTestDTO dto) {
 		try {
 			conn();
-			String sql = "UPDATE tip_off SET notice_check = 1 WHERE report_number = ?";
+			String sql = "UPDATE tip_off SET notice_check = ? WHERE report_number = ? ";
 
 			psmt = conn.prepareStatement(sql);
-
-			psmt.setInt(1, dto.getReport_number());
+			psmt.setInt(1, num);
+			psmt.setInt(2, dto.getReport_number());
 
 			cnt = psmt.executeUpdate();
 
