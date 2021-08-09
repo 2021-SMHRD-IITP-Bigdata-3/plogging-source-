@@ -90,9 +90,9 @@ public class reportPostServiceCon extends HttpServlet {
 			double lngY = dto.getLng();
 			for (int i = 0; i < array.size(); i++) {
 				double latA = array.get(i).getLat();
-				double latB = array.get(i).getLng();
+				double lngB = array.get(i).getLng();
 				double cos = Math.cos(Math.toRadians(latA)) * Math.cos(Math.toRadians(latX))
-						* Math.cos(Math.toRadians(lngY - latB));
+						* Math.cos(Math.toRadians(lngY - lngB));
 				double sin = Math.sin(Math.toRadians(latA)) * Math.sin(Math.toRadians(latX));
 				double result = cos + sin;
 				double distance = 6371 * Math.acos(result);

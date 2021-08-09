@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css/chatroom.css?after">
 </head>
 <body>
+
 <%
 	// 로그인 시 필요
 	memberDTO info = (memberDTO) session.getAttribute("info");
@@ -33,22 +34,21 @@
 	// 조회, 공고방 목록에서 넘어올 때
 	request.setCharacterEncoding("EUC-KR");	
 	int noticeNumber = Integer.parseInt(request.getParameter("noticeNumber"));
-	String addr = request.getParameter("addr");
-	String plogDate = request.getParameter("plogDate");
-	String limitedNumber = request.getParameter("limitedNumber");
 	System.out.println("(chatTest1페이지) 공고 번호  : " + noticeNumber);
-	System.out.println("(chatTest1페이지) 플로깅 장소 : " + addr);
-	System.out.println("(chatTest1페이지) 플로깅 기한 : " + plogDate);
-	System.out.println("(chatTest1페이지) 제한 인원 : " + limitedNumber);
-	
-	// 공고의 위도, 경도
+
+	// 공고번호에 맞는 정보들
 	notice_BoardDAO dao = new notice_BoardDAO();
+	notice_BoardDTO ndto = dao.showNoticeInfo(noticeNumber);
+	System.out.println("(chatTest1페이지) 플로깅 장소 : " + ndto.getAddr());
+	System.out.println("(chatTest1페이지) 플로깅 기한 : " + ndto.getPlogDate());
+	System.out.println("(chatTest1페이지) 제한 인원 : " + ndto.getLimitedNumber());
+		
+	// 공고의 위도, 경도
 	notice_BoardDTO dto = dao.lating(noticeNumber);
 	System.out.println("(chatTest1페이지) 공고의 위도 : " + dto.getLat());
 	System.out.println("(chatTest1페이지) 공고의 경도 : " + dto.getLng());
 
-
-	// 로그인한 아이디가 이 채팅방에 참가했는지 여부 파악 (조회 -> 참가)
+	// 로그인한 아이디가 이 채팅방에 참가한 적 있는지 파악 (조회의 '참가'버튼을 누른 적 있는지)
 	ArrayList<notice_BoardDTO> c_array = dao.showMyChatroom(login_id);
 	int check2 = 0;
 	for (int i=0; i<c_array.size();i++){
@@ -56,6 +56,7 @@
 			check2 = 1;
 		}
 	}
+
 	// 안내문구를 위한 채팅내역 생성 -- 대신 사용자는 announcement를 입력하면 안돼...ㅋㅋ
 	ChatDAO c_dao = new ChatDAO();
 	if (check2==0){
@@ -66,7 +67,7 @@
 		}
 	}
 	
-	// 로그인한 아이디가 이 공고 신청 했는지 여부 파악 (신청)
+	// 로그인한 아이디가 이 공고 신청 했는지 여부 파악 (채팅방의 '신청'버튼을 누른 적 있는지)
 	ArrayList<notice_BoardDTO> array = dao.showMyNotice(login_id);
 	int check = 0;
 	for (int i=0; i<array.size();i++){
@@ -99,7 +100,7 @@
 			<input type='button' value="신청" name="attend" 
 				onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"><br>
 		<% }else{ %>
-			참가하신 채팅방입니다.
+			신청하신 공고입니다.
 		<% } %>
 	</div>
 
