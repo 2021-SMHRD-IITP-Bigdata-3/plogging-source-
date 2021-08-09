@@ -1,0 +1,170 @@
+@charset "EUC-KR";
+<script>
+body {
+	
+   background-color: #f1edf0;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+.mtable1{
+   width: 100%;
+	padding: 100px;
+        }
+table{
+ width : 100%;
+   border-top : 1px solid #444444;
+   border-collapse: collapse;
+         }
+   tr , td{
+ border-bottom : 1px solid #444444;
+   padding : 10px;
+   }
+a {
+   width: 330px;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 12px;
+}
+div {
+   /* padding: 10px */
+   margin-left: auto;
+   margin-right: auto;
+}
+.button {
+   background-color: #2DB400;
+   width: 330px;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 12px;
+}
+.topicon {
+   background-color: #88dba3;
+   border: none;
+   color: white;
+   padding: 30px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 30px;
+   margin: 4px 2px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   border-radius: 15px;
+   align : right;
+}
+.dbutton2{
+  position: fixed;
+  bottom: 40px;
+  left: 25%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton3{
+  position: fixed;
+  bottom: 40px;
+  left: 45%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton4{
+  position: fixed;
+  bottom: 40px;
+  left: 65%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton5{
+  position: fixed;
+  bottom: 40px;
+  left: 85%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+  .dbutton1{
+     position: fixed;
+     bottom: 40px;
+     left: 5%;
+     border: none;
+     border-radius: 16px;
+     background: #88dba3;
+     color: white;
+     padding: 30px;
+     font-weight: bold;
+     font-size: 30px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     cursor: pointer;
+     float:left;
+   }
+   
+.button {
+   background-color: #2DB400;
+   width: 330px;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 12px;
+}
+
+.dbutton {
+   background-color: #2DB400;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 12px;
+}
+
+</script>
