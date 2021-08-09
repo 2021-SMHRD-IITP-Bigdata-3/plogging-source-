@@ -6,7 +6,8 @@
 <%@page import="Model.boardDAO"%>
 <%@page import="Model.reviewBoardDTO"%>
 <%@page import="Model.notice_BoardDTO"%>
-<%@page import="Model.boardDTO"%>
+<%@page import="Model.reportTestDAO"%>
+<%@page import="Model.reportTestDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -61,7 +62,11 @@
 			System.out.println(" 채팅방 번호  : " + array.get(i).getNoticeNumber() );
 		}
 	} 
-%>
+	
+	ArrayList<reportTestDTO> report_array = new ArrayList<reportTestDTO>();
+	reportTestDAO report_dao = new reportTestDAO();
+	report_array = report_dao.reportShow();
+	%>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
     // html dom 이 다 로딩된 후 실행된다.
@@ -107,6 +112,13 @@
 </table>
 
 <br>
+
+<%if(info !=null){ %>
+<form action = "reportPostWrite.jsp" method = "post">
+	<h2>집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>
+	<div id="map" style="width:100%;height:600px;"></div>
+</form>
+<%}else { %>
 <table>
 <tr>
 <td><iframe src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -129,5 +141,41 @@
    <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
    <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 </table>
+<%} %>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
+<script><!-- ㄴㅇㅁㄴㅇ-->
+<%if(info !=null){%>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = {
+	 center: new kakao.maps.LatLng(<%=info.getMemberLat()%>,<%=info.getMemberLng()%>), // 지도의 중심좌표
+    level: 5 // 지도의 확대 레벨
+};
+//지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+var markers = [];
+	<%for(int i=0; i<report_array.size();i++){%>
+
+	// 마커를 생성합니다
+	var marker = new kakao.maps.Marker({
+		
+		position: new kakao.maps.LatLng(<%=report_array.get(i).getLat()%>, <%=report_array.get(i).getLng()%>)
+		// 마커의 위치
+	
+	});
+	
+	marker.setMap(map);
+	markers.push(marker);
+	<%}%>
+<%}%>
+
+//마커를 지우는 이벤트
+kakao.maps.event.addListener(markers, 'click', function() {
+    // 마커 위에 인포윈도우를 표시합니다
+     markers.setMap(null) 
+});
+</script>
 </body>
 </html>
