@@ -1,0 +1,178 @@
+@charset "EUC-KR";
+<script>
+table{
+	width:100%;
+}
+#myimport{
+	float:right;
+	margin:30px 0px 0px 590px;
+	font-size:3em;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding:15px 15px 15px 15px;
+	font-weight: bold;
+	font-size: 41px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+    }
+	#title{
+	float: left;
+	width:124px;
+	margin-left:60px;
+	margin-top:20px;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 8px 70px 21px 22px;
+	font-weight: bold;
+	font-size: 40px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+#1stTable{
+	border:0px;
+	width:100%;
+}
+#gettitle{
+    font-size: 3em;
+    margin-left: 100px;
+    padding: 50px 0px 0px 70px;
+}
+#date{
+	font-size: 25px;
+    padding: 40px 0px 0px 50px;
+}
+#memberId{
+	font-size: 25px;
+    padding: 40px 0px 0px 350px;
+}
+#content{
+	background:white;
+	padding:100px 0px 0px 0px;
+	text-align:left;
+	border:1px solid;
+}
+#\31 stTable > tbody > tr:nth-child(4){
+	 font-size: 2.5em;
+}
+p{
+	background: #CFCFCF;
+    border-radius: 45px;
+    text-align: center;
+    height:70px;
+}
+.dbutton1{
+	  position: fixed;
+	  bottom: 40px;
+	  left: 5%;
+	  border: none;
+	  border-radius: 16px;
+	  background: #88dba3;
+	  color: white;
+	  padding: 30px;
+	  font-weight: bold;
+	  font-size: 30px;
+	  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	  cursor: pointer;
+	  float:left;
+	}
+.dbutton2{
+  position: fixed;
+  bottom: 40px;
+  left: 25%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+#del{
+	width: 100px;
+    height: 100px;
+    float: left;
+    background: gray;
+    text-align: center;
+    margin: 0px 0px 0px 190px;
+    font-size: 30px;
+    border-radius: 35px;
+}
+#del{
+	width: 100px;
+    height: 75px;
+    float: left;
+    background: gray;
+    text-align: center;
+    margin: 0px 0px 0px 100px;
+    font-size: 30px;
+    border-radius: 35px;
+    background-color:#C7D3ED;
+}
+#re{
+	width: 100px;
+    height: 75px;
+    float: right;
+    background: gray;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 35px;
+    margin:0px -450px 0px 0px;
+    background-color:#C7D3ED;
+}
+.dbutton3{
+  position: fixed;
+  bottom: 40px;
+  left: 45%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton4{
+  position: fixed;
+  bottom: 40px;
+  left: 65%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton5{
+  position: fixed;
+  bottom: 40px;
+  left: 85%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+#map{
+	width:90%;
+	height:500px;
+}
+
+</script>

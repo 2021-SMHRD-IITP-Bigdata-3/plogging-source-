@@ -1,0 +1,153 @@
+@charset "EUC-KR";
+<style>
+table{
+	width:100%;
+	
+}
+
+#map{
+	width:100%;
+	height:700px;
+	margin:55px 0px 0px 0px;
+}
+#button{
+	float:right;
+	margin:6px 0px 0px 550px;
+	font-size:50px;
+}
+#membertitle{
+	font-size:2.5em;
+	width:90%;
+	border:0px;
+	padding:13px 0px 10px 30px;
+
+}
+#myimport{
+	float:right;
+	margin:30px 0px 0px 590px;
+	font-size:3em;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding:15px 15px 15px 15px;
+	font-weight: bold;
+	font-size: 41px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+a{
+	text-decoration-line: none;
+	color: black;
+}
+
+#name{
+	border:0px"
+}
+#reviewTitle{
+	font-size:46px;
+	float :left;
+	margin :20px 19px 20px 29px;
+	width:100%;
+}
+
+	#title{
+	float: left;
+	width:124px;
+	margin-left:60px;
+	margin-top:20px;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 8px 70px 21px 22px;
+	font-weight: bold;
+	font-size: 40px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+	
+	.dbutton1{
+	  position: fixed;
+	  bottom: 40px;
+	  left: 5%;
+	  border: none;
+	  border-radius: 16px;
+	  background: #88dba3;
+	  color: white;
+	  padding: 30px;
+	  font-weight: bold;
+	  font-size: 30px;
+	  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	  cursor: pointer;
+	  float:left;
+	}
+.dbutton2{
+  position: fixed;
+  bottom: 40px;
+  left: 25%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton3{
+  position: fixed;
+  bottom: 40px;
+  left: 45%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton4{
+  position: fixed;
+  bottom: 40px;
+  left: 65%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton5{
+  position: fixed;
+  bottom: 40px;
+  left: 85%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+.down{
+position: fixed;
+bottom: -20px;
+left:0px;
+width:100%;
+height:10%;
+background: #3ac569;
+}	
+	
+</style>
