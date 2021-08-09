@@ -1,7 +1,7 @@
 @charset "EUC-KR";
 <style>
 body{
-    background-color: #dadbdb;
+    background-color: #ffffff;
    /* scrollbar-width: none;
     -ms-overflow-style: none; */
    }
@@ -26,7 +26,6 @@ body{
    display: inline-block;
    font-size: 30px;
    border-radius: 12px;
-
    /* border-radius: 12px; */
 
 }
@@ -40,6 +39,7 @@ textarea {
 	resize: none;
 	font-size: 30px;
 	border-radius: 12px;
+	background-color:#dadbdb;
 	}
 .button {
    background-color: #88dba3;

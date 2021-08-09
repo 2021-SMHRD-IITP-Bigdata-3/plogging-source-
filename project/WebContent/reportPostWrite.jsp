@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<body style = "background-color: #dadbdb">
+<body >
 <%
 
    memberDTO info = (memberDTO)session.getAttribute("info");   
@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 			<table class="mtable1" >
 				<tr >
 					<td colspan="4"><input type="text" class="ltex" placeholder="제목"
-						name="title"></td>
+						name="title" style="background-color:#dadbdb"></td>
 				</tr>
 				<tr >
 					<td align="left">
@@ -75,7 +75,7 @@ jQuery(document).ready(function($) {
 			   </td>
 				</tr>
 				<tr>
-					<td align="center" colspan="4"><textarea  name="content" placeholder="내용"></textarea></td>
+					<td align="center" colspan="4"><textarea  name="content" placeholder="내용" style="background-color:#dadbdb"></textarea></td>
 				</tr>
 				<tr>
 					<td><input type="submit" class="topicon" value="등록" float ="right"></td></td>
@@ -84,7 +84,7 @@ jQuery(document).ready(function($) {
 			<br>
 			<br><br><br><br>			
 		</form>
-		<div class="down"></div>
+		<!-- 하단바  <div class="down"></div> -->
 			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
 			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
 			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>
