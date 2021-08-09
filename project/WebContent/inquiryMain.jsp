@@ -58,7 +58,7 @@
 							<div><img id="img" src="img/<%=array.get(i).getNoticeImage()%>"></div><br>
 							<span id="iconee"> 주소지 : <%=array.get(i).getAddr() %></span><br>
 							<span id="iconee"> 플로깅 기한 : <%=dao.changeDateFormat(array.get(i).getPlogDate())%></span><br>
-							<!-- <span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>  -->
+							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
 							<span id="iconee"> 플로깅 제한 인원  :<%=array.get(i).getLimitedNumber()%></span><br>
 							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
 							<span ><input id ="input" type = "submit" value = "참가"></span></div>
