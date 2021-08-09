@@ -13,7 +13,6 @@ public class reportTestDAO {
 	int num = 0;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	ArrayList<reportTestDTO> array = new ArrayList<reportTestDTO>();
 
 	public void conn() {
 		try {
@@ -73,6 +72,7 @@ public class reportTestDAO {
 
 	// 모든 사용가능한 (notice_check=0) 제보들을 어레이리스트로 반환하는 메소드
 	public ArrayList<reportTestDTO> reportShow() {
+		ArrayList<reportTestDTO> array = new ArrayList<reportTestDTO>();
 		try {
 			conn();
 
@@ -101,30 +101,7 @@ public class reportTestDAO {
 		}
 		return array;
 	}
-
-	// 새 제보의 rkm 반경 안의 제보들을 어레이리스트로 반환하는 메소드
-	public ArrayList<reportTestDTO> reportRradius(double latX, double lngY, ArrayList<reportTestDTO> inputArray, double r) {
-		for (int i = 0; i < inputArray.size(); i++) {
-			double latA = inputArray.get(i).getLat();
-			double latB = inputArray.get(i).getLng();
-			double cos = Math.cos(Math.toRadians(latA)) * Math.cos(Math.toRadians(latX))
-					* Math.cos(Math.toRadians(lngY - latB));
-			double sin = Math.sin(Math.toRadians(latA)) * Math.sin(Math.toRadians(latX));
-			double result = cos + sin;
-			double distance = 6371 * Math.acos(result);
-			System.out.println((i + 1) + "번째 제보 확인==========");
-			System.out.println("acos에 들어갈 결과 (-1과1사이어야 함): " + result);
-			System.out.println((i + 1) + "번째 제보와 현재 제보 사이 거리 : " + distance);
-			System.out.println("===================");
-			// dkm 미만일 때 카운트
-			if (distance < r) {
-				array.add(inputArray.get(i));
-			}
-		}
-		System.out.println("현재 재보지와 거리가 " + r + " 이하인 제보들 개수 " + array.size());
-		return array;
-	}
-
+	
 	// 제보를 공고로 만들어주는 메소드
 	public int makeNotice(reportTestDTO dto) {
 		try {
@@ -150,7 +127,7 @@ public class reportTestDAO {
 		return cnt;
 	}
 
-	// noticeCheck를 1로 수정해주는 메소드 (공고자동화에 사용된 제보들은 1 처리해서 폐기)
+	// noticeCheck를 1로 수정해주는 메소드 (공고자동화에 사용된 제보들은 1 처리해서 폐기)  -> 공고번호로 주자 (사실상 공고번호 포린키이지만, 그냥 포린키 설정 안 하고 그 용도로 사용)
 	public int noticeCheck(reportTestDTO dto) {
 		try {
 			conn();

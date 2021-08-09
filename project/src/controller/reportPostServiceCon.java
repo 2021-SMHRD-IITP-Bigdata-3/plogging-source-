@@ -49,6 +49,7 @@ public class reportPostServiceCon extends HttpServlet {
 		//// 제보 테이블에 업로드
 		reportTestDTO dto = new reportTestDTO(lat, fileName, lng, addr);
 		reportTestDAO dao = new reportTestDAO();
+//		notice_BoardDTO ndto= new notice_BoardDTO();
 		int upCnt = dao.reportUpload(dto); // 넣을 때 제보번호를 알 수 없다!(기본값인 0이 들어있어) -> 밑에서 찾아주는 알고리즘 추가
 
 		
@@ -84,8 +85,25 @@ public class reportPostServiceCon extends HttpServlet {
 			// 새 제보의 위도, 경도
 			double latX = dto.getLat();
 			double lngY = dto.getLng();
-			// 반경 500m 안의 제보들 추출 					// 우선 테스트용으로 500m 반경. 나중에 수정
-			array2 = dao.reportRradius(latX, lngY, array, 0.5);
+			double inputDistance = 0.5; // 여기서 거리 수정
+			for (int i = 0; i < array.size(); i++) {
+				double latA = array.get(i).getLat();
+				double latB = array.get(i).getLng();
+				double cos = Math.cos(Math.toRadians(latA)) * Math.cos(Math.toRadians(latX))
+						* Math.cos(Math.toRadians(lngY - latB));
+				double sin = Math.sin(Math.toRadians(latA)) * Math.sin(Math.toRadians(latX));
+				double result = cos + sin;
+				double distance = 6371 * Math.acos(result);
+				System.out.println((i + 1) + "번째 제보 확인==========");
+				System.out.println("acos에 들어갈 결과 (-1과1사이어야 함): " + result);
+				System.out.println((i + 1) + "번째 제보와 현재 제보 사이 거리 : " + distance);
+				System.out.println("===================");
+				// 500m 미만일 때 카운트
+				if (distance < 0.5) { // 여기서 거리 수정
+					array2.add(array.get(i));
+				}
+			}System.out.println("현재 재보지와 거리가 500m 이하인 제보들 개수 " + array.size());
+				
 
 			if (array2.size() > 3) { // 가데이터로 연습하려고 3으로 둠
 				// 제보 -> 공고
@@ -93,7 +111,7 @@ public class reportPostServiceCon extends HttpServlet {
 				System.out.println("공고화 됐다면 mCnt = 1 = " + mCnt);
 				if (mCnt > 0) {
 					System.out.println("공고 업로드 성공");
-					for (int i = 0; i < array2.size(); i++) {
+					for (int i = 0; i < array2.size(); i++) {				
 						ckCnt = dao.noticeCheck(array2.get(i));
 						if (ckCnt > 0) {
 							System.out.println(i + "번째 제보 check를 1로 수정 성공");

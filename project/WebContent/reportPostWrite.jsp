@@ -64,6 +64,7 @@ jQuery(document).ready(function($) {
 	 String addr = request.getParameter("addr");
 	 System.out.println("latdd : " + lat);
 	 System.out.println("lngdd :" + lng);
+	 System.out.println("addr :" + addr);
  %>
 			  <input type="hidden" name="lat" id="lat">
 			  <input type="hidden" name="lng" id="lng">

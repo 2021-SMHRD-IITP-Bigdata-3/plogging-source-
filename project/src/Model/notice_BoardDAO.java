@@ -119,7 +119,6 @@ public class notice_BoardDAO {
 
 	}
 
-	
 	// 채팅방 참가 목록 보여주는 메소드 (조회에서 '참가'버튼을 누른 공고들)
 	public ArrayList<notice_BoardDTO> showMyChatroom(String inputId) {
 		ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
@@ -144,7 +143,7 @@ public class notice_BoardDAO {
 		return list;
 	}
 
-	// 공고 참가 목록 보여주는 메소드 (채팅방에서 '참가'버튼을 누른 공고들)
+	// 공고 참가 목록 보여주는 메소드 (채팅방에서 '신청'버튼을 누른 공고들)
 	public ArrayList<notice_BoardDTO> showMyNotice(String inputId) {
 		ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
 		try {

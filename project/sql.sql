@@ -1,3 +1,6 @@
+UPDATE tip_off SET notice_check = 0;
+select * from tip_off;
+
 INSERT INTO board_num VALUES(num_board_num.nextval,64,1,1,1,sysdate)
 ;(select board_num from board where board_num = 63)
 select * from board_num;
