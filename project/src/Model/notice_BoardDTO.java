@@ -13,7 +13,6 @@ public class notice_BoardDTO {
 	private double lng;
 	
 	
-
 	public notice_BoardDTO() {
 		super();
 	}

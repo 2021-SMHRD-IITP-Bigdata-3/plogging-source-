@@ -48,24 +48,29 @@
 	notice_BoardDAO dao = new notice_BoardDAO();
 	
    	// 메인 들어오면 - 플로깅 기한 지난 공고들 연장
-//	int cnt = dao.plogDateUpdate();
-//	if(cnt>0) {
-//		System.out.println("플로깅 기한 연장 성공");
-//	}else {System.out.println("플로깅 기한 연장 실패");
-//	}
+	int cnt = dao.plogDateUpdate();
+	if(cnt>0) {
+		System.out.println("플로깅 기한 연장 성공");
+	}else {System.out.println("플로깅 기한 연장 실패");
+	}
 	
-	// 나의 채팅방 리스트 (조회에서 '참가' 클릭한 목록)
+	// 나의 채팅방 목록 (조회에서 '참가' 클릭한 목록)
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	if (info!=null){
 		array = dao.showMyChatroom(info.getMemberId());
-		for(int i =0; i<array.size(); i++){
+		for(int i=0; i<array.size(); i++){
 			System.out.println(" 채팅방 번호  : " + array.get(i).getNoticeNumber() );
 		}
 	} 
-	
+	// (공고로 사용되지 않은) 제보 목록
 	ArrayList<reportTestDTO> report_array = new ArrayList<reportTestDTO>();
 	reportTestDAO report_dao = new reportTestDAO();
 	report_array = report_dao.reportShow();
+	for(int i=0; i<report_array.size(); i++){
+		System.out.println(" 공고 번호  : " + report_array.get(i).getReport_number());
+	}
+	
+	
 	%>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
@@ -97,7 +102,7 @@
 		            <ul class="hide" style="list-style: none; padding-left:0px;">
 							<% if(info != null) { %>
 								<% for(int i=0; i<array.size(); i++){ %>
-				                <li><div class="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat"onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></div></li>
+				                <li><div class="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></div></li>
 									<%}%>
 							<%}%>	
 		            </ul>
@@ -146,36 +151,46 @@
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script><!-- ㄴㅇㅁㄴㅇ-->
-<%if(info !=null){%>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-mapOption = {
-	 center: new kakao.maps.LatLng(<%=info.getMemberLat()%>,<%=info.getMemberLng()%>), // 지도의 중심좌표
-    level: 5 // 지도의 확대 레벨
-};
-//지도를 생성합니다    
-var map = new kakao.maps.Map(mapContainer, mapOption); 
+	<%if(info !=null){%>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+				center: new kakao.maps.LatLng(<%=info.getMemberLat()%>,<%=info.getMemberLng()%>), // 지도의 중심좌표
+				level: 5 // 지도의 확대 레벨
+		};
 
-var markers = [];
-	<%for(int i=0; i<report_array.size();i++){%>
-
-	// 마커를 생성합니다
-	var marker = new kakao.maps.Marker({
+		//지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+	
+		// 전역변수
+		let lat;
+		let lng;
 		
-		position: new kakao.maps.LatLng(<%=report_array.get(i).getLat()%>, <%=report_array.get(i).getLng()%>)
-		// 마커의 위치
+		<%for(int i=0; i<report_array.size();i++){%>
+			// 마커를 생성합니다
+			// 값이 잘 들어오는지 확인
+			lat = <%=report_array.get(i).getLat()%>;
+			lng = <%=report_array.get(i).getLng()%>;
+			console.log('lat, lng: ', lat, lng);
 	
-	});
-	
-	marker.setMap(map);
-	markers.push(marker);
+			var marker = new kakao.maps.Marker({		
+				position: new kakao.maps.LatLng(lat, lng)
+			// 마커의 위치
+			});
+			
+			makeMarkerDeletable(marker);
+		
+			marker.setMap(map);
+		<%}%>
 	<%}%>
-<%}%>
-
-//마커를 지우는 이벤트
-kakao.maps.event.addListener(markers, 'click', function() {
-    // 마커 위에 인포윈도우를 표시합니다
-     markers.setMap(null) 
-});
+	
+	// '지울 수 있는 마커 만들기' 함수 생성
+	function makeMarkerDeletable(targetMarker) {
+		//마커를 지우는 이벤트
+		kakao.maps.event.addListener(targetMarker, 'click', function() {
+			// 마커 위에 인포윈도우를 표시합니다
+			targetMarker.setMap(null)	     
+		});
+	}
 </script>
 </body>
 </html>
