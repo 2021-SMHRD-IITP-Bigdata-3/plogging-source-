@@ -3,10 +3,18 @@
 	table {
 		width : 100%;
 	}
-   textarea {
-	   width: 360px;
-	   height: 300px;
-    }
+textarea{
+	border: 0;
+	margin: 0 auto;
+	width:100%;
+	height: 800px;
+	text-decoration: none;
+	outline: none;
+	resize: none;
+	font-size: 30px;
+	border-radius: 12px;
+	background-color:#dadbdb;
+}
 	#title{
 	float: left;
 	width:124px;
@@ -24,7 +32,7 @@
 	}
 	#myimport{
 	float:right;
-	margin-left:80px;
+	margin:20px 20px 0px 0px;
 	font-size:3em;
 	border: none;
 	border-radius: 16px;
@@ -36,4 +44,123 @@
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	cursor: pointer;
 	}
+#reviewTitle{
+   width: 100%;
+   box-sizing : border-box;
+   height: 100px;
+   border: none;
+   padding: 20px;
+   /* text-align: center; */
+	background-color:#dadbdb;
+   font-size: 30px;
+   border-radius: 12px;
+   text-decoration: none;
+   display: inline-block;
+   /* border-radius: 12px; */
+	margin-top: 40px;
+}
+i{
+	font-size:5em;
+}
+#run{
+	font-size:2em;
+	padding-top:20px;
+}
+#run > input{
+	width: 100%;
+    height: 40px;
+    padding: 9px 0px 0px 0px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-block;
+    background-color:#dadbdb;
+}
+#trash > div{
+	float:left;
+	margin:-20px 40px 0px 0px;
+	padding-top:20px;
+}
+body > div > form > table:nth-child(1) > tbody > tr:nth-child(6) > td > input[type=submit]{
+	float: right;
+    width: 120px;
+    height: 65px;
+    font-size: 2em;
+    border-radius: 10px;
+    margin: 10px 40px 0px 0px;
+    background:#88dba3;
+}
+.dbutton1{
+	  position: fixed;
+	  bottom: 40px;
+	  left: 5%;
+	  border: none;
+	  border-radius: 16px;
+	  background: #88dba3;
+	  color: white;
+	  padding: 30px;
+	  font-weight: bold;
+	  font-size: 30px;
+	  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	  cursor: pointer;
+	  float:left;
+	}
+.dbutton2{
+  position: fixed;
+  bottom: 40px;
+  left: 25%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton3{
+  position: fixed;
+  bottom: 40px;
+  left: 45%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton4{
+  position: fixed;
+  bottom: 40px;
+  left: 65%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  float:left;
+}
+.dbutton5{
+  position: fixed;
+  bottom: 40px;
+  left: 85%;
+  border: none;
+  border-radius: 16px;
+  background: #88dba3;
+  color: white;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
 </style>
