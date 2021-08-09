@@ -29,12 +29,13 @@ public class reviewBoardDTO {
 		this.trash = trash;
 		this.run = run;
 	}
-	public reviewBoardDTO(int reviewNumber, String title,double lat,double lng) {
+	public reviewBoardDTO(int reviewNumber, String title,double lat,double lng ,String memberId) {
 		super();
 		this.reviewNumber = reviewNumber;
 		this.lat = lat;
 		this.lng = lng;
 		this.title = title;
+		this.memberId = memberId;
 	}
 	public reviewBoardDTO(String memberId, String reviewDate, String img,double lat,double lng, String contents,
 			String title, String trash, String run) {

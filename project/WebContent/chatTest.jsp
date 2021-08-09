@@ -49,7 +49,7 @@
 
 
 	// 로그인한 아이디가 이 채팅방에 참가했는지 여부 파악 (조회 -> 참가)
-	ArrayList<notice_BoardDTO> c_array = dao.showMyChat(login_id);
+	ArrayList<notice_BoardDTO> c_array = dao.showMyChatroom(login_id);
 	int check2 = 0;
 	for (int i=0; i<c_array.size();i++){
 		if (c_array.get(i).getNoticeNumber()==noticeNumber){

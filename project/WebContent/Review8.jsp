@@ -8,11 +8,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-	table {
-		width : 360px;
-	}
-</style>
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/review8.css?after">
 </head>
 <body>
 <%
@@ -28,73 +25,47 @@
 <div>
 	<table>
 	<tr>
-	   <td>싸이트명</td>
-	   <td style = "float : right"><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-	   <td style = "float : right"><input type ="button" value = "검색"></td>
+	   <td id ="title">ploggin</td>
+	   <td id ="mypage"><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 	</tr>
 	</table>
 	<form action = "" method = "post">
-		<table border = "1px" >
+		<table id="1stTable">
 			<tr>
-				<td colspan = "4">
+				<td colspan = "4" id="gettitle">
 					<%=dto.getTitle() %>
 				</td>
 			</tr>
-			<tr>
-				<td> <%=dto.getReviewDate() %> </td>
-				<td> <%=dto.getMemberId() %> </td>
+			<tr style="width:100%">
+				<td id = "date">작성 일자: <%=dto.getReviewDate() %> </td>
+				<td id ="memberId">작성자: <%=dto.getMemberId() %> </td>
 			</tr>
-			<tr> <td colspan = "4" height = "300"><%=dto.getContents() %> </td></tr>
-			<tr> <td colspan = "2"> 쓰레기 양 </td><td colspan = "3"> <%=dto.getTrash() %> </td></tr>
-			<tr> <td colspan = "2"> 플로깅 거리 </td><td colspan = "3"> <%=dto.getRun()%> </td></tr>
 			<tr>
-				<td colspan = "3" id="map" style="width:340px;height:340px;" align ='center'></td>
+				<td colspan = "3" id="map"align ='center'></td>
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
-	
+			</tr>
+			<tr> 
+				<td colspan = "4" height = "600px" id="content"><%=dto.getContents() %> </td>
+			</tr>
+				<td style="padding: 45px 0px 0px 40px; font-size:40px; text-align:center;"> 쓰레기 양:  <p id = "val"><%=dto.getTrash() %></p></td>
+				<td style="padding: 42px 0px 0px 45px; font-size:40px;text-align:center;"> 플로깅 거리 : <p id = "val"><%=dto.getRun()%></p></td>
 			</tr>
 			<tr>
-				<td colspan = ""></td>
-				<td> <input type = "submit" value = "수정"> </td>
-				<td> <input type = "submit" value = "삭제"> </td>
-			</tr>			
-		</table>
-				<table  border = "1px">
-		<tr>
-		   <td colspan = "4"> 댓글 </td>
-		</tr>
-		<tr>
-		   <td colspan = "4"> 닉네임 </td>
-		</tr>		
-		<tr>
-		   <td colspan = "4"> 댓글내용 </td>
-		</tr>
-		<tr>
-		   <td colspan = "4"> 댓글시간 </td>
-		</tr>
-		<tr>
-		   <td colspan = "4"><input type="text"  placeholder = "댓글 쓰기"></td>
-		</tr>
-		<tr>
-		   <td colspan = "2"> prev</td>
-		   <td colspan = "2"> next</td>
-		</tr>
-		</table>
-		<table>
-		<tr>
-	<td><input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-	<td><input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-	<td><input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-	<td><input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-	<td><input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-		</tr>
-		<tr>
-		   <td>메인</td>
-		   <td>조회</td>
-		   <td>후기</td>
-		   <td>게시판</td>
-		   <td>제보</td>
-		</tr>
-		</table>
+				<td>
+					<div>
+						<div ><input id="re" "type = "submit" value = "수정"> </div>
+						<div ><input id="del" type = "submit" value = "삭제"> </div>
+					</div>
+				</td>
+			</tr>
+			<table>	
+				<div id="class="down""></div>
+			   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+			   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+			   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+			   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+			   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+			</table>
 	</form>
 </div>
 <script>

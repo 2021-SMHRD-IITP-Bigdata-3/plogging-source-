@@ -9,12 +9,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-table{
-width : 360px;
-align : center;
-}
-</style>
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/reviewMain.css?after">
 </head>
 <body>
 <%
@@ -24,56 +20,36 @@ array = dao.showBoard();
 %>
 <table>
 <tr>
-   <td float ="left">Plogging</td>
-   <td style = "float : right"><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
+   <td float ="left" id="title">Plogging</td>
+   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 </tr>
 </table>
-<div id="map" style="width:340px;height:340px;" align ='center'></div>
+<div id="map"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 	
    <div><!-- 123 -->
-   <table border='1px' style='height:100px;'>
+   <table>
    <tr>
-     <td>후기게시판</td>
-     <td><input type="button" value="글쓰기" style='float: right;' onClick="location.href='reviewNum.jsp'"></tr>
+     <td id ="reviewTitle" style = "border-bottom:1px">후기게시판<i class="fas fa-plus" type="button" onClick="location.href='reviewNum.jsp'" id ="button"></i></td>
       </table>
       <form action = "Review8.jsp" method = "post">
-      <table border='1px' style='height:100px;'>
+      <table border='0px' style='height:100px;'>
       <%for(int i = 0; i<array.size();i++){%>
-         <tr>
-             <td> <a href = "Review8.jsp?reviewNumber=<%=array.get(i).getReviewNumber()%>"> <%=array.get(i).getTitle()%></a></td>
+         <tr style = "border-bottom:1px">
+             <td id="membertitle"> <a href = "Review8.jsp?reviewNumber=<%=array.get(i).getReviewNumber()%>">-  <%=array.get(i).getTitle()%></a></td>
+             <td id ="name">작성자 : <%=array.get(i).getMemberId() %></td>
          </tr>
          <%} %>
       </table>
       </form>
    </div>
-
-   <table>
-   <tr>
-      <td><input type = "button" value = "<<"></td>
-      <td><input type = "button" value = "1"></td>
-      <td><input type = "button" value = "2"></td>
-      <td><input type = "button" value = "3"></td>
-      <td><input type = "button" value = "4"></td>
-      <td><input type = "button" value = "5"></td>
-      <td><input type = "button" value = ">>"></td>
-   </tr>
-</table>
-   <table>
-<tr>
-	<td><input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-	<td><input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-	<td><input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-	<td><input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-	<td><input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-</tr>
-<tr>
-   <td>메인</td>
-   <td>조회</td>
-   <td>후기</td>
-   <td>게시판</td>
-   <td>제보</td>
-</tr>
+<table>
+<div id="class="down""></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 </table>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
