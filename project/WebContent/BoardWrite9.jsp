@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
 			console.log("fileSizeMb="+fileSizeMb.toFixed(2)); fileSizeStr = fileSizeMb.toFixed(2) + " Mb"; } else if ((1024) <= fileSize) { console.log("fileSizeKb="+parseInt(fileSizeKb)); fileSizeStr = parseInt(fileSizeKb) + " kb"; } else { console.log("fileSize="+parseInt(fileSize)); fileSizeStr = parseInt(fileSize) + " byte"; } // 업로드 파일 목록 생성
 			jQuery("#target_file_wrap").find('span').html('첨부파일 : ' + fileName + ' (' + fileSizeStr + ')'); } } else { alert("ERROR"); } }
 </script>
-<link rel = "stylesheet" href="BoardWrite9.css?after">
+<link rel = "stylesheet" href="css/BoardWrite9.css?after">
 </head>
 <body style = "background-color: #dadbdb">
 <%
