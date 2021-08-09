@@ -49,10 +49,9 @@ public class reportPostServiceCon extends HttpServlet {
 		//// 제보 테이블에 업로드
 		reportTestDTO dto = new reportTestDTO(lat, fileName, lng, addr);
 		reportTestDAO dao = new reportTestDAO();
-//		notice_BoardDTO ndto= new notice_BoardDTO();
-		int upCnt = dao.reportUpload(dto); // 넣을 때 제보번호를 알 수 없다!(기본값인 0이 들어있어) -> 밑에서 찾아주는 알고리즘 추가
-
 		
+		int upCnt = dao.reportUpload(dto); // 넣을 때 제보번호를 알 수 없다!(기본값인 0이 들어있어) -> 밑에서 찾아주는 알고리즘 추가
+	
 		/////////////// 제보 -> 공고 /////////////// 
 		// 전역변수들 선언
 		ArrayList<reportTestDTO> array = new ArrayList<reportTestDTO>(); // 모든 제보 목록
@@ -110,6 +109,20 @@ public class reportPostServiceCon extends HttpServlet {
 				// 제보 -> 공고
 				mCnt = dao.makeNotice(dto);
 				System.out.println("공고화 됐다면 mCnt = 1 = " + mCnt);
+				System.out.println();
+//				notice_BoardDTO ndto= new notice_BoardDTO(dto.get);
+				// 새 공고의 ndto에 업로드한 데이터의 공고번호 넣어주기
+				for (int i = 0; i < array2.size(); i++) {
+					if ((array2.get(i).getLat() - dto.getLat()) == 0 && (array2.get(i).getLng() - dto.getLng()) == 0) {
+						System.out.println("일치 좌표 있음");
+						dto.setReport_number(array2.get(i).getReport_number());
+						dto.setReport_date(array2.get(i).getReport_date());
+						dto.setNotice_check(array2.get(i).getNotice_check());
+					}
+				}System.out.println();
+				
+				
+				
 				if (mCnt > 0) {
 					System.out.println("공고 업로드 성공");
 					for (int i = 0; i < array2.size(); i++) {				

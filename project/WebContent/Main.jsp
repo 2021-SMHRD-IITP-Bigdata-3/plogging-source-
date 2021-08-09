@@ -110,7 +110,7 @@
 	   
 	</tr>
 </table>
-<<<<<<< HEAD
+
 <table style="float: right" >
 	<tr>
 		<td>
@@ -131,8 +131,7 @@
 <table>
 <tr><td><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667">ÇÃ·Î±ë</a></td></tr>
 </table>
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+
 <br>
 <table>
 <tr>
