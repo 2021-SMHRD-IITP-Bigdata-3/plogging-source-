@@ -75,12 +75,24 @@
 			check = 1;
 		}
 	}
+	
+	// 공고번호를 가지는 제보들 추출하는 메소드 만들어서
+	// 아래에 제보 사진들 넣자
+	
 %>	
 
 
 	<div id="map"  align="center" ></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
+<!-- 기능 확인용, 디자인 맘껏 수정 가능-->
 	<div> 공고정보 </div>
+	<div> 공고번호 : <%=noticeNumber %> </div>
+	<div> 플로깅 장소 : <%=ndto.getAddr() %> </div>
+	<div> 플로깅 기한 : <%=ndto.getPlogDate() %> </div>
+	<div> 제한 인원?? 현재 참가한 인원 : <%=ndto.getLimitedNumber() %> </div>
+	<div> 제보 사진</div>
+	
+		
 	
 	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 	<div id="chatmain">
