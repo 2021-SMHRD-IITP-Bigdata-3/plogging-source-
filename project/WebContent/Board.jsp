@@ -9,9 +9,10 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 <link rel = "stylesheet" href="css/Board.css?after">
 </head>
-<body  style = "background-color: #dadbdb">
+<body  style = "background-color: #ffffff">
 
 
 <%
@@ -31,8 +32,7 @@
             <input  type="button" class="topicon" value="회원정보수정"
             onclick="location.href='update.jsp'">
             <input type="button" class="topicon" value="검색">
-            <input type="button" class="topicon" value="내정보"
-               onClick="location.href='myPage.jsp'"></td>
+            <i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
                
          </tr>
       </table>
@@ -40,10 +40,10 @@
   	<div align="right">
   	<input type="button" value="글쓰기"  onClick="location.href='BoardWrite9.jsp'" class="topicon">
 	</div>
-	<div>자유 게시판
+	<div><h2>자유 게시판</h2>
 		
-		<table border='1px' style='height:100px;' class="table">
-			<tr>
+		<table border='1px' style='height:100px;' class="table" >
+			<tr align="center" style="font-size:20px;">
 				<td>번호</td>
 				<!-- 게시번호가 잘 넘어가는지 확인 차 넣음 .나중에 지우기 -->
 				
@@ -53,7 +53,7 @@
 				<td>작성일자</td>
 			</tr>
 		<% for(int i = 0; i<board_list.size();i++){ %>
-      		<tr>
+      		<tr align="center" style="font-size:20px;">
          		<td><%=i+1 %></td>
           		<td><a href="viewBoard.jsp?boardNum=<%=board_list.get(i).getBoardNum()%>"><%=board_list.get(i).getBoardTitle()%></a></td>
 				<td><%=board_list.get(i).getMemberId() %></td>
