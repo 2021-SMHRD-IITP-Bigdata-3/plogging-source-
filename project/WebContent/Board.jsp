@@ -9,19 +9,11 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-table{
-    width: 360px;
-    border: 1px solid #444444;
-         }
-   tr , td{
-    border: 1px solid #444444;
-    padding: 5px;
-   }
-
-</style>
+<link rel = "stylesheet" href="css/Board.css?after">
 </head>
-<body>
+<body  style = "background-color: #dadbdb">
+
+
 <%
 	
 	memberDTO info = (memberDTO)session.getAttribute("info");	
@@ -31,23 +23,30 @@ table{
 	ArrayList<boardDTO> board_list = dao.board_li();
 	
 %>
-	<div style='height:200px;'>
-	<!-- 사이트 이름 -->
-		<table>
-			<tr>
-				<td>싸이트명</td>
-			    <td style = "float : right"><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-			    <td style = "float : right"><input type ="button" value = "검색"></td>
-			</tr>
-	    </table>
-   	</div>
+	<div class="header">
+      <table class="mtable1">
+         <tr>
+            <td><h2>Plogging</h2></td>
+            <td style="text-align:right;">
+            <input  type="button" class="topicon" value="회원정보수정"
+            onclick="location.href='update.jsp'">
+            <input type="button" class="topicon" value="검색">
+            <input type="button" class="topicon" value="내정보"
+               onClick="location.href='myPage.jsp'"></td>
+               
+         </tr>
+      </table>
+  	</div>
+  	<div align="right">
+  	<input type="button" value="글쓰기"  onClick="location.href='BoardWrite9.jsp'" class="topicon">
+	</div>
 	<div>자유 게시판
-		<input type="button" value="글쓰기" style='float: relative;' onClick="location.href='BoardWrite9.jsp'"><br><br>
-		<table border='1px' style='height:100px;'>
+		
+		<table border='1px' style='height:100px;' class="table">
 			<tr>
 				<td>번호</td>
 				<!-- 게시번호가 잘 넘어가는지 확인 차 넣음 .나중에 지우기 -->
-				<td>게시번호가 잘 넘어가는지 확인차 넣음.확인후지워도돼</td>
+				
 				<td>제목</td>
 				<td>작성자</td>
 				<td>사진</td>
@@ -56,7 +55,6 @@ table{
 		<% for(int i = 0; i<board_list.size();i++){ %>
       		<tr>
          		<td><%=i+1 %></td>
-         		<td><%=board_list.get(i).getBoardNum() %></td>
           		<td><a href="viewBoard.jsp?boardNum=<%=board_list.get(i).getBoardNum()%>"><%=board_list.get(i).getBoardTitle()%></a></td>
 				<td><%=board_list.get(i).getMemberId() %></td>
 				<td><%=board_list.get(i).getBoardImage() %></td>
@@ -67,19 +65,13 @@ table{
 	</div>
 <br><br><br>
 	<table>
-    	<tr>
-			<td><input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-			<td><input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-			<td><input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-			<td><input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-			<td><input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-		</tr>
-		<tr>
-			<td>메인</td>
-			<td>조회</td>
-			<td>후기</td>
-			<td>게시판</td>
-			<td>제보</td>
+    	<div id="class="down""></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+
 		</tr>
 	</table>
 </body>

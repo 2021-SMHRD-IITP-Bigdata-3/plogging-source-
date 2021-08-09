@@ -29,24 +29,28 @@ jQuery(document).ready(function($) {
 memberDTO info = (memberDTO)session.getAttribute("info");
  %>
 <div>
-   <table class="mtable1" >
-   <tr>
-      <td>싸이트명</td>
-      <td style = "float : right"><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-      <td style = "float : right"><input type ="button" value = "검색"></td>
-   </tr>
+   <table class="qq" >
+ <tr>
+         <td colspan = "8" >작성자 : <%if(info!=null){%><span><%=info.getMemberId() %></span><%}else{ %><span name="name"  >익명</span><%} %></span></td>
+         
+         </tr>
    </table>
    <form action = "BoardServiceCon" method = "post"  >
-      <table border = "1px" class="mtable1" >
+      <table  class="mtable1" >
          <tr>
             <td colspan = "8" ><input type = "text" placeholder="제목" name="title" class="ltex"></td>
          </tr>
+         
          <tr>
-         <td colspan = "8" >작성자 : <%if(info!=null){%><span><%=info.getMemberId() %></span><%}else{ %><span name="name"  >익명</span><%} %></span></td>
-         </tr>
-         <tr>
-         <td colspan = "4" align="left" ><input type = "file"  name = "fileName" id="input-file"></td>
-           <td colspan = "4" align = "center" ><input type = "submit" value = "글쓰기 완료" class="topicon"></td>		
+        			 <td align="left">
+					<input type="file" id="input-file" name="fileName">
+					</label>
+					<div id="target_file_wrap">
+					<a href="#" onclick="jQuery('#input-file').click()" class="btn btn-primary">사진</a>
+					<span></span>
+					</div>
+					</td>
+           <td  align = "right" ><input type = "submit" value = "글쓰기 완료" class="topicon"></td>		
          </tr>
          <tr>
             <td align="center" colspan="8"><textarea  name="textarea" placeholder="내용"></textarea></td>

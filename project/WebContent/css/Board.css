@@ -1,48 +1,42 @@
 @charset "EUC-KR";
-<style>
-body{
-    background-color: #ffffff;
-   /* scrollbar-width: none;
-    -ms-overflow-style: none; */
-   }
-   table {
-	}
-   .mtable1{
+<script>
+body {
+	
+   background-color: #f1edf0;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+.mtable1{
    width: 100%;
+	padding: 100px;
         }
-   h2{
-   font-size: 50px;
-   padding: 0px 30px;
+table{
+ width : 100%;
+   border-top : 1px solid #444444;
+   border-collapse: collapse;
+         }
+   tr , td{
+ border-bottom : 1px solid #444444;
+   padding : 10px;
    }
-
-.ltex{
-   width: 100%;
-   box-sizing : border-box;
-   height: 100px;
+a {
+   width: 330px;
    border: none;
-   padding: 20px;
-   /* text-align: center; */
+   padding: 10px;
+   text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 30px;
+   font-size: 16px;
+   margin: 4px 2px;
    border-radius: 12px;
-   /* border-radius: 12px; */
-
 }
-textarea {
-	 border: 0;
-	margin: 0 auto;
-	width:100%;
-	height: 1000px;
-	text-decoration: none;
-	outline: none;
-	resize: none;
-	font-size: 30px;
-	border-radius: 12px;
-	background-color:#dadbdb;
-	}
+div {
+   /* padding: 10px */
+   margin-left: auto;
+   margin-right: auto;
+}
 .button {
-   background-color: #88dba3;
+   background-color: #2DB400;
    width: 330px;
    border: none;
    color: white;
@@ -54,8 +48,6 @@ textarea {
    margin: 4px 2px;
    cursor: pointer;
    border-radius: 12px;
-
-   
 }
 .topicon {
    background-color: #88dba3;
@@ -69,20 +61,7 @@ textarea {
    margin: 4px 2px;
    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
    border-radius: 15px;
-}
-.dbutton1{
-  position: fixed;
-  bottom: 40px;
-  left: 5%;
-  border: none;
-  border-radius: 16px;
-  background: #88dba3;
-  color: white;
-  padding: 30px;
-  font-weight: bold;
-  font-size: 30px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  cursor: pointer;
+   align : right;
 }
 .dbutton2{
   position: fixed;
@@ -97,6 +76,7 @@ textarea {
   font-size: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   cursor: pointer;
+  float:left;
 }
 .dbutton3{
   position: fixed;
@@ -111,6 +91,7 @@ textarea {
   font-size: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   cursor: pointer;
+  float:left;
 }
 .dbutton4{
   position: fixed;
@@ -125,6 +106,7 @@ textarea {
   font-size: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   cursor: pointer;
+  float:left;
 }
 .dbutton5{
   position: fixed;
@@ -140,62 +122,49 @@ textarea {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   cursor: pointer;
 }
-.down{
-position: fixed;
-bottom: -32px;
-left:0px;
-width:100%;
-height:10%;
-background: #3ac569;
-}
-
-label {
-font-family: "Noto Sans KR", \"Noto Sans KR\";
-font-size: 16px;
-font-weight: 400;
-line-height: 1.5em;
-}
-
-.btn {
-display: inline-block;
-margin-bottom: 0;
-font-weight: normal;
-text-align: center;
-vertical-align: middle;
--ms-touch-action: manipulation;
-touch-action: manipulation;
-cursor: pointer;
-background-image: none;
-border: 1px solid transparent;
-white-space: nowrap;
-padding: 6px 12px;
-font-size: 14px;
-line-height: 1.42857143;
-border-radius: 4px;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none; }
-
-.btn-primary {
-   background-color: #88dba3;
+  .dbutton1{
+     position: fixed;
+     bottom: 40px;
+     left: 5%;
+     border: none;
+     border-radius: 16px;
+     background: #88dba3;
+     color: white;
+     padding: 30px;
+     font-weight: bold;
+     font-size: 30px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     cursor: pointer;
+     float:left;
+   }
+   
+.button {
+   background-color: #2DB400;
+   width: 330px;
    border: none;
    color: white;
-   padding: 20px;
+   padding: 10px;
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 30px;
+   font-size: 16px;
    margin: 4px 2px;
-   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   border-radius: 15px;
-   
+   cursor: pointer;
+   border-radius: 12px;
 }
-#input-file {
-display:none;
-}
-span{
-font-size: 30px;
 
+.dbutton {
+   background-color: #2DB400;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 12px;
 }
-</style>
+
+</script>

@@ -66,7 +66,7 @@
 		}
 	}
 	
-	// 로그인한 아이디가 이 공고에 참가했는지 여부 파악 (조회 -> 참가 -> 참가)
+	// 로그인한 아이디가 이 공고 신청 했는지 여부 파악 (신청)
 	ArrayList<notice_BoardDTO> array = dao.showMyNotice(login_id);
 	int check = 0;
 	for (int i=0; i<array.size();i++){
@@ -96,7 +96,7 @@
 		<input type="text" id="content" name="content" placeholder="내용 입력">
 		<button id="send">입력</button><br>
 		<% if (check==0){%>
-			<input type='button' value="참가" name="attend" 
+			<input type='button' value="신청" name="attend" 
 				onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"><br>
 		<% }else{ %>
 			참가하신 채팅방입니다.
@@ -131,7 +131,7 @@
 			    			if(id=="<%=login_id%>"){
 			    				if(content=="announcement"){
 	/////////////////////////////////// 기능만 넣음 디자인은 원하는대로 바꾸면 됨 ///////////////////////////////////////////////////////////////////////////////////////////
-			    					chatContainer.append("<div class='announcement'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");   					
+			    					chatContainer.append("<div class='announcement' style='text-align:center'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");   					
 			    				}
 			    				else{
 			    					chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");

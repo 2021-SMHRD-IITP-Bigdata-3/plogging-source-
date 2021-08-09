@@ -12,7 +12,13 @@ public class notice_BoardDTO {
    private double lat;
    private double lng;   
    
-   public notice_BoardDTO(int noticeNumber,String limitedNumber, String plogDate, String noticeImage, String addr) {
+   
+   
+   public notice_BoardDTO() {
+	super();
+}
+
+public notice_BoardDTO(int noticeNumber,String limitedNumber, String plogDate, String noticeImage, String addr) {
       super();
       this.noticeNumber = noticeNumber;
       this.limitedNumber = limitedNumber;

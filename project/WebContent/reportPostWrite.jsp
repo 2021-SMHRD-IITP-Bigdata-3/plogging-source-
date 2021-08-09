@@ -20,19 +20,22 @@ jQuery(document).ready(function($) {
 		var fileSizeStr = ""; if ((1024*1024) <= fileSize) { // 파일 용량이 1메가 이상인 경우
 			console.log("fileSizeMb="+fileSizeMb.toFixed(2)); fileSizeStr = fileSizeMb.toFixed(2) + " Mb"; } else if ((1024) <= fileSize) { console.log("fileSizeKb="+parseInt(fileSizeKb)); fileSizeStr = parseInt(fileSizeKb) + " kb"; } else { console.log("fileSize="+parseInt(fileSize)); fileSizeStr = parseInt(fileSize) + " byte"; } // 업로드 파일 목록 생성
 			jQuery("#target_file_wrap").find('span').html('첨부파일 : ' + fileName + ' (' + fileSizeStr + ')'); } } else { alert("ERROR"); } }
+
+
+	</script>
+
+<link rel="stylesheet" href="report.css?after">
 </script>
-<link rel="stylesheet" href="css/report.css">
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<body style = "background-color: #dadbdb">
+<body >
 <%
 
    memberDTO info = (memberDTO)session.getAttribute("info");   
 
 %>
-   <div>
-      <table class="mtable1" >
+    <table class="mtable1" >
          <tr>
             <td style="text-align:left;"><h2 >제보하기</h2></td>
 			<td align="right">
@@ -43,7 +46,7 @@ jQuery(document).ready(function($) {
 			<table class="mtable1" >
 				<tr >
 					<td colspan="4"><input type="text" class="ltex" placeholder="제목"
-						name="title"></td>
+						name="title" style="background-color:#dadbdb"></td>
 				</tr>
 				<tr >
 					<td align="left">
@@ -64,6 +67,7 @@ jQuery(document).ready(function($) {
 	 String addr = request.getParameter("addr");
 	 System.out.println("latdd : " + lat);
 	 System.out.println("lngdd :" + lng);
+	 System.out.println("addr :" + addr);
  %>
 			  <input type="hidden" name="lat" id="lat">
 			  <input type="hidden" name="lng" id="lng">
@@ -71,7 +75,7 @@ jQuery(document).ready(function($) {
 			   </td>
 				</tr>
 				<tr>
-					<td align="center" colspan="4"><textarea  name="content" placeholder="내용"></textarea></td>
+					<td align="center" colspan="4"><textarea  name="content" placeholder="내용" style="background-color:#dadbdb"></textarea></td>
 				</tr>
 				<tr>
 					<td><input type="submit" class="topicon" value="등록" float ="right"></td></td>
@@ -80,7 +84,7 @@ jQuery(document).ready(function($) {
 			<br>
 			<br><br><br><br>			
 		</form>
-		<div class="down"></div>
+		<!-- 하단바  <div class="down"></div> -->
 			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
 			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
 			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>

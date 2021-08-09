@@ -5,127 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-body {
-   background-color: #efefef;
-   scrollbar-width: none;
-   -ms-overflow-style: none;
-}
-
-table {
-   width: 360px;
-}
-
-tr, td {
-   /* padding: 5px; */
-   
-}
-
-.topicon {
-   background-color: #2DB400;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 15px;
-}
-h1{
-   padding: 70px;
-   }
-
-a {
-   width: 330px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-div {
-   /* padding: 10px */
-   margin-left: auto;
-   margin-right: auto;
-}
-
-.tex {
-   width: 330px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-.stex1 {
-   width: 270px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-.stex2 {
-   width: 220px;
-   height: 25px;
-   margin: 4px 2px;
-   border: none;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   border-radius: 12px;
-}
-
-.button {
-   background-color: #2DB400;
-   width: 330px;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   border-radius: 12px;
-}
-
-.dbutton {
-   background-color: #2DB400;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   border-radius: 12px;
-}
-</style>
+<link href = "css/Join.css?after" rel = "stylesheet">
 <script type="text/javascript">
     
         // 회원가입 화면의 입력값들을 검사한다.
@@ -181,102 +61,80 @@ div {
                 if(document.getElementById('pw').value==document.getElementById('pw2').value){
                     document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
                     document.getElementById('check').style.color='blue';
+                    document.getElementById('check').style.fontSize='30px';
                 }
                 else{
                     document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
                     document.getElementById('check').style.color='red';
+                    document.getElementById('check').style.fontSize='30px';
                 }
             }
         }
    </script>
 </head>
 <body>
-   <div>
-      <table align="center">
+<div>
+     <table align="center">
          <tr>
             <td><h2>Plogging</h2></td>
-
-            <td style="float: right"><input type="button" class="topicon" value="검색"></td>
          </tr>
-      </table>
+     </table>
    </div>
-
    <table>
       <tr>
          <h1 align="center">회원가입</h1>
       </tr>
    </table>
-
    <form action="joinServiceCon" method="post" name="fr">
-      <table align="center">
+      <table align="center" >
          <tr>
-            <td>아이디</td>
-         </tr>
-         <tr>
-            <td>
-               <div>
-                  <input type="text" name="id" maxlength="50" class="stex2">
-               </div>
-            </td>
-            <td>
-               <div>
-                  <input type="button" value="중복확인" class="dbutton" onclick="winopen()">
-               </div>
-
+            <td align="right" width="35%"><h3>아이디</h3></td>
+            <td align="left"><input type="text" name="id" maxlength="50" class="tex">
+            <input type="button" value="중복확인" class="dbutton" onclick="winopen()">
+               
             </td>
          </tr>
       </table>
-      <table align="center">
+      
+      <table align="center" >
          <tr>
-            <td>비밀번호</td>
-         </tr>
-         <tr>
-            <td>
-               <div>
-                  <input type="password" name="pass" maxlength="20" id="pw"
+            <td align="right" width="35%"><h3>비밀번호</h3></td>
+            <td align="left"><input type="password" name="pass" maxlength="20" id="pw"
                      onchange="pwcheck()" class="tex">
-               </div>
             </td>
          </tr>
-      </table>
-      <table align="center">
+      </table>  
+      
+      <table align="center" >
          <tr>
-            <td>비밀번호 확인 &nbsp;<span id="check"></span></td>
-            <td></td>
-         </tr>
-         <tr>
-            <td><div><input type="password" name="passcheck" maxlength="20"
-               id="pw2" onchange="pwcheck()" class="tex">
-                </div></td>
-         </tr>
-         <tr>
-         </tr>
-      </table>
-      <table align="center">
-         <tr>
-            <td>이름</td>
-         </tr>
-         <tr>
-            <td><input type="text" name="name" maxlength="20" class="tex">
+            <td align="right" width="35%"><h3>비밀번호 확인</h3><span id="check"></span></td>
+            <td align="left"><input type="password" name="passcheck" maxlength="20"
+               id="pw2" onchange="pwcheck()" class="tex" >
             </td>
          </tr>
-      </table>
-      <table align="center">
+      </table>  
+      
+      <table align="center" >
          <tr>
-            <td>나이</td>
+            <td align="right" width="35%"><h3>이름</h3></td>
+            <td align="left"><input type="text" name="name" maxlength="20" class="tex">
+            </td>
          </tr>
+      </table>  
+      
+      <table align="center" >
          <tr>
+            <td align="right" width="35%"><h3>나이</h3></td>
             <td><input type="text" name="age" maxlength="20" class="tex">
             </td>
          </tr>
-      </table>
-      <table align="center">
+      </table>  
+      
+      <table align="center" >
          <tr>
-            <td>주소</td>
-         </tr>
-         <tr>
-            <td><input type="text" id="sample5_address" placeholder="주소" class="stex2">
-            	<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" class="topicon"><br>
+            <td align="right" width="35%"><h3>주소</h3></td>
+            <td><input type="text" id="sample5_address" placeholder="주소" class="tex"></td>
+            	<td align="left"><input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" class="dbutton"><br>
                <input type="text" id="latlng" name="latlng" style="display: none">
                <input type="text" id="lat" name="lat" style="display: none">
                <input type="text" id="lng" name="lng" style="display: none">
@@ -340,17 +198,21 @@ div {
                             }
                             </script></td>
          </tr>
-      </table>
-      <table align="center">
+      </table>  
+
+		<table align="center" >
          <tr>
-            <td>플로깅 여부</td>
+            <td align="right" width="35%"><h3>플로깅 여부</h3></td>
+            <td ><label style="font-size:30px; padding-left:30px;"><input type="radio"  style="width:30px;height:30px" name="exp" value="유">
+                 	유</label>
+
+                  <label style="font-size:30px;"><input type="radio"  style="width:30px;height:30px" name="exp" value="무">
+                  	무</label>
+
          </tr>
-         <tr>
-            <td><label><input type="radio" name="exp" value="유">
-                  유</label> <label><input type="radio" name="exp" value="무">
-                  무</label></td>
-         </tr>
-      </table>
+		</table>  
+
+
       <div class="btn_area" align="center">
          <p>
             <input type="submit" value="가입하기" class="button">
@@ -360,18 +222,10 @@ div {
    <br>
    <br>
    <br>
-<<<<<<< HEAD
 
    <div>
-      <table align="center">
+<!--      <table align="center">
          <tr>
-<<<<<<< HEAD
-            <td><input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-            <td><input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-            <td><input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-            <td><input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-            <td><input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-=======
             <td><input type="button" class="dbutton" value="메인" name="main"
                onClick="location.href='Main.jsp'"></td>
             <td><input type="button" class="dbutton" value="조회" name="inquiry"
@@ -382,14 +236,11 @@ div {
                onClick="location.href='Board.jsp'"></td>
             <td><input type="button" class="dbutton" value="제보" name="report"
                onClick="location.href='reportPostWrite.jsp'"></td>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
          </tr>
-      </table>
+      </table> --> 
    </div>
    </div>
    </div>
    </div>
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 </body>
 </html>
