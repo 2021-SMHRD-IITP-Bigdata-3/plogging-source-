@@ -45,15 +45,15 @@
 	}
 	// 젼역변수 선언
 	notice_BoardDAO dao = new notice_BoardDAO();
-
-//		System.out.println("플로깅 기한 연장 성공"); 
-
+	
+   	// 메인 들어오면 - 플로깅 기한 지난 공고들 연장
+//	int cnt = dao.plogDateUpdate();
+//	if(cnt>0) {
 //		System.out.println("플로깅 기한 연장 성공");
 //	}else {System.out.println("플로깅 기한 연장 실패");
 //	}
 	
 	// 나의 채팅방 리스트 (조회에서 '참가' 클릭한 목록)
-
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	if (info!=null){
 		array = dao.showMyChatroom(info.getMemberId());
@@ -111,6 +111,7 @@
 	</tr>
 </table>
 
+
 <table style="float: right" >
 	<tr>
 		<td>
@@ -131,6 +132,7 @@
 <table>
 <tr><td><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667">플로깅</a></td></tr>
 </table>
+
 
 <br>
 <table>
