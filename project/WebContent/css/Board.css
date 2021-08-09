@@ -2,9 +2,9 @@
 <script>
 body {
 	
-   background-color: #f1edf0;
-   scrollbar-width: none;
-   -ms-overflow-style: none;
+   background-color: #ffffff;
+   /* scrollbar-width: none;
+   -ms-overflow-style: none; */
 }
 .mtable1{
    width: 100%;
@@ -35,20 +35,26 @@ div {
    margin-left: auto;
    margin-right: auto;
 }
-.button {
-   background-color: #2DB400;
-   width: 330px;
-   border: none;
-   color: white;
-   padding: 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   border-radius: 12px;
+#button{
+	float:right;
+	margin:6px 0px 0px 550px;
+	font-size:50px;
+	background: #88dba3;
 }
+#myimport{
+	float:right;
+	margin:30px 0px 0px 590px;
+	font-size:3em;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding:15px 15px 15px 15px;
+	font-weight: bold;
+	font-size: 41px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
 .topicon {
    background-color: #88dba3;
    border: none;

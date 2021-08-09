@@ -45,15 +45,15 @@
 	}
 	// 젼역변수 선언
 	notice_BoardDAO dao = new notice_BoardDAO();
-
-//		System.out.println("플로깅 기한 연장 성공"); 
-
+	
+   	// 메인 들어오면 - 플로깅 기한 지난 공고들 연장
+//	int cnt = dao.plogDateUpdate();
+//	if(cnt>0) {
 //		System.out.println("플로깅 기한 연장 성공");
 //	}else {System.out.println("플로깅 기한 연장 실패");
 //	}
 	
 	// 나의 채팅방 리스트 (조회에서 '참가' 클릭한 목록)
-
 	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
 	if (info!=null){
 		array = dao.showMyChatroom(info.getMemberId());
@@ -79,57 +79,31 @@
         });
     });
 </script>
-<div float=right>
-   <div>
-      <div>
-	    <ul style="list-style: none; ">
-	        <li class="menu" >
-	            <a><div class="topicon" >채팅방</div></a>
-	            <ul class="hide" style="list-style: none;">
-					<% if(info != null) { %>
-						<% for(int i=0; i<array.size(); i++){ %>
-		                <li><input type="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat"onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></li>
-							<%}%>
-					<%}%>		
-	            </ul>
-	        </li>
-	    </ul>
-       </div>
-    </div>
-</div>
 
 <table>
 	<tr>
 	   <td id ="title" style = "width:124px;">plogging</td>
 	      <% if(info != null) { %>
 	   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
+	   <td>
+			<ul style="list-style: none; ">
+		        <li class="menu" >
+		            <a><div class="topicon" >채팅방</div></a>
+		            <ul class="hide" style="list-style: none; padding-left:0px;">
+							<% if(info != null) { %>
+								<% for(int i=0; i<array.size(); i++){ %>
+				                <li><div class="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat"onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></div></li>
+									<%}%>
+							<%}%>	
+		            </ul>
+		        </li>
+		    </ul>
+	   </td>
 	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 	      <% }else { %>
 	   <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="width:67px; margin:10px 10px 0px 10px;" >로그인</a> </td>
       <% } %>
-	   
 	</tr>
-</table>
-
-<table style="float: right" >
-	<tr>
-		<td>
-    <ul style="list-style: none; ">
-        <li class="menu" >
-            <a><div class="topicon" >채팅방</div></a>
-            <ul class="hide" style="list-style: none; padding-left:0px;">
-                <li><div class="topicon">채팅방1</div></li>
-                <li><div class="topicon">채팅방2</div></li>
-                <li><div class="topicon">채팅방3</div></li>
-            </ul>
-        </li>
-    </ul>
-    	</td>
-    </tr>
-</table>
-<br><br>
-<table>
-<tr><td><a href="https://terms.naver.com/entry.naver?docId=5138665&cid=43667&categoryId=43667">플로깅</a></td></tr>
 </table>
 
 <br>
