@@ -15,6 +15,7 @@
       <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
       <link rel="stylesheet" href="assetsBoard/css/main.css" />
       <link rel="stylesheet" href="assetsBoard/css/board.css" />
+      <link rel="stylesheet" href="css/ViewBoard.css?after">
       <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
       <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
@@ -41,9 +42,9 @@
 	ArrayList<boardReDTO> boardRe_list= dao1.boardRe_li(boardNum);
 
 %>
-	<div id = "board">  
-    	<table id="list">
-        	<tr>
+	<div class = "board">    				<!-- 확인용 -->
+    	<table class="btable" border="1px">
+        	<tr class="title">
             	<td>제목</td>
 				<td><%= dto.getBoardTitle()%></td>
 			</tr>
@@ -52,8 +53,7 @@
                 <td><%= dto.getMemberId() %></td>                  
             </tr>
             <tr>
-				<td>내용</td>
-                <td><%=dto.getBoardContent() %></td>
+				<td colspan="2">내용</td>
             </tr>
             <tr>
             	<td colspan="2">
@@ -80,16 +80,18 @@
             </tr>
     	</table>
 	</div>
-	<table>
-	 		<th>
-	 			<td>댓글</td>
-	 		</th>
-		<% for(int i = 0; i<boardRe_list.size();i++){ %>
-    	    <tr>
-				<td><%=boardRe_list.get(i).getMemberID()%>-><%=boardRe_list.get(i).getCommentsContents()%></td>
-	    	</tr>
-		<%} %>
-    </table>
+	<div> 					   <!-- 확인용 -->
+		<table id = "reboard" border="1px">
+		 		<th>
+		 			<td>댓글</td>
+		 		</th>
+			<% for(int i = 0; i<boardRe_list.size();i++){ %>
+	    	    <tr>
+					<td><%=boardRe_list.get(i).getMemberID()%>-><%=boardRe_list.get(i).getCommentsContents()%></td>
+		    	</tr>
+			<%} %>
+	    </table>
+    </div>
 <br><br><br>
 	<form action="ReBoardServiceCon" method="post">
 		<input type="hidden" value="<%=boardNum%>" name="boardNum">
@@ -123,8 +125,15 @@
 			</tr>
 		</table>
 	</form>
-	
+<table>
+<div id="class="down""></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 
+</table>	
 <!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

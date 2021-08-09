@@ -143,7 +143,7 @@ public class notice_BoardDAO {
    }
 
 
-   // 공고 참가 목록 보여주는 메소드 (채팅방에서 '참가'버튼을 누른 공고들)
+   // 공고 신청 목록 보여주는 메소드 (채팅방에서 '신청'버튼을 누른 공고들)
    public ArrayList<notice_BoardDTO> showMyNotice(String inputId) {
       ArrayList<notice_BoardDTO> list = new ArrayList<notice_BoardDTO>();
       try {
@@ -167,6 +167,29 @@ public class notice_BoardDAO {
       }
       return list;
    }
+   
+   // 제보 번호에 따른 공고 번호 찾는 메소드
+   public int report2notice(int report_number) {
+	      int notice_number = 0;
+	      try {
+	         conn();
+
+	         String sql = "select notice_number from notice where tip_off_number = ?";
+
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setInt(1, report_number);
+	         rs = psmt.executeQuery();
+
+	         while (rs.next()) {
+	            notice_number = rs.getInt("notice_number");
+	            }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return notice_number;
+	   }
    
    // 플로깅 날짜가 지나면 다시 +7일 뒤로 수정하는 메소드 -> 아직 실데이터로는 테스트 안 해봄
    public int plogDateUpdate() {

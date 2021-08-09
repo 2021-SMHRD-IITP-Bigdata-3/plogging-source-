@@ -140,6 +140,7 @@
    <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
    <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
    <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+<<<<<<< HEAD
 </table>
 <%} %>
 
@@ -177,5 +178,9 @@ kakao.maps.event.addListener(markers, 'click', function() {
      markers.setMap(null) 
 });
 </script>
+=======
+
+</table>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 </body>
 </html>
