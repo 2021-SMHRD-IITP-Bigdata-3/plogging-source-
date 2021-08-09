@@ -61,13 +61,15 @@ public class reportPostServiceCon extends HttpServlet {
 		array2.clear();
 		int mCnt = 0;
 		int ckCnt = 0;
-		System.out.println("어레이사이즈 초깃값 0 = " + array.size());
-		System.out.println("어레이2사이즈 초깃값 0: " + array2.size());
-		System.out.println("자동화cnt 초깃값 0 = " + mCnt);
-		System.out.println("체크cnt 초깃값 0 = " + ckCnt);
+		System.out.println("어레이사이즈 초깃값 : " + array.size());
+		System.out.println("어레이2사이즈 초깃값 : " + array2.size());
+		System.out.println("자동화cnt 초깃값 : " + mCnt);
+		System.out.println("체크cnt 초깃값 : " + ckCnt);
+		System.out.println();
 
 		if (upCnt > 0) {
 			System.out.println("제보 업로드 성공");
+			System.out.println();
 			// (check가 0)사용가능한 제보 리스트
 			array = dao.reportShow();
 			System.out.println("check가 0인 모든 제보들 개수  = " + array.size());
@@ -79,13 +81,12 @@ public class reportPostServiceCon extends HttpServlet {
 					dto.setReport_date(array.get(i).getReport_date());
 					dto.setNotice_check(array.get(i).getNotice_check());
 				}
-			}
+			}System.out.println();
 			
 			// 새 제보의 반경 500m 안의 제보들 추출
 			// 새 제보의 위도, 경도
 			double latX = dto.getLat();
 			double lngY = dto.getLng();
-			double inputDistance = 0.5; // 여기서 거리 수정
 			for (int i = 0; i < array.size(); i++) {
 				double latA = array.get(i).getLat();
 				double latB = array.get(i).getLng();
@@ -102,7 +103,7 @@ public class reportPostServiceCon extends HttpServlet {
 				if (distance < 0.5) { // 여기서 거리 수정
 					array2.add(array.get(i));
 				}
-			}System.out.println("현재 재보지와 거리가 500m 이하인 제보들 개수 " + array.size());
+			}System.out.println("현재 재보지와 거리가 500m 이하인 제보들 개수 " + array2.size());
 				
 
 			if (array2.size() > 3) { // 가데이터로 연습하려고 3으로 둠
