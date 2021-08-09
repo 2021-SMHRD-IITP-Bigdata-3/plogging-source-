@@ -224,3 +224,9 @@ create table member(
 
 
 insert into member values ()
+insert into review_board values( num_review_board.nextval, 'dkwk', sysdate, 'null',35.147556,126.919400,'무야호', '정말이지 환상...ㅎ','1L'
+,'10KM');
+insert into review_board values( num_review_board.nextval, 'dkwk', sysdate, 'null',35.146691, 126.920524,'무야호', '역시 이맛에 플로깅 하나봅니다!','1L'
+,'10KM');
+insert into review_board values( num_review_board.nextval, 'dkwk', sysdate, 'null',35.148042, 126.920256,'무야호', '말해뭐해...!','1L'
+,'10KM');

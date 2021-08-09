@@ -112,8 +112,8 @@ public class reviewBoardDAO {
 						String reviewTitle = rs.getString("review_title");
 						double lat = rs.getDouble("lat");
 						double lng = rs.getDouble("lng");
-						
-						reviewBoardDTO dto = new reviewBoardDTO(reviewNumber,reviewTitle,lat,lng);
+						String memberid = rs.getString("member_id");
+						reviewBoardDTO dto = new reviewBoardDTO(reviewNumber,reviewTitle,lat,lng ,memberid);
 						reviewBoard_list.add(dto);
 					}
 					

@@ -107,8 +107,8 @@ increment by 10 -- 증감숫자
 
 select * from member
 drop table member1;
-
-
+delete table m
+select * from tip_off;
 후기게시판 review_board
 create table review_board(
    review_number number, --게시물 번호
@@ -268,6 +268,8 @@ insert into notice values( num_notice.nextval, 1, sysdate, limit_number.nextval,
 insert into notice values( num_notice.nextval, 1, sysdate, limit_number.nextval, sysdate, 'test','서구'
 ,35.146691, 126.920524);
 insert into notice values( num_notice.nextval, 1, sysdate, limit_number.nextval, sysdate, 'test','북구'
+,0.3,0.5);
+insert into review values( num_notice.nextval, 1, sysdate, limit_number.nextval, sysdate, 'test','북구'
 ,0.3,0.5);
 
 select * from notice;
