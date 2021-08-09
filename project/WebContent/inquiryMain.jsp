@@ -19,11 +19,12 @@
 	notice_BoardDAO dao = new notice_BoardDAO();
 	if (info!=null){
 		array = dao.showBoard(info.getMemberId());
+		// 플로깅 날짜 형태 변환 (원하는 꼴로 다 수정 가능합니다~)
+		System.out.println("날짜 변환 확인 : " + dao.changeDateFormat(array.get(1).getPlogDate()));
+		System.out.print(array.size());
 	}
 	
-	// 플로깅 날짜 형태 변환 (원하는 꼴로 다 수정 가능합니다~)
-	System.out.println("날짜 변환 확인 : " + dao.changeDateFormat(array.get(1).getPlogDate()));
-	System.out.print(array.size());
+
     
     
 %>
