@@ -1,0 +1,39 @@
+@charset "EUC-KR";
+<style>
+	table {
+		width : 100%;
+	}
+   textarea {
+	   width: 360px;
+	   height: 300px;
+    }
+	#title{
+	float: left;
+	width:124px;
+	margin-left:60px;
+	margin-top:10px;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 8px 70px 21px 22px;
+	font-weight: bold;
+	font-size: 40px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+	#myimport{
+	float:right;
+	margin-left:80px;
+	font-size:3em;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding:15px 15px 15px 15px;
+	font-weight: bold;
+	font-size: 41px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+</style>

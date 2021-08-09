@@ -5,17 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-	table {
-		width : 360px;
-	}
-   textarea {
-	   width: 360px;
-	   height: 300px;
-    }	
-</style>
+<link rel="stylesheet" href="css/reviewWrite7.css?after">
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <%
@@ -37,12 +31,12 @@
 %>
 
 <div>
-	<table>
-	<tr>
-	   <td>싸이트명</td>
-	   <td style = "float : right"><input type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'"></td>
-	   <td style = "float : right"><input type ="button" value = "검색"></td>
-	</tr>
+	<table style ="width:100%">
+	   <td id ="title" style = "width:124px;">plogging</td>
+	      <% if(info != null) { %>
+	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
+	      <% }else { %>
+      <% } %>
 	</table>
 	<form action = "reviewWriteServiceCon" method = "post" enctype = "multipart/form-data">
 		<table border = "1px" >
