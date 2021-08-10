@@ -1,5 +1,4 @@
 
-
 delete from chat where member_id = 'te';
 delete from NOTICE_MEMBER  where member_id = 'te'
 
