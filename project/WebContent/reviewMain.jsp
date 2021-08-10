@@ -84,11 +84,6 @@ if (navigator.geolocation) {
     displayMarker(locPosition, message);
 }
 
-// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-function displayMarker(locPosition, message) {
-    // 지도 중심좌표를 접속위치로 변경합니다
-    map.setCenter(locPosition);      
-}
 
 
 	<%for(int i=0; i<array.size();i++){%>

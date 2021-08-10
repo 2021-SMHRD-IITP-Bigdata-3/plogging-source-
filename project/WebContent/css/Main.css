@@ -12,13 +12,11 @@
 	margin-top:40px;
 	border: none;
 	border-radius: 16px;
-	background: #88dba3;
-	color: white;
-	padding: 8px 70px 21px 22px;
+	background:white ;
+	color: #88dba3;
 	font-weight: bold;
-	font-size: 40px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	cursor: pointer;
+	font-size: 50px;
+	font-family: 'netmarbleB';
 	}
 	
 	h2{
@@ -215,7 +213,7 @@ body > table:nth-child(3) > tbody > tr > td:nth-child(3) > ul > li > ul > li > d
     width:150px;
     z-index: 5;
     position: absolute;
-    display:none;
+
 }
 
 

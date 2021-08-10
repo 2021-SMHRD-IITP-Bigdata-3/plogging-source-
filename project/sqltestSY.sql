@@ -3,7 +3,7 @@ delete from chat where member_id = 'te';
 delete from NOTICE_MEMBER  where member_id = 'te'
 
 select * from notice_member
-
+select * from tip_off;
 
 -- 채팅
 채팅번호시퀀스 num_chat
