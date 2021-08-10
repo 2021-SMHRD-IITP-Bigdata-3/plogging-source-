@@ -152,7 +152,7 @@
 		    					chatContainer.append("<div class='announcement' style='text-align:center'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");
 		    				}else{
 		    					if(id=="<%=login_id%>"){
-				    				chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
+				    				chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class='myContent'>"+ content + "</div>");
 				    			}else{
 					    			chatContainer.append("<div class='others'>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
 				    			};

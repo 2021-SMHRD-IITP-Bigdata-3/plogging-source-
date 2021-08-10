@@ -24,7 +24,7 @@
 		<input type = "hidden" name ="lng" value = "<%=array2.get(i).getLng()%>">
 		<input type = "hidden" name ="lng" value = "<%=array2.get(i).getLng()%>">
 		<input type = "hidden" name ="noticeNumber" value = "<%=array2.get(i).getNoticeNumber()%>">
-		<input type = "submit" value = "<%=array2.get(i).getAddr()%>"></input>
+		<input type = "submit" value = "<%=array2.get(i).getAddr()%>"></input><br><br>
 		<%}%>
 	</table>
 </form>

@@ -91,13 +91,15 @@ public class reportPostServiceCon extends HttpServlet {
 			for (int i = 0; i < array.size(); i++) {
 				double latA = array.get(i).getLat();
 				double lngB = array.get(i).getLng();
+				// 곡면 기하학에서 두 점 사이 거리 구하기
 				double cos = Math.cos(Math.toRadians(latA)) * Math.cos(Math.toRadians(latX))
 						* Math.cos(Math.toRadians(lngY - lngB));
 				double sin = Math.sin(Math.toRadians(latA)) * Math.sin(Math.toRadians(latX));
 				double result = cos + sin;
 				double distance = 6371 * Math.acos(result);
-				System.out.println((i + 1) + "번째 제보 확인==========");
-				System.out.println("acos에 들어갈 결과 (-1과1사이어야 함): " + result);
+				//
+//				System.out.println((i + 1) + "번째 제보 확인==========");
+//				System.out.println("acos에 들어갈 결과 (-1과1사이어야 함): " + result);
 				System.out.println((i + 1) + "번째 제보와 현재 제보 사이 거리 : " + distance);
 				System.out.println("===================");
 				// 500m 미만일 때 카운트
@@ -134,7 +136,7 @@ public class reportPostServiceCon extends HttpServlet {
 		}
 
 		System.out.println("[=============================]");
-		response.sendRedirect("reportPostWrite.jsp");
+		response.sendRedirect("Main.jsp");
 	}
 
 }
