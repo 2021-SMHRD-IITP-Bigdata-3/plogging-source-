@@ -92,8 +92,6 @@
     }
   }
 </script>
-view rawjavascript-collapse
-
 <table>
    <tr>
       <td id ="title" style = "width:124px;">plogging</td>

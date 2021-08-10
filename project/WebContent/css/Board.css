@@ -6,6 +6,19 @@ body {
    /* scrollbar-width: none;
    -ms-overflow-style: none; */
 }
+body > div.header > table > tbody > tr > td:nth-child(1) > h2{
+	float: left;
+	width:124px;
+	margin-left:60px;
+	margin-top:40px;
+	border: none;
+	border-radius: 16px;
+	background: white;
+	color: #88dba3;
+	font-weight: bold;
+	font-size: 50px;
+	font-family: 'netmarbleB';
+}
 .mtable1{
    width: 100%;
         }

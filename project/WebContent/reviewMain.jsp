@@ -11,6 +11,14 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/reviewMain.css?after">
+<style>
+@font-face {
+    font-family: 'netmarbleB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 </head>
 <body>
 <%
@@ -20,7 +28,7 @@ array = dao.showBoard();
 %>
 <table>
 <tr>
-   <td float ="left" id="title">Plogging</td>
+   <td float ="left" id="title" style=" font-family: 'netmarbleB';">Plogging</td>
    <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 </tr>
 </table>

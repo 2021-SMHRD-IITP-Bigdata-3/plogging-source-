@@ -98,12 +98,7 @@ a{
    	text-align:center;
    	margin:30px 0px 30px 24%;
    	} 
- 	#ae{
- 	font-family:NanumBarunGothic;
- 	margin:29px 0px 17px 54px;
- 	font-size:1.8em;
- 	list-style:none;
- 	}
+
  	a:visited { color: black; text-decoration: none;}
 	.dbutton1{
 	  position: fixed;
@@ -213,7 +208,7 @@ body > table:nth-child(3) > tbody > tr > td:nth-child(3) > ul > li > ul > li > d
     width:150px;
     z-index: 5;
     position: absolute;
-
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 

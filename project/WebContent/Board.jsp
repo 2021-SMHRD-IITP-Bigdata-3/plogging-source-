@@ -10,6 +10,14 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
+<style>
+@font-face {
+    font-family: 'netmarbleB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 <link rel = "stylesheet" href="css/Board.css?after">
 </head>
 <body  style = "background-color: #ffffff">
