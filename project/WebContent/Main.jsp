@@ -118,9 +118,7 @@
       <% } %>
 	</tr>
 </table>
-
 <br>
-
 <%if(info !=null){ %>
 <form action = "reportPostWrite.jsp" method = "post">
 	<h2 style = "font-size: 2em;
