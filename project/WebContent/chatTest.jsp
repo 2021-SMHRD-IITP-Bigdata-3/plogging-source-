@@ -97,7 +97,7 @@
 	<div> 제보 사진</div>
 	<%if(r_array.size()!=0){%>
 		<% for(int i=0; i<r_array.size(); i++){ %>
-			<span><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br>
+			<div class="reportImg"><span><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br></div>
 		<% } %>	
 	<% } %>	
 	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
@@ -147,17 +147,16 @@
 			    		for(var i = 0; i < res.length; i++){
 			    			var id = res[i].member_id;
 			    			var content = res[i].content;
-			    			if(id=="<%=login_id%>"){
-			    				if(content=="announcement"){
+		    				if(content=="announcement"){
 	/////////////////////////////////// 기능만 넣음 디자인은 원하는대로 바꾸면 됨 ///////////////////////////////////////////////////////////////////////////////////////////
-			    					chatContainer.append("<div class='announcement' style='text-align:center'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");   					
-			    				}
-			    				else{
-			    					chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
-			    				}
-			    			}else{
-				    			chatContainer.append("<div class='others'>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
-			    			};
+		    					chatContainer.append("<div class='announcement' style='text-align:center'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");
+		    				}else{
+		    					if(id=="<%=login_id%>"){
+				    				chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
+				    			}else{
+					    			chatContainer.append("<div class='others'>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
+				    			};
+		    				};    	
 			    		}
 			         console.log(res);
 			         var divdiv = document.getElementById("chat");
