@@ -19,10 +19,11 @@ public class DeleteOneServiceCon extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-int num = Integer.parseInt(request.getParameter("num"));
+	  int num = Integer.parseInt(request.getParameter("num"));
       
       System.out.println("삭제할메시지고유번호 : "+num);
       boardDAO dao = new boardDAO();
+      
       int cnt = dao.deleteOneboard(num);
       reviewBoardDAO dao1=new reviewBoardDAO();
       int cnt1= dao1.deleteOnereview(num);
