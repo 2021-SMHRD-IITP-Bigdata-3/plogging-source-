@@ -70,7 +70,7 @@
 	
 	.myContent{  
 	text-align:right;
-	margin: 0px 0px 0px 532px;
+	margin: 0px 0px 0px 650px;
 	width:250px; 
 	height:50px;
 	background:pink; 
@@ -122,5 +122,17 @@
 		width:97%;
 		height:300px;
 	}
+	.topicon {
+   background-color: #2DB400;
+   border: none;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   border-radius: 15px;
+}
 
 </style>

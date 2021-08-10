@@ -100,7 +100,7 @@
 			<div class="reportImg"><span><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br></div>
 		<% } %>	
 	<% } %>	
-	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
+	<input class="topicon" type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 	<div id="chatmain">
 		<div id="chat">
 		</div>
@@ -112,7 +112,7 @@
 		<% }else{ %>
 			<input type="text" id="id" name="id" placeholder="아이디 입력">
 		<% } %>
-		<input type="text" id="content" name="content" placeholder="내용 입력">
+		<input type="text" id="content" name="content" placeholder="내용 입력" maxlength='30'>
 		<button id="send">입력</button><br>
 		<% if (check==0){%>
 			<input type='button' value="신청" name="attend" 
