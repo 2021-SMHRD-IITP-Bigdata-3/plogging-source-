@@ -37,52 +37,52 @@
 </head>
 <body>
 <%
-	memberDTO info = (memberDTO)session.getAttribute("info");   
-	if (info!=null){
-		double memberLat = info.getMemberLat();
-		double memberLng = info.getMemberLng();
-		System.out.println("(메인페이지에 사용자의 위도가 잘 넘어오는지) memberLat : "+ memberLat);
-		System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
-	}
-	// 젼역변수 선언
-	notice_BoardDAO dao = new notice_BoardDAO();
-	
-   	// 메인 들어오면 - 플로깅 기한 지난 공고들 연장
-	int cnt = dao.plogDateUpdate();
-	if(cnt>0) {
-		System.out.println("플로깅 기한 연장 성공");
-	}else {System.out.println("플로깅 기한 연장 실패");
-	}
-	
-	// 나의 채팅방 목록 (조회에서 '참가' 클릭한 목록)
-	ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
-	if (info!=null){
-		array = dao.showMyChatroom(info.getMemberId());
-		for(int i=0; i<array.size(); i++){
-			System.out.println(" 채팅방 번호  : " + array.get(i).getNoticeNumber() );
-		}
-	} 
-	// (공고로 사용되지 않은) 제보 목록
-	ArrayList<reportTestDTO> report_array = new ArrayList<reportTestDTO>();
-	reportTestDAO report_dao = new reportTestDAO();
-	report_array = report_dao.reportShow();
-	for(int i=0; i<report_array.size(); i++){
-		System.out.println(" 공고 번호  : " + report_array.get(i).getReport_number());
-	}
-	
-	
-	%>
+   memberDTO info = (memberDTO)session.getAttribute("info");   
+   if (info!=null){
+      double memberLat = info.getMemberLat();
+      double memberLng = info.getMemberLng();
+      System.out.println("(메인페이지에 사용자의 위도가 잘 넘어오는지) memberLat : "+ memberLat);
+      System.out.println("(메인페이지에 사용자의 경도가 잘 넘어오는지) memberLng : "+ memberLng);
+   }
+   // 젼역변수 선언
+   notice_BoardDAO dao = new notice_BoardDAO();
+   
+      // 메인 들어오면 - 플로깅 기한 지난 공고들 연장
+   int cnt = dao.plogDateUpdate();
+   if(cnt>0) {
+      System.out.println("플로깅 기한 연장 성공");
+   }else {System.out.println("플로깅 기한 연장 실패");
+   }
+   
+   // 나의 채팅방 목록 (조회에서 '참가' 클릭한 목록)
+   ArrayList<notice_BoardDTO> array = new ArrayList<notice_BoardDTO>();
+   if (info!=null){
+      array = dao.showMyChatroom(info.getMemberId());
+      for(int i=0; i<array.size(); i++){
+         System.out.println(" 채팅방 번호  : " + array.get(i).getNoticeNumber() );
+      }
+   } 
+   // (공고로 사용되지 않은) 제보 목록
+   ArrayList<reportTestDTO> report_array = new ArrayList<reportTestDTO>();
+   reportTestDAO report_dao = new reportTestDAO();
+   report_array = report_dao.reportShow();
+   for(int i=0; i<report_array.size(); i++){
+      System.out.println(" 공고 번호  : " + report_array.get(i).getReport_number());
+   }
+   
+   
+   %>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
     // html dom 이 다 로딩된 후 실행된다.
     $(document).ready(function(){
         // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-        $(".menu>a").click(function(){
+        $(".topicon").click(function(){
             var submenu = $(this).next("ul");
  
             // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.slideUp();
+            if( submenu.is(":visible")){
+               submenu.slideUp();
             }else{
                 submenu.slideDown();
             }
@@ -91,35 +91,36 @@
 </script>
 
 <table>
-	<tr>
-	   <td id ="title" style = "width:124px;">plogging</td>
-	      <% if(info != null) { %>
-	   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
-	   <td>
-			<ul style="list-style: none; ">
-		        <li class="menu" >
-		            <a><div class="topicon" >채팅방</div></a>
-		            <ul class="hide" style="list-style: none; padding-left:0px;">
-							<% if(info != null) { %>
-								<% for(int i=0; i<array.size(); i++){ %>
-				                <li><div class="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></div></li>
-									<%}%>
-							<%}%>	
-		            </ul>
-		        </li>
-		    </ul>
-	   </td>
-	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
-	      <% }else { %>
-	   <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="width:67px; margin:10px 10px 0px 10px;" >로그인</a> </td>
+   <tr>
+      <td id ="title" style = "width:124px;">plogging</td>
+         <% if(info != null) { %>
+      <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
+      <td>
+         <ul style="list-style: none; ">
+              <li class="menu" >
+                  <a><div class="topicon" >채팅방</div></a>
+                  <ul class="hide" style="list-style: none;">
+                     <% if(info != null) { %>
+                        <% for(int i=0; i<array.size(); i++){ %>
+                        <%int a = 90*i; %>
+                            <li><div style="margin-top:<%=a%>px" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"><%=array.get(i).getNoticeNumber() %></div></li>
+                           <%}%>
+                     <%}%>   
+                  </ul>
+              </li>
+          </ul>
+      </td>
+      <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
+         <% }else { %>
+      <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="width:67px; margin:10px 10px 0px 10px;" >로그인</a> </td>
       <% } %>
-	</tr>
+   </tr>
 </table>
 <br>
 <%if(info !=null){ %>
 <form action = "reportPostWrite.jsp" method = "post">
-	<h2>집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>
-	<div id="map" style="width:100%;height:600px;"></div>
+   <h2>집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>
+   <div id="map" style="width:100%;height:600px;"></div>
 </form>
 <%}else { %>
 <table>
@@ -130,11 +131,11 @@
 </table>
 <br>
 <ul>
-	<div id ="cafe" style ="padding: 15px 1px 5px 58px width:1012px margin-left:-50px"><th>플로깅이란?</th></div>
-	<li id = "ae"><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></li>
-	<li id = "ae"><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></li>
-	<li id = "ae"><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></li>
-	<li id = "ae"><a href="https://blog.naver.com/baekjeun/222452172788">나를 웃음짓게 하는 것은 같은 이상을 실천하는 사람이 있을때</a></li>
+   <div id ="cafe" style ="padding: 15px 1px 5px 58px width:1012px margin-left:-50px"><th>플로깅이란?</th></div>
+   <li id = "ae"><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></li>
+   <li id = "ae"><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></li>
+   <li id = "ae"><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></li>
+   <li id = "ae"><a href="https://blog.naver.com/baekjeun/222452172788">나를 웃음짓게 하는 것은 같은 이상을 실천하는 사람이 있을때</a></li>
 </ul>
 <table>
 <div class="down"></div>
@@ -149,46 +150,47 @@
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script><!-- ㄴㅇㅁㄴㅇ-->
-	<%if(info !=null){%>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		mapOption = {
-				center: new kakao.maps.LatLng(<%=info.getMemberLat()%>,<%=info.getMemberLng()%>), // 지도의 중심좌표
-				level: 5 // 지도의 확대 레벨
-		};
+   <%if(info !=null){%>
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+      mapOption = {
+            center: new kakao.maps.LatLng(<%=info.getMemberLat()%>,<%=info.getMemberLng()%>), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+      };
 
-		//지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-	
-		// 전역변수
-		let lat;
-		let lng;
-		
-		<%for(int i=0; i<report_array.size();i++){%>
-			// 마커를 생성합니다
-			// 값이 잘 들어오는지 확인
-			lat = <%=report_array.get(i).getLat()%>;
-			lng = <%=report_array.get(i).getLng()%>;
-			console.log('lat, lng: ', lat, lng);
-	
-			var marker = new kakao.maps.Marker({		
-				position: new kakao.maps.LatLng(lat, lng)
-			// 마커의 위치
-			});
-			
-			makeMarkerDeletable(marker);
-		
-			marker.setMap(map);
-		<%}%>
-	<%}%>
-	
-	// '지울 수 있는 마커 만들기' 함수 생성
-	function makeMarkerDeletable(targetMarker) {
-		//마커를 지우는 이벤트
-		kakao.maps.event.addListener(targetMarker, 'click', function() {
-			// 마커 위에 인포윈도우를 표시합니다
-			targetMarker.setMap(null)	     
-		});
-	}
+      //지도를 생성합니다    
+      var map = new kakao.maps.Map(mapContainer, mapOption); 
+   
+      // 전역변수
+      let lat;
+      let lng;
+      
+      <%for(int i=0; i<report_array.size();i++){%>
+         // 마커를 생성합니다
+         // 값이 잘 들어오는지 확인
+         lat = <%=report_array.get(i).getLat()%>;
+         lng = <%=report_array.get(i).getLng()%>;
+         console.log('lat, lng: ', lat, lng);
+   
+         var marker = new kakao.maps.Marker({      
+            position: new kakao.maps.LatLng(lat, lng)
+         // 마커의 위치
+         });
+         
+         makeMarkerDeletable(marker);
+      
+         marker.setMap(map);
+      <%}%>
+   <%}%>
+   
+   // '지울 수 있는 마커 만들기' 함수 생성
+   function makeMarkerDeletable(targetMarker) {
+      //마커를 지우는 이벤트
+      kakao.maps.event.addListener(targetMarker, 'click', function() {
+         // 마커 위에 인포윈도우를 표시합니다
+
+         targetMarker.setMap(null);
+      });
+   }
 </script>
 </body>
 </html>
