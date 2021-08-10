@@ -25,14 +25,13 @@
 	
 %>
 	<div class="header">
-      <table class="mtable1">
+      <table>
          <tr>
             <td><h2>Plogging</h2></td>
-            <td style="text-align:right;">
+            <td align="right">
             <input  type="button" class="topicon" value="회원정보수정"
             onclick="location.href='update.jsp'"></td>
-            <td><i class="far fa-search"  type ="button" value = "검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
-            <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
+            <td align="center"><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
          </tr>
       </table>
   	</div>
@@ -41,7 +40,7 @@
 	</div>
 	<div><h2>자유 게시판</h2>
 		
-		<table border='1px' style='height:100px;' class="table" >
+		<table border='1px' style='height:100px;' align="center">
 			<tr align="center" style="font-size:20px;">
 				<td>번호</td>
 				<!-- 게시번호가 잘 넘어가는지 확인 차 넣음 .나중에 지우기 -->
@@ -65,6 +64,7 @@
 <br><br><br>
 	<table>
 	<tr>
+	
     	<div id="class="down""></div>
    <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
    <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
