@@ -191,7 +191,11 @@
 		    					chatContainer.append("<div class='announcement' style='text-align:center'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");
 		    				}else{
 		    					if(id=="<%=login_id%>"){
+<<<<<<< HEAD
 				    				chatContainer.append("<div class='my'><i class='far fa-user'  type ='button' id = 'myimport' class='rmyimport'></i>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
+=======
+				    				chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class='myContent'>"+ content + "</div>");
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 				    			}else{
 					    			chatContainer.append("<div class='others'><i class='far fa-user'  type ='button' id = 'myimport' class='lmyimport'></i>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
 				    			};

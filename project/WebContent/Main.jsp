@@ -115,9 +115,7 @@
       <% } %>
 	</tr>
 </table>
-
 <br>
-
 <%if(info !=null){ %>
 <form action = "reportPostWrite.jsp" method = "post">
 	<h2>집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>

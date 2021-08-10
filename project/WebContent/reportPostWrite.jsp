@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
 					</div>
 					</td>
 					<td align="right">
-					<a href="inputAddress.jsp" target="_blank"><img
+					<a href="inputAddress.jsp" target="_self"><img
 							src="Map.png"  height="100" ></a>
 <%
  	request.setCharacterEncoding("EUC-KR");
@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
 			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>
 			<div class="dbutton4" onClick="location.href='Board.jsp'">게시판</div>
 			<div class="dbutton5" onClick="location.href='reportPostWrite.jsp'">제보</div>
-	<script>
+		<script>
 	 <%if(lat!=null){%>
      document.getElementById('lat').value = "<%=lat%>";
      document.getElementById('lng').value = "<%=lng%>";

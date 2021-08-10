@@ -67,6 +67,7 @@
 			   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 			</table>
 	</form>
+	<br><br><br><br><br><br><br><br><br>
 </div>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
