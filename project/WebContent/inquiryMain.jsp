@@ -19,9 +19,7 @@
 	notice_BoardDAO dao = new notice_BoardDAO();
 	if (info!=null){
 		array = dao.showBoard(info.getMemberId());
-		// 플로깅 날짜 형태 변환 (원하는 꼴로 다 수정 가능합니다~)
-		System.out.println("날짜 변환 확인 : " + dao.changeDateFormat(array.get(1).getPlogDate()));
-		System.out.print(array.size());
+		System.out.print("조회에 뜨는 공고 개수 : " + array.size());
 	}
 	
 
@@ -59,14 +57,11 @@
 							<span id="iconee"> 주소지 : <%=array.get(i).getAddr() %></span><br>
 							<span id="iconee"> 플로깅 기한 : <%=dao.changeDateFormat(array.get(i).getPlogDate())%></span><br>
 							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
-							<span id="iconee"> 플로깅 제한 인원  :<%=array.get(i).getLimitedNumber()%></span><br>
+							<span id="iconee"> 플로깅 제한 인원  : <%=array.get(i).getLimitedNumber()%></span><br>
 							<span><%=array.get(i).getNoticeNumber()%>번 공고방</span>
 							<span ><input id ="input" type = "submit" value = "참가"></span></div>
 							</div>
 							<input type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>">
-							<input type= "hidden" name="addr" value="<%=array.get(i).getAddr()%>">
-							<input type= "hidden" name="plogDate" value="<%=dao.changeDateFormat(array.get(i).getPlogDate())%>">
-							<input type= "hidden" name="limitedNumber" value="<%=array.get(i).getLimitedNumber()%>">
 						<td>
 		    		</tr>
 		    	 </form>
