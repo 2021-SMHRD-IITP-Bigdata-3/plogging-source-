@@ -23,7 +23,7 @@ memberDTO info = (memberDTO)session.getAttribute("info");
    </div>
    <table >
       <tr>
-         <h1 align="center">회원 정보 수정</h1>
+         <h1 align="center" >회원 정보 수정</h1>
       </tr>
    </table>
    
@@ -32,7 +32,7 @@ memberDTO info = (memberDTO)session.getAttribute("info");
                <tr>
                <td>
                   <div>
-                     <h3 align="center">접속한 ID : <% if(info!=null){%><span><%= info.getMemberId()%></span><%}else{ %><span>a</span><%} %></h3>
+                     <h3 align="center" >접속한 ID : <% if(info!=null){%><span><%= info.getMemberId()%></span><%}else{ %><span>a</span><%} %></h3>
                   </div>
                   </td>
                </tr>
