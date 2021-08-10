@@ -71,6 +71,9 @@
 	}
 	
 	
+	ArrayList<reviewBoardDTO> reviewArray = new ArrayList<reviewBoardDTO>();
+	reviewBoardDAO reviewDao = new reviewBoardDAO();
+	reviewArray = reviewDao.showBoard();
 	%>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
@@ -111,7 +114,7 @@
 	   </td>
 	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 	      <% }else { %>
-	   <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="width:67px; margin:10px 10px 0px 10px;" >로그인</a> </td>
+	   <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="margin:10px 10px 0px 10px; width:30px;" >로그인</a> </td>
       <% } %>
 	</tr>
 </table>
@@ -120,9 +123,72 @@
 
 <%if(info !=null){ %>
 <form action = "reportPostWrite.jsp" method = "post">
-	<h2>집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>
+	<h2 style = "font-size: 2em;
+    text-align: center;
+    margin: 70px 0px 10px 0px;
+    border-bottom: 3px solid;
+}">집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>
 	<div id="map" style="width:100%;height:600px;"></div>
 </form>
+
+		<div id ="cafe"><th>회원들의 따끈따근 후기</th></div>
+		<table border='0px' style='height:100px;'>
+		      <%for(int i = 0; i<3;i++){%>
+
+		      <tr style = "border-bottom:1px">
+				<td id = "membertitle"><a href = "Review8.jsp?reviewNumber=<%=reviewArray.get(i).getReviewNumber()%>">-  <%=reviewArray.get(i).getTitle()%></a></td>
+				<td id = "ae">작성자 : <%=reviewArray.get(i).getMemberId() %></td>
+			  </tr>
+		<%} %>
+		</table>
+<table>
+	<tr>
+		<td><div id ="New" style="
+		    font-size: 25px;
+		    width: 124px;
+		    background: #AFE1FF;
+		    height: 45px;
+		    text-align: center;
+		    padding: 12px 0px 0px 0px;
+		    border-radius: 23px;
+		    margin: 90px 0px 15px 100px;
+			">쓰담뉴스</div></td>
+		<td><div id ="New" style="
+		    font-size: 25px;
+		    width: 124px;
+		    background: #AFE1FF;
+		    height: 45px;
+		    text-align: center;
+		    padding: 12px 0px 0px 0px;
+		    border-radius: 23px;
+		    margin: 90px 208px 0px 0px;
+			">쓰담뉴스</div></td></td>
+		<td><div id ="New" style="
+		    font-size: 25px;
+		    width: 124px;
+		    background: #AFE1FF;
+		    height: 45px;
+		    text-align: center;
+		    padding: 12px 0px 0px 0px;
+		    border-radius: 23px;
+		    margin: 95px 74px 0px 0px;
+			">쓰담뉴스</div></td></td>
+	</tr>
+	<tr>
+		<td><div style="
+					    width: 40%;
+					    margin: 0px 0px 0px 70px;
+		"><a style="font-size:22px;"href="https://blog.naver.com/purity_k/222459285852">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></div></td>
+		<td><div style="
+					    width: 66%;
+					    margin: 0px 0px 0px -25px;
+		"><a style="font-size:22px;" href="https://blog.naver.com/earthactkgjn/222180131468">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></div></td>
+		<td><div style="
+					    width: 82%;
+					    margin: 0px 0px 0px -17px;
+		"><a style="font-size:22px;"href="https://blog.naver.com/flydms/222290879041">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></div></td>
+	</tr>
+</table>
 <%}else { %>
 <table>
 <tr>
@@ -130,14 +196,67 @@
 </td>
 </tr>
 </table>
+		<div id ="cafe"><th>회원들의 따끈따근 후기</th></div>
+		<table border='0px' style='height:100px;'>
+		      <%for(int i = 0; i<3;i++){%>
+
+		      <tr style = "border-bottom:1px">
+				<td id = "membertitle"><a href = "Review8.jsp?reviewNumber=<%=reviewArray.get(i).getReviewNumber()%>">-  <%=reviewArray.get(i).getTitle()%></a></td>
+				<td id = "ae">작성자 : <%=reviewArray.get(i).getMemberId() %></td>
+			  </tr>
+		<%} %>
+		</table>
 <br>
-<ul>
-	<div id ="cafe" style ="padding: 15px 1px 5px 58px width:1012px margin-left:-50px"><th>플로깅이란?</th></div>
-	<li id = "ae"><a href="https://blog.naver.com/happyhouse2u/222359846153">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></li>
-	<li id = "ae"><a href="https://post.naver.com/viewer/postView.naver?volumeNo=31743685&memberNo=25324157&vType=VERTICAL">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></li>
-	<li id = "ae"><a href="https://blog.naver.com/sku-cast/222439716410">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></li>
-	<li id = "ae"><a href="https://blog.naver.com/baekjeun/222452172788">나를 웃음짓게 하는 것은 같은 이상을 실천하는 사람이 있을때</a></li>
-</ul>
+<table>
+	<tr>
+		<td><div id ="New" style="
+		    font-size: 25px;
+		    width: 124px;
+		    background: #AFE1FF;
+		    height: 45px;
+		    text-align: center;
+		    padding: 12px 0px 0px 0px;
+		    border-radius: 23px;
+		    margin: 90px 0px 15px 100px;
+			">쓰담뉴스</div></td>
+		<td><div id ="New" style="
+		    font-size: 25px;
+		    width: 124px;
+		    background: #AFE1FF;
+		    height: 45px;
+		    text-align: center;
+		    padding: 12px 0px 0px 0px;
+		    border-radius: 23px;
+		    margin: 90px 208px 0px 0px;
+			">쓰담뉴스</div></td></td>
+		<td><div id ="New" style="
+		    font-size: 25px;
+		    width: 124px;
+		    background: #AFE1FF;
+		    height: 45px;
+		    text-align: center;
+		    padding: 12px 0px 0px 0px;
+		    border-radius: 23px;
+		    margin: 95px 75px 0px 0px;
+			">쓰담뉴스</div></td></td>
+	</tr>
+	<tr>
+		<td><div style="
+					    width: 40%;
+					    margin: 0px 0px 0px 70px;
+		"><a style="font-size:22px;"href="https://blog.naver.com/purity_k/222459285852">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></div></td>
+		<td><div style="
+					    width: 66%;
+					    margin: 0px 0px 0px -25px;
+		"><a style="font-size:22px;" href="https://blog.naver.com/earthactkgjn/222180131468">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></div></td>
+		<td><div style="
+					    width: 82%;
+					    margin: 0px 0px 0px -17px;
+		"><a style="font-size:22px;"href="https://blog.naver.com/flydms/222290879041">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></div></td>
+	</tr>
+</table>
+<%} %>
+<br><br><br><br><br><br><br>
 <table>
 <div class="down"></div>
    <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
@@ -146,8 +265,6 @@
    <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
    <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 </table>
-<%} %>
-
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script><!-- ㄴㅇㅁㄴㅇ-->
@@ -185,10 +302,15 @@
 	
 	// '지울 수 있는 마커 만들기' 함수 생성
 	function makeMarkerDeletable(targetMarker) {
+
+		//href="maingDelete?lat="+latlng.getLat()+"&lng="+latlng.getLng();
 		//마커를 지우는 이벤트
 		kakao.maps.event.addListener(targetMarker, 'click', function() {
 			// 마커 위에 인포윈도우를 표시합니다
-			targetMarker.setMap(null)	     
+			//var latlng = targetMarker.latLng;
+			//console.log(latlng.getLat());
+			targetMarker.setMap(null);
+
 		});
 	}
 </script>
