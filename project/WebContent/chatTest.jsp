@@ -81,8 +81,6 @@
 	// 공고번호를 가지는 제보들 추출
 	reportTestDAO r_dao = new reportTestDAO();
 	ArrayList<reportTestDTO> r_array = r_dao.showReportForNotice(noticeNumber);
-	String test = r_array.get(1).getImg();
-	System.out.println("사진경로 잘 오는지 : " + test);
 	
 %>	
 
@@ -97,8 +95,10 @@
 	<div> 제한 인원?? 현재 참가한 인원 : <%=ndto.getLimitedNumber() %> </div>
 <!-- 제보사진. 기능 확인용, 디자인 맘껏 수정 가능-->
 	<div> 제보 사진</div>
-	<% for(int i=0; i<r_array.size(); i++){ %>
-		<span><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br>
+	<%if(r_array.size()!=0){%>
+		<% for(int i=0; i<r_array.size(); i++){ %>
+			<span><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br>
+		<% } %>	
 	<% } %>	
 	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 	<div id="chatmain">
