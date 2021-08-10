@@ -22,7 +22,7 @@
 	}
 </style>
 
-
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/chatroom.css?after">
 </head>
 <body>
@@ -83,43 +83,82 @@
 	ArrayList<reportTestDTO> r_array = r_dao.showReportForNotice(noticeNumber);
 	
 %>	
-
-
+<table style="width:100%;height:500px;" class="ttable">
+<tr >
+	<td style="width:50%;" colspan='2' rowspan='4'>
 	<div id="map"  align="center" ></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
-<!-- 공고정보. 기능 확인용, 디자인 맘껏 수정 가능-->
-	<div> 공고정보 </div>
-	<div> 공고번호 : <%=noticeNumber %> </div>
-	<div> 플로깅 장소 : <%=ndto.getAddr() %> </div>
-	<div> 플로깅 기한 : <%=ndto.getPlogDate() %> </div>
-	<div> 제한 인원?? 현재 참가한 인원 : <%=ndto.getLimitedNumber() %> </div>
+	</td>
+	<td colspan='2'>
+	<!-- 공고정보. 기능 확인용, 디자인 맘껏 수정 가능-->
+	<div><p align="center">공고정보 </div>
+	</td>
+</tr>
+<tr>
+	<td class="rtd">
+<!-- <div><p align="right">공고번호 : <%=noticeNumber %> </p></div> -->
+	<div><p align="center">플로깅 장소</p></div>
+	</td>
+	<td>
+	<div><p align="center"><%=ndto.getAddr() %> </p></div>
+	</td>
+</tr>
+<tr>
+	<td class="rtd">
+	<div><p align="center">플로깅 기한</p></div>
+	</td>
+	<td>
+	<div><p align="center"><%=ndto.getPlogDate() %></p></div>
+	</td>
+</tr>
+<tr>
+	<td class="rtd">
+	<div ><p align="center">제한 인원?? 현재 참가한 인원</p></div>
+	</td>
+	<td>
+	<div><p align="center"><%=ndto.getLimitedNumber() %> </p></div>
+	</td>
+</tr>
+</table>
+
+	
 <!-- 제보사진. 기능 확인용, 디자인 맘껏 수정 가능-->
-	<div> 제보 사진</div>
+	<div><p style="margin-left:30px;">제보 사진</p></div>
 	<%if(r_array.size()!=0){%>
 		<% for(int i=0; i<r_array.size(); i++){ %>
-			<div class="reportImg"><span><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br></div>
+			<div class="reportImg"><span style="margin-left:30px;"><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br></div>
 		<% } %>	
 	<% } %>	
-	<input class="topicon" type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
+	
+	<table width="100%" >
+		<tr>
+			<td ><input class="topicon" type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
+	<% if (check==0){%></td>
+	
+			<td align="right" margin-right="5px"><input class="rtopicon" type='button' value="신청" name="attend" 
+				onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"></td>
+		<% }else{ %>
+			<td><p1 align="right" >신청하신 공고입니다.</p1></td>
+		<% } %>
+		</tr>
+	</table>
+	
+			
 	<div id="chatmain">
 		<div id="chat">
 		</div>
 	</div>
 
 	<div>
-		<% if (info!=null){%>
-			내 아이디 : <%=login_id%>
-		<% }else{ %>
-			<input type="text" id="id" name="id" placeholder="아이디 입력">
-		<% } %>
-		<input type="text" id="content" name="content" placeholder="내용 입력" maxlength='30'>
-		<button id="send">입력</button><br>
-		<% if (check==0){%>
-			<input type='button' value="신청" name="attend" 
-				onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"><br>
-		<% }else{ %>
-			신청하신 공고입니다.
-		<% } %>
+		<table width="100%">
+			<tr>
+				<td align="left"><input type="text" id="content" name="content" placeholder="내용 입력" maxlength='30'></td>
+				<td align="right" ><button id="send" >입력</button><br></td>
+			</tr>
+		</table>
+		
+		
+		
 	</div>
 
 
@@ -152,9 +191,9 @@
 		    					chatContainer.append("<div class='announcement' style='text-align:center'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");
 		    				}else{
 		    					if(id=="<%=login_id%>"){
-				    				chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
+				    				chatContainer.append("<div class='my'><i class='far fa-user'  type ='button' id = 'myimport' class='rmyimport'></i>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
 				    			}else{
-					    			chatContainer.append("<div class='others'>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
+					    			chatContainer.append("<div class='others'><i class='far fa-user'  type ='button' id = 'myimport' class='lmyimport'></i>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
 				    			};
 		    				};    	
 			    		}
