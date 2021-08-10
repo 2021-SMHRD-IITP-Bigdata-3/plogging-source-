@@ -80,12 +80,12 @@
     // html dom 이 다 로딩된 후 실행된다.
     $(document).ready(function(){
         // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-        $(".menu>a").click(function(){
+        $(".topicon").click(function(){
             var submenu = $(this).next("ul");
  
             // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.slideUp();
+            if( submenu.is(":visible")){
+               submenu.slideUp();
             }else{
                 submenu.slideDown();
             }
@@ -99,18 +99,19 @@
 	      <% if(info != null) { %>
 	   <td><input  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
 	   <td>
-			<ul style="list-style: none; ">
-		        <li class="menu" >
-		            <a><div class="topicon" >채팅방</div></a>
-		            <ul class="hide" style="list-style: none; padding-left:0px;">
-							<% if(info != null) { %>
-								<% for(int i=0; i<array.size(); i++){ %>
-				                <li><div class="topicon" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"></div></li>
-									<%}%>
-							<%}%>	
-		            </ul>
-		        </li>
-		    </ul>
+         <ul style="list-style: none; ">
+              <li class="menu" >
+                  <a><div class="topicon" >채팅방</div></a>
+                  <ul class="hide" style="list-style: none;">
+                     <% if(info != null) { %>
+                        <% for(int i=0; i<array.size(); i++){ %>
+                        <%int a = 90*i; %>
+                            <li><div style="margin-top:<%=a%>px" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"><%=array.get(i).getNoticeNumber() %></div></li>
+                           <%}%>
+                     <%}%>   
+                  </ul>
+              </li>
+          </ul>
 	   </td>
 	   <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 	      <% }else { %>
@@ -306,8 +307,11 @@
 		kakao.maps.event.addListener(targetMarker, 'click', function() {
 			// 마커 위에 인포윈도우를 표시합니다
 			//var latlng = targetMarker.latLng;
-			//console.log(latlng.getLat());
+			
+			console.log(targetMarker);
 			targetMarker.setMap(null);
+			
+			
 
 		});
 	}

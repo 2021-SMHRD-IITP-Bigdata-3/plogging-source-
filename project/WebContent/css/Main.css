@@ -183,20 +183,39 @@ a{
 
 /*Ã¤ÆÃ¹æ css*/
 .topicon {
-   background-color: #88dba3;
-   border: none;
-   color: white;
-   padding: 15px 10px 10px 10px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 36px;
-   margin: 4px 2px;
-   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   border-radius: 15px;
-   width:150px;
-}
+	
+    background-color: #88dba3;
+    border: none;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 36px;
+    margin: 26px 52px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+    width:150px;
 
+}
+body > table:nth-child(3) > tbody > tr > td:nth-child(3) > ul > li > ul > li > div{
+		
+    background-color: #88dba3;
+    border: none;
+    color: white;
+    padding: 15px 10px 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 36px;
+    margin: 0px 0px 0px -38px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+    width:150px;
+    z-index: 5;
+    position: absolute;
+    display:none;
+}
 
 
 </style>
