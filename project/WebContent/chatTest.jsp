@@ -1,3 +1,5 @@
+<%@page import="Model.reportTestDTO"%>
+<%@page import="Model.reportTestDAO"%>
 <%@page import="Model.memberDTO"%>
 <%@page import="Model.memberDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -40,7 +42,7 @@
 	notice_BoardDAO dao = new notice_BoardDAO();
 	notice_BoardDTO ndto = dao.showNoticeInfo(noticeNumber);
 	System.out.println("(chatTest1페이지) 플로깅 장소 : " + ndto.getAddr());
-	System.out.println("(chatTest1페이지) 플로깅 기한 : " + ndto.getPlogDate());
+	System.out.println("(chatTest1페이지) 플로깅 기한 : " + dao.changeDateFormat(ndto.getPlogDate()));
 	System.out.println("(chatTest1페이지) 제한 인원 : " + ndto.getLimitedNumber());
 		
 	// 공고의 위도, 경도
@@ -76,24 +78,28 @@
 		}
 	}
 	
-	// 공고번호를 가지는 제보들 추출하는 메소드 만들어서
-	// 아래에 제보 사진들 넣자
+	// 공고번호를 가지는 제보들 추출
+	reportTestDAO r_dao = new reportTestDAO();
+	ArrayList<reportTestDTO> r_array = r_dao.showReportForNotice(noticeNumber);
+	String test = r_array.get(1).getImg();
+	System.out.println("사진경로 잘 오는지 : " + test);
 	
 %>	
 
 
 	<div id="map"  align="center" ></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
-<!-- 기능 확인용, 디자인 맘껏 수정 가능-->
+<!-- 공고정보. 기능 확인용, 디자인 맘껏 수정 가능-->
 	<div> 공고정보 </div>
 	<div> 공고번호 : <%=noticeNumber %> </div>
 	<div> 플로깅 장소 : <%=ndto.getAddr() %> </div>
 	<div> 플로깅 기한 : <%=ndto.getPlogDate() %> </div>
 	<div> 제한 인원?? 현재 참가한 인원 : <%=ndto.getLimitedNumber() %> </div>
+<!-- 제보사진. 기능 확인용, 디자인 맘껏 수정 가능-->
 	<div> 제보 사진</div>
-	
-		
-	
+	<% for(int i=0; i<r_array.size(); i++){ %>
+		<span><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br>
+	<% } %>	
 	<input type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 	<div id="chatmain">
 		<div id="chat">
