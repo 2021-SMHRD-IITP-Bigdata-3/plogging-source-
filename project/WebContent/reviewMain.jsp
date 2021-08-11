@@ -11,6 +11,14 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/reviewMain.css?after">
+<style>
+@font-face {
+    font-family: 'netmarbleB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 </head>
 <body>
 <%
@@ -20,7 +28,7 @@ array = dao.showBoard();
 %>
 <table>
 <tr>
-   <td float ="left" id="title">Plogging</td>
+   <td float ="left" id="title" style=" font-family: 'netmarbleB';">Plogging</td>
    <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 </tr>
 </table>
@@ -84,11 +92,6 @@ if (navigator.geolocation) {
     displayMarker(locPosition, message);
 }
 
-// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-function displayMarker(locPosition, message) {
-    // 지도 중심좌표를 접속위치로 변경합니다
-    map.setCenter(locPosition);      
-}
 
 
 	<%for(int i=0; i<array.size();i++){%>

@@ -191,11 +191,9 @@
 		    					chatContainer.append("<div class='announcement' style='text-align:center'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");
 		    				}else{
 		    					if(id=="<%=login_id%>"){
-<<<<<<< HEAD
-				    				chatContainer.append("<div class='my'><i class='far fa-user'  type ='button' id = 'myimport' class='rmyimport'></i>" + id +"</div>"+"<br>"+"<div class = 'myContent'>"+ content + "</div>");
-=======
+
 				    				chatContainer.append("<div class='my'>" + id +"</div>"+"<br>"+"<div class='myContent'>"+ content + "</div>");
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
+
 				    			}else{
 					    			chatContainer.append("<div class='others'><i class='far fa-user'  type ='button' id = 'myimport' class='lmyimport'></i>" + id + "</div>"+"<br>"+"<div class = 'otherContent'>" + content + "</div>");
 				    			};
@@ -244,19 +242,20 @@ mapOption = {
 };
 //지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
+<%for(int i=0; i<r_array.size();i++){%>
 
-
-
-
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-    	
-    	position: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>)
-    	// 마커의 위치
-
-    });
+	// 마커를 생성합니다
+	var marker = new kakao.maps.Marker({
+		
+		position: new kakao.maps.LatLng(<%=r_array.get(i).getLat()%>, <%=r_array.get(i).getLng()%>)
+		// 마커의 위치
 	
-    marker.setMap(map);
+	});
+	
+	marker.setMap(map);
+
+
+<%}%>
 </script>
 </body>
 </html>

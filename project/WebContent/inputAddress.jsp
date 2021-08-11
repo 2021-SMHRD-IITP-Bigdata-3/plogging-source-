@@ -5,7 +5,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-
 <script language="javascript">
 //버튼클릭시 javascript 호출합니다.
 function javascript(){
