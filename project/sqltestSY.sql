@@ -10,15 +10,18 @@ create table member(
    member_plog_count number, -- ÇÃ·Î±ë È½¼ö
    constraint member_pk primary key (member_id)   
 );
-ALTER TABLE member ADD(point VARCHAR2(1000)); 
+ALTER TABLE member ADD(point VARCHAR2(1000));
+ALTER TABLE member modify point number(point VARCHAR2(1000)); 
 select * from member;
 insert into member values('test','test','test',1,'test','test','12','test',1, );
 
+select * from member;
 
+select point from member where member_id = 'mm';
 
 insert into member values('testid','testpw','testname',1, 32.5, 126.9,'testplog', 12, 'testpoint');
 update member set member_pw='2', member_name='2', member_age=2 where member_id = 'testid';
-
+delete from member where member_id = 'testid';
 delete from chat where member_id = 'te';
 delete from NOTICE_MEMBER  where member_id = 'te'
 

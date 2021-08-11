@@ -12,132 +12,132 @@ import Model.memberDTO;
 import Model.memberDTO;
 
 public class memberDAO {
-   Connection conn = null;
-   PreparedStatement psmt = null;
-   ResultSet rs = null;
-   memberDTO info = null;
-   
-   int cnt = 0;
-   
-   public void conn() {
-	      try {
-	         Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
+	memberDTO info = null;
 
-	         String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";  
-	         String dbid = "campus_f6";
-	         String dbpw = "smhrd6";
+	int cnt = 0;
 
-	         conn = DriverManager.getConnection(url, dbid, dbpw);
+	public void conn() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      }
-	   }
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+			String dbid = "campus_f6";
+			String dbpw = "smhrd6";
 
+			conn = DriverManager.getConnection(url, dbid, dbpw);
 
-   public void close() {
-      try {
-         if (rs != null) {
-            rs.close();
-         }
-         if (psmt != null) {
-            psmt.close();
-         }
-         if (conn != null) {
-            conn.close();
-         }
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-   }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-   // 회원가입 메소드
-   public int join(memberDTO dto) {
-      try {
-         // DB 연결 메소드 호출
-         conn();
+	public void close() {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (psmt != null) {
+				psmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-         String sql = "insert into member values(?,?,?,?,?,?,?,0,0)";
+	// 회원가입 메소드
+	public int join(memberDTO dto) {
+		try {
+			// DB 연결 메소드 호출
+			conn();
 
-         psmt = conn.prepareStatement(sql);
+			String sql = "insert into member values(?,?,?,?,?,?,?,0,0)";
 
-         psmt.setString(1, dto.getMemberId());
-         psmt.setString(2, dto.getMemberPw());
-         psmt.setString(3, dto.getMemberName());
-         psmt.setInt(4, dto.getMemberAge());
-         psmt.setDouble(5, dto.getMemberLat());
-         psmt.setDouble(6, dto.getMemberLng());
-         psmt.setString(7, dto.getMemberPlogOwn());
+			psmt = conn.prepareStatement(sql);
 
-         cnt = psmt.executeUpdate();
+			psmt.setString(1, dto.getMemberId());
+			psmt.setString(2, dto.getMemberPw());
+			psmt.setString(3, dto.getMemberName());
+			psmt.setInt(4, dto.getMemberAge());
+			psmt.setDouble(5, dto.getMemberLat());
+			psmt.setDouble(6, dto.getMemberLng());
+			psmt.setString(7, dto.getMemberPlogOwn());
 
-      } catch (SQLException e) {
-         e.printStackTrace();
-      } finally {
-         // DB 문 닫는 메소드 호출
-         close();
-      }
-      return cnt;
-   }
+			cnt = psmt.executeUpdate();
 
-   // 로그인 메소드
-   public memberDTO login(String getMemberId, String getMemberPw) {
-      try {
-         conn();
-         String sql = "select * from member where member_id = ? and member_pw = ? ";
-         
-         psmt = conn.prepareStatement(sql);
-         
-         psmt.setString(1, getMemberId);
-         psmt.setString(2, getMemberPw);
-         
-         rs = psmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// DB 문 닫는 메소드 호출
+			close();
+		}
+		return cnt;
+	}
 
-         if (rs.next()) {
-            String memberId = rs.getString(1);
-            String memberPw = rs.getString(2);
-            String memberName = rs.getString(3);
-            int memberAge = rs.getInt(4);
-            double memberLat = rs.getDouble(5);
-            double memberLng = rs.getDouble(6);
-            String memberPlogOwn = rs.getString(7);
-            int memberPlogCount = rs.getInt(8);
+	// 로그인 메소드
+	public memberDTO login(String getMemberId, String getMemberPw) {
+		try {
+			conn();
+			String sql = "select * from member where member_id = ? and member_pw = ? ";
 
+			psmt = conn.prepareStatement(sql);
 
-            info = new memberDTO(memberId, memberPw, memberName, memberAge, memberLat, memberLng, memberPlogOwn, memberPlogCount);
-         }
+			psmt.setString(1, getMemberId);
+			psmt.setString(2, getMemberPw);
 
-      } catch (SQLException e) {
-         e.printStackTrace();
-      } finally {
-         close();
-      }
-      return info;
+			rs = psmt.executeQuery();
 
-   }
-   
-   // 회원정보수정 메소드
-   public int update(memberDTO dto) {      
-	      try {
-	         conn();
-	         String sql = "update member set member_pw=?, member_name=?, member_age=? where member_id = ?";
-         
-	         psmt = conn.prepareStatement(sql);
+			if (rs.next()) {
+				String memberId = rs.getString(1);
+				String memberPw = rs.getString(2);
+				String memberName = rs.getString(3);
+				int memberAge = rs.getInt(4);
+				double memberLat = rs.getDouble(5);
+				double memberLng = rs.getDouble(6);
+				String memberPlogOwn = rs.getString(7);
+				int memberPlogCount = rs.getInt(8);
 
-	         psmt.setString(1, dto.getMemberPw());
-	         psmt.setString(2, dto.getMemberName());
-	         psmt.setInt(3, dto.getMemberAge());
-	         psmt.setString(4, dto.getMemberId());
-	         
-	         cnt = psmt.executeUpdate();
-	         
-	      } catch (SQLException e) {
-	         e.printStackTrace();
-	      } finally {
-	         close();
-	      } return cnt;
+				info = new memberDTO(memberId, memberPw, memberName, memberAge, memberLat, memberLng, memberPlogOwn,
+						memberPlogCount);
+			}
 
-	   }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return info;
+
+	}
+
+	// 회원정보수정 메소드
+	public int update(memberDTO dto) {
+		try {
+			conn();
+			String sql = "update member set member_pw=?, member_name=?, member_age=? where member_id = ?";
+
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, dto.getMemberPw());
+			psmt.setString(2, dto.getMemberName());
+			psmt.setInt(3, dto.getMemberAge());
+			psmt.setString(4, dto.getMemberId());
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+
+	}
 
 //   public ArrayList<memberDTO> showMember() {
 //      ArrayList<memberDTO> list = new ArrayList<memberDTO>();
@@ -166,43 +166,60 @@ public class memberDAO {
 //         close();
 //      } return list;      
 //   }
-   
-   public int checkId(String id){
 
-         int result = -1;
+	public int checkId(String id) {
 
-         try {
-            conn();
-            String sql = "select member_id from member where member_id =?";
+		int result = -1;
 
-            psmt = conn.prepareStatement(sql);
+		try {
+			conn();
+			String sql = "select member_id from member where member_id =?";
 
-            psmt.setString(1, id);
+			psmt = conn.prepareStatement(sql);
 
-            rs = psmt.executeQuery();
+			psmt.setString(1, id);
 
-            if(rs.next()) {
-               result = 0;
-            }else {
-               result=1;
-            }
-            System.out.println("아이디 중복체크결과 : "+result);
-         } catch (SQLException e) {
+			rs = psmt.executeQuery();
 
-            e.printStackTrace();
+			if (rs.next()) {
+				result = 0;
+			} else {
+				result = 1;
+			}
+			System.out.println("아이디 중복체크결과 : " + result);
+		} catch (SQLException e) {
 
-         } finally {
+			e.printStackTrace();
 
-               close();
-            }
+		} finally {
 
-         return result;
+			close();
+		}
 
-      }
-   
-   
-   
-   
-   
-   
+		return result;
+
+	}
+
+	public String showPoint(String id) {
+		String point = "sql문실패";
+		try {
+			conn();
+			String sql = "select * from member where member_id = ? ";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				point = rs.getString("point");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return point;
+	}
+
 }
