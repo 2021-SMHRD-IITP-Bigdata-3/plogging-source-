@@ -289,6 +289,7 @@
          // 값이 잘 들어오는지 확인
          lat = <%=report_array.get(i).getLat()%>;
          lng = <%=report_array.get(i).getLng()%>;
+         report_number = <%=report_array.get(i).getReport_number()%>;
          console.log('lat, lng: ', lat, lng);
    
          var marker = new kakao.maps.Marker({      
@@ -296,26 +297,38 @@
          // 마커의 위치
          });
          
-         makeMarkerDeletable(marker);
+         makeMarkerDeletable(report_number, marker);
       
          marker.setMap(map);
       <%}%>
    <%}%>
    
-   // '지울 수 있는 마커 만들기' 함수 생성
-   function makeMarkerDeletable(targetMarker) {
+      // '지울 수 있는 마커 만들기' 함수 생성
+   function makeMarkerDeletable(targetReportNumber, targetMarker) {
 
       //href="maingDelete?lat="+latlng.getLat()+"&lng="+latlng.getLng();
       //마커를 지우는 이벤트
       kakao.maps.event.addListener(targetMarker, 'click', function() {
-         // 마커 위에 인포윈도우를 표시합니다
-         var lat = targetMarker.getPosition().getLat()
-         var lng = targetMarker.getPosition().getLng()
-         console.log('lat : ', lat);
-         console.log('lng : ', lng);
-         targetMarker.setMap(null);
-         
-
+        // 마커 위에 인포윈도우를 표시합니다
+        var lat = targetMarker.getPosition().getLat()
+        var lng = targetMarker.getPosition().getLng()
+        console.log('lat : ', lat);
+        console.log('lng : ', lng);
+        targetMarker.setMap(null);
+        
+      $.ajax({
+         url: "deleteReportServiceCon",
+          type: 'POST',
+          data:{"report_number" : targetReportNumber},
+          contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+          success: function (res) {
+              console.log(res);
+          },
+          error: function (xhr) {
+              alert(xhr);
+          } 
+      });
+      
       });
    }
 </script>
