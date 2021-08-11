@@ -119,7 +119,7 @@ body {
       </td>
       <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
          <% }else { %>
-      <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="margin:10px 10px 0px 10px; width:30px;" >로그인</a> </td>
+      <td > <a id = "myimport" onClick="location.href='Login.jsp'"><img id='login' src= "login.png" style ="margin:10px 10px 0px 10px; width:30px; color: #ffffff;" >로그인</a> </td>
       <% } %>
    </tr>
 </table>
