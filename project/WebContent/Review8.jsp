@@ -23,11 +23,9 @@
 <body>
 <%
 	request.setCharacterEncoding("EUC-KR");
-
 	int reviewNumber = Integer.parseInt(request.getParameter("reviewNumber"));
 	
 	System.out.println("reviewNumber : "+reviewNumber);
-
     reviewBoardDAO dao = new reviewBoardDAO();
     reviewBoardDTO dto = dao.showOne(reviewNumber);
 %>
@@ -98,16 +96,11 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     };
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-
-
-
 	    // 마커를 생성합니다
 	    var marker = new kakao.maps.Marker({
 	    	
 	    	position: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>)
 	    	// 마커의 위치
-
 	    });
 		
 	    marker.setMap(map);

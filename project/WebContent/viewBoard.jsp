@@ -33,7 +33,6 @@
    System.out.println("Board에서 viewBoard로 board_num가 잘 넘어왔는지 확인 : "+ boardNum);
    
    boardDAO dao = new boardDAO();
-
    // 게시번호에 맞는 게시글 정보들을 담는 메소드
    boardDTO dto = dao.showOne(boardNum);
    System.out.println("dto의 게시번호 확인 : " + dto.getBoardNum());
@@ -45,11 +44,16 @@
     
    boardReDAO dao1= new boardReDAO();
    ArrayList<boardReDTO> boardRe_list= dao1.boardRe_li(boardNum);
-
 %>
 <table>
 	<tr>
-		<td id ="title">Plogging</td>
+		<div style = "background: #FEEDCC;
+				width: 991px;
+				height: 139px;
+				position: absolute;
+		   		z-index: -1;
+		   		margin: -7px 0px 0px -8px;">
+		<td id="title" style=" font-family: 'netmarbleB';">Plogging</td>
 		<% if(info != null) { %>
 			<td>
 				<i id="myimport" class="far fa-user" type="button" value="내정보 검색" onClick="location.href='myPage.jsp'" ></i>
@@ -138,24 +142,28 @@
 					<%if(info!=null){ %>
 						<span><%=info.getMemberId() %></span>
 					<%}else{ %>
-						<input type="text" name="name">
+						<input class="tex" type="text" name="name">
 					<% } %>
 				</td>
-				<td>비밀번호</td>
-				<td><input class="pw" type="password" name="password"></td>
+				<td style="text-align:right;">비밀번호</td>
+				<td><input class="tex" type="password" name="password"></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td id ="memberId" >내용</td>
 				<td colspan="3">
-				<textarea style="width:75%" name="content"></textarea>
-				<input class="dbuttonRe" type="submit" value="저장" name="cmd">
+				<textarea class="tex" style="width:85%" name="content"></textarea>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4">
+				<td>
 				<input class="dbuttonRe" type="reset" value="다시쓰기">
 				</td>
+				<td colspan="2"></td>
+				<td style="text-align:right; padding:0px 20px;" >
+				<input class="dbuttonRe" type="submit" value="저장" name="cmd">
+				</td>
+				
 			</tr>
 		</table>
 </form>
