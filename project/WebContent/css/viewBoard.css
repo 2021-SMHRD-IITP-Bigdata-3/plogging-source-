@@ -1,1 +1,184 @@
 @charset "EUC-KR";
+<script>
+body {
+	overflow-y: scroll;
+}
+hr{
+	color: #CCCCCC;
+	width: 98%;
+}
+#title{
+	float: left;
+	width: 124px;
+	margin-left: 60px;
+	margin-top:20px;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 8px 70px 21px 22px;
+	font-weight: bold;
+	font-size: 40px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+#myimport{
+	float:right;
+	font-size:3em;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding:15px 15px 15px 15px;
+	font-weight: bold;
+	font-size: 41px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	}
+table{
+	width: 100%;
+	font-size: 25px;
+	margin: 10xp;
+	}
+#gettitle{
+    font-size: 2em;
+    margin-left: 100px;
+    padding: 20px;	
+}
+#date{
+    padding: 10px;
+}
+#memberId{
+    padding: 10px;
+}
+#content{
+	background: white;
+	padding: 20px;
+	text-align:left;
+	font-size: 1.5em;
+	vertical-align: top;
+	background-color:#dadbdb;
+}
+
+#re{
+    padding: 10px;
+    padding-left: 20px;
+    border-bottom-style: solid;
+    border-bottom-color: #CCCCCC;
+    
+}
+#memberId{
+	text-align: center;
+}
+
+.dbuttonRe{
+  border: none;
+  border-radius: 10px;
+  background: #88dba3;
+  color: white;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 25px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+
+.pw{
+	width: 400px;
+	height: 70px;
+	margin: 4px 2px;
+	border: none;
+	padding: 10px;
+	text-align: left;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 55px;
+	margin: 15px 15px;
+	border-radius: 12px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+.dbutton1{
+	position: fixed;
+	bottom: 40px;
+	left: 5%;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 30px;
+	font-weight: bold;
+	font-size: 30px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	float:left;
+}
+.dbutton2{
+	position: fixed;
+	bottom: 40px;
+	left: 25%;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 30px;
+	font-weight: bold;
+	font-size: 30px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	float:left;
+}
+.dbutton3{
+	position: fixed;
+	bottom: 40px;
+	left: 45%;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 30px;
+	font-weight: bold;
+	font-size: 30px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	float:left;
+}
+.dbutton4{
+	position: fixed;
+	bottom: 40px;
+	left: 65%;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 30px;
+	font-weight: bold;
+	font-size: 30px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+	float:left;
+}
+.dbutton5{
+	position: fixed;
+	bottom: 40px;
+	left: 85%;
+	border: none;
+	border-radius: 16px;
+	background: #88dba3;
+	color: white;
+	padding: 30px;
+	font-weight: bold;
+	font-size: 30px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	cursor: pointer;
+}
+</script>
