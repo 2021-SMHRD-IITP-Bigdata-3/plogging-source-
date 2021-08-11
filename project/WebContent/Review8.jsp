@@ -23,26 +23,35 @@
 <body>
 <%
 	request.setCharacterEncoding("EUC-KR");
-
 	int reviewNumber = Integer.parseInt(request.getParameter("reviewNumber"));
 	
 	System.out.println("reviewNumber : "+reviewNumber);
-
     reviewBoardDAO dao = new reviewBoardDAO();
     reviewBoardDTO dto = dao.showOne(reviewNumber);
 %>
 <div>
 	<table>
-	<tr>
-	   <td id ="title">ploggin</td>
-	   <td id ="mypage"><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
-	</tr>
+		<tr>
+			<div style = "background: #FEEDCC;
+				width: 991px;
+				height: 139px;
+				position: absolute;
+		   		z-index: -1;
+		   		margin: -7px 0px 0px -8px;">
+		    	<td id="title" style=" font-family: 'netmarbleB';">Plogging</td>
+		    </div>
+		    <td>
+		    	<i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i>
+		    </td>
+		</tr>
 	</table>
+
 	<form action = "" method = "post">
 		<table id="1stTable">
 			<tr>
 				<td colspan = "4" id="gettitle">
 					<%=dto.getTitle() %>
+				
 				</td>
 			</tr>
 			<tr style="width:100%">
@@ -67,13 +76,14 @@
 					</div>
 				</td>
 			</tr>
+			
 			<table>	
-				<div id="class="down""></div>
-			   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
-			   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
-			   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
-			   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
-			   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+				<div id="down"></div>
+				<div class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+				<div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+				<div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+				<div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+				<div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 			</table>
 	</form>
 	<br><br><br><br><br><br><br><br><br>
@@ -86,16 +96,11 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     };
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-
-
-
 	    // 마커를 생성합니다
 	    var marker = new kakao.maps.Marker({
 	    	
 	    	position: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>)
 	    	// 마커의 위치
-
 	    });
 		
 	    marker.setMap(map);

@@ -113,10 +113,10 @@
 </tr>
 <tr>
 	<td class="rtd">
-	<div ><p align="center">제한 인원?? 현재 참가한 인원</p></div>
+	<div ><p align="center"> 현재 참가한 인원</p></div>
 	</td>
 	<td>
-	<div><p align="center"><%=ndto.getLimitedNumber() %> </p></div>
+	<div><p align="center"><%=ndto.getLimitedNumber() %>/30 </p></div>
 	</td>
 </tr>
 </table>
