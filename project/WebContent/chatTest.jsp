@@ -124,17 +124,19 @@
 	
 <!-- 제보사진. 기능 확인용, 디자인 맘껏 수정 가능-->
 	<div><p style="margin-left:30px;">제보 사진</p></div>
-	<%if(r_array.size()!=0){%>
-		<% for(int i=0; i<r_array.size(); i++){ %>
-			<div class="reportImg"><span style="margin-left:30px;"><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br></div>
-		<% } %>	
-	<% } %>	
-	
+	<div id="reportImg">
+		<%if(r_array.size()!=0){%>
+			<% for(int i=0; i<r_array.size(); i++){ %>
+				<span>
+					<img id="img" src="img/<%=r_array.get(i).getImg()%>">
+				</span>
+			<% } %>	
+		<% } %>
+	</div>	
 	<table width="100%" >
 		<tr>
 			<td ><input class="topicon" type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 	<% if (check==0){%></td>
-	
 			<td align="right" margin-right="5px"><input class="rtopicon" type='button' value="신청" name="attend" 
 				onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"></td>
 		<% }else{ %>
