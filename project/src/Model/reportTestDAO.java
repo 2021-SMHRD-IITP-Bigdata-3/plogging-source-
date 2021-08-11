@@ -182,4 +182,23 @@ public class reportTestDAO {
 		return cnt;
 	}
 
+	// 제보를 삭제하는 메소드
+	   public int deleteReport(int report_number) {
+	      try {
+	         conn();
+	         String sql = "DELETE FROM tip_off WHERE report_number = ?";
+
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setInt(1, report_number);
+
+	         cnt = psmt.executeUpdate();
+
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return cnt;
+	      
+	   }
 }

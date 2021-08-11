@@ -29,8 +29,14 @@ table{
          }
    tr , td{
  border-bottom : 1px solid #444444;
-   padding : 10px;
+ 
    }
+   i{
+    content: "\f067";
+    float: right;
+    margin: -108px 0px 0px 870px;
+    font-size: 4em;
+    }
 a {
    width: 330px;
    border: none;
@@ -41,6 +47,7 @@ a {
    font-size: 16px;
    margin: 4px 2px;
    border-radius: 12px;
+   font-size:41px;
 }
 div {
    /* padding: 10px */
@@ -61,10 +68,7 @@ div {
 	color: white;
 	padding:15px 15px 15px 15px; 
 	font-weight: bold;
-	/* font-size: 41px; */
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	cursor: pointer;
-	align : left;
+	margin:-7px 25px 0px 0px;
 	}
 .topicon {
    background-color: #88dba3;
