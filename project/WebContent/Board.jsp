@@ -19,6 +19,7 @@
 }
 </style>
 <link rel = "stylesheet" href="css/Board.css?after">
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 </head>
 <body  style = "background-color: #ffffff">
 
@@ -26,7 +27,7 @@
 <%
 	
 	memberDTO info = (memberDTO)session.getAttribute("info");	
-
+	
 	boardDAO dao = new boardDAO();
 	// 모든 게시글을 최신순으로 담은 메소드
 	ArrayList<boardDTO> board_list = dao.board_li();
@@ -37,26 +38,23 @@
          <tr>
             <td><h2>Plogging</h2></td>
             <td align="right">
-            <input  type="button" class="topicon" value="회원정보수정"
-            onclick="location.href='update.jsp'"></td>
             <td align="center"><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
          </tr>
       </table>
   	</div>
-  	<div align="right">
-  	<input type="button" value="글쓰기"  onClick="location.href='BoardWrite9.jsp'" class="topicon">
-	</div>
-	<div><h2>자유 게시판</h2>
-		
+	<div><h2 style ="margin: 30px 0px 30px 35px;font-size: 3em;"> - 자유 게시판 <i style = "font-size: 64px;
+    margin: 0px 20px 0px 0px;
+    padding: 0px 0px 0px 0px;"class="fas fa-plus" type="button" onClick="location.href='BoardWrite9.jsp'"  id ="button"></i></h2>
+	
 		<table border='1px' style='height:100px;' align="center">
 			<tr align="center" style="font-size:20px;">
-				<td>번호</td>
+				<td style = "font-size:2em">번호</td>
 				<!-- 게시번호가 잘 넘어가는지 확인 차 넣음 .나중에 지우기 -->
 				
-				<td>제목</td>
-				<td>작성자</td>
-				<td>사진</td>
-				<td>작성일자</td>
+				<td style = "font-size:24px">제목</td>
+				<td style = "font-size:24px">작성자</td>
+				<td style = "font-size:24px">사진</td>
+				<td style = "font-size:24px">작성일자</td>
 			</tr>
 		<% for(int i = 0; i<board_list.size();i++){ %>
       		<tr align="center" style="font-size:20px;">
