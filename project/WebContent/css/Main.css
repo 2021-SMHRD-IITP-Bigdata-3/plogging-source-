@@ -5,6 +5,7 @@
     width: 100%;
     border: 1px;
          }
+
 	#title{
 	float: left;
 	width:124px;
@@ -16,10 +17,6 @@
 	font-weight: bold;
 	font-size: 50px;
 	font-family: 'netmarbleB';
-	}
-	
-	h2{
-
 	}
 	#loginimport{
 	float:right;
@@ -46,10 +43,11 @@
 	font-size: 49px;
 	}
 	iframe{
-	width:962px;
-	height:600px;
-	margin-bottom:25px;
-	margin-top:80px;
+	width: 985px;
+    height: 555px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    margin-left: -8px;
 	}
 	tr td{
 	width:100%
@@ -76,11 +74,13 @@
 	border:0px;
 	padding:13px 0px 10px 30px;
 
+
 }
 a{
-	text-decoration-line: none;
-	color: black;
+   text-decoration-line: none;
+   color: black;
 }
+
    	#cafe{
     color: black;
     font-size: 43px;
@@ -94,84 +94,111 @@ a{
    	}
 
  	a:visited { color: black; text-decoration: none;}
-	.dbutton1{
-	  position: fixed;
-	  bottom: 40px;
-	  left: 5%;
-	  border: none;
-	  border-radius: 16px;
-	  background: #88dba3;
-	  color: white;
-	  padding: 30px;
-	  font-weight: bold;
-	  font-size: 30px;
-	  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	  cursor: pointer;
-	  float:left;
-	}
+	   .dbutton1{
+     position: fixed;
+     bottom: 50px;
+     left: 6%;
+     border: none;
+     /* border-radius: 16px; */
+     /* background: #88dba3; */
+     color: white;
+     /* padding: 30px; */
+     font-weight: bold;
+     font-size: 40px;
+     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+     cursor: pointer;
+     /* float:left; */
+     font-family: "Noto Sans KR";
+     padding-right:50px;
+     border-right:4px solid #ffffff;
+   }
+   body > div:nth-child(9){
+    background: #F7F7F7;
+    margin: 0px 0px 0px -9px;
+    width: 991px;
+    height: 500px;
+   }
 .dbutton2{
   position: fixed;
-  bottom: 40px;
-  left: 25%;
-  border: none;
-  border-radius: 16px;
-  background: #88dba3;
-  color: white;
-  padding: 30px;
-  font-weight: bold;
-  font-size: 30px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  cursor: pointer;
-  float:left;
+     bottom: 50px;
+     left: 26%;
+     border: none;
+     /* border-radius: 16px; */
+     /* background: #88dba3; */
+     color: white;
+     /* padding: 30px; */
+     font-weight: bold;
+     font-size: 40px;
+     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+     cursor: pointer;
+     /* float:left; */
+     font-family: "Noto Sans KR";
+     padding-right:50px;
+     border-right:4px solid #ffffff;
 }
 .dbutton3{
-  position: fixed;
-  bottom: 40px;
-  left: 45%;
-  border: none;
-  border-radius: 16px;
-  background: #88dba3;
-  color: white;
-  padding: 30px;
-  font-weight: bold;
-  font-size: 30px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  cursor: pointer;
-  float:left;
+ position: fixed;
+     bottom: 50px;
+     left: 46%;
+     border: none;
+     /* border-radius: 16px; */
+     /* background: #88dba3; */
+     color: white;
+     /* padding: 30px; */
+     font-weight: bold;
+     font-size: 40px;
+     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+     cursor: pointer;
+     /* float:left; */
+     font-family: "Noto Sans KR";
+     padding-right:50px;
+     border-right:4px solid #ffffff;
 }
 .dbutton4{
   position: fixed;
-  bottom: 40px;
-  left: 65%;
-  border: none;
-  border-radius: 16px;
-  background: #88dba3;
-  color: white;
-  padding: 30px;
-  font-weight: bold;
-  font-size: 30px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  cursor: pointer;
-  float:left;
+     bottom: 50px;
+     left: 66%;
+     border: none;
+     /* border-radius: 16px; */
+     /* background: #88dba3; */
+     color: white;
+     /* padding: 30px; */
+     font-weight: bold;
+     font-size: 40px;
+     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+     cursor: pointer;
+     /* float:left; */
+     font-family: "Noto Sans KR";
+     padding-right:50px;
+     border-right:4px solid #ffffff;
 }
 .dbutton5{
   position: fixed;
-  bottom: 40px;
-  left: 85%;
-  border: none;
-  border-radius: 16px;
-  background: #88dba3;
-  color: white;
-  padding: 30px;
-  font-weight: bold;
-  font-size: 30px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  cursor: pointer;
+     bottom: 50px;
+     left: 88%;
+     border: none;
+     /* border-radius: 16px; */
+     /* background: #88dba3; */
+     color: white;
+     /* padding: 30px; */
+     font-weight: bold;
+     font-size: 40px;
+     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+     cursor: pointer;
+     /* float:left; */
+     font-family: "Noto Sans KR";
+}
+#down{
+  position: fixed;
+  background-color: #02343F; /*임의색상*/
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9rem;
 }
 
 /*채팅방 css*/
 .topicon {
-	
     background-color: #88dba3;
     border: none;
     color: white;
@@ -186,6 +213,7 @@ a{
     width:150px;
 }
 #hide{
+body > table:nth-child(3) > tbody > tr > td:nth-child(3) > ul > li > ul > li > div{
     background-color: #88dba3;
     border: none;
     color: white;
