@@ -83,9 +83,9 @@
 	ArrayList<reportTestDTO> r_array = r_dao.showReportForNotice(noticeNumber);
 	
 %>	
-<table style="width:100%;height:500px;" class="ttable">
+<table style="width:100%;height:700px;" class="ttable">
 <tr >
-	<td style="width:50%;" colspan='2' rowspan='4'>
+	<td style="width:65%;" colspan='2' rowspan='4'>
 	<div id="map"  align="center" ></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 	</td>
@@ -188,7 +188,7 @@
 			    			var content = res[i].content;
 		    				if(content=="announcement"){
 	/////////////////////////////////// 기능만 넣음 디자인은 원하는대로 바꾸면 됨 ///////////////////////////////////////////////////////////////////////////////////////////
-		    					chatContainer.append("<div class='announcement' style='text-align:center'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");
+		    					chatContainer.append("<div class='announcement' style='text-align:center;'>" + id + "님이 " + chatRoomNum + "번 방에 입장하셨습니다.</div>");
 		    				}else{
 		    					if(id=="<%=login_id%>"){
 

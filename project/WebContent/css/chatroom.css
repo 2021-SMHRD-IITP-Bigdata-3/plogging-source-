@@ -15,8 +15,8 @@
             background-color: transparent;
         }
 	p{
-	margin-right:30px;
-	font-size:30px;
+	
+	font-size:25px;
 	}
 	p1{
 	font-size:30px;
@@ -54,7 +54,7 @@
 	#chatmain{
 		margin:auto;
 		width: 90%;
-		height: 500px;
+		height: 1000px;
 		background-color: #B2C7D9;
 		padding: 20px;
 		overflow-y: scroll;
@@ -79,7 +79,7 @@
 	text-align:right;
 	margin: 0px 0px 0px 615px;
 	width:250px; 
-	height:50px;
+	height:100px;
 	background:#F7E600; 
 	border-radius: 10px;
 	}
@@ -97,7 +97,7 @@
 	text-align:left;
 	 position:relative; 
 	 width:250px; 
-	 height:50px;
+	 height:100px;
 	  background:#fffdef; 
 	  border-radius: 10px;
 	}
@@ -134,7 +134,7 @@
    background-color: #88dba3;
    border: none;
    color: white;
-   padding: 10px;
+   padding: 20px;
    text-align: center;
    text-decoration: none;
    display: inline-block;
@@ -148,7 +148,7 @@
    background-color: #88dba3;
    border: none;
    color: white;
-   padding: 10px;
+   padding: 20px;
    text-align: center;
    text-decoration: none;
    display: inline-block;
@@ -181,4 +181,8 @@
 	.rtd{
 	border-right:1px solid #3d3d3d;
 	}
+	#chat{
+	font-size:25px;
+	}
+
 </style>
