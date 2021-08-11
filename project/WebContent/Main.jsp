@@ -29,6 +29,7 @@
         });
     });
 </script>
+
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
@@ -190,6 +191,7 @@
    </tr>
 </table>
 <%}else { %>
+
 <table>
 <tr>
 <td><iframe src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

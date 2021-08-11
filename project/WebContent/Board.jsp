@@ -49,6 +49,7 @@
 		<table border='1px' style='height:100px;' align="center">
 			<tr align="center" style="font-size:20px;">
 				<td style = "font-size:2em">번호</td>
+
 				<!-- 게시번호가 잘 넘어가는지 확인 차 넣음 .나중에 지우기 -->
 				
 				<td style = "font-size:24px">제목</td>
@@ -57,9 +58,9 @@
 				<td style = "font-size:24px">작성일자</td>
 			</tr>
 		<% for(int i = 0; i<board_list.size();i++){ %>
-      		<tr align="center" style="font-size:20px;">
+      		<tr align="center" style="font-size:25px;">
          		<td><%=i+1 %></td>
-          		<td><a href="viewBoard.jsp?boardNum=<%=board_list.get(i).getBoardNum()%>"><%=board_list.get(i).getBoardTitle()%></a></td>
+          		<td ><a style="font-size:25px;" href="viewBoard.jsp?boardNum=<%=board_list.get(i).getBoardNum()%>"><%=board_list.get(i).getBoardTitle()%></a></td>
 				<td><%=board_list.get(i).getMemberId() %></td>
 				<td><%=board_list.get(i).getBoardImage() %></td>
 				<td><%=board_list.get(i).getBoardDate() %></td>
