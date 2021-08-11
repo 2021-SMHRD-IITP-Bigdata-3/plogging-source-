@@ -10,6 +10,7 @@ public class memberDTO {
 	private double memberLng;
 	private String memberPlogOwn;
 	private int memberPlogCount;
+	private int memberPoint;
 
 	public memberDTO(String memberId, String memberPw, String memberName, int memberAge, double memberLat,
 			double memberLng, String memberPlogOwn) {
@@ -33,6 +34,7 @@ public class memberDTO {
 		this.memberLng = memberLng;
 		this.memberPlogOwn = memberPlogOwn;
 		this.memberPlogCount = memberPlogCount;
+
 	}
 
 	public memberDTO(String memberId, String memberPw, String memberName, int memberAge) {
