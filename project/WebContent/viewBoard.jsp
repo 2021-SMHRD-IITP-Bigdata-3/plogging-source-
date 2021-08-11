@@ -9,21 +9,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-      <title>Forty by HTML5 UP</title>
-      <meta charset="utf-8" />
-      <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-      <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-      <link rel="stylesheet" href="assetsBoard/css/main.css" />
-      <link rel="stylesheet" href="assetsBoard/css/board.css" />
-      <link rel="stylesheet" href="css/ViewBoard.css?after">
-      <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-      <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<title>Forty by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<!--<link rel="stylesheet" href="assetsBoard/css/main.css" />-->
+	<!--<link rel="stylesheet" href="assetsBoard/css/board.css" />-->
+	<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/viewBoard.css?after">
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<script type="text/javascript">
+	</script>
 </head>
 <body>
 
 <%
    memberDTO info = (memberDTO)session.getAttribute("info");
-   System.out.println("info의 id 확인 : " + info.getMemberId());
+	if(info!=null){
+	   System.out.println("info의 id 확인 : " + info.getMemberId());
+	}
    int boardNum = Integer.parseInt(request.getParameter("boardNum"));   
    System.out.println("Board에서 viewBoard로 board_num가 잘 넘어왔는지 확인 : "+ boardNum);
    
@@ -42,91 +47,124 @@
    ArrayList<boardReDTO> boardRe_list= dao1.boardRe_li(boardNum);
 
 %>
-   <div class = "board">                <!-- 확인용 -->
-       <table class="btable" border="1px">
-           <tr class="title">
-               <td>제목</td>
-            <td><%= dto.getBoardTitle()%></td>
-         </tr>
+<table>
+	<tr>
+		<td id ="title">Plogging</td>
+		<% if(info != null) { %>
+			<td>
+				<i id="myimport" class="far fa-user" type="button" value="내정보 검색" onClick="location.href='myPage.jsp'" ></i>
+			</td>
+		<% }else { %>
+			<td>
+				<a id="myimport" onClick="location.href='Login.jsp'">
+					<img id='login' src= "login.png" style ="margin:10px 10px 0px 10px; width:30px;" >
+					로그인
+				</a>
+			</td>
+		<% } %>
+	</tr>
+</table>
+
+	<div class="board">     
+		<table>
+			<tr>
+				<td colspan="2" id="gettitle">제목 : <%= dto.getBoardTitle()%></td>
+			</tr>
             <tr>
-                <td>작성자</td>
-                <td><%= dto.getMemberId() %></td>                  
+				<td id ="date" > 작성 일자 : <%=dto.getBoardDate() %> </td>   
+				<td id ="memberId" > 작성자 : <%=dto.getMemberId() %> </td>
             </tr>
             <tr>
-            <td colspan="2">내용</td>
-            </tr>
+   		</table>
+   	<hr>
+   		<table>
             <tr>
-               <td colspan="2">
+               <td colspan="2" id="content" height="600px">
                   <% if(dto.getBoardImage()!=null) {%>
                       <img src="img/<%=dto.getBoardImage()%>">
                     <% } %>
                     <% if(dto.getBoardContent()!=null) {%>
-                        <h1><%= dto.getBoardContent() %></h1>
+                       <%= dto.getBoardContent() %>
                     <% } %>
                 </td>
             </tr>
-            <!-- 삭제 버튼 어디에 넣고 싶은지 정리해서 옮기면 돼 . 우선 기능 확인을 위해 밑의 행으로 옮겨둠 -->
-            <tr>
-            <%if(info!=null){ %>
-                <%if(info.getMemberId().equals(dto.getMemberId())) {%> 
-                  <td colspan="2"><a href="DeleteOneServiceCon?num=<%=dto.getBoardNum()%>">삭제 </a></td>
+		</table>
+   	<hr>
+		<table>
+			<tr>
+				<%if(info!=null){ %>
+					<%if(info.getMemberId().equals(dto.getMemberId())) {%> 
+                  		<td><a href="DeleteOneServiceCon?num=<%=dto.getBoardNum()%>">삭제 </a></td>
                    <%}else{%>
-                      <td colspan="2">삭제할 수 없습니다.</td>
+                   		<td></td>
                    <%} %>
+                <%}else{ %>
+                <td></td>
                 <%} %>
-         </tr>
-            <tr>
-               <td colspan="2"><a href="Board.jsp"><button>뒤로가기</button></a></td>
-            </tr>
+				<td style="text-align:right"><a href="Board.jsp"><button class="dbuttonRe">뒤로가기</button></a></td>
+	         </tr>
        </table>
-   </div>
-   <div>                   <!-- 확인용 -->
-      <table id = "reboard" border="1px">
-             <th>
-                <td>댓글</td>
-             </th>
-         <% for(int i = 0; i<boardRe_list.size();i++){ %>
-              <tr>
-               <td><%=boardRe_list.get(i).getMemberID()%>-><%=boardRe_list.get(i).getCommentsContents()%></td>
-             </tr>
-         <%} %>
-       </table>
-    </div>
-<br><br><br>
-   <form action="ReBoardServiceCon" method="post">
-      <input type="hidden" value="<%=boardNum%>" name="boardNum">
-       <table>
-           <th>
-              <td colspan="4">댓글</td>
-           </th>
-         <tr>
-               <td width="100">이름</td>
-              <td>
-                  <%if(info!=null){ %>
-                     <span><%=info.getMemberId() %></span>
-                  <%}else{ %>
-                     <input type="text" name="name">
-                  <% } %>
-               </td>
-            <td width="100">비밀번호</td>
-            <td width="150"><input type="password" name="password"></td>
-         </tr>
-         <tr>
-            <td>내용</td>
-            <td colspan="3">
-               <textarea cols="60" name="content"></textarea>
-            </td>
-            </tr>
-            <tr>
-               <td colspan="4">
-               <input type="submit" value="저장" name="cmd">
-               <input type="reset" value="다시쓰기">
-            </td>
-         </tr>
-      </table>
-   </form>
+	</div>	
+<br>
+<br>
+
+   	<hr>
+
+	<div class="board">     
+		<table>
+			<tr>
+				<td colspan="2" id="re">댓글</td>
+			</tr>
+			<% for(int i = 0; i<boardRe_list.size();i++){ %>
+				<tr>
+					<td id ="memberId" ><%=boardRe_list.get(i).getMemberID()%></td>
+					<td style="padding:8px"><%=boardRe_list.get(i).getCommentsContents()%></td>
+				</tr>
+			<%} %>
+		</table>
+	</div>
+
+<br>
+
+<form action="ReBoardServiceCon" method="post">
+	<input type="hidden" value="<%=boardNum%>" name="boardNum">
+		<table>
+			<tr>
+				<td colspan="4" id="re">댓글</td>
+			</tr>
+			<tr>
+				<td id ="memberId" >이름</td>
+				<td>
+					<%if(info!=null){ %>
+						<span><%=info.getMemberId() %></span>
+					<%}else{ %>
+						<input type="text" name="name">
+					<% } %>
+				</td>
+				<td>비밀번호</td>
+				<td><input class="pw" type="password" name="password"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id ="memberId" >내용</td>
+				<td colspan="3">
+				<textarea style="width:75%" name="content"></textarea>
+				<input class="dbuttonRe" type="submit" value="저장" name="cmd">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<input class="dbuttonRe" type="reset" value="다시쓰기">
+				</td>
+			</tr>
+		</table>
+</form>
+   
+<br><br><br>    
+<br><br><br>    
+<br><br><br>     
 <table>
-<div id="class="down""></div>
+<div id="class="down"></div>
    <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
    <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
    <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
@@ -135,12 +173,12 @@
 
 </table>   
 <!-- Scripts -->
-   <script src="assets/js/jquery.min.js"></script>
-   <script src="assets/js/jquery.scrolly.min.js"></script>
-   <script src="assets/js/jquery.scrollex.min.js"></script>
-   <script src="assets/js/skel.min.js"></script>
-   <script src="assets/js/util.js"></script>
+ <!--  <script src="assets/js/jquery.min.js"></script>-->
+ <!--  <script src="assets/js/jquery.scrolly.min.js"></script>-->
+ <!--  <script src="assets/js/jquery.scrollex.min.js"></script>-->
+ <!--  <script src="assets/js/skel.min.js"></script>-->
+ <!--  <script src="assets/js/util.js"></script>-->
    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-   <script src="assets/js/main.js"></script>
+  <!--  <script src="assets/js/main.js"></script>-->
 </body>
 </html>
