@@ -20,7 +20,7 @@
 </table>
 <table align="center">
 <tr>
-<td align="center" style="font-size:30px;">
+<td align="center" style="font-size:15px;">
 <%
 request.setCharacterEncoding("UTF-8");
 String id = request.getParameter("userid");
@@ -32,7 +32,7 @@ if(result==1){
 
 %>
 </td>
-<td align="center" style="font-size:30px; height:100px;">
+<td align="center" style="font-size:15px; height:50px;">
 <input type="button" class="dbutton" value="아이디 사용하기" onclick="result();">
 <%}else if(result==0){
    out.print("중복된아이디입니다.");
@@ -50,7 +50,7 @@ if(result==1){
    <table align="center" >
          <tr>
             <td align="right" width="35%"><h3>아이디</h3></td>
-            <td align="center"><input type="text" style="width:200px;height:50px;font-size:30px;" class="stex3" name="userid" value="<%=id%>"></td>
+            <td align="center"><input type="text" style="width:100px;height:25px;font-size:15px;" class="stex3" name="userid" value="<%=id%>"></td>
    		<td><input type="submit" class="dbutton" value="중복확인"> </td>
             </td>
          </tr>
@@ -58,6 +58,7 @@ if(result==1){
  
    </form>
    <table>
+
 <script type="text/javascript">
 
 
