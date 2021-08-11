@@ -51,7 +51,7 @@ a {
    border-radius: 12px;
 }
 
-div {
+div.hedder {
    /* padding: 10px */
    margin-left: auto;
    margin-right: auto;
@@ -172,7 +172,7 @@ div {
    backgroundcolor : pink;
    }
    div{
-   background-color : #fff;
+   /* background-color : #fff; */
    }
    table {
    width : 100%;
