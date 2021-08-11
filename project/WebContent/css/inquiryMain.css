@@ -50,25 +50,24 @@ table {
 }
 #myimport{
 	float:right;
-	margin-left:80px;
-	font-size:3em;
+	margin:22px 10px 0px 0px;
 	border: none;
-	margin-top:40px;
 	border-radius: 16px;
-	background: #88dba3;
-	color: white;
-	padding:15px 15px 15px 15px;
+	color: black;
 	font-weight: bold;
-	font-size: 41px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	cursor: pointer;
+	font-size: 49px;
 }
-h2{
-	
-    font-size:3em;
-    margin-left:70px;
-    color: #88dba3;
-    font-family: 'netmarbleB';
+#title{
+	float: left;
+	width:124px;
+	margin-left:40px;
+	margin-top:12px;
+	border: none;
+	border-radius: 16px;
+	color: black;
+	font-weight: bold;
+	font-size: 50px;
+	font-family: 'netmarbleB';
    }
 
 a {

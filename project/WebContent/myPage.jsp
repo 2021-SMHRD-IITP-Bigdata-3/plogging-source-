@@ -21,10 +21,17 @@ memberDTO info = (memberDTO)session.getAttribute("info");
 
 System.out.println("마이페이지에 인포가 잘 넘어 왔는지 확인 : " + info.getMemberId());
 String id = request.getParameter("memberId");
+
+System.out.println("인포안에 정보가 들어있는지 : " + info.getMemberId());
+System.out.println("인포안에 정보가 들어있는지 : " + info.getMemberPlogOwn());
+System.out.println("인포안에 정보가 들어있는지 : " + info.getMemberPlogCount());
+
+// 포인트를 dto에 추가하려면 일이 커져서 포인트만 추출하는 메소드 만듦
+memberDAO pdao = new memberDAO();
+String point = pdao.showPoint(info.getMemberId());
+System.out.println("포인트 잘 넘어오는지 확인 : " + point);
+
 boardDAO dao = new boardDAO();
-
-
-
 ArrayList<boardDTO> board_list = dao.showBoard(info.getMemberId());
 System.out.println("board_list가 로그인한 아이디가 쓴 글을 담고 있는지 확인 ");
 for(int i =0; i<board_list.size();i++){
@@ -62,15 +69,27 @@ for(int i =0; i<reviewBoard_list.size();i++){
  		</table>
  </div>
  
-   <div>
-      <table class="count" align="right">
-         <tr >
-         <td  ><%if(info !=null){%>
-         <span ><%=info.getMemberPlogCount() %>번 플로깅에 참여하셨습니다!</span>
-         <%}else{ %><span>0회 참여하셨습니다.</span><%} %></td>
-      </tr>
-      </table>
-   </div><br>
+<div>
+	<table class="count" align="right">
+		<tr>
+			<td>
+				<%if(info !=null){%>
+					<span><%=info.getMemberPlogCount() %>번 플로깅에 참여하셨습니다!</span>
+				<%}else{ %>
+					<span>0회 참여하셨습니다.</span>
+				<%} %>
+			</td>
+		</tr>
+	</table>
+
+	<table class="count" align="right">
+		<tr>
+			<td><%if(info !=null){%>
+				<span> 현재 포인트는 <%=point %>점 입니다.</span>
+			<%}else{ %><span> 회원가입 시, 포인트를 쌓으실 수 있습니다.</span><%} %></td>
+		</tr>
+	</table>
+</div><br>
     <a href="Main.jsp"><button class="back">뒤로가기</button></a><br>
    <div>
    <h3 align="center" style='height:30px;' colspan="2" class="bt">내가 쓴 자유게시글</h3>

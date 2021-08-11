@@ -6,19 +6,18 @@ body {
    /* scrollbar-width: none;
    -ms-overflow-style: none; */
 }
-body > div.header > table > tbody > tr > td:nth-child(1) > h2{
+	#title{
 	float: left;
 	width:124px;
-	margin-left:60px;
-	margin-top:40px;
+	margin-left:40px;
+	margin-top:27px;
 	border: none;
 	border-radius: 16px;
-	background: white;
-	color: #88dba3;
+	color: black;
 	font-weight: bold;
 	font-size: 50px;
 	font-family: 'netmarbleB';
-}
+	}
 .mtable1{
    width: 100%;
         }
@@ -61,14 +60,13 @@ div {
 	background: #88dba3; */
 }
 #myimport{
-	font-size:3em;
+	float:right;
+	margin:24px 20px 0px 700px;
 	border: none;
 	border-radius: 16px;
-	background: #88dba3;
-	color: white;
-	padding:15px 15px 15px 15px; 
+	color: black;
 	font-weight: bold;
-	margin:-7px 25px 0px 0px;
+	font-size: 49px;
 	}
 .topicon {
    background-color: #88dba3;

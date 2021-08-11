@@ -5,11 +5,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/reviewWrite7.css?after">
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
+<style>
+@font-face {
+    font-family: 'netmarbleB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 </head>
 <body>
 <%
@@ -84,6 +91,7 @@
    <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
    <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 </table>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/plogging-source-.git
 	</form>
 </div>
 </body>

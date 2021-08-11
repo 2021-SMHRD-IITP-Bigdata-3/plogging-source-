@@ -36,7 +36,12 @@
 	<div class="header">
       <table>
          <tr>
-            <td><h2>Plogging</h2></td>
+   <div style = "background: #FEEDCC;
+    width: 991px;
+    height: 99px;
+    position: absolute;
+    z-index: -1;
+    margin: -7px 0px 0px -8px;"><td id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
             <td align="right">
             <td align="center"><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
          </tr>

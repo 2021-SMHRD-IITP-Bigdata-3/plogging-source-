@@ -34,12 +34,20 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
 @font-face {
-    font-family: 'netmarbleB';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+.nanummyeongjo * {
+ font-family: 'Nanum Myeongjo', serif;
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 body {
   font-family: "Noto Sans KR", sans-serif !important;
@@ -99,7 +107,12 @@ body {
 </script>
 <table>
    <tr>
-      <td id ="title" style = "width:124px;">plogging</td>
+      <div style = "background: #FEEDCC;
+    width: 991px;
+    height: 139px;
+    position: absolute;
+    z-index: -1;
+    margin: -7px 0px 0px -8px;"><td id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
          <% if(info != null) { %>
       <td><input style="margin: 0px 0px 0px 238px;"  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
       <td>
@@ -129,138 +142,119 @@ body {
 <%if(info !=null){ %>
 <form action = "reportPostWrite.jsp" method = "post">
    <h2 style = "font-size: 2em;
-    text-align: center;
-    margin: 70px 0px 10px 0px;
-    border-bottom: 3px solid;
+    position: absolute;
+    z-index: 2;
+    margin-left: 145px;
+    margin-top: 11px;
+    font-family: 'Nanum Gothic', sans-serif;
 }">집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>
-   <div id="map" style="width:100%;height:600px;"></div>
+   <div id="map" style="width: 981px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: url(http://t1.daumcdn.net/mapjsapi/images/2x/bg_tile.png);
+    box-shadow: 0px 36px 0px black inset;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    margin: -20px 0px 0px 0px;"></div>
 </form>
-
+<div style="background:#F7F7F7; margin: -18px -18px 5px -7px;">
       <div id ="cafe"><th>회원들의 따끈따근 후기</th></div>
       <table border='0px' style='height:100px;'>
             <%for(int i = 0; i<3;i++){%>
-
             <tr style = "border-bottom:1px">
-            <td id = "membertitle"><a href = "Review8.jsp?reviewNumber=<%=reviewArray.get(i).getReviewNumber()%>"><%=reviewArray.get(i).getTitle()%></a></td>
-            <td id = "ae">작성자 : <%=reviewArray.get(i).getMemberId() %></td>
+            <td id = "membertitle"><a href = "Review8.jsp?reviewNumber=<%=reviewArray.get(i).getReviewNumber()%>">- <%=reviewArray.get(i).getTitle()%></a></td>
+            <td id = "ae" style="padding: 0px 0px 0px 100px; width: 100px; font-size: 1.3em;">작성자 : <%=reviewArray.get(i).getMemberId() %></td>
            </tr>
       <%} %>
       </table>
-<table>
-   <tr>
-      <td><div id ="New" style="
-          font-size: 25px;
-          width: 124px;
-          background: #AFE1FF;
-          height: 45px;
-          text-align: center;
-          padding: 12px 0px 0px 0px;
-          border-radius: 23px;
-          margin: 90px 0px 15px 100px;
-         ">쓰담뉴스</div></td>
-      <td><div id ="New" style="
-          font-size: 25px;
-          width: 124px;
-          background: #AFE1FF;
-          height: 45px;
-          text-align: center;
-          padding: 12px 0px 0px 0px;
-          border-radius: 23px;
-          margin: 90px 208px 0px 0px;
-         ">쓰담뉴스</div></td></td>
-      <td><div id ="New" style="
-          font-size: 25px;
-          width: 124px;
-          background: #AFE1FF;
-          height: 45px;
-          text-align: center;
-          padding: 12px 0px 0px 0px;
-          border-radius: 23px;
-          margin: 95px 74px 0px 0px;
-         ">쓰담뉴스</div></td></td>
-   </tr>
-   <tr>
-      <td><div style="
-                   width: 40%;
-                   margin: 0px 0px 0px 70px;
-      "><a style="font-size:22px;"href="https://blog.naver.com/purity_k/222459285852">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></div></td>
-      <td><div style="
-                   width: 66%;
-                   margin: 0px 0px 0px -25px;
-      "><a style="font-size:22px;" href="https://blog.naver.com/earthactkgjn/222180131468">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></div></td>
-      <td><div style="
-                   width: 82%;
-                   margin: 0px 0px 0px -17px;
-      "><a style="font-size:22px;"href="https://blog.naver.com/flydms/222290879041">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></div></td>
-   </tr>
-</table>
+      </div>
+      <br>
+<div style="background:#F7F7F7;">
+<div id ="New" style="
+	font-size: 40px;
+    font-family: 'Nanum Myeongjo', serif;
+    padding: 28px 0px 0px 23px;
+         ">쓰담뉴스!</div>
+         <div style="
+	width: 282px;
+    margin: 27px 0px 0px 10px;
+    float: left;
+    /* font-size: 21px; */
+    background: white;
+    padding: 90px 20px 90px 20px;
+    box-shadow: 10px 10px 10px 10px #ebebeb;
+    border-radius: 80px;
+      "><a style="font-size:38px;"href="https://blog.naver.com/purity_k/222459285852">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></div>
+      <div style="width: 282px;
+    margin: 20px 0px 0px 358px;
+    /* width: 300px; */
+    background: white;
+    padding: 80px 10px 49px 14px;
+    box-shadow: 10px 10px 10px 10px #ebebeb;
+    border-radius: 80px;
+      "><a style="font-size:38px;" href="https://blog.naver.com/earthactkgjn/222180131468">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></div>
+      <div style="
+      width: 282px;
+    margin: -330px 10px 0px 0px;
+    background: white;
+    float: right;
+    padding: 84px 10px 91px 0px;
+    border-radius: 80px;
+    box-shadow: 10px 10px 10px 10px #ebebeb;
+      "><a style="font-size:38px;"href="https://blog.naver.com/flydms/222290879041">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></div>
+</div>
 <%}else { %>
 
 <table>
 <tr>
-<td><iframe src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</td>
-</tr>
-</table>
-      <div id ="cafe"><th>회원들의 따끈따근 후기</th></div>
-      <table border='0px' style='height:100px;'>
+<div><iframe src="https://www.youtube.com/embed/7XrxTrejx8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div style="background:#F7F7F7; margin: -47px -18px 5px -7px;">
+      <div id ="cafe"><div>회원들의 따끈따근 후기</div></div>
+      <table border='0px' style='background:#F7F7F7;height:100px;margin: -5px -18px 3px -8px;'>
             <%for(int i = 0; i<3;i++){%>
-
             <tr style = "border-bottom:1px">
-            <td id = "membertitle"><a href = "Review8.jsp?reviewNumber=<%=reviewArray.get(i).getReviewNumber()%>">-  <%=reviewArray.get(i).getTitle()%></a></td>
-            <td id = "ae">작성자 : <%=reviewArray.get(i).getMemberId() %></td>
+            <td id = "membertitle"><a href = "Review8.jsp?reviewNumber=<%=reviewArray.get(i).getReviewNumber()%>">- <%=reviewArray.get(i).getTitle()%></a></td>
+            <td id = "ae" style="padding: 0px 0px 0px 100px; width: 100px; font-size: 1.3em;">작성자 : <%=reviewArray.get(i).getMemberId() %></td>
            </tr>
       <%} %>
       </table>
-<br>
-<table>
-   <tr>
-      <td><div id ="New" style="
-          font-size: 25px;
-          width: 124px;
-          background: #AFE1FF;
-          height: 45px;
-          text-align: center;
-          padding: 12px 0px 0px 0px;
-          border-radius: 23px;
-          margin: 90px 0px 15px 100px;
-         ">쓰담뉴스</div></td>
-      <td><div id ="New" style="
-          font-size: 25px;
-          width: 124px;
-          background: #AFE1FF;
-          height: 45px;
-          text-align: center;
-          padding: 12px 0px 0px 0px;
-          border-radius: 23px;
-          margin: 90px 208px 0px 0px;
-         ">쓰담뉴스</div></td></td>
-      <td><div id ="New" style="
-          font-size: 25px;
-          width: 124px;
-          background: #AFE1FF;
-          height: 45px;
-          text-align: center;
-          padding: 12px 0px 0px 0px;
-          border-radius: 23px;
-          margin: 95px 75px 0px 0px;
-         ">쓰담뉴스</div></td></td>
-   </tr>
-   <tr>
-      <td><div style="
-                   width: 40%;
-                   margin: 0px 0px 0px 70px;
-      "><a style="font-size:22px;"href="https://blog.naver.com/purity_k/222459285852">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></div></td>
-      <td><div style="
-                   width: 66%;
-                   margin: 0px 0px 0px -25px;
-      "><a style="font-size:22px;" href="https://blog.naver.com/earthactkgjn/222180131468">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></div></td>
-      <td><div style="
-                   width: 82%;
-                   margin: 0px 0px 0px -17px;
-      "><a style="font-size:22px;"href="https://blog.naver.com/flydms/222290879041">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></div></td>
-   </tr>
-</table>
+      </div>
+      <br>
+<div style="background:#F7F7F7; margin:0px -17px 0px -6px">
+<div id ="New" style="
+	font-size: 40px;
+    font-family: 'Nanum Myeongjo', serif;
+    padding: 28px 0px 0px 23px;
+         ">쓰담뉴스!</div>
+         <div style="
+	width: 282px;
+    margin: 14px 0px 0px 10px;
+    float: left;
+    /* font-size: 21px; */
+    background: white;
+    padding: 80px 20px 90px 20px;
+    box-shadow: 10px 10px 10px 10px #ebebeb;
+    border-radius: 80px;
+      "><a style="font-size:38px;"href="https://blog.naver.com/purity_k/222459285852">대세는 조깅말고 줍깅! 오산천 플로깅 후기</a></div>
+      <div style="width: 282px;
+    margin: 20px 0px 0px 358px;
+    /* width: 300px; */
+    background: white;
+    padding: 80px 10px 49px 14px;
+    box-shadow: 10px 10px 10px 10px #ebebeb;
+    border-radius: 80px;
+      "><a style="font-size:38px;" href="https://blog.naver.com/earthactkgjn/222180131468">요즘 운동 트렌드는 '플로깅' 건강과 환경 모두 지키자!</a></div>
+      <div style="
+      width: 282px;
+    margin: -330px 10px 0px 0px;
+    background: white;
+    float: right;
+    padding: 84px 10px 91px 0px;
+    border-radius: 80px;
+    box-shadow: 10px 10px 10px 10px #ebebeb;
+      "><a style="font-size:38px;"href="https://blog.naver.com/flydms/222290879041">플로깅으로 여름방학을 뜻깊게 보내볼까요?</a></div>
+</div>
 <%} %>
 <br><br><br><br><br><br><br>
 <table>
