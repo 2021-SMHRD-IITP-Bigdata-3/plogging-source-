@@ -5,6 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/inputAddress.css?after">
 <script language="javascript">
 //버튼클릭시 javascript 호출합니다.
 function javascript(){
@@ -13,19 +14,29 @@ function javascript(){
 </script>
 </head>
 <body>
-<p style="margin-top:-12px">
-    <b>Chrome 브라우저는 https 환경에서만 geolocation을 지원합니다.</b> 참고해주세요.
-</p>
-
-
-<form action = "reportPostWrite.jsp" method = "post">
-	<div id="map" style="width:350px;height:350px;"></div>
-	<input type="hidden" name="lat" id="lat" onchange="valueChange()">
-	<input type="hidden" name="lng" id="lng">
-	<input type="text" name="addr" id="addr">
-	<div><input type = "submit" value = "제출"></div>
-</form>
-
+    <table class="mtable1" >
+         <tr>
+            <td style="text-align:left;">
+            	<h2 style="font-size: 50px; padding:0px 30px;">제보할 위치를 클릭하세요.</h2>
+            </td>
+			<td align="right">
+         </tr>
+    </table>
+    <hr>
+    <form action = "reportPostWrite.jsp" method = "post">
+		<div id="map"></div>
+		<input type="hidden" name="lat" id="lat" onchange="valueChange()">
+		<input type="hidden" name="lng" id="lng">
+		<div class = "ttt">
+			<b> Chrome 브라우저는 https 환경에서만 geolocation을 지원합니다.</b> 참고해주세요.
+		</div>
+		<hr>
+		<div class="ttt">
+			<input type="text" name="addr" id="addr">
+			<input type = "submit" class="topicon" value = "제출"  float ="right">
+		</div>
+	</form>
+	
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script><!-- ㄴㅇㅁㄴㅇ-->
@@ -117,5 +128,16 @@ function displayMarker(locPosition, message) {
 });
 
 </script>
+
+
+<table>
+<div id="down"></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+</table>
+
 </body>
 </html>
