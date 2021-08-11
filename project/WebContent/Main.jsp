@@ -40,6 +40,10 @@
     font-weight: normal;
     font-style: normal;
 }
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+body {
+  font-family: "Noto Sans KR", sans-serif !important;
+}
 </style>
 <link rel="stylesheet" href="css/Main.css?after">
 </head>
@@ -260,7 +264,7 @@
 <%} %>
 <br><br><br><br><br><br><br>
 <table>
-<div class="down"></div>
+<div id="down"></div>
    <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
    <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
    <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>

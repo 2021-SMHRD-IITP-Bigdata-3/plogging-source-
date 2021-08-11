@@ -106,8 +106,7 @@ for(int i =0; i<reviewBoard_list.size();i++){
    </div>   
    <br><br><br><br>
    <br>
-   
-   <table>
+      <table>
 <div id="class="down""></div>
    <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
    <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
@@ -116,5 +115,6 @@ for(int i =0; i<reviewBoard_list.size();i++){
    <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 
 </table>
+
 </body>
 </html>

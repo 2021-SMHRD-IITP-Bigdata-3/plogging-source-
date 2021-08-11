@@ -11,20 +11,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-   table{
-    width: 360px;
-    border: 1px solid #444444;
-   }
-   tr , td{
-    border: 1px solid #444444;
-    padding: 10px;
-   }
-   textarea {
-    width: 200px;
-    height: 25px;
-    }
-</style>
+<link rel = "stylesheet" href="css/chatChoice.css?after">
 </head>
 <body>
 <!-- 원래 채팅방 목록 페이지라서 chatChoice 였는데 , 자기가 신청한 공고 목록 페이지로 바뀜 -->
@@ -85,22 +72,14 @@
 		</div>
 </table>
 
-<br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <table>
-<tr>
-	<td><input type="button" value="메인" name="main" onClick="location.href='Main.jsp'"></td>
-	<td><input type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'"></td>
-	<td><input type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'"></td>
-	<td><input type="button" value="게시판" name="board" onClick="location.href='Board.jsp'"></td>
-	<td><input type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'"></td>
-</tr>
-<tr>
-	<td>메인</td>
-	<td>조회</td>
-	<td>후기</td>
-	<td>게시판</td>
-	<td>제보</td>
-</tr>
+<div id="down"></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
 </table>
 </body>
 </html>
