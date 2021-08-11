@@ -36,8 +36,13 @@
 %>
    <div>
       <table align="center" >
-         <tr>
-            <td><h2>Plogging</h2></td>
+<tr>
+   <div style = "background: #FEEDCC;
+	width: 1006px;
+    height: 91px;
+    position: absolute;
+    z-index: -1;
+    margin: -7px 0px 0px -8px;"><td id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
             <td style="float: right">
             	<i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i>
             </td>
@@ -85,13 +90,16 @@
 				<%}%>
 			<%}%>
 </table>
-		<div class="down">
-			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
-			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
-			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>
-			<div class="dbutton4" onClick="location.href='Board.jsp'">게시판</div>
-			<div class="dbutton5" onClick="location.href='reportPostWrite.jsp'">제보</div>
-		</div>		
+<br><br><br><br><br><br>
+<br><br><br>
+<table>
+<div id="down"></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+</table>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 <script>
     function filter(){

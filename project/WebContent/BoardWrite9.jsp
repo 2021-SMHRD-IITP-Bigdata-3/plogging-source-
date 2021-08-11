@@ -57,15 +57,15 @@ memberDTO info = (memberDTO)session.getAttribute("info");
          </tr>
       </table>
       </form>
-      
-   	<div class="down"></div>
-			<div class="dbutton1" onClick="location.href='Main.jsp'">메인</div>
-			<div class="dbutton2" onClick="location.href='inquiryMain.jsp'">조회</div>
-			<div class="dbutton3" onClick="location.href='reviewMain.jsp'">후기</div>
-			<div class="dbutton4" onClick="location.href='Board.jsp'">게시판</div>
-			<div class="dbutton5" onClick="location.href='reportPostWrite.jsp'">제보</div>
-   
-</div>
+      <br><br><br><br><br><br><br><br>
+<table>
+<div id="down"></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+</table>
 
 </body>
 </html>

@@ -1,3 +1,23 @@
+사용자 member
+create table member(
+   member_id varchar2(100), -- 아이디
+   member_pw varchar2(100), -- 비밀번호
+   member_name varchar2(100), -- 이름
+   member_age number, -- 나이
+   member_lat number, -- 주소지 위도
+   member_lng number, -- 주소지 경도
+   member_plog_own varchar2(100), -- 플로깅 참여 여부
+   member_plog_count number, -- 플로깅 횟수
+   constraint member_pk primary key (member_id)   
+);
+ALTER TABLE member ADD(point VARCHAR2(1000)); 
+select * from member;
+insert into member values('test','test','test',1,'test','test','12','test',1, );
+
+
+
+insert into member values('testid','testpw','testname',1, 32.5, 126.9,'testplog', 12, 'testpoint');
+update member set member_pw='2', member_name='2', member_age=2 where member_id = 'testid';
 
 delete from chat where member_id = 'te';
 delete from NOTICE_MEMBER  where member_id = 'te'

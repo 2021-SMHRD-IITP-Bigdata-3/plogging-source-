@@ -124,17 +124,19 @@
 	
 <!-- 제보사진. 기능 확인용, 디자인 맘껏 수정 가능-->
 	<div><p style="margin-left:30px;">제보 사진</p></div>
-	<%if(r_array.size()!=0){%>
-		<% for(int i=0; i<r_array.size(); i++){ %>
-			<div class="reportImg"><span style="margin-left:30px;"><img id="img" src="img/<%=r_array.get(i).getImg()%>"></span><br></div>
-		<% } %>	
-	<% } %>	
-	
+	<div id="reportImg">
+		<%if(r_array.size()!=0){%>
+			<% for(int i=0; i<r_array.size(); i++){ %>
+				<span>
+					<img id="img" src="img/<%=r_array.get(i).getImg()%>">
+				</span>
+			<% } %>	
+		<% } %>
+	</div>	
 	<table width="100%" >
 		<tr>
 			<td ><input class="topicon" type="button" value="채팅방목록" name="main" onClick="location.href='chatChoice.jsp'">
 	<% if (check==0){%></td>
-	
 			<td align="right" margin-right="5px"><input class="rtopicon" type='button' value="신청" name="attend" 
 				onClick="location.href='inquiryServiceCon?noticeNumber=<%=noticeNumber%>&login_id=<%=login_id%>'"></td>
 		<% }else{ %>
@@ -156,10 +158,17 @@
 				<td align="right" ><button id="send" >입력</button><br></td>
 			</tr>
 		</table>
-		
-		
-		
+
 	</div>
+	<br><br><br><br><br><br><br><br>
+	<table>
+<div id="down"></div>
+   <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
+   <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
+   <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
+   <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
+   <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+</table>
 
 
 	<!-- 채팅 기능  -->

@@ -120,8 +120,8 @@ public class memberDAO {
    public int update(memberDTO dto) {      
 	      try {
 	         conn();
-	         String sql = "update member set member_pw=?, member_name=?,member_age=?, where member_id = ?";
-	         
+	         String sql = "update member set member_pw=?, member_name=?, member_age=? where member_id = ?";
+         
 	         psmt = conn.prepareStatement(sql);
 
 	         psmt.setString(1, dto.getMemberPw());

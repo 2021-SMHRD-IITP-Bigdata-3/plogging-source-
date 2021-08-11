@@ -36,7 +36,12 @@
 	<div class="header">
       <table>
          <tr>
-            <td><h2>Plogging</h2></td>
+   <div style = "background: #FEEDCC;
+    width: 991px;
+    height: 99px;
+    position: absolute;
+    z-index: -1;
+    margin: -7px 0px 0px -8px;"><td id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
             <td align="right">
             <td align="center"><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
          </tr>
@@ -68,18 +73,15 @@
 		<% } %>
 		</table>
 	</div>
-<br><br><br>
-	<table>
-	<tr>
-	
-    	<div id="class="down""></div>
+<br><br><br><br><br><br><br><br>
+<table>
+<div id="down"></div>
    <div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
    <div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
    <div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>
    <div class="dbutton4" type="button" value="게시판" name="board" onClick="location.href='Board.jsp'">게시판</div>
    <div class="dbutton5" type="button" value="제보" name="report" onClick="location.href='reportPostWrite.jsp'">제보</div>
+</table>
 
-		</tr>
-	</table>
 </body>
 </html>

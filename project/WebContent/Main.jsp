@@ -48,6 +48,9 @@
 @import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
 .nanummyeongjo * {
  font-family: 'Nanum Myeongjo', serif;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+body {
+  font-family: "Noto Sans KR", sans-serif !important;
 }
 </style>
 <link rel="stylesheet" href="css/Main.css?after">
@@ -104,7 +107,12 @@
 </script>
 <table>
    <tr>
-      <div style = "background:#FEEDCC;width: 100%;height: 130px;position: absolute;z-index: -1;"><td id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
+      <div style = "background: #FEEDCC;
+    width: 991px;
+    height: 139px;
+    position: absolute;
+    z-index: -1;
+    margin: -7px 0px 0px -8px;"><td id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
          <% if(info != null) { %>
       <td><input style="margin: 0px 0px 0px 238px;"  type ="button" value = "·Î±×¾Æ¿ô" onClick="location.href='logoutServiceCon'"></td>
       <td>

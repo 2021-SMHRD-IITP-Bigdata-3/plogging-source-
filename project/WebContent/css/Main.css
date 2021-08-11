@@ -94,99 +94,93 @@ a{
    	}
 
  	a:visited { color: black; text-decoration: none;}
-	   .dbutton1{
-     position: fixed;
-     bottom: 50px;
-     left: 6%;
-     border: none;
-     /* border-radius: 16px; */
-     /* background: #88dba3; */
-     color: white;
-     /* padding: 30px; */
-     font-weight: bold;
-     font-size: 40px;
-     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-     cursor: pointer;
-     /* float:left; */
-     font-family: "Noto Sans KR";
-     padding-right:50px;
-     border-right:4px solid #ffffff;
-   }
-   body > div:nth-child(9){
-    background: #F7F7F7;
-    margin: 0px 0px 0px -9px;
-    width: 991px;
-    height: 500px;
-   }
+.dbutton1{
+	  position: fixed;
+	  bottom: 50px;
+	  left: 6%;
+	  border: none;
+	  /* border-radius: 16px; */
+	  /* background: #88dba3; */
+	  color: white;
+	  /* padding: 30px; */
+	  font-weight: bold;
+	  font-size: 40px;
+	  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+	  cursor: pointer;
+	  /* float:left; */
+	  font-family: "Noto Sans KR";
+	  padding-right:50px;
+	  border-right:4px solid #ffffff;
+	}
 .dbutton2{
   position: fixed;
-     bottom: 50px;
-     left: 26%;
-     border: none;
-     /* border-radius: 16px; */
-     /* background: #88dba3; */
-     color: white;
-     /* padding: 30px; */
-     font-weight: bold;
-     font-size: 40px;
-     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-     cursor: pointer;
-     /* float:left; */
-     font-family: "Noto Sans KR";
-     padding-right:50px;
-     border-right:4px solid #ffffff;
+	  bottom: 50px;
+	  left: 26%;
+	  border: none;
+	  /* border-radius: 16px; */
+	  /* background: #88dba3; */
+	  color: white;
+	  /* padding: 30px; */
+	  font-weight: bold;
+	  font-size: 40px;
+	  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+	  cursor: pointer;
+	  /* float:left; */
+	  font-family: "Noto Sans KR";
+	  padding-right:50px;
+	  border-right:4px solid #ffffff;
 }
 .dbutton3{
  position: fixed;
-     bottom: 50px;
-     left: 46%;
-     border: none;
-     /* border-radius: 16px; */
-     /* background: #88dba3; */
-     color: white;
-     /* padding: 30px; */
-     font-weight: bold;
-     font-size: 40px;
-     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-     cursor: pointer;
-     /* float:left; */
-     font-family: "Noto Sans KR";
-     padding-right:50px;
-     border-right:4px solid #ffffff;
+	  bottom: 50px;
+	  left: 46%;
+	  border: none;
+	  /* border-radius: 16px; */
+	  /* background: #88dba3; */
+	  color: white;
+	  /* padding: 30px; */
+	  font-weight: bold;
+	  font-size: 40px;
+	  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+	  cursor: pointer;
+	  /* float:left; */
+	  font-family: "Noto Sans KR";
+	  padding-right:50px;
+	  border-right:4px solid #ffffff;
 }
 .dbutton4{
   position: fixed;
-     bottom: 50px;
-     left: 66%;
-     border: none;
-     /* border-radius: 16px; */
-     /* background: #88dba3; */
-     color: white;
-     /* padding: 30px; */
-     font-weight: bold;
-     font-size: 40px;
-     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-     cursor: pointer;
-     /* float:left; */
-     font-family: "Noto Sans KR";
-     padding-right:50px;
-     border-right:4px solid #ffffff;
+	  bottom: 50px;
+	  left: 66%;
+	  border: none;
+	  /* border-radius: 16px; */
+	  /* background: #88dba3; */
+	  color: white;
+	  /* padding: 30px; */
+	  font-weight: bold;
+	  font-size: 40px;
+	  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+	  cursor: pointer;
+	  /* float:left; */
+	  font-family: "Noto Sans KR";
+	  padding-right:50px;
+	  border-right:4px solid #ffffff;
 }
 .dbutton5{
   position: fixed;
-     bottom: 50px;
-     left: 88%;
-     border: none;
-     /* border-radius: 16px; */
-     /* background: #88dba3; */
-     color: white;
-     /* padding: 30px; */
-     font-weight: bold;
-     font-size: 40px;
-     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-     cursor: pointer;
-     /* float:left; */
-     font-family: "Noto Sans KR";
+	  bottom: 50px;
+	  left: 88%;
+	  border: none;
+	  /* border-radius: 16px; */
+	  /* background: #88dba3; */
+	  color: white;
+	  /* padding: 30px; */
+	  font-weight: bold;
+	  font-size: 40px;
+	  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+	  cursor: pointer;
+	  /* float:left; */
+	  font-family: "Noto Sans KR";
 }
 #down{
   position: fixed;
@@ -230,6 +224,4 @@ body > table:nth-child(3) > tbody > tr > td:nth-child(3) > ul > li > ul > li > d
     position: absolute;
 	font-family: 'Noto Sans KR', sans-serif;
 }
-
-
 </style>
