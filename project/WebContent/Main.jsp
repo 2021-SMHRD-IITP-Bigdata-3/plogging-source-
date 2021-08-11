@@ -33,11 +33,20 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
 @font-face {
-    font-family: 'netmarbleB';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+.nanummyeongjo * {
+ font-family: 'Nanum Myeongjo', serif;
 }
 </style>
 <link rel="stylesheet" href="css/Main.css?after">
@@ -94,7 +103,7 @@
 </script>
 <table>
    <tr>
-      <td id ="title" style = "width:124px;">plogging</td>
+      <div style = "background:#FEEDCC;width: 100%;height: 130px;position: absolute;z-index: -1;"><td id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
          <% if(info != null) { %>
       <td><input style="margin: 0px 0px 0px 238px;"  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
       <td>
@@ -124,23 +133,33 @@
 <%if(info !=null){ %>
 <form action = "reportPostWrite.jsp" method = "post">
    <h2 style = "font-size: 2em;
-    text-align: center;
-    margin: 70px 0px 10px 0px;
-    border-bottom: 3px solid;
+    position: absolute;
+    z-index: 2;
+    margin-left: 145px;
+    margin-top: 11px;
+    font-family: 'Nanum Gothic', sans-serif;
 }">집에서도 간편하게 플로깅 해보는건 어떨까요?</h2>
-   <div id="map" style="width:100%;height:600px;"></div>
+   <div id="map" style="width: 981px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: url(http://t1.daumcdn.net/mapjsapi/images/2x/bg_tile.png);
+    box-shadow: 0px 36px 0px black inset;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    margin: -20px 0px 0px 0px;"></div>
 </form>
-
+<div style="background:#F7F7F7; margin: -18px -18px 5px -7px;">
       <div id ="cafe"><th>회원들의 따끈따근 후기</th></div>
       <table border='0px' style='height:100px;'>
             <%for(int i = 0; i<3;i++){%>
-
             <tr style = "border-bottom:1px">
-            <td id = "membertitle"><a href = "Review8.jsp?reviewNumber=<%=reviewArray.get(i).getReviewNumber()%>"><%=reviewArray.get(i).getTitle()%></a></td>
-            <td id = "ae">작성자 : <%=reviewArray.get(i).getMemberId() %></td>
+            <td id = "membertitle"><a href = "Review8.jsp?reviewNumber=<%=reviewArray.get(i).getReviewNumber()%>">- <%=reviewArray.get(i).getTitle()%></a></td>
+            <td id = "ae" style="padding: 0px 0px 0px 100px; width: 100px; font-size: 1.3em;">작성자 : <%=reviewArray.get(i).getMemberId() %></td>
            </tr>
       <%} %>
       </table>
+      </div>
 <table>
    <tr>
       <td><div id ="New" style="

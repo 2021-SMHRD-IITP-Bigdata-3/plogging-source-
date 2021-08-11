@@ -10,6 +10,15 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/review8.css?after">
+<script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
+<style>
+@font-face {
+    font-family: 'netmarbleB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 </head>
 <body>
 <%

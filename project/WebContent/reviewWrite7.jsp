@@ -5,11 +5,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/reviewWrite7.css?after">
 <script src="https://kit.fontawesome.com/15d6ad4059.js" crossorigin="anonymous"></script>
+<style>
+@font-face {
+    font-family: 'netmarbleB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 </head>
 <body>
 <%
@@ -76,7 +83,7 @@
 			</tr>
 		</table>
 		<table>
-			<div class="down"></div>
+		<div class="down"></div>
 			<div  class="dbutton1" type="button" value="메인" name="main" onClick="location.href='Main.jsp'">메인</div>
 			<div class="dbutton2" type="button" value="조회" name="inquiry" onClick="location.href='inquiryMain.jsp'">조회</div>
 			<div class="dbutton3" type="button" value="후기" name="review" onClick="location.href='reviewMain.jsp'">후기</div>

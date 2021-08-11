@@ -28,7 +28,7 @@ array = dao.showBoard();
 %>
 <table>
 <tr>
-   <td float ="left" id="title" style=" font-family: 'netmarbleB';">Plogging</td>
+   <div style = "background:#FEEDCC"><td float ="left" id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
    <td><i class="far fa-user"  type ="button" value = "내정보 검색" onClick="location.href='myPage.jsp'" id = "myimport" ></i></td>
 </tr>
 </table>
@@ -38,7 +38,7 @@ array = dao.showBoard();
    <div><!-- 123 -->
    <table>
    <tr>
-     <td id ="reviewTitle" style = "border-bottom:1px">후기게시판<i class="fas fa-plus" type="button" onClick="location.href='reviewNum.jsp'" id ="button"></i></td>
+     <td id ="reviewTitle" style = "border-bottom:3px solid">후기게시판<i class="fas fa-plus" type="button" onClick="location.href='reviewNum.jsp'" id ="button"></i></td>
       </table>
       <form action = "Review8.jsp" method = "post">
       <table border='0px' style='height:100px;'>

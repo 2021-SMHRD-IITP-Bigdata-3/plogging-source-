@@ -5,18 +5,18 @@ table{
 }
 #myimport{
 	float:right;
-	margin:30px 0px 0px 590px;
+	margin:30px 0px 0px 655px;
 	font-size:3em;
 	border: none;
 	border-radius: 16px;
 	background: #88dba3;
 	color: white;
-	padding:15px 15px 15px 15px;
 	font-weight: bold;
 	font-size: 41px;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	cursor: pointer;
-    }
+	padding: 10px 10px 10px 10px;
+	}
 	#title{
 	float: left;
 	width:124px;
@@ -24,13 +24,10 @@ table{
 	margin-top:20px;
 	border: none;
 	border-radius: 16px;
-	background: #88dba3;
-	color: white;
-	padding: 8px 70px 21px 22px;
+	font-family: 'netmarbleB';
+	color: #88dba3;
 	font-weight: bold;
 	font-size: 40px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	cursor: pointer;
 	}
 #1stTable{
 	border:0px;
