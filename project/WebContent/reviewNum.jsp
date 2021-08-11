@@ -9,8 +9,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel = "stylesheet" href="css/reviewNum.css?after">
-
+<link rel = "stylesheet" href="reviewNum.css?after">
 </head>
 <body>
 <%
@@ -26,7 +25,7 @@
 		<input type = "hidden" name ="lng" value = "<%=array2.get(i).getLng()%>">
 		<input type = "hidden" name ="lng" value = "<%=array2.get(i).getLng()%>">
 		<input type = "hidden" name ="noticeNumber" value = "<%=array2.get(i).getNoticeNumber()%>">
-		<input type = "submit" value = "<%=array2.get(i).getAddr()%>" class="back"></input><br><br>
+		<input type = "submit" value = "<%=array2.get(i).getAddr()%>" id="dbutton"></input><br><br>
 		<%}%>
 	</table>
 </form>
