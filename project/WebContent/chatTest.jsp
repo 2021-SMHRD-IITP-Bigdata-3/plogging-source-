@@ -83,9 +83,9 @@
 	ArrayList<reportTestDTO> r_array = r_dao.showReportForNotice(noticeNumber);
 	
 %>	
-<table style="width:100%;height:700px;" class="ttable">
+<table style="width:100%;height:500px;" class="ttable">
 <tr >
-	<td style="width:65%;" colspan='2' rowspan='4'>
+	<td style="width:50%;" colspan='2' rowspan='4'>
 	<div id="map"  align="center" ></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72d306962d4f7f31bb4597d71782852b&libraries=services"></script>
 	</td>
