@@ -57,9 +57,8 @@ if(result==1){
       </table>  
  
    </form>
+   <table>
 
-
-   
 <script type="text/javascript">
 
 
