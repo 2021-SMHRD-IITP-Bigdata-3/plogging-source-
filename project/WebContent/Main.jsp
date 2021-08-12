@@ -114,15 +114,15 @@ body {
     z-index: -1;
     margin: -7px 0px 0px -8px;"><td id="title" style=" font-family: 'netmarbleB';">Plogging</td></div>
          <% if(info != null) { %>
-      <td><input style="margin: 0px 0px 0px 238px;"  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td>
+      <!-- <td><input style="margin: 0px 0px 0px 238px;"  type ="button" value = "로그아웃" onClick="location.href='logoutServiceCon'"></td> -->
       <td>
          <ul style="list-style: none; ">
               <li class="menu" >
                   <a><div class="topicon" onclick="openCloseToc()" >채팅방</div></a>
-                  <ul id="hide" style="display:none; list-style: none;">
+                  <ul id="hide" style="display:none; list-style: none; margin-left: 500px;">
                      <% if(info != null) { %>
                         <% for(int i=0; i<array.size(); i++){ %>
-                        		<%int a = 80*i; %>
+                        		<%int a = 10*i; %>
                             <li><div style="margin-top:<%=a %>px" value="<%=array.get(i).getNoticeNumber()%>번 공고" name="chat" onClick="location.href='chatTest.jsp?noticeNumber=<%=array.get(i).getNoticeNumber()%>'"><%=array.get(i).getNoticeNumber()%></div></li>
                            <%}%>
                      <%}%>   

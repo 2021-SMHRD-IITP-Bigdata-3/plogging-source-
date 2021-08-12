@@ -54,7 +54,9 @@
 				</td>
 			</tr>
 				<td align="left">
-					<i  id="image" class="fas fa-images"  type = "file" name ="image"></i>
+					<input style = "width: 400px;
+    height: 61px;
+    font-size: 35px;"type = "file" name ="image" value="»çÁø">
 				</td>
 			<tr>
 				<td id="content">

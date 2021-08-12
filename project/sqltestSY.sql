@@ -39,8 +39,9 @@ select point from member where member_id = 'mm';
 select * from member;
 select * from notice;
 
-
-
+delete from notice where notice_number = 122;
+select * from chat;
+delete from chat where chatroom_number >=119;
 
 insert into member values('testid','testpw','testname',1, 32.5, 126.9,'testplog', 12, 'testpoint');
 update member set member_pw='2', member_name='2', member_age=2 where member_id = 'testid';

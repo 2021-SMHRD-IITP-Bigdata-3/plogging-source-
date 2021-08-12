@@ -67,7 +67,7 @@
 		    			<td class="Itable">
 							<div class = "item"><span id="mula"><br>
 							<div><img id="img" src="img/<%=array.get(i).getNoticeImage()%>"></div><br>
-							<span id="iconee"> 주소지 : <%=array.get(i).getAddr() %></span><br>
+							<span id="iconee" class="name"> 주소지 : <%=array.get(i).getAddr() %></span><br>
 							<span id="iconee"> 플로깅 기한 : <%=dao.changeDateFormat(array.get(i).getPlogDate())%></span><br>
 							<span><input id = "iconee" type= "hidden" name="noticeNumber" value="<%=array.get(i).getNoticeNumber()%>"></span>
 							<span id="iconee"> 플로깅 제한 인원  : <%=array.get(i).getLimitedNumber()%></span><br>
@@ -115,7 +115,6 @@
           }
         }
       }
-    
 </script>
 
 </body>

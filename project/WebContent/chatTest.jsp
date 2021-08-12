@@ -82,14 +82,23 @@
 	reportTestDAO r_dao = new reportTestDAO();
 	ArrayList<reportTestDTO> r_array = r_dao.showReportForNotice(noticeNumber);
 	
+	// 전대 쓰레기통
 	reportTestDTO dto1 = new reportTestDTO(35.17522713026023, 126.90823451658422);
 	reportTestDTO dto2 = new reportTestDTO(35.17703805037698, 126.90888361114155);
 	reportTestDTO dto3 = new reportTestDTO(35.175599841087205, 126.90753177784862);
+	// 상무지구 쓰레기통
+	reportTestDTO dto4 = new reportTestDTO(35.156485, 126.851615);
+	reportTestDTO dto5 = new reportTestDTO(35.153125922554814, 126.85512358022733);
+	
+	reportTestDTO dto6 = new reportTestDTO(35.155536, 126.907554);
 	ArrayList<reportTestDTO> t_array = new ArrayList<reportTestDTO>();
 	t_array.add(dto1);
 	t_array.add(dto2);
 	t_array.add(dto3);
-
+	t_array.add(dto4);
+	t_array.add(dto5);
+	t_array.add(dto6);
+	
 	
 %>	
 <table style="width:100%;height:500px;" class="ttable">

@@ -201,7 +201,7 @@ a{
     text-decoration: none;
     display: inline-block;
     font-size: 36px;
-    margin: 26px 52px 0px 0px;
+    margin: 26px 0px 0px 500px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 15px;
     width:150px;
@@ -215,7 +215,6 @@ a{
     text-decoration: none;
     display: inline-block;
     font-size: 36px;
-    margin: 0px 0px 0px -38px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 15px;
     width:150px;

@@ -28,7 +28,6 @@ function javascript(){
 		<input type="hidden" name="lat" id="lat" onchange="valueChange()">
 		<input type="hidden" name="lng" id="lng">
 		<div class = "ttt">
-			<b> Chrome 브라우저는 https 환경에서만 geolocation을 지원합니다.</b> 참고해주세요.
 		</div>
 		<hr>
 		<div class="ttt">
