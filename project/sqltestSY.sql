@@ -1,3 +1,20 @@
+쓰레기통 trashcan
+create table trashcan(
+   trashcan_number varchar2(100), -- 쓰레기통번호
+   trashcan_lat number,
+   trashcan_lng number
+);
+
+
+select * from TRASHCAN;
+
+insert into 
+
+
+/// 그냥 리포트 사용하자
+
+
+
 사용자 member
 create table member(
    member_id varchar2(100), -- 아이디
@@ -18,6 +35,12 @@ insert into member values('test','test','test',1,'test','test','12','test',1, );
 select * from member;
 
 select point from member where member_id = 'mm';
+
+select * from member;
+select * from notice;
+
+
+
 
 insert into member values('testid','testpw','testname',1, 32.5, 126.9,'testplog', 12, 'testpoint');
 update member set member_pw='2', member_name='2', member_age=2 where member_id = 'testid';
@@ -125,6 +148,18 @@ lng number, -- 경도
 addr varchar2(100), -- 한글주소
 notice_check number -- 제보->공고로 사용될 때 (사용되기 전 0, 사용된 후 1)
 );
+
+
+INSERT INTO TIP_OFF values (8000, SYSDATE, 35.122, '제보3', 126.91, '3경도그대로', 0);
+INSERT INTO TIP_OFF values (num_tip_off.nextval, SYSDATE, 40.12, '제보4', 140.91, '4아주멀리', 0);
+INSERT INTO TIP_OFF values (num_tip_off.nextval, SYSDATE, 35.11, '제보1', 126.90, '5둘다바꿔본', 0);
+
+
+
+
+
+
+
 
 -- 1,2,3 넣어두고  제보 시작하면 공고
 INSERT INTO TIP_OFF values (num_tip_off.nextval, SYSDATE, 35.12, '제보1', 126.91, '주소1', 0);

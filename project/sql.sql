@@ -178,7 +178,8 @@ maxvalue 9999;
 쓰레기통 trashcan
 create table trashcan(
    trashcan_number varchar2(100), -- 쓰레기통번호
-   trashcan_location varchar2(100), -- 쓰레기통위치
+   trashcan_lat number,
+   trashcan_lng number,
    constraint tip_off_pk primary key (tip_off_number),
 );
 --

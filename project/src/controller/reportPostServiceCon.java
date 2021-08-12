@@ -136,7 +136,7 @@ public class reportPostServiceCon extends HttpServlet {
 		}
 
 		System.out.println("[=============================]");
-		response.sendRedirect("Main.jsp");
+		response.sendRedirect("reportPostWrite.jsp");
 	}
 
 }

@@ -82,6 +82,15 @@
 	reportTestDAO r_dao = new reportTestDAO();
 	ArrayList<reportTestDTO> r_array = r_dao.showReportForNotice(noticeNumber);
 	
+	reportTestDTO dto1 = new reportTestDTO(35.17522713026023, 126.90823451658422);
+	reportTestDTO dto2 = new reportTestDTO(35.17703805037698, 126.90888361114155);
+	reportTestDTO dto3 = new reportTestDTO(35.175599841087205, 126.90753177784862);
+	ArrayList<reportTestDTO> t_array = new ArrayList<reportTestDTO>();
+	t_array.add(dto1);
+	t_array.add(dto2);
+	t_array.add(dto3);
+
+	
 %>	
 <table style="width:100%;height:500px;" class="ttable">
 <tr >
@@ -249,22 +258,53 @@ mapOption = {
     center: new kakao.maps.LatLng(<%=dto.getLat()%>, <%=dto.getLng()%>), // 지도의 중심좌표
     level: 3 // 지도의 확대 레벨
 };
+
 //지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+
+var imageSrc2 = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+//쓰레기통 마커
+<%for(int i=0; i<t_array.size();i++){%>
+
+//마커 이미지의 이미지 크기 입니다
+var imageSize2 = new kakao.maps.Size(24, 35); 
+
+//마커 이미지를 생성합니다    
+var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2); 
+
+//마커를 생성합니다
+ // 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+     map: map, // 마커를 표시할 지도
+     position: new kakao.maps.LatLng(<%=t_array.get(i).getLat()%>, <%=t_array.get(i).getLng()%>),
+     image : markerImage2 // 마커 이미지 
+ });
+ 
+
+marker.setMap(map);
+
+
+<%}%>
+
+
+
 <%for(int i=0; i<r_array.size();i++){%>
 
 	// 마커를 생성합니다
 	var marker = new kakao.maps.Marker({
-		
-		position: new kakao.maps.LatLng(<%=r_array.get(i).getLat()%>, <%=r_array.get(i).getLng()%>)
+        map: map, // 마커를 표시할 지도
+        position: new kakao.maps.LatLng(<%=r_array.get(i).getLat()%>, <%=r_array.get(i).getLng()%>),
 		// 마커의 위치
 	
 	});
 	
 	marker.setMap(map);
 
-
 <%}%>
+
+
+
 </script>
 </body>
 </html>
